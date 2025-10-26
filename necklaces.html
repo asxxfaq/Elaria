@@ -21,10 +21,8 @@
             </div>
 
             <div class="search-container">
-                <input type="text" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..."
-                    class="search-input">
-                <button class="search-icon"><i class="fa fa-search"></i>
-                </button>
+                <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
+                <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
                 <div class="utility-icons">
                     <span class="icon"><i class="fa-solid fa-gift"></i>
                     </span>
@@ -245,10 +243,12 @@
                 <div class="footer-col">
                     <p class="col-heading">Information</p>
                     <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Offers & Contest Details</a></li>
-                        <li><a href="#">Help & FAQs</a></li>
-                        <li><a href="#">About Elaria</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="offers.html">Offers & Contest Details</a></li>
+                        <li><a href="helpandfaq.html">Help & FAQs</a></li>
+                        <li><a href="about.html">About Elaria</a></li>
+                        <li><a href="feedback.html">Feedback & Contact Us</a></li>
+
                     </ul>
                 </div>
 
@@ -310,5 +310,53 @@
             }
         });
     </script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+     <script>
+         document.addEventListener('DOMContentLoaded', function() {
+             const searchInput = document.getElementById('searchInput');
+             const searchButton = document.getElementById('searchButton');
+             const displayedQuery = document.getElementById('displayed-query');
+ 
+             // --- Function to extract and display the search query from the URL ---
+             function getSearchQuery() {
+                 const params = new URLSearchParams(window.location.search);
+                 const query = params.get('q');
+                 
+                 if (query) {
+                     const decodedQuery = decodeURIComponent(query);
+                     displayedQuery.textContent = '"' + decodedQuery + '"';
+                     
+                     // Pre-fill the navbar search input with the current query
+                     searchInput.value = decodedQuery;
+                 } else {
+                     displayedQuery.textContent = "All Products";
+                     document.getElementById('results-count-info').textContent = "Displaying all products due to empty query.";
+                 }
+             }
+             
+             // --- Re-implement the search logic for the navbar (in case user searches again) ---
+             function performSearch() {
+                 const query = searchInput.value.trim();
+                 if (query.length > 0) {
+                     const searchURL = `searchresults.html?q=${encodeURIComponent(query)}`;
+                     window.location.href = searchURL;
+                 } else {
+                     alert("Please enter a search term.");
+                 }
+             }
+ 
+             // --- Attach Event Listeners ---
+             searchButton.addEventListener('click', performSearch);
+             searchInput.addEventListener('keypress', function(e) {
+                 if (e.key === 'Enter') {
+                     performSearch();
+                 }
+             });
+ 
+             // --- Run on page load ---
+             getSearchQuery();
+         });
+     </script>
 </body>
 </html>

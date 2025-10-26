@@ -2,151 +2,292 @@
 <html lang="en">
 
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="login.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elaria - Login</title>
+    <title>Elaria - Account Access</title>
+
+    <style>
+        /* --- Base Layout & Centering --- */
+        body {
+            background-color: #f8f4f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .auth-container {
+            width: 100%;
+            max-width: 450px; /* Slightly wider for tabs */
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+        }
+
+        .auth-logo {
+            height: 50px;
+            margin-bottom: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Tabbed Navigation (The unique template element) --- */
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .auth-tab {
+            flex-grow: 1;
+            text-align: center;
+            padding: 10px 0;
+            cursor: pointer;
+            font-weight: bold;
+            color: #666;
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .auth-tab.active {
+            color: #8A2D3C; /* Maroon accent for active tab */
+            border-bottom: 2px solid #8A2D3C;
+        }
+
+        /* --- Content Sections --- */
+        .auth-content-section {
+            display: none;
+            padding: 10px 0;
+        }
+        
+        .auth-content-section.active {
+            display: block;
+        }
+
+        .auth-content-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #4B3832;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        /* --- Form Styling --- */
+        .form-control {
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            font-size: 1rem;
+        }
+
+        .btn-auth {
+            background-color: #8A2D3C;
+            color: #fff;
+            padding: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-auth:hover {
+            background-color: #A34050;
+        }
+
+        .forgot-password, .login-back {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            color: #666;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        /* --- Password Reset Specific Styles (Simulation) --- */
+        #reset-request-section p {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .reset-status-message {
+            text-align: center;
+            padding: 30px 10px;
+            border: 1px dashed #D4B294;
+            border-radius: 5px;
+            background-color: #fffbf5;
+            margin-top: 20px;
+            color: #4B3832;
+        }
+        
+        .reset-status-message i {
+            color: #D4B294;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="login-container">
-        <div class="login-box">
+    <div class="auth-container">
+        <a href="index.html">
+        <img src="elaria.png" alt="Elaria Logo" class="auth-logo">
+         </a>
+        <div class="auth-tabs">
+            <div class="auth-tab active" data-tab="login">Log In</div>
+            <div class="auth-tab" data-tab="signup">Sign Up</div>
+        </div>
+
+        <div id="login-section" class="auth-content-section active">
+            <h2>Welcome Back</h2>
+            <form id="loginForm">
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="loginEmail" placeholder="Email Address" required>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+                </div>
+                
+                <button type="submit" class="btn btn-auth">Log In</button>
+            </form>
             
-            <div class="login-header">
-                <h2>Welcome to Elaria</h2>
-                <p>Sign in or create an account to manage your orders.</p>
-            </div>
+            <a href="#" class="forgot-password" id="forgot-password-link">Forgot your password?</a>
+        </div>
 
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-panel" type="button" role="tab" aria-controls="login-panel" aria-selected="true">LOGIN</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup-panel" type="button" role="tab" aria-controls="signup-panel" aria-selected="false">SIGN UP</button>
-                </li>
-            </ul>
-
-            <div class="tab-content" id="myTabContent">
-                
-                <div class="tab-pane fade show active" id="login-panel" role="tabpanel" aria-labelledby="login-tab">
-                    <form class="login-form">
-                        <div class="mb-3">
-                            <label for="loginEmail" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="loginEmail" placeholder="yourname@example.com" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="loginPassword" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="loginPassword" placeholder="Enter password" required>
-                        </div>
-                        <div class="mb-4 d-flex justify-content-between">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="rememberMe">
-                                <label class="form-check-label" for="rememberMe">Remember Me</label>
-                            </div>
-                            <a href="#" class="forgot-link">Forgot Password?</a>
-                        </div>
-                        <button type="submit" class="btn btn-login-custom w-100">LOG IN</button>
-                    </form>
+        <div id="signup-section" class="auth-content-section">
+            <h2>Create Your Account</h2>
+            <form id="signupForm">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="signupName" placeholder="Full Name" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="signupEmail" placeholder="Email Address" required>
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="signupPassword" placeholder="Password (min 6 characters)" required minlength="6">
+                </div>
+                <div class="mb-3">
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password" required>
                 </div>
                 
-                <div class="tab-pane fade" id="signup-panel" role="tabpanel" aria-labelledby="signup-tab">
-                    <form class="signup-form">
-                        <div class="mb-3">
-                            <label for="signupName" class="form-label">Full Name</label>
-                            <input type="text" class="form-control" id="signupName" placeholder="Your Name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="signupEmail" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="signupEmail" placeholder="yourname@example.com" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="signupPassword" class="form-label">Create Password</label>
-                            <input type="password" class="form-control" id="signupPassword" placeholder="Minimum 6 characters" required>
-                        </div>
-                        <div class="mb-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="termsCheck" required>
-                                <label class="form-check-label" for="termsCheck">I agree to the Terms & Conditions</label>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-login-custom w-100">CREATE ACCOUNT</button>
-                    </form>
+                <button type="submit" class="btn btn-auth">Register</button>
+            </form>
+        </div>
+
+        <div id="reset-request-section" class="auth-content-section">
+            <h2>Reset Password</h2>
+            <p>Enter your email to receive a reset link. This is a simulation of the server-side process.</p>
+            
+            <form id="resetRequestForm">
+                <div class="mb-3">
+                    <input type="email" class="form-control" id="resetEmail" placeholder="Email Address" required>
                 </div>
+                
+                <button type="submit" class="btn btn-auth">Send Reset Link</button>
+            </form>
+            
+            <div id="reset-status" class="reset-status-message d-none">
+                <i class="fa-solid fa-envelope"></i>
+                <p>A simulated password reset link has been sent!</p>
+                <p>Please check your inbox (or continue below in a real application).</p>
             </div>
-
-            <div class="social-login-separator">OR</div>
-            <button class="btn btn-outline-secondary w-100 mb-2"><i class="fab fa-google"></i> Continue with Google</button>
-            <button class="btn btn-outline-secondary w-100"><i class="fab fa-facebook"></i> Continue with Facebook</button>
-
+            
+            <a href="#" class="login-back" id="back-to-login">Back to Log In</a>
         </div>
     </div>
-
-
-    <footer class="main-footer">
-        <div class="footer-content-wrapper">
-            
-            <div class="footer-logo" style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.</div>
-            
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <p class="col-heading">Useful Links</p>
-                    <ul>
-                        <li><a href="#">Delivery Information</a></li>
-                        <li><a href="#">International Shipping</a></li>
-                        <li><a href="#">Payment Options</a></li>
-                        <li><a href="#">Track your Order</a></li>
-                        <li><a href="#">Returns</a></li>
-                        <li><a href="#">Find a Store</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <p class="col-heading">Information</p>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Offers & Contest Details</a></li>
-                        <li><a href="#">Help & FAQs</a></li>
-                        <li><a href="#">About Elaria</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col contact-col">
-                    <p class="col-heading">Contact Us</p>
-                    <p class="contact-number">1800-266-0123</p>
-                    
-                    <p class="col-heading chat-heading">Chat With Us</p>
-                    <p class="contact-number">+91 7306614239</p>
-                    
-                    <div class="contact-icons">
-                        <a href="#">💬</a>
-                        <a href="#">📧</a>
-                        <a href="#">📞</a>
-                    </div>
-                </div>
-                
-            </div>
-            
-            <div class="footer-social">
-                <p class="col-heading">Social</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
-                    </a> 
-                    <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
-                    </a> 
-                    <a href="#"><i class="fa-brands fa-twitter"> X</i>
-                    </a> 
-                    <a href="#"><i class="fa-brands fa-whatsapp"> whatsapp</i>
-                    </a>
-                </div>
-            </div>
-            
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.auth-tab');
+            const sections = document.querySelectorAll('.auth-content-section');
+            const forgotPasswordLink = document.getElementById('forgot-password-link');
+            const backToLoginLink = document.getElementById('back-to-login');
+            const resetRequestForm = document.getElementById('resetRequestForm');
+            const resetStatus = document.getElementById('reset-status');
+
+            // --- Function to switch tabs/sections ---
+            function showSection(targetId) {
+                // Deactivate all tabs and hide all sections
+                tabs.forEach(tab => tab.classList.remove('active'));
+                sections.forEach(section => section.classList.remove('active'));
+
+                // Activate the target tab/section
+                document.getElementById(targetId).classList.add('active');
+                
+                // Set the correct tab to active if we are moving back to login/signup
+                const targetTab = document.querySelector(`.auth-tab[data-tab="${targetId.replace('-section', '')}"]`);
+                if (targetTab) {
+                    targetTab.classList.add('active');
+                }
+            }
+
+            // --- Tab Click Handlers ---
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetId = tab.dataset.tab + '-section';
+                    resetStatus.classList.add('d-none'); // Hide status message on tab switch
+                    showSection(targetId);
+                });
+            });
+
+            // --- Forgot Password Link Handler ---
+            forgotPasswordLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showSection('reset-request-section');
+                // Deactivate all tabs as Reset is outside the main tab navigation
+                tabs.forEach(tab => tab.classList.remove('active'));
+            });
+            
+            // --- Back to Login Link Handler ---
+            backToLoginLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                resetStatus.classList.add('d-none');
+                showSection('login-section');
+            });
+            
+            // --- Form Submission Simulation ---
+            // Prevent default submission and simulate success
+            document.getElementById('loginForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert("Login successful! Redirecting to homepage...");
+                // In a real app: window.location.href = "index.html";
+            });
+
+            document.getElementById('signupForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (document.getElementById('signupPassword').value !== document.getElementById('confirmPassword').value) {
+                    alert("Error: Passwords do not match.");
+                    return;
+                }
+                alert("Sign Up successful! Redirecting to login...");
+                showSection('login-section');
+            });
+            
+            // --- Reset Request Simulation ---
+            resetRequestForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Simulate server request delay
+                resetStatus.querySelector('p').textContent = 'Sending reset link...';
+                resetStatus.classList.remove('d-none');
+                
+                setTimeout(() => {
+                    resetStatus.querySelector('p').textContent = 'A simulated password reset link has been sent!';
+                    document.getElementById('resetEmail').value = '';
+                    // In a real app, the server would send the email and the user would navigate away.
+                }, 1500);
+            });
+            
+            // Ensure the correct section is shown on load (Login by default)
+            showSection('login-section');
+        });
+    </script>
 </body>
 </html>

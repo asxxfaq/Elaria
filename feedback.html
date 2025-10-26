@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elaria - Feedback & Contact</title>
+
+    <style>
+        /* --- General and Layout Styles (Replicating style.css) --- */
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .elaria-navbar {
+            border-bottom: 1px solid #ddd;
+        }
+
+        .navbar-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 40px;
+            height: 60px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .search-container {
+            flex-grow: 1;
+            max-width: 600px;
+            margin: 0 30px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            border: none;
+            padding: 0 15px;
+            font-size: 14px;
+            outline: none;
+            height: 100%;
+        }
+
+        .search-icon {
+            background-color: transparent;
+            border: none;
+            padding: 0 10px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #666;
+        }
+        
+        .navbar-utility-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .icon-link {
+            text-decoration: none;
+            color: #333;
+            font-size: 20px;
+            position: relative;
+        }
+
+        .cart-count {
+            background-color: #8B0000;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            line-height: 1;
+        }
+
+        .navbar-bottom {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 30px;
+        }
+
+        .menu-list li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu-icon {
+            font-size: 20px;
+            margin-bottom: 4px;
+            color: #666;
+        }
+        
+        /* --- Feedback Page Specific Styles --- */
+        .page-container {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 15px;
+        }
+
+        .feedback-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .feedback-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #4B3832;
+            font-weight: 600;
+        }
+
+        .feedback-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .contact-info {
+            background-color: #f8f8f8;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .contact-info h4 {
+            color: #8A2D3C;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+            color: #4B3832;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: #D4B294;
+        }
+
+        .feedback-form .btn-primary {
+            background-color: #D4B294;
+            border-color: #D4B294;
+            color: #4B3832;
+            font-weight: bold;
+            padding: 10px 30px;
+            transition: background-color 0.2s;
+        }
+        
+        .feedback-form .btn-primary:hover {
+            background-color: #C1A082;
+            border-color: #C1A082;
+            color: #4B3832;
+        }
+        
+        .feedback-form .form-control:focus {
+            border-color: #D4B294;
+            box-shadow: 0 0 0 0.25rem rgba(212, 178, 148, 0.25);
+        }
+        
+        /* --- Footer Styles (Simplified) --- */
+        .main-footer {
+    background-color: #381A20; /* Dark Maroon/Brown background */
+    color: #fff;
+    padding: 60px 0 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* --- Logo Styling --- */
+.footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+/* --- Main Grid Layout (4 Columns) --- */
+.footer-grid {
+    display: grid;
+    /* Sets up 4 columns for the desktop view */
+    grid-template-columns: 1.5fr repeat(3, 1fr); 
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.col-heading {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* --- Link List Styling --- */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+}
+
+/* --- Contact Column Specifics --- */
+.contact-number {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.chat-heading {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.contact-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+
+
+.app-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.app-btn img {
+    width: 120px;
+    height: auto;
+}
+
+/* --- Social Media Row --- */
+.footer-social {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.footer-social .col-heading {
+    margin-right: 30px;
+    margin-bottom: 0;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 20px;
+    opacity: 0.8;
+}
+        .footer-col { padding: 10px; }
+        .col-heading { font-weight: bold; margin-bottom: 15px; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col ul li a { color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.95rem; }
+        
+        /* Mobile Navbar Responsiveness (Toggle setup) */
+        @media (max-width: 768px) {
+            .navbar-top { padding: 10px 15px; height: 50px; }
+            .logo { flex-grow: 1; text-align: center; margin-left: -40px; }
+            .search-container { display: none; }
+            .menu-toggle { display: block !important; font-size: 24px; cursor: pointer; }
+            .icon-link:not(.cart) { display: none; }
+            .navbar-bottom {
+                position: fixed; top: 60px; left: 0; width: 100%; height: calc(100% - 60px); 
+                background-color: #fff; z-index: 999; overflow-y: auto;
+                transform: translateX(-100%); transition: transform 0.3s ease-in-out;
+                flex-direction: column; align-items: flex-start; padding: 20px 0; border-top: none;
+            }
+            .navbar-bottom.open { transform: translateX(0); }
+            .menu-list { flex-direction: column; width: 100%; gap: 0; padding: 0 20px; }
+            .menu-list li { width: 100%; border-bottom: 1px solid #eee; padding: 15px 0; }
+            .menu-list li a { font-size: 16px; font-weight: 600; flex-direction: row; justify-content: flex-start; }
+            .menu-icon { margin-right: 15px; color: #D4B294; }
+            body { padding-top: 60px; }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="elaria-navbar">
+        <div class="navbar-top">
+            <div class="logo">
+                <img src="elaria.png" style="height: 40px; width: auto;" alt="Elaria Logo">
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search..." class="search-input">
+                <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
+            </div>
+
+            <div class="navbar-utility-right">
+                <span class="icon-link menu-toggle d-block d-md-none" id="menuToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </span>
+                
+                <a href="cart.html" class="icon-link cart">
+                    <span><i class="fa-solid fa-cart-shopping"></i></span>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="navbar-bottom">
+            <ul class="menu-list">
+                <li><a href="dailywears.html"><span class="menu-icon"><i class="fa-solid fa-coins"></i></span>Daily Wears</a></li>
+                <li><a href="necklaces.html"><span class="menu-icon"><i class="fa-solid fa-heart"></i></span> Necklaces</a></li>
+                <li><a href="earings.html"><span class="menu-icon"><i class="fa-solid fa-gem"></i></span> Earrings</a></li>
+                <li><a href="rings.html"><span class="menu-icon"><i class="fa-solid fa-ring"></i></span> Rings</a></li>
+                <li><a href="wedding.html"><span class="menu-icon"><i class="fa-solid fa-user-group"></i></span> Wedding</a></li>
+                <li><a href="gifting.html"><span class="menu-icon"><i class="fa-solid fa-gift"></i></span> Gifting</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="page-container">
+
+        <div class="feedback-header">
+            <h1>We Value Your Feedback</h1>
+            <p>Tell us about your experience, or use the form below for any inquiries, suggestions, or concerns.</p>
+        </div>
+
+        <div class="row g-5">
+            
+            <div class="col-md-8">
+                <form class="feedback-form" id="feedbackForm">
+                    
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="type" class="form-label">Feedback Type</label>
+                        <select class="form-select" id="type" name="type" required>
+                            <option selected value="General Inquiry">General Inquiry</option>
+                            <option value="Website Suggestion/Bug">Website Suggestion/Bug</option>
+                            <option value="Product Suggestion">Product Suggestion</option>
+                            <option value="Service Compliment/Complaint">Service Compliment/Complaint</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Your Message or Feedback</label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary mt-3" id="submitBtn">Submit Feedback</button>
+                    </div>
+                    
+                </form>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="contact-info">
+                    <h4>Need Immediate Assistance?</h4>
+                    <p><i class="fa-solid fa-phone-volume"></i> Phone:1800-266-0123</p>
+                    <p><i class="fa-solid fa-envelope"></i> Email:care@elaria.com</p>
+                    <p style="font-size: small;"><i class="fa-brands fa-whatsapp"></i>WhatsApp:+91 7306614239</p>
+                    <hr>
+                    <p class="text-muted">Our support hours are 9AM to 6PM, Mon-Sat (IST).</p>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+    
+    <footer class="main-footer">
+        <div class="footer-content-wrapper">
+            
+            <div class="footer-logo" style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.</div>
+            
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <p class="col-heading">Useful Links</p>
+                    <ul>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">International Shipping</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                        <li><a href="#">Track your Order</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Find a Store</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <p class="col-heading">Information</p>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="offers.html">Offers & Contest Details</a></li>
+                        <li><a href="helpandfaq.html">Help & FAQs</a></li>
+                        <li><a href="about.html">About Elaria</a></li>
+                        <li><a href="feedback.html">Feedback & Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <p class="col-heading">Contact Us</p>
+                    <p class="contact-number">1800-266-0123</p>
+                    
+                    <p class="col-heading chat-heading">Chat With Us</p>
+                    <p class="contact-number">+91 7306614239</p>
+                    
+                    <div class="contact-icons">
+                        <a href="#">💬</a>
+                        <a href="#">📧</a>
+                        <a href="#">📞</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="footer-social">
+                <p class="col-heading">Social</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
+                    </a> 
+                    <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
+                    </a> 
+                    <a href="#"><i class="fa-brands fa-twitter"> X</i>
+                    </a> 
+                    <a href="#"><i class="fa-brands fa-whatsapp"> whatsapp</i>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script>
+        // --- EmailJS Initialization (REPLACE KEYS) ---
+        (function() {
+            emailjs.init("SIl8R64ubD65ssrXB"); // <-- REPLACE with your Public Key
+        })();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('feedbackForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const menuToggle = document.getElementById('menuToggle');
+            const navbarBottom = document.querySelector('.navbar-bottom');
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+            
+            // --- A. EmailJS Submission Logic ---
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                submitBtn.textContent = "Sending...";
+                submitBtn.disabled = true;
+
+                // These IDs must match the ones you got from the EmailJS dashboard (REPLACE KEYS)
+                const SERVICE_ID = "service_lwqa3xq"; 
+                const TEMPLATE_ID = "template_7jyqvah"; 
+
+                emailjs.sendForm(SERVICE_ID,TEMPLATE_ID, this)
+                    .then(function() {
+                        alert("Thank you! Your feedback has been sent successfully.");
+                        form.reset();
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        alert("Failed to send feedback. Please check your network and try again.");
+                    })
+                    .finally(function() {
+                        submitBtn.textContent = "Submit Feedback";
+                        submitBtn.disabled = false;
+                    });
+            });
+            
+            // --- B. Navbar Toggle Logic (for mobile) ---
+            if (menuToggle && navbarBottom) {
+                menuToggle.addEventListener('click', function() {
+                    navbarBottom.classList.toggle('open');
+                    const icon = menuToggle.querySelector('i');
+                    if (navbarBottom.classList.contains('open')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+                
+                // Close menu if a link is clicked
+                navbarBottom.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        navbarBottom.classList.remove('open');
+                        menuToggle.querySelector('i').classList.remove('fa-times');
+                        menuToggle.querySelector('i').classList.add('fa-bars');
+                        document.body.style.overflow = 'auto';
+                    });
+                });
+            }
+            
+            // --- C. Search Logic (for desktop) ---
+            function performSearch() {
+                const query = searchInput.value.trim();
+                if (query.length > 0) {
+                    const searchURL = `search-results.html?q=${encodeURIComponent(query)}`;
+                    window.location.href = searchURL;
+                } else {
+                    alert("Please enter a search term.");
+                }
+            }
+            
+            if (searchButton && searchInput) {
+                searchButton.addEventListener('click', performSearch);
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        performSearch();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

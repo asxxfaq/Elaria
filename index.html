@@ -21,9 +21,8 @@
       </div>
 
       <div class="search-container">
-        <input type="text" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
-        <button class="search-icon"><i class="fa fa-search"></i>
-        </button>
+        <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
+        <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
         <div class="utility-icons">
           <span class="icon"><i class="fa-solid fa-gift"></i>
           </span>
@@ -67,7 +66,9 @@
         <div class="carousel-caption centered-content">
           <p class="brand-logo">Elaria</p>
           <h1>The Gold Standard</h1>
+          <a href="dailywears.html">
           <button class="shop-btn">SHOP NOW</button>
+          </a>
         </div>
       </div>
 
@@ -75,7 +76,9 @@
         <div class="carousel-caption centered-content">
           <p class="brand-logo">Elaria</p>
           <h1>Festive Edit</h1>
+          <a href="dailywears.html">
           <button class="shop-btn">VIEW COLLECTION</button>
+        </a>
         </div>
       </div>
 
@@ -83,7 +86,9 @@
         <div class="carousel-caption centered-content">
           <p class="brand-logo">Elaria</p>
           <h1>Bridal Treasures</h1>
+        <a href="dailywears.html">
           <button class="shop-btn">EXPLORE</button>
+        </a>
         </div>
       </div>
 
@@ -114,28 +119,28 @@
 
     <div class="collection-grid">
 
-      <a href="#" class="collection-item large" style="background-image: url('earings.jpg');">
+      <a href="earings.html" class="collection-item large" style="background-image: url('earings.jpg');">
         <div class="collection-text-box">
           <h2>Stunning Earrings</h2>
           <p>Newest additions</p>
         </div>
       </a>
 
-      <a href="#" class="collection-item small" style="background-image: url('ringsandbands.jpg');">
+      <a href="rings.html" class="collection-item small" style="background-image: url('ringsandbands.jpg');">
         <div class="collection-text-box">
           <h2>Rings & Bands</h2>
           <p>The perfect sparkle</p>
         </div>
       </a>
 
-      <a href="#" class="collection-item small" style="background-image: url('banglesandbracelets.jpg');">
+      <a href="dailywears.html" class="collection-item small" style="background-image: url('banglesandbracelets.jpg');">
         <div class="collection-text-box">
           <h2>Bangles & Bracelets</h2>
           <p>Timeless gold</p>
         </div>
       </a>
 
-      <a href="#" class="collection-item large" style="background-image: url('necklaces.jpg');">
+      <a href="necklaces.html" class="collection-item large" style="background-image: url('necklaces.jpg');">
         <div class="collection-text-box">
           <h2>Pendants & Necklaces</h2>
           <p>Elegant designs</p>
@@ -184,13 +189,13 @@
 
     <div class="arrivals-image-grid">
 
-      <a href="#" class="arrivals-item" style="background-image: url('bangles.jpg');">
+      <a href="dailywears.html" class="arrivals-item" style="background-image: url('bangles.jpg');">
         <div class="arrivals-text-overlay">
           <h2>Auspicious Bangles</h2>
         </div>
       </a>
 
-      <a href="#" class="arrivals-item" style="background-image: url('auspicious.jpg');">
+      <a href="necklaces.html" class="arrivals-item" style="background-image: url('auspicious.jpg');">
         <div class="arrivals-text-overlay">
           <h2>Necklaces</h2>
         </div>
@@ -246,11 +251,12 @@
         <div class="footer-col">
           <p class="col-heading">Information</p>
           <ul>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Offers & Contest Details</a></li>
-            <li><a href="#">Help & FAQs</a></li>
-            <li><a href="#">About Elaria</a></li>
-          </ul>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="offers.html">Offers & Contest Details</a></li>
+            <li><a href="helpandfaq.html">Help & FAQs</a></li>
+            <li><a href="about.html">About Elaria</a></li>
+            <li><a href="feedback.html">Feedback & Contact Us</a></li>
+
         </div>
 
         <div class="footer-col contact-col">
@@ -287,7 +293,38 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
 
+        // --- Function to handle the search logic ---
+        function performSearch() {
+            const query = searchInput.value.trim();
+            
+            if (query.length > 0) {
+                // For a live site, this would call an API or load a dynamic page.
+                // For this static prototype, we simulate redirection to a results page.
+                // Note: You would need a 'search-results.html' page to display results.
+                const searchURL = `searchresults.html?q=${encodeURIComponent(query)}`;
+                console.log("Simulated Search Query: " + query);
+                window.location.href = searchURL;
+            } else {
+                alert("Please enter a search term.");
+            }
+        }
+
+        // --- Event Listener 1: Click the search button ---
+        searchButton.addEventListener('click', performSearch);
+
+        // --- Event Listener 2: Press 'Enter' key in the search box ---
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+    });
+</script>
 
 
 </body>

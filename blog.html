@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elaria - Jewelry Blog & Stories</title>
+    
+    <style>
+        /* --- Blog Specific Styles --- */
+        .blog-header {
+            background-color: #f7f3f0; /* Soft, warm background */
+            padding: 40px 0;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .blog-header h1 {
+            font-family: 'Playfair Display', serif; 
+            font-size: 3rem;
+            color: #4B3832;
+            font-weight: 600;
+        }
+        
+        /* Main Container for Blog Content */
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Article Card Styling */
+        .article-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .article-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .article-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-body-content {
+            padding: 20px;
+        }
+
+        .card-body-content .category {
+            font-size: 0.85rem;
+            color: #8A2D3C; /* Accent color */
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .card-body-content h3 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #4B3832;
+        }
+
+        .card-body-content p {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+        
+        .read-more-link {
+            color: #D4B294; /* Gold accent */
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        /* Sidebar Styling */
+        .sidebar-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar-section h4 {
+            color: #4B3832;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #D4B294;
+            padding-bottom: 5px;
+        }
+
+        .category-list, .popular-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .category-list li a, .popular-list li a {
+            display: block;
+            padding: 8px 0;
+            color: #666;
+            text-decoration: none;
+            border-bottom: 1px dotted #e5e5e5;
+            transition: color 0.2s;
+        }
+        
+        .category-list li a:hover, .popular-list li a:hover {
+            color: #8A2D3C;
+        }
+        
+
+        /* Responsive adjustments for sidebar */
+        @media (min-width: 768px) {
+            .main-articles {
+                padding-right: 20px;
+            }
+        }
+        
+        /* Ensure Navbar and Footer styles (from previous code) are included here or in style.css */
+        
+    </style>
+</head>
+
+<body>
+    <nav class="elaria-navbar">
+        </nav>
+    
+    <header class="blog-header">
+        <div class="blog-container">
+            <h1>The Elaria Journal</h1>
+            <p class="lead text-muted">A collection of stories, styling tips, and care guides for your favorite jewelry.</p>
+        </div>
+    </header>
+
+    <div class="blog-container">
+        <div class="row">
+            
+            <div class="col-lg-8 main-articles">
+                
+                <article class="article-card">
+                    <img src="images/WeddingRings&Bands.jpg" alt="A photo of a diamond engagement ring">
+                    <div class="card-body-content">
+                        <span class="category">Wedding & Bridal</span>
+                        <h3>The Essential Guide to Choosing Your Perfect Engagement Ring</h3>
+                        <p>Learn the 4 C's—Cut, Carat, Color, and Clarity—and discover the latest trends in band styles, from classic solitaires to modern halo settings.</p>
+                        <a href="wedding.html" class="read-more-link">Read More &rarr;</a>
+                    </div>
+                </article>
+                
+                <article class="article-card">
+                    <img src="images/earingbg.jpg" alt="A model wearing stacking gold earrings">
+                    <div class="card-body-content">
+                        <span class="category">Styling Tips</span>
+                        <h3>Mastering the Art of the Ear Stack: A Beginner's Guide</h3>
+                        <p>Stacking earrings is the easiest way to personalize your look. We show you how to mix metals, textures, and gems without overdoing it.</p>
+                        <a href="earings.html" class="read-more-link">Read More &rarr;</a>
+                    </div>
+                </article>
+
+            </div>
+            
+            <div class="col-lg-4">
+                
+                <div class="sidebar-section">
+                    <h4>Categories</h4>
+                    <ul class="category-list">
+                        <li><a href="#">Wedding & Bridal (5)</a></li>
+                        <li><a href="#">Styling Tips (12)</a></li>
+                        <li><a href="#">Care & Maintenance (7)</a></li>
+                        <li><a href="#">Brand Stories (3)</a></li>
+                        <li><a href="#">Gemstone Facts (8)</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h4>Popular Posts</h4>
+                    <ul class="popular-list">
+                        <li><a href="#">How to Measure Your Ring Size Accurately at Home</a></li>
+                        <li><a href="#">The Meaning Behind 7 Popular Gemstones</a></li>
+                        <li><a href="#">Our Ethical Sourcing Commitment: From Mine to Market</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section text-center">
+                    <h4>Stay Updated</h4>
+                    <p class="text-muted">Get jewelry news and tips delivered straight to your inbox.</p>
+                    <form>
+                        <input type="email" class="form-control mb-2" placeholder="Your Email Address" required>
+                        <button type="submit" class="btn btn-dark w-100">Subscribe</button>
+                    </form>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+
+    <a href="index.html">
+        <button type="submit" class="btn btn-dark w-100">Return To Home</button>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

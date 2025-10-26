@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elaria - Current Offers & Contests</title>
+    
+    <style>
+        /* --- General Layout --- */
+        .page-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 15px;
+        }
+
+        .offers-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .offers-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #8A2D3C; /* Deep accent color */
+            font-weight: 600;
+        }
+        
+        /* --- Offer Card Styles --- */
+        .offer-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: transform 0.2s;
+            background-color: #fff;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .offer-card-header {
+            padding: 15px 20px;
+            background-color: #D4B294; /* Gold accent header */
+            color: #4B3832;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .offer-card-body {
+            padding: 20px;
+        }
+        
+        .offer-card-body h3 {
+            color: #8A2D3C;
+            font-size: 1.75rem;
+            margin-bottom: 10px;
+        }
+
+        .offer-card-body .code {
+            display: inline-block;
+            background-color: #f7f3f0;
+            color: #4B3832;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 15px;
+            border: 1px dashed #D4B294;
+        }
+
+        /* --- Contest Section Styles --- */
+        .contest-section {
+            background-color: #f7f3f0; /* Soft background for contrast */
+            padding: 40px;
+            border-radius: 10px;
+            margin-top: 50px;
+            border: 2px solid #D4B294;
+        }
+
+        .contest-section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #4B3832;
+            margin-bottom: 20px;
+        }
+
+        .contest-details li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .contest-details li strong {
+            color: #8A2D3C;
+        }
+
+        .btn-cta {
+            background-color: #8A2D3C;
+            border-color: #8A2D3C;
+            color: white;
+            padding: 10px 25px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .btn-cta:hover {
+            background-color: #4B3832;
+            border-color: #4B3832;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <nav class="elaria-navbar">
+        </nav>
+    
+    <header class="offers-header">
+        <div class="page-container">
+            <h1>Current Promotions & Exciting Contests</h1>
+            <p class="lead text-muted">Unlock exclusive savings and get a chance to win jewelry from the Elaria collection!</p>
+        </div>
+    </header>
+
+    <div class="page-container">
+        
+        <h2>💎 Featured Offers</h2>
+        <hr class="mb-4">
+
+        <div class="row">
+            
+            <div class="col-md-6 col-lg-4">
+                <div class="offer-card">
+                    <div class="offer-card-header">FLASH SALE - Limited Time!</div>
+                    <div class="offer-card-body">
+                        <h3>20% OFF ALL Rings</h3>
+                        <p>Treat yourself or someone special! This offer applies to all ring styles, including engagement, cocktail, and daily wear collections.</p>
+                        <p class="mb-0">Use Code:</p>
+                        <span class="code">RINGLOVE20</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="offer-card">
+                    <div class="offer-card-header">Shipping Special</div>
+                    <div class="offer-card-body">
+                        <h3>Free Express Shipping</h3>
+                        <p>Orders over $150 qualify for complimentary express shipping. Get your jewelry faster without the extra cost!</p>
+                        <p class="mb-0">No Code Required</p>
+                        <span class="code">AUTOMATIC</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="offer-card">
+                    <div class="offer-card-header">GIFT FOR YOU</div>
+                    <div class="offer-card-body">
+                        <h3>Complimentary Cleaning Kit</h3>
+                        <p>Receive our professional jewelry cleaning kit (valued at $35) with any purchase of $300 or more. Keep your Elaria pieces dazzling.</p>
+                        <p class="mb-0">Valid until:</p>
+                        <span class="code">Oct 31, 2025</span>
+                    </div>
+                </div>
+            </div>
+
+        </div> <div class="contest-section">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h2 class="text-center text-lg-start">✨ Elaria Monthly Style Contest</h2>
+                    <p class="lead text-muted text-center text-lg-start">Show off how you style your Elaria piece for a chance to win a $500 gift card!</p>
+                    
+                    <ul class="contest-details list-unstyled mt-3">
+                        <li><i class="fa-solid fa-camera me-2"></i> **How to Enter:** Post a photo of yourself wearing your Elaria jewelry on Instagram.</li>
+                        <li><i class="fa-solid fa-tags me-2"></i> **Required Tags:** Use the hashtags **#ElariaStyle** and **#MyElaria** in your caption.</li>
+                        <li><i class="fa-solid fa-calendar-alt me-2"></i> **Deadline:** Submissions close on the last day of every month.</li>
+                        <li><i class="fa-solid fa-trophy me-2"></i> **Prize:** One winner receives a **$500 Elaria Gift Card** and a feature on our main page!</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 text-center mt-4 mt-lg-0">
+                    <a href="https://instagram.com/elaria_official" target="_blank" class="btn btn-cta btn-lg">
+                        <i class="fa-brands fa-instagram me-2"></i> Enter Now!
+                    </a>
+                    <p class="text-muted small mt-2">See full rules on Instagram.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
