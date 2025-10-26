@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elaria - Shopping Cart</title>
+
+    <style>
+        .cart-page-container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 15px;
+        }
+
+        /* --- Cart Item Layout (Different from Favourites List) --- */
+        .cart-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            position: relative; /* Needed for absolute positioning on mobile */
+            transition: opacity 0.3s ease, transform 0.3s ease; /* For removal animation */
+        }
+        
+        .item-image {
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+        
+        .item-details h5 {
+            font-size: 1.1rem;
+            color: #4B3832;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .item-details p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* --- Quantity Control --- */
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+            width: 100px;
+        }
+        
+        .quantity-control input {
+            width: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            padding: 2px 0;
+            border-radius: 3px;
+        }
+        
+        .item-total-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #8A2D3C;
+            width: 150px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        
+        .item-remove {
+            margin-left: 20px;
+            flex-shrink: 0;
+        }
+        
+        .item-remove button {
+            background: none;
+            border: none;
+            color: #ccc;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        
+        .item-remove button:hover {
+            color: #8A2D3C;
+        }
+
+        /* --- Sticky Order Summary (Unique Template Feature) --- */
+        .order-summary-card {
+            background-color: #f8f8f8;
+            padding: 25px;
+            border-radius: 8px;
+            position: sticky; /* Key feature for sticky column */
+            top: 20px; /* Distance from the top of the viewport */
+        }
+
+        .summary-line {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            font-size: 1rem;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .summary-line:last-of-type {
+            border-bottom: none;
+        }
+
+        .summary-total {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #8A2D3C;
+            padding-top: 15px;
+        }
+
+        .btn-checkout {
+            background-color: #D4B294; /* Gold accent color */
+            color: #4B3832;
+            padding: 15px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 4px;
+            border: none;
+        }
+        
+        .btn-checkout:hover {
+            background-color: #C5A485;
+            color: #4B3832;
+        }
+
+        /* --- Empty State --- */
+        .empty-cart-message {
+            text-align: center;
+            padding: 80px 0;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .empty-cart-message h3 {
+            color: #4B3832;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .order-summary-card {
+                position: static; /* Remove sticky on mobile */
+                margin-top: 30px;
+            }
+        }
+        @media (max-width: 576px) {
+            .cart-item {
+                flex-wrap: wrap;
+            }
+            .item-total-price {
+                width: 100%;
+                text-align: left;
+                margin-top: 10px;
+            }
+            .item-remove {
+                position: absolute;
+                top: 25px;
+                right: 0px;
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="elaria-navbar">
+        <div class="navbar-top">
+            <div class="logo">
+                <a href="index.html">
+                <img src="elaria.png" style="height: 60px; width: 100%;" alt="Elaria Logo">
+            </a>
+            </div>
+            <div class="search-container">
+                <input type="text" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..."
+                    class="search-input">
+                <button class="search-icon"><i class="fa fa-search"></i>
+                </button>
+                <div class="utility-icons">
+                    <span class="icon"><i class="fa-solid fa-gift"></i>
+                    </span>
+                    <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+                </div>
+            </div>
+
+            <div class="navbar-utility-right">
+                <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
+                <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon-link cart">
+                    <span><i class="fa-solid fa-cart-shopping"></i></span>
+                    <span class="cart-count" id="cart-count">3</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="navbar-bottom">
+            <ul class="menu-list">
+                <li><a href="dailywears.html"><span class="menu-icon"><i class="fa-solid fa-coins"></i>
+                                </span>Daily Wear</a></li>
+                <li><a href="necklaces.html"><span class="menu-icon"><i class="fa-solid fa-heart"></i></span> Necklaces</a></li>
+                <li><a href="earings.html"><span class="menu-icon"><i class="fa-solid fa-gem"></i></span> Earrings</a></li>
+                <li><a href="rings.html"><span class="menu-icon"><i class="fa-solid fa-ring"></i></span> Rings</a></li>
+                <li><a href="wedding.html"><span class="menu-icon"><i class="fa-solid fa-user-group"></i></span> Wedding</a></li>
+                <li><a href="gifting.html"><span class="menu-icon"><i class="fa-solid fa-gift"></i></span> Gifting</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="cart-page-container">
+        <h1 class="page-title">Your Shopping Cart</h1>
+
+        <div class="row">
+            
+            <div class="col-lg-8" id="cart-items-container">
+                
+                <div class="cart-item" data-unit-price="290000" id="item-290">
+                    <div class="item-image" style="background-image: url('ring_product1.jpg');"></div>
+                    <div class="item-details">
+                        <h5>Classic Round Solitaire Ring</h5>
+                        <p>ID: #R29000 | Size: 7 | Gold Purity: 18K</p>
+                        <div class="quantity-control">
+                            <label for="qty1" class="me-2">Qty:</label>
+                            <input type="number" id="qty1" value="1" min="1" class="item-quantity">
+                        </div>
+                    </div>
+                    <div class="item-total-price" data-item-total="290000">₹ 2,90,000</div>
+                    <div class="item-remove">
+                        <button class="remove-item-btn"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+
+                <div class="cart-item" data-unit-price="18500" id="item-185">
+                    <div class="item-image" style="background-image: url('earring_product2.jpg');"></div>
+                    <div class="item-details">
+                        <h5>Minimalist Gold Hoops</h5>
+                        <p>ID: #E1850 | Gold Purity: 22K</p>
+                        <div class="quantity-control">
+                            <label for="qty2" class="me-2">Qty:</label>
+                            <input type="number" id="qty2" value="2" min="1" class="item-quantity">
+                        </div>
+                    </div>
+                    <div class="item-total-price" data-item-total="37000">₹ 37,000</div>
+                    <div class="item-remove">
+                        <button class="remove-item-btn"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+                
+                <div class="cart-item" data-unit-price="98000" id="item-980">
+                    <div class="item-image" style="background-image: url('daily_wear_product2.jpg');"></div>
+                    <div class="item-details">
+                        <h5>Minimalist Diamond Bangle</h5>
+                        <p>ID: #B9800 | Size: M | Gold Purity: 14K</p>
+                        <div class="quantity-control">
+                            <label for="qty3" class="me-2">Qty:</label>
+                            <input type="number" id="qty3" value="1" min="1" class="item-quantity">
+                        </div>
+                    </div>
+                    <div class="item-total-price" data-item-total="98000">₹ 98,000</div>
+                    <div class="item-remove">
+                        <button class="remove-item-btn"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+                
+                <div class="empty-cart-message d-none" id="empty-cart-message">
+                    <i class="fa-solid fa-cart-shopping mb-3" style="font-size: 2rem; color: #8A2D3C;"></i>
+                    <h3>Your cart is empty.</h3>
+                    <p>Continue shopping to add items before checking out.</p>
+                    <a href="daily-wears.html" class="btn-consult" style="margin-top: 15px;">Shop Now</a>
+                </div>
+
+                <div class="mt-4">
+                    <a href="daily-wears.html" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-left"></i> Continue Shopping</a>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4">
+                <div class="order-summary-card">
+                    
+                    <h4 class="mb-3">Order Summary</h4>
+                    
+                    <div class="summary-line">
+                        <span>Items Total (<span id="summary-item-count">3</span>)</span>
+                        <span id="summary-total-price">₹ 4,25,000</span>
+                    </div>
+                    
+                    <div class="summary-line">
+                        <span>Gold/Diamond Discount</span>
+                        <span class="text-success" id="summary-discount">- ₹ 20,000</span>
+                    </div>
+                    
+                    <div class="summary-line">
+                        <span>Delivery Charges</span>
+                        <span class="text-success" id="summary-delivery">FREE</span>
+                    </div>
+                    
+                    <div class="summary-line mb-3">
+                        <span>GST (3% on Jewellery)</span>
+                        <span id="summary-gst">₹ 12,150</span>
+                    </div>
+                    
+                    <div class="summary-line summary-total">
+                        <span>Total Payable</span>
+                        <span id="summary-final-total">₹ 4,17,150</span>
+                    </div>
+                    
+                    <button class="btn-checkout">Secure Checkout <i class="fa-solid fa-arrow-right"></i></button>
+                    
+                    <p class="text-center mt-3" style="font-size: 0.85rem; color: #666;">Tax and total price calculated at checkout.</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content-wrapper">
+            
+            <div class="footer-logo" style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.</div>
+            
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <p class="col-heading">Useful Links</p>
+                    <ul>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">International Shipping</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                        <li><a href="#">Track your Order</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Find a Store</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <p class="col-heading">Information</p>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Offers & Contest Details</a></li>
+                        <li><a href="#">Help & FAQs</a></li>
+                        <li><a href="#">About Elaria</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <p class="col-heading">Contact Us</p>
+                    <p class="contact-number">1800-266-0123</p>
+                    
+                    <p class="col-heading chat-heading">Chat With Us</p>
+                    <p class="contact-number">+91 7306614239</p>
+                    
+                    <div class="contact-icons">
+                        <a href="#">💬</a>
+                        <a href="#">📧</a>
+                        <a href="#">📞</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="footer-social">
+                <p class="col-heading">Social</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
+                    </a> 
+                    <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
+                    </a> 
+                    <a href="#"><i class="fa-brands fa-twitter"> X</i>
+                    </a> 
+                    <a href="#"><i class="fa-brands fa-whatsapp"> whatsapp</i>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Helper function to format currency as Indian Rupees
+        function formatCurrency(amount) {
+            // Converts to a fixed number, formats with Indian locale
+            return '₹ ' + Math.round(amount).toLocaleString('en-IN');
+        }
+
+        // Main Calculation Function
+        function updateOrderSummary() {
+            const cartItems = document.querySelectorAll('.cart-item:not([style*="display: none"])');
+            let subtotal = 0;
+            let totalItems = 0;
+            const GST_RATE = 0.03; // 3% GST on jewellery
+
+            cartItems.forEach(item => {
+                const unitPrice = parseFloat(item.dataset.unitPrice);
+                const quantityInput = item.querySelector('.item-quantity');
+                const quantity = parseInt(quantityInput ? quantityInput.value : 1);
+                
+                // Calculate item total
+                const itemTotal = unitPrice * quantity;
+                subtotal += itemTotal;
+                totalItems += quantity;
+
+                // Update individual item total price display
+                const itemTotalPriceElement = item.querySelector('.item-total-price');
+                if (itemTotalPriceElement) {
+                    itemTotalPriceElement.textContent = formatCurrency(itemTotal);
+                }
+            });
+
+            // --- Apply Discounts & Taxes ---
+            const discount = 20000; // Fixed discount amount for demonstration
+            const discountedTotal = Math.max(0, subtotal - discount);
+            const gstAmount = discountedTotal * GST_RATE;
+            const finalTotal = discountedTotal + gstAmount;
+
+            // --- Update Summary Section ---
+            document.getElementById('summary-item-count').textContent = totalItems;
+            document.getElementById('summary-total-price').textContent = formatCurrency(subtotal);
+            document.getElementById('summary-discount').textContent = `- ${formatCurrency(discount)}`;
+            document.getElementById('summary-gst').textContent = formatCurrency(gstAmount);
+            document.getElementById('summary-final-total').textContent = formatCurrency(finalTotal);
+            
+            // --- Update Cart Count in Navigation ---
+            document.getElementById('cart-count').textContent = totalItems;
+            
+            // --- Handle Empty State ---
+            const emptyMessage = document.getElementById('empty-cart-message');
+            if (totalItems === 0) {
+                emptyMessage.classList.remove('d-none');
+            } else {
+                emptyMessage.classList.add('d-none');
+            }
+        }
+
+        // Function to handle the removal of an item
+        function removeItem(event) {
+            const button = event.target.closest('.remove-item-btn');
+            const item = button.closest('.cart-item');
+            
+            if (item) {
+                // Animation for removal
+                item.style.opacity = 0;
+                item.style.transform = 'translateX(-20px)';
+                
+                setTimeout(() => {
+                    // Hide the item instead of removing it (safer for a functional demo)
+                    item.style.display = 'none';
+                    
+                    // Crucial: Recalculate totals after removal (which will be negative the item amount)
+                    updateOrderSummary(); 
+                    
+                }, 300);
+            }
+        }
+        
+        // --- Initialization and Event Listeners ---
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. Initial calculation on page load
+            updateOrderSummary(); 
+            
+            // 2. Attach event listeners for quantity changes
+            document.querySelectorAll('.item-quantity').forEach(input => {
+                input.addEventListener('change', function() {
+                    // Ensure quantity is not less than 1
+                    if (this.value < 1) {
+                        this.value = 1;
+                    }
+                    // Recalculate totals immediately
+                    updateOrderSummary();
+                });
+            });
+            
+            // 3. Attach event listeners for item removal
+            document.querySelectorAll('.remove-item-btn').forEach(button => {
+                button.addEventListener('click', removeItem);
+            });
+        });
+    </script>
+</body>
+</html>

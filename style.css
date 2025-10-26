@@ -1,0 +1,917 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.elaria-navbar { /* Renamed class */
+    border-bottom: 1px solid #ddd;
+    
+   
+}
+
+.navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    height: 60px;
+    
+    
+}
+
+/* Logo */
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #8B0000; /* Deep red color (kept for style consistency) */
+}
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* Search Container (No changes needed) */
+.search-container {
+    flex-grow: 1;
+    max-width: 600px;
+    margin: 0 30px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.search-input {
+    flex-grow: 1;
+    border: none;
+    padding: 0 15px;
+    font-size: 14px;
+    outline: none;
+    height: 100%;
+}
+
+.search-icon {
+    background-color: transparent;
+    border: none;
+    padding: 0 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+}
+
+.utility-icons {
+    display: flex;
+    align-items: center;
+    border-left: 1px solid #eee;
+}
+
+.utility-icons .icon {
+    padding: 0 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Right Side Icons (No changes needed) */
+.navbar-utility-right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.icon-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    position: relative;
+    transition: color 0.2s;
+}
+
+.icon-link:hover {
+    color: #8B0000;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+}
+
+.cart-count {
+    background-color: #8B0000;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    line-height: 1;
+}
+
+/* --- Bottom Menu Styling (No changes needed) --- */
+.navbar-bottom {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: center;
+}
+
+.menu-list li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+
+.menu-icon {
+    font-size: 20px;
+    margin-bottom: 4px;
+    color: #666;
+}
+
+.menu-list li a:hover {
+    color: #8B0000;
+}
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-item {
+    height: 80vh;
+    min-height: 200px;
+}
+  
+  .background-slide {
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+  }
+  
+  .centered-content {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    text-align: center;
+    height: 250px;
+    background: rgba(252, 177, 177, 0.82);
+    padding: 85px 65px;
+    border-radius: 10px;
+    color: #4B3832;
+  }
+  
+  .brand-logo {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
+    color: #8B4513;
+    margin-bottom: 2px;
+    font-weight: bold;
+
+    
+  }
+  
+  .centered-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    font-style: italic;
+    align-items: center;
+    
+   
+  }
+  
+  .shop-btn {
+    background-color: #D4B294;
+    color: #4B3832;
+    border: none;
+    padding: 12px 38px;
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    align-items: center;
+  }
+  
+  .shop-btn:hover {
+    background-color: #C1A082;
+  }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: invert(100%);
+  }
+  /* --- COLLECTION SECTION STYLES --- */
+
+.collection-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 60px auto; /* Centers the section below the carousel */
+    text-align: center;
+}
+
+.collection-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #4B3832;
+    margin-bottom: 5px;
+}
+
+.collection-header p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* --- THE GRID LAYOUT (Main Structure) --- */
+.collection-grid {
+    display: grid;
+    /* Defines a 2-column layout */
+    grid-template-columns: 1fr 1fr;
+    /* Defines the structure: 
+       Item 1 spans 2 rows, Item 2 & 3 are the small tiles, Item 4 spans 2 rows */
+    grid-template-areas: 
+        "item1 item2"
+        "item1 item3"
+        "item4 item4"; /* Making the bottom item full width initially for a more dynamic look */
+    gap: 20px;
+}
+
+/* --- Individual Item Styling --- */
+.collection-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 350px; /* Default height */
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    text-decoration: none; /* Remove underline from anchor tag */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.collection-item:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+}
+
+.collection-text-box {
+    position: absolute;
+    /* Position the text to the bottom right/center based on the source image style */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #4B3832;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 15px 30px;
+    border-radius: 5px;
+}
+
+.collection-text-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.collection-text-box p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+
+/* --- Grid Area Assignments (The key to the complex layout) --- */
+.collection-grid .collection-item:nth-child(1) {
+    grid-area: item1;
+    /* Adjust height for the large vertical block */
+    height: calc(350px * 2 + 20px); 
+}
+
+.collection-grid .collection-item:nth-child(2) {
+    grid-area: item2;
+}
+
+.collection-grid .collection-item:nth-child(3) {
+    grid-area: item3;
+}
+
+.collection-grid .collection-item:nth-child(4) {
+    grid-area: item4;
+}
+
+/* --- RESPONSIVENESS for Grid --- */
+
+/* Tablet View (2 columns, standard grid) */
+@media (max-width: 900px) {
+    .collection-grid {
+        /* Simplifies to a standard 2x2 grid */
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "item1 item2"
+            "item3 item4";
+    }
+
+    /* Reset the vertical item height to standard */
+    .collection-grid .collection-item:nth-child(1) {
+        height: 350px; 
+    }
+}
+/* --- CATEGORY SECTION STYLES (Headers) --- */
+
+.category-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 60px auto; 
+    text-align: center;
+}
+
+.category-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #4B3832;
+    margin-bottom: 5px;
+}
+
+.category-header p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* --- THE GRID LAYOUT (Main Structure) --- */
+.category-grid {
+    display: grid;
+    /* 4 equal columns on desktop */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* --- Individual Category Item Styling --- */
+.category-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.category-item:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+}
+
+/* The box containing the image, with soft rounded corners */
+.category-image-box {
+    width: 100%;
+    /* Creates a perfect square for the image area */
+    padding-top: 100%; 
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.category-title {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4B3832;
+    letter-spacing: 1px;
+}
+
+/* --- NEW ARRIVALS SECTION STYLES --- */
+
+.arrivals-container {
+    width: 100%;
+    /* Use a combined image that includes the rings and the beige background */
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    padding: 80px 0; /* Vertical spacing */
+    margin: 40px 0; /* Space from sections above/below */
+}
+
+.arrivals-header-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    /* Aligns the text content to the left side */
+    display: flex; 
+    justify-content: flex-start;
+}
+
+.arrivals-text-content {
+    max-width: 500px;
+    color: #333; /* Dark text for contrast against the beige background */
+    text-align: left;
+    padding-bottom: 40px;
+}
+
+.arrivals-text-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.new-items-badge {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #4B3832;
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: normal;
+    margin-left: 15px;
+}
+
+.arrivals-text-content p {
+    font-size: 1.1rem;
+    color: #4B3832;
+    margin-bottom: 5px;
+}
+
+/* --- THE IMAGE GRID --- */
+.arrivals-image-grid {
+    display: grid;
+    /* Two equal columns for the images */
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.arrivals-item {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Text is at the bottom of the image */
+    height: 400px; 
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    text-decoration: none;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.arrivals-text-overlay {
+    background-color: rgba(255, 255, 255, 0.85); /* Light translucent box */
+    padding: 15px 30px;
+    width: 90%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.arrivals-text-overlay h2 {
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    color: #4B3832;
+    margin: 0;
+}
+/* --- ASSURANCE SECTION STYLES --- */
+
+.assurance-section {
+    display: flex;
+    /* Aligns items side-by-side */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 400px; /* Gives the section a good vertical presence */
+    margin: 80px auto;
+    background-color: #fff; /* White background for the Tanishq Assurance text side */
+    /* Separates the left white side from the right off-white side */
+    border-right: 1px solid #eee; 
+}
+
+/* --- Left Column: Title Block --- */
+.assurance-title-block {
+    flex: 1; /* Takes up one part of the space */
+    padding: 0 5%;
+    text-align: left;
+}
+
+.assurance-title-block h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5rem;
+    font-weight: 500;
+    color: #000;
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.assurance-highlight {
+    color: #8A2D3C; /* Deep maroon/red for the 'Assurance' word */
+}
+
+.assurance-title-block p {
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem;
+    color: #666;
+    font-weight: 300;
+}
+
+/* --- Right Column: Icons Block --- */
+.assurance-icons-block {
+    flex: 1; /* Takes up one part of the space */
+    display: flex;
+    justify-content: space-around; /* Spreads the icons out */
+    align-items: center;
+    height: 100%;
+    background-color: #F8F7F6; /* Light gray/off-white background */
+    padding: 0 2%;
+    text-align: center;
+}
+
+.assurance-item {
+    padding: 0 10px;
+    text-align: center;
+}
+
+.icon-placeholder {
+    /* Styles for the gold-toned icons */
+    font-size: 3rem;
+    color: #D4AF37; /* Gold color */
+    background-color: #F0E6D1; /* Light beige/tan background for the square effect */
+    width: 80px;
+    height: 80px;
+    line-height: 80px; /* Vertically centers the emoji/placeholder */
+    border-radius: 8px;
+    margin: 0 auto 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.assurance-heading {
+    font-size: 1rem;
+    color: #4B3832;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+/* --- RESPONSIVENESS --- */
+
+@media (max-width: 992px) {
+    .assurance-section {
+        /* Stacks columns vertically on smaller screens */
+        flex-direction: column;
+        height: auto; 
+        margin: 40px auto;
+        border-right: none; 
+    }
+
+    .assurance-title-block {
+        text-align: center;
+        padding: 40px 5%;
+    }
+
+    .assurance-title-block h1 {
+        font-size: 3.5rem;
+    }
+    
+    .assurance-title-block p {
+        font-size: 1.2rem;
+    }
+
+    .assurance-icons-block {
+        height: 180px;
+        padding: 20px 5%;
+    }
+}
+/* --- FOOTER STYLES --- */
+
+.main-footer {
+    background-color: #381A20; /* Dark Maroon/Brown background */
+    color: #fff;
+    padding: 60px 0 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* --- Logo Styling --- */
+.footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+/* --- Main Grid Layout (4 Columns) --- */
+.footer-grid {
+    display: grid;
+    /* Sets up 4 columns for the desktop view */
+    grid-template-columns: 1.5fr repeat(3, 1fr); 
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.col-heading {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* --- Link List Styling --- */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+}
+
+/* --- Contact Column Specifics --- */
+.contact-number {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.chat-heading {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.contact-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+
+
+.app-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.app-btn img {
+    width: 120px;
+    height: auto;
+}
+
+/* --- Social Media Row --- */
+.footer-social {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.footer-social .col-heading {
+    margin-right: 30px;
+    margin-bottom: 0;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 20px;
+    opacity: 0.8;
+}
+
+/* --- RESPONSIVENESS --- */
+
+@media (max-width: 992px) {
+    .footer-grid {
+        /* Changes to 2 columns on tablets */
+        grid-template-columns: 1.5fr 1fr;
+    }
+
+    /* Stack Information and Contact columns on top of each other */
+    .footer-grid .footer-col:nth-child(3),
+    .footer-grid .footer-col:nth-child(4) {
+        grid-column: span 2; /* Forces these two to span the full width */
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-grid {
+        /* Stacks all columns vertically on mobile */
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-grid .footer-col {
+        grid-column: span 1; 
+    }
+    
+    .footer-logo {
+        text-align: center;
+    }
+
+    .col-heading,
+    .footer-col ul,
+    .contact-number {
+        text-align: center;
+    }
+
+    /* Center QR Code and App Buttons */
+    .download-col .col-heading {
+        margin-top: 0;
+    }
+    .qr-code-placeholder, .app-buttons {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .app-buttons {
+        justify-content: center;
+    }
+    
+    /* Center Contact Icons */
+    .contact-icons {
+        text-align: center;
+    }
+
+    /* Center Social Icons */
+    .footer-social {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-social .col-heading {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .social-icons {
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 600px) {
+    .assurance-title-block h1 {
+        font-size: 3rem;
+    }
+    
+    .assurance-icons-block {
+        /* Ensures icons wrap nicely if the screen is very small */
+        flex-wrap: wrap; 
+        height: auto;
+        padding: 20px 10px;
+    }
+
+    .assurance-item {
+        width: 30%; /* Gives space for the three items */
+        margin-bottom: 20px;
+    }
+    
+    .icon-placeholder {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 2rem;
+    }
+}
+/* --- RESPONSIVENESS --- */
+
+/* Mobile View (1 column) */
+@media (max-width: 768px) {
+    .arrivals-container {
+        padding: 40px 0;
+    }
+
+    .arrivals-text-content {
+        max-width: none; /* Allows text to use full width */
+        text-align: center; /* Center text on mobile */
+    }
+
+    .arrivals-text-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .arrivals-image-grid {
+        grid-template-columns: 1fr; /* Stacks images vertically */
+    }
+
+    .arrivals-item {
+        height: 300px;
+    }
+}
+@media (max-width: 992px) {
+    .category-grid {
+        /* Changes to 2 columns on tablets */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile View (1 column) */
+@media (max-width: 600px) {
+    .category-grid {
+        /* Stacks all items vertically on small screens */
+        grid-template-columns: 1fr;
+        gap: 30px; /* More space between stacked items */
+    }
+}
+
+/* Mobile View (1 column) */
+@media (max-width: 600px) {
+    .collection-grid {
+        /* Stacks all items vertically */
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "item1"
+            "item2"
+            "item3"
+            "item4";
+    }
+
+    .collection-item {
+        height: 250px; /* Shorter height for mobile */
+    }
+
+    /* Ensure item 1 still uses the standard height after the grid change */
+    .collection-grid .collection-item:nth-child(1) {
+        height: 250px; 
+    }
+}
+  
+@media (max-width: 768px) {
+    /* --- Top Bar Changes --- */
+    .navbar-top {
+        padding: 10px 15px;
+        justify-content: space-around;
+        height: 50px;
+    }
+
+    .search-container {
+        max-width: 40px;
+        border: none;
+        margin: 0 10px;
+    }
+
+    .search-input {
+        display: none;
+    }
+
+    .search-icon {
+        padding: 0;
+        font-size: 20px;
+    }
+
+    .utility-icons {
+        display: none;
+    }
+    
+    .navbar-utility-right {
+        gap: 15px;
+    }
+    
+    /* Hide specific icons to clean up mobile view */
+    .icon-link:nth-child(1),
+    .icon-link:nth-child(2),
+    .icon-link:nth-child(3)
+    {
+        display: none; 
+    }
+
+    /* --- Bottom Bar Removal --- */
+    .navbar-bottom {
+        display: none;
+    }
+}

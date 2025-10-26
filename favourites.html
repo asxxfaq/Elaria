@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elaria - My Favourites</title>
+
+    <style>
+        .favourites-page-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 15px;
+        }
+
+        /* --- Status and Action Header (Unique Element) --- */
+        .favourites-header {
+            background-color: #fff9e6;
+            /* Soft gold background */
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid #ffebac;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-status h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #4B3832;
+            margin-bottom: 5px;
+        }
+
+        .header-status p {
+            font-weight: 500;
+            color: #8A2D3C;
+            /* Highlighted count */
+        }
+
+        .btn-consult {
+            background-color: #8A2D3C;
+            color: #fff;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-consult:hover {
+            background-color: #A34050;
+        }
+
+        /* --- Favourites Item List View (Unique Template Feature) --- */
+        .favourite-item {
+            display: flex;
+            align-items: center;
+            border: 1px solid #eee;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #fff;
+            transition: box-shadow 0.3s;
+        }
+
+        .favourite-item:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .item-image {
+            width: 120px;
+            height: 120px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 4px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+
+        .item-details h5 {
+            font-size: 1.2rem;
+            color: #4B3832;
+            margin-bottom: 5px;
+        }
+
+        .item-details p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .item-details .item-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #8A2D3C;
+            margin-top: 5px;
+        }
+
+        .item-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 180px;
+            /* Fixed width for button stack */
+            flex-shrink: 0;
+            text-align: right;
+        }
+
+        .btn-move-cart {
+            background-color: #D4B294;
+            color: #4B3832;
+            padding: 8px 15px;
+            font-weight: 600;
+            border-radius: 3px;
+            border: none;
+        }
+
+        .btn-remove {
+            color: #8A2D3C;
+            background: none;
+            border: none;
+            text-decoration: underline;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* Empty state view */
+        .empty-favourites {
+            text-align: center;
+            padding: 100px 0;
+            background-color: #f7f7f7;
+            border-radius: 8px;
+        }
+
+        .empty-favourites h3 {
+            color: #4B3832;
+        }
+
+        .empty-favourites i {
+            font-size: 3rem;
+            color: #8A2D3C;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .favourite-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .item-image {
+                margin-bottom: 15px;
+            }
+
+            .item-actions {
+                flex-direction: row;
+                width: 100%;
+                justify-content: flex-start;
+                margin-top: 15px;
+                text-align: left;
+            }
+
+            .item-details {
+                width: 100%;
+            }
+
+            .favourites-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .btn-consult {
+                margin-top: 15px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="elaria-navbar">
+        <div class="navbar-top">
+            <div class="logo">
+                <img src="elaria.png" style="height: 60px; width: 100%;" alt="Elaria Logo">
+            </div>
+
+            <div class="search-container">
+                <input type="text" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..."
+                    class="search-input">
+                <button class="search-icon"><i class="fa fa-search"></i>
+                </button>
+                <div class="utility-icons">
+                    <span class="icon"><i class="fa-solid fa-gift"></i>
+                    </span>
+                    <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+                </div>
+            </div>
+
+            <div class="navbar-utility-right">
+
+                <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
+
+                <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon-link cart">
+                    <span><i class="fa-solid fa-cart-shopping"></i></span>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="navbar-bottom">
+            <ul class="menu-list">
+                <li><a href="dailywears.html"><span class="menu-icon"><i class="fa-solid fa-coins"></i>
+                        </span>Daily Wear</a></li>
+                <li><a href="necklaces.html"><span class="menu-icon"><i class="fa-solid fa-heart"></i></span>
+                        Necklaces</a></li>
+                <li><a href="earings.html"><span class="menu-icon"><i class="fa-solid fa-gem"></i></span> Earrings</a>
+                </li>
+                <li><a href="rings.html"><span class="menu-icon"><i class="fa-solid fa-ring"></i></span> Rings</a></li>
+                <li><a href="wedding.html"><span class="menu-icon"><i class="fa-solid fa-user-group"></i></span>
+                        Wedding</a></li>
+                <li><a href="gifting.html"><span class="menu-icon"><i class="fa-solid fa-gift"></i></span> Gifting</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="favourites-page-container">
+
+        <h1 class="page-title text-center">Your Jewellery Wishlist</h1>
+
+        <div class="favourites-header">
+            <div class="header-status">
+                <h2>Ready to buy your favourites?</h2>
+                <p><i class="fa-solid fa-heart"></i> You have **4 items** saved in your wishlist.</p>
+            </div>
+            <a href="#" class="btn-consult"><i class="fa-solid fa-phone"></i> Request a Free Consultation</a>
+        </div>
+
+        <div class="favourites-list">
+
+            <div class="favourite-item" data-product-id="101">
+                <div class="item-image" style="background-image: url('ring_product1.jpg');"></div>
+                <div class="item-details">
+                    <h5>Classic Round Solitaire Ring</h5>
+                    <p>Diamond Solitaire | 18K White Gold | 1.5 Ct.</p>
+                    <p class="item-price">₹ 2,90,000</p>
+                </div>
+                <div class="item-actions">
+                    <button class="btn-move-cart"><i class="fa-solid fa-cart-shopping"></i> Move to Cart</button>
+                    <button class="btn-remove">Remove from Favourites</button>
+                </div>
+            </div>
+
+            <div class="favourite-item" data-product-id="102">
+                <div class="item-image" style="background-image: url('earring_product3.jpg');"></div>
+                <div class="item-details">
+                    <h5>Traditional Temple Jhumkas</h5>
+                    <p>Yellow Gold | Intricate Filigree Work</p>
+                    <p class="item-price">₹ 45,000</p>
+                </div>
+                <div class="item-actions">
+                    <button class="btn-move-cart"><i class="fa-solid fa-cart-shopping"></i> Move to Cart</button>
+                    <button class="btn-remove">Remove from Favourites</button>
+                </div>
+            </div>
+
+            <div class="favourite-item" data-product-id="103">
+                <div class="item-image" style="background-image: url('necklace_product2.jpg');"></div>
+                <div class="item-details">
+                    <h5>Delicate Locket Chain</h5>
+                    <p>Rose Gold | Small Diamond Accent</p>
+                    <p class="item-price">₹ 42,000</p>
+                </div>
+                <div class="item-actions">
+                    <button class="btn-move-cart"><i class="fa-solid fa-cart-shopping"></i> Move to Cart</button>
+                    <button class="btn-remove">Remove from Favourites</button>
+                </div>
+            </div>
+
+            <div class="favourite-item" data-product-id="104">
+                <div class="item-image" style="background-image: url('daily_wear_product2.jpg');"></div>
+                <div class="item-details">
+                    <h5>Minimalist Diamond Bangle</h5>
+                    <p>Daily Wear Collection | Hinged Closure</p>
+                    <p class="item-price">₹ 98,000</p>
+                </div>
+                <div class="item-actions">
+                    <button class="btn-move-cart"><i class="fa-solid fa-cart-shopping"></i> Move to Cart</button>
+                    <button class="btn-remove">Remove from Favourites</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content-wrapper">
+
+            <div class="footer-logo"
+                style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <p class="col-heading">Useful Links</p>
+                    <ul>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">International Shipping</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                        <li><a href="#">Track your Order</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Find a Store</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <p class="col-heading">Information</p>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Offers & Contest Details</a></li>
+                        <li><a href="#">Help & FAQs</a></li>
+                        <li><a href="#">About Elaria</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <p class="col-heading">Contact Us</p>
+                    <p class="contact-number">1800-266-0123</p>
+
+                    <p class="col-heading chat-heading">Chat With Us</p>
+                    <p class="contact-number">+91 7306614239</p>
+
+                    <div class="contact-icons">
+                        <a href="#">💬</a>
+                        <a href="#">📧</a>
+                        <a href="#">📞</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-social">
+                <p class="col-heading">Social</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
+                    </a>
+                    <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
+                    </a>
+                    <a href="#"><i class="fa-brands fa-twitter"> X</i>
+                    </a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"> whatsapp</i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to handle the removal of an item (visual only)
+            document.querySelectorAll('.btn-remove').forEach(button => {
+                button.addEventListener('click', function () {
+                    const item = this.closest('.favourite-item');
+                    if (item) {
+                        item.style.opacity = 0;
+                        item.style.transform = 'translateX(-20px)';
+                        // After a short delay, remove the item from the DOM
+                        setTimeout(() => item.remove(), 300);
+
+                        // In a real application, you would also remove the ID from local storage here
+                        const productId = item.getAttribute('data-product-id');
+                        console.log(`Simulated removal of product ${productId}.`);
+                    }
+                });
+            });
+
+            // Function to handle moving to cart (placeholder)
+            document.querySelectorAll('.btn-move-cart').forEach(button => {
+                button.addEventListener('click', function () {
+                    const item = this.closest('.favourite-item');
+                    const productId = item.getAttribute('data-product-id');
+                    alert(`Simulated move of product ${productId} to cart!`);
+                    // In a real application, this would call a function to update the cart and then remove the item from the wishlist/DOM.
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

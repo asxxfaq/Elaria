@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="dailywears.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elaria - Daily Wear</title>
+</head>
+
+<body>
+    <nav class="elaria-navbar">
+        <div class="navbar-top">
+            <div class="logo">
+                <a href="index.html">
+                <img src="elaria.png" style="height: 60px; width: 100%;" alt="Elaria Logo">
+            </a>
+            </div>
+
+            <div class="search-container">
+                <input type="text" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..."
+                    class="search-input">
+                <button class="search-icon"><i class="fa fa-search"></i>
+                </button>
+                <div class="utility-icons">
+                    <span class="icon"><i class="fa-solid fa-gift"></i>
+                    </span>
+                    <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+                </div>
+            </div>
+
+            <div class="navbar-utility-right">
+                
+                <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
+                
+                <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon-link cart">
+                    <span><i class="fa-solid fa-cart-shopping"></i></span>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="navbar-bottom">
+            <ul class="menu-list">
+                <li><a href="dailywears.html"><span class="menu-icon"><i class="fa-solid fa-coins"></i>
+                                </span>Daily Wear</a></li>
+                <li><a href="necklaces.html"><span class="menu-icon"><i class="fa-solid fa-heart"></i></span> Necklaces</a></li>
+                <li><a href="earings.html"><span class="menu-icon"><i class="fa-solid fa-gem"></i></span> Earrings</a></li>
+                <li><a href="rings.html"><span class="menu-icon"><i class="fa-solid fa-ring"></i></span> Rings</a></li>
+                <li><a href="wedding.html"><span class="menu-icon"><i class="fa-solid fa-user-group"></i></span> Wedding</a></li>
+                <li><a href="gifting.html"><span class="menu-icon"><i class="fa-solid fa-gift"></i></span> Gifting</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="daily-wear-container">
+        <h1 class="page-title">Minimalist Treasures: Everyday Elegance</h1>
+        <p class="page-subtitle">Lightweight gold and diamond jewellery designed for daily comfort and style.</p>
+
+        <div class="product-carousel-wrapper">
+            <h2>Featured Daily Looks</h2>
+            <div id="dailyLookCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-slide-content" style="background-image: url('images/dwbg.jpg');">
+                            <div class="slide-text">
+                                <h3>The Office Edit</h3>
+                                <p>Sleek designs that transition from desk to dinner.</p>
+                                <button class="shop-btn-small">Shop Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-slide-content" style="background-image: url('images/dwbg1.jpg');">
+                            <div class="slide-text">
+                                <h3>Weekend Sparkle</h3>
+                                <p>Simple studs and delicate chains for casual elegance.</p>
+                                <button class="shop-btn-small">Shop Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-slide-content" style="background-image: url('images/dwbg2.png');">
+                            <div class="slide-text">
+                                <h3>Rose Gold Glow</h3>
+                                <p>Contemporary warmth for your everyday style.</p>
+                                <button class="shop-btn-small">Shop Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#dailyLookCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#dailyLookCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="product-grid-section">
+            <h2>All Daily Wear Products</h2>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
+                
+                <div class="col">
+                    <div class="product-card">
+                        <div class="card-img" style="background-image: url('images/SimpleGoldStuds.jpg');">
+                            <span class="discount-badge">-15%</span>
+                            <i class="fa-regular fa-heart wishlist-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Simple Gold Studs</h5>
+                            <p class="card-price">₹ 12,500 <span class="old-price">₹ 14,700</span></p>
+                            <a href="#" class="btn btn-add-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="product-card">
+                        <div class="card-img" style="background-image: url('images/LightDiamondBracelet.jpg');">
+                            <i class="fa-regular fa-heart wishlist-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Light Diamond Bracelet</h5>
+                            <p class="card-price">₹ 28,000</p>
+                            <a href="#" class="btn btn-add-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="product-card">
+                        <div class="card-img" style="background-image: url('images/DelicateGoldChain.jpg');">
+                            <i class="fa-regular fa-heart wishlist-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Delicate Gold Chain</h5>
+                            <p class="card-price">₹ 9,800</p>
+                            <a href="#" class="btn btn-add-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="product-card">
+                        <div class="card-img" style="background-image: url('images/InitialAPendant.jpg');">
+                            <span class="discount-badge">New</span>
+                            <i class="fa-regular fa-heart wishlist-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Initial A Pendant</h5>
+                            <p class="card-price">₹ 15,200</p>
+                            <a href="#" class="btn btn-add-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="product-card">
+                        <div class="card-img" style="background-image: url('images/TinyHoopEarrings.jpg');">
+                            <i class="fa-regular fa-heart wishlist-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Tiny Hoop Earrings</h5>
+                            <p class="card-price">₹ 11,000</p>
+                            <a href="#" class="btn btn-add-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col">
+                    <div class="product-card">
+                        <div class="card-img" style="background-image: url('images/SparkleStoneMiniHoops.jpg');">
+                            <i class="fa-regular fa-heart wishlist-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Mini Gold Plated Hoops</h5>
+                            <p class="card-price">₹ 17,000</p>
+                            <a href="#" class="btn btn-add-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="col">
+                    <div class="product-card">
+                        <div class="card-img" style="background-image: url('images/TinyHoopEarrings.jpg');">
+                            <i class="fa-regular fa-heart wishlist-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Tiny Hoop Earrings</h5>
+                            <p class="card-price">₹ 11,000</p>
+                            <a href="#" class="btn btn-add-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col">
+                    <div class="product-card">
+                        <div class="card-img" style="background-image: url('images/MinimalistFingerRing.jpg');">
+                            <i class="fa-regular fa-heart wishlist-icon"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Minimalist Finger Ring</h5>
+                            <p class="card-price">₹ 18,500</p>
+                            <a href="#" class="btn btn-add-cart">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="text-center mt-5">
+                <button class="btn btn-load-more">Load More Products</button>
+            </div>
+        </div>
+
+    </div>
+    
+    <footer class="main-footer">
+        <div class="footer-content-wrapper">
+            
+            <div class="footer-logo" style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.</div>
+            
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <p class="col-heading">Useful Links</p>
+                    <ul>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">International Shipping</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                        <li><a href="#">Track your Order</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Find a Store</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <p class="col-heading">Information</p>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Offers & Contest Details</a></li>
+                        <li><a href="#">Help & FAQs</a></li>
+                        <li><a href="#">About Elaria</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <p class="col-heading">Contact Us</p>
+                    <p class="contact-number">1800-266-0123</p>
+                    
+                    <p class="col-heading chat-heading">Chat With Us</p>
+                    <p class="contact-number">+91 7306614239</p>
+                    
+                    <div class="contact-icons">
+                        <a href="#">💬</a>
+                        <a href="#">📧</a>
+                        <a href="#">📞</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="footer-social">
+                <p class="col-heading">Social</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
+                    </a> 
+                    <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
+                    </a> 
+                    <a href="#"><i class="fa-brands fa-twitter"> X</i>
+                    </a> 
+                    <a href="#"><i class="fa-brands fa-whatsapp"> whatsapp</i>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // JavaScript to toggle the wishlist icon color/style
+            document.querySelectorAll('.wishlist-icon').forEach(icon => {
+                icon.addEventListener('click', function() {
+                    this.classList.toggle('fa-regular'); // Toggle empty heart
+                    this.classList.toggle('fa-solid');  // Toggle filled heart
+                    this.style.color = this.classList.contains('fa-solid') ? '#8A2D3C' : '#fff';
+                });
+            });
+            
+            // Note: The Bootstrap carousel functionality (sliding) is handled 
+            // entirely by the bootstrap.bundle.min.js script.
+        });
+    </script>
+</body>
+</html>

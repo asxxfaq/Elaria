@@ -1,0 +1,406 @@
+.elaria-navbar {
+    /* Renamed class */
+    border-bottom: 1px solid #ddd;
+
+
+}
+
+.navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    height: 60px;
+
+
+}
+
+/* Logo */
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #8B0000;
+    /* Deep red color (kept for style consistency) */
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* Search Container (No changes needed) */
+.search-container {
+    flex-grow: 1;
+    max-width: 600px;
+    margin: 0 30px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.search-input {
+    flex-grow: 1;
+    border: none;
+    padding: 0 15px;
+    font-size: 14px;
+    outline: none;
+    height: 100%;
+}
+
+.search-icon {
+    background-color: transparent;
+    border: none;
+    padding: 0 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+}
+
+.utility-icons {
+    display: flex;
+    align-items: center;
+    border-left: 1px solid #eee;
+}
+
+.utility-icons .icon {
+    padding: 0 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Right Side Icons (No changes needed) */
+.navbar-utility-right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.icon-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    position: relative;
+    transition: color 0.2s;
+}
+
+.icon-link:hover {
+    color: #8B0000;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+}
+
+.cart-count {
+    background-color: #8B0000;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    line-height: 1;
+}
+
+/* --- Bottom Menu Styling (No changes needed) --- */
+.navbar-bottom {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: center;
+}
+
+.menu-list li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+
+.menu-icon {
+    font-size: 20px;
+    margin-bottom: 4px;
+    color: #666;
+}
+
+.menu-list li a:hover {
+    color: #8B0000;
+}
+
+.main-footer {
+    background-color: #381A20;
+    /* Dark Maroon/Brown background */
+    color: #fff;
+    padding: 60px 0 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* --- Logo Styling --- */
+.footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+/* --- Main Grid Layout (4 Columns) --- */
+.footer-grid {
+    display: grid;
+    /* Sets up 4 columns for the desktop view */
+    grid-template-columns: 1.5fr repeat(3, 1fr);
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.col-heading {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* --- Link List Styling --- */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+}
+
+/* --- Contact Column Specifics --- */
+.contact-number {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.chat-heading {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.contact-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+
+
+.app-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.app-btn img {
+    width: 120px;
+    height: auto;
+}
+
+/* --- Social Media Row --- */
+.footer-social {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.footer-social .col-heading {
+    margin-right: 30px;
+    margin-bottom: 0;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 20px;
+    opacity: 0.8;
+}
+.gifting-page-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 15px;
+}
+
+/* --- New Banner Style --- */
+.gifting-main-banner {
+    background: linear-gradient(135deg, #F9F3EC, #EAD7C0);
+    padding: 60px 30px;
+    margin-bottom: 50px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.gifting-main-banner h1 {
+    font-family: 'Playfair Display', serif;
+    color: #8A2D3C; /* Maroon accent */
+    font-size: 3rem;
+}
+
+.gifting-main-banner p {
+    color: #4B3832;
+    font-size: 1.2rem;
+}
+
+/* --- 1. Occasion Blocks Grid (Unique Template Feature) --- */
+.occasion-block-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.occasion-block {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    height: 300px; /* Fixed height for visual consistency */
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.occasion-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.occasion-block-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    transition: background 0.3s;
+}
+
+.occasion-block:hover .occasion-block-overlay {
+    background: rgba(138, 45, 60, 0.6); /* Maroon hover effect */
+}
+
+.occasion-block h4 {
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+/* --- 2. Tiered Price Guide (Unique Template Feature) --- */
+.price-guide-section {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.price-guide-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.price-tier-card {
+    border: 1px solid #ddd;
+    padding: 25px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.price-tier-card:hover {
+    background-color: #F9F3EC;
+    border-color: #D4B294;
+}
+
+.price-tier-card h5 {
+    color: #8A2D3C;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.price-tier-card p {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+.btn-view-gifts {
+    background-color: #D4B294; 
+    color: #4B3832;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .occasion-block-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .price-guide-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 576px) {
+    .occasion-block-grid {
+        grid-template-columns: 1fr;
+    }
+    .price-guide-grid {
+        grid-template-columns: 1fr;
+    }
+    .gifting-main-banner h1 {
+        font-size: 2.5rem;
+    }
+}

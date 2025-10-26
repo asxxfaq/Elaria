@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="earings.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elaria - Earrings</title>
+
+</head>
+
+<body>
+    <nav class="elaria-navbar">
+        <div class="navbar-top">
+            <div class="logo">
+                <img src="elaria.png" style="height: 60px; width: 100%;" alt="Elaria Logo">
+            </div>
+
+            <div class="search-container">
+                <input type="text" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..."
+                    class="search-input">
+                <button class="search-icon"><i class="fa fa-search"></i>
+                </button>
+                <div class="utility-icons">
+                    <span class="icon"><i class="fa-solid fa-gift"></i>
+                    </span>
+                    <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+                </div>
+            </div>
+
+            <div class="navbar-utility-right">
+                <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
+                <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon-link cart">
+                    <span><i class="fa-solid fa-cart-shopping"></i></span>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="navbar-bottom">
+            <ul class="menu-list">
+                <li><a href="dailywears.html"><span class="menu-icon"><i class="fa-solid fa-coins"></i>
+                                </span>Daily Wear</a></li>
+                <li><a href="necklaces.html"><span class="menu-icon"><i class="fa-solid fa-heart"></i></span> Necklaces</a></li>
+                <li><a href="earings.html"><span class="menu-icon"><i class="fa-solid fa-gem"></i></span> Earrings</a></li>
+                <li><a href="rings.html"><span class="menu-icon"><i class="fa-solid fa-ring"></i></span> Rings</a></li>
+                <li><a href="#"><span class="menu-icon"><i class="fa-solid fa-user-group"></i></span> Wedding</a></li>
+                <li><a href="#"><span class="menu-icon"><i class="fa-solid fa-gift"></i></span> Gifting</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="earrings-page-container">
+        
+        <div class="earrings-hero-banner" style="background-image: url('images/earingbg.jpg');">
+            <div class="hero-content">
+                <h2>The Sparkle Collection</h2>
+                <p>Find your signature piece, from subtle studs to stunning drops.</p>
+            </div>
+        </div>
+        
+        <h1 class="page-title">Earrings Collection</h1>
+        <p class="page-subtitle">Find your perfect pair: from classic studs to dazzling drops and traditional jhumkas.</p>
+
+        <div class="row">
+            
+            <div class="col-lg-3 d-none d-lg-block">
+                <div class="filter-sidebar">
+                    <h2 class="filter-heading">Filters</h2>
+                    
+                    <div class="filter-group">
+                        <p class="filter-title">Earring Style</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="studs" checked>
+                            <label class="form-check-label" for="studs">Studs (88)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="drops">
+                            <label class="form-check-label" for="drops">Drops & Dangles (52)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="hoops">
+                            <label class="form-check-label" for="hoops">Hoops (29)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="jhumkas">
+                            <label class="form-check-label" for="jhumkas">Jhumkas (15)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <p class="filter-title">Gemstone</p>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="diamond">
+                            <label class="form-check-label" for="diamond">Diamond</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="pearl">
+                            <label class="form-check-label" for="pearl">Pearl</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="rubie">
+                            <label class="form-check-label" for="rubie">Rubies</label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <p class="filter-title">Price Range</p>
+                        <input type="range" class="form-range" min="5000" max="300000" step="1000" id="priceRangeEarrings">
+                        <p class="price-display">₹ 10,000 - ₹ 1,50,000</p>
+                    </div>
+                    
+                    <button class="btn btn-apply-filter w-100">Apply Filters</button>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                
+                <div class="sorting-bar">
+                    <span class="product-count">184 Products Found</span>
+                    <select class="form-select sort-dropdown">
+                        <option selected>Sort by Relevance</option>
+                        <option value="1">Price: Low to High</option>
+                        <option value="2">Price: High to Low</option>
+                        <option value="3">Newest Arrivals</option>
+                    </select>
+                </div>
+
+                <div class="row row-cols-2 row-cols-md-3 g-4 product-grid">
+                    
+                    <div class="col">
+                        <div class="product-card earring-card-style">
+                            <div class="card-img" style="background-image: url('images/ClassicDiamondStuds.jpg'); border: 2px solid #33A7A1;">
+                                <span class="discount-badge">Top Rated</span>
+                                <i class="fa-regular fa-heart wishlist-icon"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Classic Diamond Studs</h5>
+                                <p class="card-price">₹ 75,000</p>
+                                <a href="#" class="earring-btn-cart">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <div class="product-card earring-card-style">
+                            <div class="card-img" style="background-image: url('images/MinimalistGoldHoops.jpg'); border: 2px solid #33A7A1;">
+                                <i class="fa-regular fa-heart wishlist-icon"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Minimalist Gold Hoops</h5>
+                                <p class="card-price">₹ 18,500</p>
+                                <a href="#" class="earring-btn-cart">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <div class="product-card earring-card-style">
+                            <div class="card-img" style="background-image: url('images/TraditionalTempleJhumkas.jpg'); border: 2px solid #33A7A1;">
+                                <span class="discount-badge">-10%</span>
+                                <i class="fa-regular fa-heart wishlist-icon"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Traditional Temple Jhumkas</h5>
+                                <p class="card-price">₹ 45,000 <span class="old-price">₹ 50,000</span></p>
+                                <a href="#" class="earring-btn-cart">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <div class="product-card earring-card-style">
+                            <div class="card-img" style="background-image: url('images/RoseGoldDiamondDrops.jpg'); border: 2px solid #33A7A1;">
+                                <i class="fa-regular fa-heart wishlist-icon"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Rose Gold Diamond Drops</h5>
+                                <p class="card-price">₹ 1,12,000</p>
+                                <a href="#" class="earring-btn-cart">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <div class="product-card earring-card-style">
+                            <div class="card-img" style="background-image: url('images/PearlandGoldClusterStuds.jpg'); border: 2px solid #33A7A1;">
+                                <i class="fa-regular fa-heart wishlist-icon"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Pearl and Gold Cluster Studs</h5>
+                                <p class="card-price">₹ 29,500</p>
+                                <a href="#" class="earring-btn-cart">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <div class="product-card earring-card-style">
+                            <div class="card-img" style="background-image: url('images/Geometric\ Daily\ Wear\ Hoops.jpg'); border: 2px solid #33A7A1;">
+                                <span class="discount-badge">New</span>
+                                <i class="fa-regular fa-heart wishlist-icon"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Geometric Daily Wear Hoops</h5>
+                                <p class="card-price">₹ 15,000</p>
+                                <a href="#" class="earring-btn-cart">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <nav class="mt-5" aria-label="Product Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+        </div>
+        
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-content-wrapper">
+            
+            <div class="footer-logo" style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.</div>
+            
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <p class="col-heading">Useful Links</p>
+                    <ul>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">International Shipping</a></li>
+                        <li><a href="#">Payment Options</a></li>
+                        <li><a href="#">Track your Order</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Find a Store</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <p class="col-heading">Information</p>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Offers & Contest Details</a></li>
+                        <li><a href="#">Help & FAQs</a></li>
+                        <li><a href="#">About Elaria</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <p class="col-heading">Contact Us</p>
+                    <p class="contact-number">1800-266-0123</p>
+                    
+                    <p class="col-heading chat-heading">Chat With Us</p>
+                    <p class="contact-number">+91 7306614239</p>
+                    
+                    <div class="contact-icons">
+                        <a href="#">💬</a>
+                        <a href="#">📧</a>
+                        <a href="#">📞</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="footer-social">
+                <p class="col-heading">Social</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
+                    </a> 
+                    <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
+                    </a> 
+                    <a href="#"><i class="fa-brands fa-twitter"> X</i>
+                    </a> 
+                    <a href="#"><i class="fa-brands fa-whatsapp"> whatsapp</i>
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // JavaScript to toggle the wishlist icon color/style
+            document.querySelectorAll('.wishlist-icon').forEach(icon => {
+                icon.addEventListener('click', function() {
+                    this.classList.toggle('fa-regular'); 
+                    this.classList.toggle('fa-solid'); 
+                    // Note: The color is set by Internal CSS for the Earrings page for consistency, 
+                    // but this JavaScript still makes the icon solid upon click.
+                    this.style.color = this.classList.contains('fa-solid') ? '#33A7A1' : '#33A7A1'; 
+                });
+            });
+            
+            // Basic Price Range update display
+            const priceRange = document.getElementById('priceRangeEarrings');
+            const priceDisplay = document.querySelector('.price-display');
+            if (priceRange) {
+                priceRange.addEventListener('input', function() {
+                    const min = 10000; 
+                    const val = parseInt(this.value);
+                    priceDisplay.textContent = `₹ ${min.toLocaleString()} - ₹ ${val.toLocaleString()}`;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

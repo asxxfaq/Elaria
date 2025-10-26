@@ -1,0 +1,242 @@
+/* --- LOGIN/SIGNUP PAGE STYLES --- */
+
+/* Ensures the login box is vertically centered and has some padding */
+.login-container {
+    min-height: 80vh; /* Minimum height to push footer down */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #f8f7f6; /* Light background to make the form pop */
+}
+
+.login-box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px; /* Standard form width */
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: #4B3832;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.login-header p {
+    color: #666;
+}
+
+/* --- Bootstrap Tab Customization --- */
+.nav-tabs {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.nav-tabs .nav-link {
+    color: #4B3832;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.nav-tabs .nav-link.active {
+    color: #8A2D3C; /* Highlight color from your Assurance section */
+    border-bottom-color: #8A2D3C;
+    background-color: transparent;
+}
+
+/* --- Form Input and Button Styling --- */
+.form-label {
+    font-size: 0.9rem;
+    color: #4B3832;
+    font-weight: 500;
+}
+
+.form-control:focus {
+    border-color: #D4B294; /* Gold highlight on focus */
+    box-shadow: 0 0 0 0.25rem rgba(212, 178, 148, 0.25);
+}
+
+.btn-login-custom {
+    background-color: #8A2D3C; /* Deep maroon/red button color */
+    color: #fff;
+    padding: 10px 0;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: background-color 0.3s;
+}
+
+.btn-login-custom:hover {
+    background-color: #6B222E; 
+    color: #fff;
+}
+
+.forgot-link, .form-check-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.forgot-link:hover {
+    color: #8A2D3C;
+}
+
+/* --- Social Login Separator --- */
+.social-login-separator {
+    text-align: center;
+    margin: 25px 0 25px;
+    position: relative;
+    color: #999;
+}
+
+.social-login-separator::before,
+.social-login-separator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background: #eee;
+}
+
+.social-login-separator::before {
+    left: 0;
+}
+
+.social-login-separator::after {
+    right: 0;
+}
+
+/* --- Social Login Buttons --- */
+.btn-outline-secondary {
+    color: #666;
+    border-color: #ccc;
+    transition: all 0.3s;
+}
+
+.btn-outline-secondary:hover {
+    color: #4B3832;
+    border-color: #D4B294;
+    background-color: #f8f7f6;
+}
+
+.main-footer {
+    background-color: #381A20; /* Dark Maroon/Brown background */
+    color: #fff;
+    padding: 60px 0 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* --- Logo Styling --- */
+.footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+/* --- Main Grid Layout (4 Columns) --- */
+.footer-grid {
+    display: grid;
+    /* Sets up 4 columns for the desktop view */
+    grid-template-columns: 1.5fr repeat(3, 1fr); 
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.col-heading {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* --- Link List Styling --- */
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+}
+
+/* --- Contact Column Specifics --- */
+.contact-number {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.chat-heading {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.contact-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 15px;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+
+
+.app-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.app-btn img {
+    width: 120px;
+    height: auto;
+}
+
+/* --- Social Media Row --- */
+.footer-social {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.footer-social .col-heading {
+    margin-right: 30px;
+    margin-bottom: 0;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-right: 20px;
+    opacity: 0.8;
+}

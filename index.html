@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elaria</title>
+
+
+</head>
+
+<body>
+  <nav class="elaria-navbar">
+    <div class="navbar-top">
+      <div class="logo">
+        <img src="elaria.png" style="height: 60px; width: 100%;" alt="Elaria Logo">
+      </div>
+
+      <div class="search-container">
+        <input type="text" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
+        <button class="search-icon"><i class="fa fa-search"></i>
+        </button>
+        <div class="utility-icons">
+          <span class="icon"><i class="fa-solid fa-gift"></i>
+          </span>
+          <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+        </div>
+      </div>
+
+      <div class="navbar-utility-right">
+        <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
+        <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i>
+        </a>
+        <a href="cart.html" class="icon-link cart">
+          <span><i class="fa-solid fa-cart-shopping"></i></span>
+          <span class="cart-count">0</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="navbar-bottom">
+      <ul class="menu-list">
+
+        <li><a href="dailywears.html"><span class="menu-icon"><i class="fa-solid fa-coins"></i>
+            </span>Daily Wears</a></li>
+        <li><a href="necklaces.html"><span class="menu-icon"><i class="fa-solid fa-heart"></i></span> Necklaces</a></li>
+        <li><a href="earings.html"><span class="menu-icon"><i class="fa-solid fa-gem"></i></span> Earrings</a></li>
+        <li><a href="rings.html"><span class="menu-icon"><i class="fa-solid fa-ring"></i></span> Rings</a></li>
+        <li><a href="wedding.html"><span class="menu-icon"><i class="fa-solid fa-user-group"></i></span> Wedding</a>
+        </li>
+        <li><a href="gifting.html"><span class="menu-icon"><i class="fa-solid fa-gift"></i></span> Gifting</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+
+    <div class="carousel-inner">
+
+      <div class="carousel-item active background-slide" style="background-image: url('background1.jpg');">
+        <div class="carousel-caption centered-content">
+          <p class="brand-logo">Elaria</p>
+          <h1>The Gold Standard</h1>
+          <button class="shop-btn">SHOP NOW</button>
+        </div>
+      </div>
+
+      <div class="carousel-item background-slide" style="background-image: url('background2.jpg');">
+        <div class="carousel-caption centered-content">
+          <p class="brand-logo">Elaria</p>
+          <h1>Festive Edit</h1>
+          <button class="shop-btn">VIEW COLLECTION</button>
+        </div>
+      </div>
+
+      <div class="carousel-item background-slide" style="background-image: url('background3.jpg');">
+        <div class="carousel-caption centered-content">
+          <p class="brand-logo">Elaria</p>
+          <h1>Bridal Treasures</h1>
+          <button class="shop-btn">EXPLORE</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <!-- Left / Right Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+  <div class="collection-section">
+    <div class="collection-header">
+      <h1>Elaria Collections</h1>
+      <p>Explore our newly launched collection</p>
+    </div>
+
+    <div class="collection-grid">
+
+      <a href="#" class="collection-item large" style="background-image: url('earings.jpg');">
+        <div class="collection-text-box">
+          <h2>Stunning Earrings</h2>
+          <p>Newest additions</p>
+        </div>
+      </a>
+
+      <a href="#" class="collection-item small" style="background-image: url('ringsandbands.jpg');">
+        <div class="collection-text-box">
+          <h2>Rings & Bands</h2>
+          <p>The perfect sparkle</p>
+        </div>
+      </a>
+
+      <a href="#" class="collection-item small" style="background-image: url('banglesandbracelets.jpg');">
+        <div class="collection-text-box">
+          <h2>Bangles & Bracelets</h2>
+          <p>Timeless gold</p>
+        </div>
+      </a>
+
+      <a href="#" class="collection-item large" style="background-image: url('necklaces.jpg');">
+        <div class="collection-text-box">
+          <h2>Pendants & Necklaces</h2>
+          <p>Elegant designs</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="category-section">
+    <div class="category-header">
+      <h1>Find Your Perfect Match</h1>
+      <p>Shop by Categories</p>
+    </div>
+
+    <div class="category-grid">
+
+      <a href="earings.html" class="category-item">
+        <div class="category-image-box" style="background-image: url('earing.jpg');"></div>
+        <p class="category-title">EARRINGS</p>
+      </a>
+
+      <a href="rings.html" class="category-item">
+        <div class="category-image-box" style="background-image: url('rings.jpg');"></div>
+        <p class="category-title">FINGER RINGS</p>
+      </a>
+
+      <a href="necklaces.html" class="category-item">
+        <div class="category-image-box" style="background-image: url('pendants.jpg');"></div>
+        <p class="category-title">PENDANTS</p>
+      </a>
+
+      <a href="necklaces.html" class="category-item">
+        <div class="category-image-box" style="background-image: url('necklaces1.jpg');"></div>
+        <p class="category-title">NECKLACES</p>
+      </a>
+
+    </div>
+  </div>
+  <div class="arrivals-container container" style="background-image: url('bg.jpg');">
+    <div class="arrivals-header-wrapper">
+      <div class="arrivals-text-content">
+        <h1>New Arrivals <i class="fa-solid fa-gem"></i><span class="new-items-badge">500+ New Items</span></h1>
+        <p>New Arrivals Dropping Daily, Monday through Friday.</p>
+        <p>Explore the Latest Launches Now!</p>
+      </div>
+    </div>
+
+    <div class="arrivals-image-grid">
+
+      <a href="#" class="arrivals-item" style="background-image: url('bangles.jpg');">
+        <div class="arrivals-text-overlay">
+          <h2>Auspicious Bangles</h2>
+        </div>
+      </a>
+
+      <a href="#" class="arrivals-item" style="background-image: url('auspicious.jpg');">
+        <div class="arrivals-text-overlay">
+          <h2>Necklaces</h2>
+        </div>
+      </a>
+
+    </div>
+  </div>
+  <div class="assurance-section">
+
+    <div class="assurance-title-block">
+      <h1>Elaria <span class="assurance-highlight">Assurance</span></h1>
+      <p>Crafted by experts, cherished by you</p>
+    </div>
+
+    <div class="assurance-icons-block">
+
+      <div class="assurance-item">
+        <div class="icon-placeholder">🔨</div>
+        <p class="assurance-heading">Quality<br>Craftsmanship</p>
+      </div>
+
+      <div class="assurance-item">
+        <div class="icon-placeholder">💛</div>
+        <p class="assurance-heading">Ethically<br>Sourced</p>
+      </div>
+
+      <div class="assurance-item">
+        <div class="icon-placeholder">💎</div>
+        <p class="assurance-heading">100%<br>Transparency</p>
+      </div>
+
+    </div>
+  </div>
+  <footer class="main-footer">
+    <div class="footer-content-wrapper">
+
+      <div class="footer-logo"
+        style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.</div>
+
+      <div class="footer-grid">
+        <div class="footer-col">
+          <p class="col-heading">Useful Links</p>
+          <ul>
+            <li><a href="#">Delivery Information</a></li>
+            <li><a href="#">International Shipping</a></li>
+            <li><a href="#">Payment Options</a></li>
+            <li><a href="#">Track your Order</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Find a Store</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="col-heading">Information</p>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Offers & Contest Details</a></li>
+            <li><a href="#">Help & FAQs</a></li>
+            <li><a href="#">About Elaria</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col contact-col">
+          <p class="col-heading">Contact Us</p>
+          <p class="contact-number">1800-266-0123</p>
+
+          <p class="col-heading chat-heading">Chat With Us</p>
+          <p class="contact-number">+91 7306614239</p>
+
+          <div class="contact-icons">
+            <a href="#">💬</a>
+            <a href="#">📧</a>
+            <a href="#">📞</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-social">
+        <p class="col-heading">Social</p>
+        <div class="social-icons">
+          <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
+          </a>
+          <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
+          </a>
+          <a href="#"><i class="fa-brands fa-twitter"> X</i>
+          </a>
+          <a href="#"><i class="fa-brands fa-whatsapp"> whatsapp</i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+</body>
+
+</html>
