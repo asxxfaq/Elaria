@@ -23,12 +23,10 @@
             align-items: flex-start;
             padding: 20px 0;
             border-bottom: 1px solid #eee;
-            position: relative;
-            /* Needed for absolute positioning on mobile */
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            /* For removal animation */
+            position: relative; /* Needed for absolute positioning on mobile */
+            transition: opacity 0.3s ease, transform 0.3s ease; /* For removal animation */
         }
-
+        
         .item-image {
             width: 100px;
             height: 100px;
@@ -41,20 +39,20 @@
         .item-details {
             flex-grow: 1;
         }
-
+        
         .item-details h5 {
             font-size: 1.1rem;
             color: #4B3832;
             margin-bottom: 5px;
             font-weight: 600;
         }
-
+        
         .item-details p {
             margin: 0;
             font-size: 0.9rem;
             color: #666;
         }
-
+        
         /* --- Quantity Control --- */
         .quantity-control {
             display: flex;
@@ -63,7 +61,7 @@
             margin-top: 10px;
             width: 100px;
         }
-
+        
         .quantity-control input {
             width: 40px;
             text-align: center;
@@ -71,7 +69,7 @@
             padding: 2px 0;
             border-radius: 3px;
         }
-
+        
         .item-total-price {
             font-size: 1.2rem;
             font-weight: bold;
@@ -80,12 +78,12 @@
             text-align: right;
             flex-shrink: 0;
         }
-
+        
         .item-remove {
             margin-left: 20px;
             flex-shrink: 0;
         }
-
+        
         .item-remove button {
             background: none;
             border: none;
@@ -93,7 +91,7 @@
             font-size: 1.2rem;
             cursor: pointer;
         }
-
+        
         .item-remove button:hover {
             color: #8A2D3C;
         }
@@ -103,10 +101,8 @@
             background-color: #f8f8f8;
             padding: 25px;
             border-radius: 8px;
-            position: sticky;
-            /* Key feature for sticky column */
-            top: 20px;
-            /* Distance from the top of the viewport */
+            position: sticky; /* Key feature for sticky column */
+            top: 20px; /* Distance from the top of the viewport */
         }
 
         .summary-line {
@@ -116,7 +112,7 @@
             font-size: 1rem;
             border-bottom: 1px dashed #ddd;
         }
-
+        
         .summary-line:last-of-type {
             border-bottom: none;
         }
@@ -129,8 +125,7 @@
         }
 
         .btn-checkout {
-            background-color: #D4B294;
-            /* Gold accent color */
+            background-color: #D4B294; /* Gold accent color */
             color: #4B3832;
             padding: 15px 0;
             font-size: 1.2rem;
@@ -140,7 +135,7 @@
             border-radius: 4px;
             border: none;
         }
-
+        
         .btn-checkout:hover {
             background-color: #C5A485;
             color: #4B3832;
@@ -154,31 +149,27 @@
             border-radius: 8px;
             margin-top: 30px;
         }
-
+        
         .empty-cart-message h3 {
             color: #4B3832;
         }
-
+        
         /* Responsive adjustments */
         @media (max-width: 992px) {
             .order-summary-card {
-                position: static;
-                /* Remove sticky on mobile */
+                position: static; /* Remove sticky on mobile */
                 margin-top: 30px;
             }
         }
-
         @media (max-width: 576px) {
             .cart-item {
                 flex-wrap: wrap;
             }
-
             .item-total-price {
                 width: 100%;
                 text-align: left;
                 margin-top: 10px;
             }
-
             .item-remove {
                 position: absolute;
                 top: 25px;
@@ -194,12 +185,11 @@
         <div class="navbar-top">
             <div class="logo">
                 <a href="index.html">
-                    <img src="elaria.png" style="height: 60px; width: 100%;" alt="Elaria Logo">
-                </a>
+                <img src="elaria.png" style="height: 60px; width: 100%;" alt="Elaria Logo">
+            </a>
             </div>
             <div class="search-container">
-                <input type="text" id="searchInput"
-                    placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
+                <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
                 <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
                 <div class="utility-icons">
                     <span class="icon"><i class="fa-solid fa-gift"></i>
@@ -222,16 +212,12 @@
         <div class="navbar-bottom">
             <ul class="menu-list">
                 <li><a href="dailywears.html"><span class="menu-icon"><i class="fa-solid fa-coins"></i>
-                        </span>Daily Wear</a></li>
-                <li><a href="necklaces.html"><span class="menu-icon"><i class="fa-solid fa-heart"></i></span>
-                        Necklaces</a></li>
-                <li><a href="earings.html"><span class="menu-icon"><i class="fa-solid fa-gem"></i></span> Earrings</a>
-                </li>
+                                </span>Daily Wear</a></li>
+                <li><a href="necklaces.html"><span class="menu-icon"><i class="fa-solid fa-heart"></i></span> Necklaces</a></li>
+                <li><a href="earings.html"><span class="menu-icon"><i class="fa-solid fa-gem"></i></span> Earrings</a></li>
                 <li><a href="rings.html"><span class="menu-icon"><i class="fa-solid fa-ring"></i></span> Rings</a></li>
-                <li><a href="wedding.html"><span class="menu-icon"><i class="fa-solid fa-user-group"></i></span>
-                        Wedding</a></li>
-                <li><a href="gifting.html"><span class="menu-icon"><i class="fa-solid fa-gift"></i></span> Gifting</a>
-                </li>
+                <li><a href="wedding.html"><span class="menu-icon"><i class="fa-solid fa-user-group"></i></span> Wedding</a></li>
+                <li><a href="gifting.html"><span class="menu-icon"><i class="fa-solid fa-gift"></i></span> Gifting</a></li>
             </ul>
         </div>
     </nav>
@@ -240,9 +226,9 @@
         <h1 class="page-title">Your Shopping Cart</h1>
 
         <div class="row">
-
+            
             <div class="col-lg-8" id="cart-items-container">
-
+                
                 <div class="cart-item" data-unit-price="290000" id="item-290">
                     <div class="item-image" style="background-image: url('ring_product1.jpg');"></div>
                     <div class="item-details">
@@ -274,7 +260,7 @@
                         <button class="remove-item-btn"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                 </div>
-
+                
                 <div class="cart-item" data-unit-price="98000" id="item-980">
                     <div class="item-image" style="background-image: url('daily_wear_product2.jpg');"></div>
                     <div class="item-details">
@@ -290,7 +276,7 @@
                         <button class="remove-item-btn"><i class="fa-solid fa-xmark"></i></button>
                     </div>
                 </div>
-
+                
                 <div class="empty-cart-message d-none" id="empty-cart-message">
                     <i class="fa-solid fa-cart-shopping mb-3" style="font-size: 2rem; color: #8A2D3C;"></i>
                     <h3>Your cart is empty.</h3>
@@ -299,59 +285,55 @@
                 </div>
 
                 <div class="mt-4">
-                    <a href="dailywears.html" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-left"></i>
-                        Continue Shopping</a>
+                    <a href="dailywears.html" class="btn btn-outline-secondary"><i class="fa-solid fa-arrow-left"></i> Continue Shopping</a>
                 </div>
 
             </div>
 
             <div class="col-lg-4">
                 <div class="order-summary-card">
-
+                    
                     <h4 class="mb-3">Order Summary</h4>
-
+                    
                     <div class="summary-line">
                         <span>Items Total (<span id="summary-item-count">3</span>)</span>
                         <span id="summary-total-price">₹ 4,25,000</span>
                     </div>
-
+                    
                     <div class="summary-line">
                         <span>Gold/Diamond Discount</span>
                         <span class="text-success" id="summary-discount">- ₹ 20,000</span>
                     </div>
-
+                    
                     <div class="summary-line">
                         <span>Delivery Charges</span>
                         <span class="text-success" id="summary-delivery">FREE</span>
                     </div>
-
+                    
                     <div class="summary-line mb-3">
                         <span>GST (3% on Jewellery)</span>
                         <span id="summary-gst">₹ 12,150</span>
                     </div>
-
+                    
                     <div class="summary-line summary-total">
                         <span>Total Payable</span>
                         <span id="summary-final-total">₹ 4,17,150</span>
                     </div>
-
+                    <a href="payment.html">
                     <button class="btn-checkout">Secure Checkout <i class="fa-solid fa-arrow-right"></i></button>
-
-                    <p class="text-center mt-3" style="font-size: 0.85rem; color: #666;">Tax and total price calculated
-                        at checkout.</p>
+                </a>
+                    <p class="text-center mt-3" style="font-size: 0.85rem; color: #666;">Tax and total price calculated at checkout.</p>
                 </div>
             </div>
-
+            
         </div>
     </div>
 
     <footer class="main-footer">
         <div class="footer-content-wrapper">
-
-            <div class="footer-logo"
-                style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.
-            </div>
-
+            
+            <div class="footer-logo" style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.</div>
+            
             <div class="footer-grid">
                 <div class="footer-col">
                     <p class="col-heading">Useful Links</p>
@@ -369,10 +351,10 @@
                     <p class="col-heading">Information</p>
                     <ul>
                         <li><a href="blog.html">Blog</a></li>
-                        <li><a href="offers.html">Offers & Contest Details</a></li>
-                        <li><a href="helpandfaq.html">Help & FAQs</a></li>
-                        <li><a href="about.html">About Elaria</a></li>
-                        <li><a href="feedback.html">Feedback & Contact Us</a></li>
+            <li><a href="offers.html">Offers & Contest Details</a></li>
+            <li><a href="helpandfaq.html">Help & FAQs</a></li>
+            <li><a href="about.html">About Elaria</a></li>
+            <li><a href="feedback.html">Feedback & Contact Us</a></li>
 
                     </ul>
                 </div>
@@ -380,33 +362,33 @@
                 <div class="footer-col contact-col">
                     <p class="col-heading">Contact Us</p>
                     <p class="contact-number">1800-266-0123</p>
-
+                    
                     <p class="col-heading chat-heading">Chat With Us</p>
                     <p class="contact-number">+91 7306614239</p>
-
+                    
                     <div class="contact-icons">
                         <a href="#">💬</a>
                         <a href="#">📧</a>
                         <a href="#">📞</a>
                     </div>
                 </div>
-
+                
             </div>
-
+            
             <div class="footer-social">
                 <p class="col-heading">Social</p>
                 <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
-                    </a>
+                    </a> 
                     <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
-                    </a>
+                    </a> 
                     <a href="#"><i class="fa-brands fa-twitter"> X</i>
-                    </a>
+                    </a> 
                     <a href="#"><i class="fa-brands fa-whatsapp"> whatsapp</i>
                     </a>
                 </div>
             </div>
-
+            
         </div>
     </footer>
 
@@ -430,7 +412,7 @@
                 const unitPrice = parseFloat(item.dataset.unitPrice);
                 const quantityInput = item.querySelector('.item-quantity');
                 const quantity = parseInt(quantityInput ? quantityInput.value : 1);
-
+                
                 // Calculate item total
                 const itemTotal = unitPrice * quantity;
                 subtotal += itemTotal;
@@ -455,10 +437,10 @@
             document.getElementById('summary-discount').textContent = `- ${formatCurrency(discount)}`;
             document.getElementById('summary-gst').textContent = formatCurrency(gstAmount);
             document.getElementById('summary-final-total').textContent = formatCurrency(finalTotal);
-
+            
             // --- Update Cart Count in Navigation ---
             document.getElementById('cart-count').textContent = totalItems;
-
+            
             // --- Handle Empty State ---
             const emptyMessage = document.getElementById('empty-cart-message');
             if (totalItems === 0) {
@@ -472,31 +454,31 @@
         function removeItem(event) {
             const button = event.target.closest('.remove-item-btn');
             const item = button.closest('.cart-item');
-
+            
             if (item) {
                 // Animation for removal
                 item.style.opacity = 0;
                 item.style.transform = 'translateX(-20px)';
-
+                
                 setTimeout(() => {
                     // Hide the item instead of removing it (safer for a functional demo)
                     item.style.display = 'none';
-
+                    
                     // Crucial: Recalculate totals after removal (which will be negative the item amount)
-                    updateOrderSummary();
-
+                    updateOrderSummary(); 
+                    
                 }, 300);
             }
         }
-
+        
         // --- Initialization and Event Listeners ---
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             // 1. Initial calculation on page load
-            updateOrderSummary();
-
+            updateOrderSummary(); 
+            
             // 2. Attach event listeners for quantity changes
             document.querySelectorAll('.item-quantity').forEach(input => {
-                input.addEventListener('change', function () {
+                input.addEventListener('change', function() {
                     // Ensure quantity is not less than 1
                     if (this.value < 1) {
                         this.value = 1;
@@ -505,61 +487,60 @@
                     updateOrderSummary();
                 });
             });
-
+            
             // 3. Attach event listeners for item removal
             document.querySelectorAll('.remove-item-btn').forEach(button => {
                 button.addEventListener('click', removeItem);
             });
         });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const searchInput = document.getElementById('searchInput');
-            const searchButton = document.getElementById('searchButton');
-            const displayedQuery = document.getElementById('displayed-query');
-
-            // --- Function to extract and display the search query from the URL ---
-            function getSearchQuery() {
-                const params = new URLSearchParams(window.location.search);
-                const query = params.get('q');
-
-                if (query) {
-                    const decodedQuery = decodeURIComponent(query);
-                    displayedQuery.textContent = '"' + decodedQuery + '"';
-
-                    // Pre-fill the navbar search input with the current query
-                    searchInput.value = decodedQuery;
-                } else {
-                    displayedQuery.textContent = "All Products";
-                    document.getElementById('results-count-info').textContent = "Displaying all products due to empty query.";
-                }
-            }
-
-            // --- Re-implement the search logic for the navbar (in case user searches again) ---
-            function performSearch() {
-                const query = searchInput.value.trim();
-                if (query.length > 0) {
-                    const searchURL = `searchresults.html?q=${encodeURIComponent(query)}`;
-                    window.location.href = searchURL;
-                } else {
-                    alert("Please enter a search term.");
-                }
-            }
-
-            // --- Attach Event Listeners ---
-            searchButton.addEventListener('click', performSearch);
-            searchInput.addEventListener('keypress', function (e) {
-                if (e.key === 'Enter') {
-                    performSearch();
-                }
-            });
-
-            // --- Run on page load ---
-            getSearchQuery();
-        });
-    </script>
+     <script>
+         document.addEventListener('DOMContentLoaded', function() {
+             const searchInput = document.getElementById('searchInput');
+             const searchButton = document.getElementById('searchButton');
+             const displayedQuery = document.getElementById('displayed-query');
+ 
+             // --- Function to extract and display the search query from the URL ---
+             function getSearchQuery() {
+                 const params = new URLSearchParams(window.location.search);
+                 const query = params.get('q');
+                 
+                 if (query) {
+                     const decodedQuery = decodeURIComponent(query);
+                     displayedQuery.textContent = '"' + decodedQuery + '"';
+                     
+                     // Pre-fill the navbar search input with the current query
+                     searchInput.value = decodedQuery;
+                 } else {
+                     displayedQuery.textContent = "All Products";
+                     document.getElementById('results-count-info').textContent = "Displaying all products due to empty query.";
+                 }
+             }
+             
+             // --- Re-implement the search logic for the navbar (in case user searches again) ---
+             function performSearch() {
+                 const query = searchInput.value.trim();
+                 if (query.length > 0) {
+                     const searchURL = `searchresults.html?q=${encodeURIComponent(query)}`;
+                     window.location.href = searchURL;
+                 } else {
+                     alert("Please enter a search term.");
+                 }
+             }
+ 
+             // --- Attach Event Listeners ---
+             searchButton.addEventListener('click', performSearch);
+             searchInput.addEventListener('keypress', function(e) {
+                 if (e.key === 'Enter') {
+                     performSearch();
+                 }
+             });
+ 
+             // --- Run on page load ---
+             getSearchQuery();
+         });
+     </script>
 </body>
-
 </html>

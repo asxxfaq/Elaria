@@ -1,0 +1,531 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.elaria-navbar { /* Renamed class */
+    border-bottom: 1px solid #ddd;
+    
+   
+}
+
+.navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    height: 60px;
+    
+    
+}
+
+/* Logo */
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    color: #8B0000; /* Deep red color (kept for style consistency) */
+}
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* Search Container (No changes needed) */
+.search-container {
+    flex-grow: 1;
+    max-width: 600px;
+    margin: 0 30px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.search-input {
+    flex-grow: 1;
+    border: none;
+    padding: 0 15px;
+    font-size: 14px;
+    outline: none;
+    height: 100%;
+}
+
+.search-icon {
+    background-color: transparent;
+    border: none;
+    padding: 0 10px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+}
+
+.utility-icons {
+    display: flex;
+    align-items: center;
+    border-left: 1px solid #eee;
+}
+
+.utility-icons .icon {
+    padding: 0 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Right Side Icons (No changes needed) */
+.navbar-utility-right {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.icon-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 20px;
+    position: relative;
+    transition: color 0.2s;
+}
+
+.icon-link:hover {
+    color: #8B0000;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+}
+
+.cart-count {
+    background-color: #8B0000;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    line-height: 1;
+}
+
+/* --- Bottom Menu Styling (No changes needed) --- */
+.navbar-bottom {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: center;
+}
+
+.menu-list li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+
+.menu-icon {
+    font-size: 20px;
+    margin-bottom: 4px;
+    color: #666;
+}
+
+.menu-list li a:hover {
+    color: #8B0000;
+}
+/* ======================================= */
+/* --- NEW MINIMALIST PAYMENT PAGE STYLES --- */
+/* ======================================= */
+
+.minimalist-payment-container {
+    max-width: 1000px; /* Reduced width for focus */
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.payment-header-minimal {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.payment-header-minimal h1 {
+    font-size: 2.8em;
+    font-weight: 300; /* Lighter font weight for elegance */
+    color: #333;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+/* Minimalist Progress Bar */
+.progress-bar-minimal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.95em;
+    font-weight: 500;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.progress-bar-minimal .step-minimal {
+    padding: 0 15px;
+    color: #bbb;
+    position: relative;
+}
+
+.progress-bar-minimal .step-minimal::after {
+    content: "—"; /* Simple line separator */
+    position: absolute;
+    right: -10px;
+    color: #eee;
+    font-weight: 300;
+}
+
+.progress-bar-minimal .step-minimal:last-child::after {
+    content: none;
+}
+
+.progress-bar-minimal .step-minimal.active {
+    color: #a58e4d; /* Elaria Gold Accent */
+}
+
+.progress-bar-minimal .step-minimal.current {
+    font-weight: 700;
+    color: #333;
+}
+
+/* Layout */
+.payment-layout-minimal {
+    display: flex;
+    gap: 40px;
+}
+
+.section-title-minimal {
+    font-size: 1.6em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Payment Methods Panel */
+.payment-methods-minimal {
+    flex: 2;
+    background-color: #fff;
+}
+
+/* Method Selector (Pills) */
+.method-selector-minimal {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.method-selector-minimal input[type="radio"] {
+    display: none;
+}
+
+.method-label {
+    padding: 15px 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    color: #555;
+    transition: all 0.2s;
+    background-color: #fafafa;
+}
+
+.method-selector-minimal input[type="radio"]:checked + .method-label {
+    background-color: #fcf8ee; /* Very light gold background */
+    border-color: #a58e4d;
+    color: #a58e4d;
+    box-shadow: 0 1px 5px rgba(165, 142, 77, 0.1);
+}
+
+.method-label i {
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+/* Payment Form Content */
+.payment-form-box {
+    padding: 20px 0;
+}
+
+.form-group-minimal {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group-minimal label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #666;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group-minimal input, .bank-select-minimal {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.2s;
+}
+
+.form-group-minimal input:focus, .bank-select-minimal:focus {
+    border-color: #a58e4d;
+    outline: none;
+    box-shadow: 0 0 0 1px rgba(165, 142, 77, 0.5);
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.card-icons {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+    color: #777;
+    pointer-events: none;
+}
+.card-icons i {
+    margin-left: 5px;
+}
+
+.form-row-minimal {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row-minimal .form-group-minimal {
+    flex: 1;
+}
+
+.security-text-minimal {
+    font-size: 0.85em;
+    color: #a58e4d;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.security-text-minimal i {
+    color: #a58e4d;
+    margin-right: 5px;
+}
+
+/* Pay Button (Minimalist) */
+.pay-btn-minimal {
+    width: 100%;
+    background-color: #a58e4d; /* Elaria Gold */
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 4px;
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.pay-btn-minimal:hover:not(:disabled) {
+    background-color: #7e6d3c;
+}
+
+.pay-btn-minimal:disabled {
+    background-color: #ccc;
+    opacity: 0.8;
+    cursor: not-allowed;
+}
+
+/* UPI/COD/Net Banking Forms */
+.form-instruction {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.upi-option-minimal {
+    padding: 20px;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.qr-container {
+    text-align: center;
+}
+
+.qr-code-placeholder-minimal {
+    width: 180px;
+    height: 180px;
+    background-color: #fcfcfc;
+    border: 1px dashed #ccc;
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    text-align: center;
+    padding: 10px;
+}
+
+.cod-box-minimal {
+    text-align: center;
+}
+
+.cod-icon-minimal {
+    font-size: 3.5em;
+    color: #a58e4d;
+    margin-bottom: 20px;
+}
+
+.cod-info-minimal {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #333;
+}
+
+.cod-note-minimal {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.cod-note-small-minimal {
+    font-size: 0.85em;
+    color: #dc3545; /* Use a strong color for the COD restriction warning */
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+/* Order Summary (Minimalist) */
+.order-summary-minimal {
+    flex: 1;
+    height: fit-content;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fafafa;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.summary-line-minimal {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #555;
+}
+
+.summary-line-minimal span:last-child {
+    font-weight: 500;
+    color: #333;
+}
+
+.discount-line span:last-child {
+    color: #28a745;
+}
+
+.tax-line-minimal {
+    padding-top: 15px;
+    border-top: 1px dashed #eee;
+}
+
+.total-line-minimal {
+    border-top: 2px solid #a58e4d;
+    padding-top: 15px;
+    margin-top: 20px;
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #333;
+}
+
+.total-line-minimal span:last-child {
+    color: #a58e4d;
+}
+
+.security-info-minimal {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    font-size: 0.8em;
+    color: #999;
+}
+
+.security-info-minimal i {
+    color: #007bff;
+    margin-right: 5px;
+}
+/* Must be in your style.css */
+.hidden-form {
+    display: none !important; 
+}
+
+.active-form {
+    display: block !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .payment-layout-minimal {
+        flex-direction: column;
+    }
+    .payment-methods-minimal, .order-summary-minimal {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .payment-header-minimal h1 {
+        font-size: 2em;
+    }
+    .progress-bar-minimal {
+        flex-wrap: wrap;
+        padding-bottom: 10px;
+    }
+    .progress-bar-minimal .step-minimal {
+        padding: 5px 10px;
+        margin-bottom: 5px;
+    }
+    .form-row-minimal {
+        flex-direction: column;
+        gap: 0;
+    }
+    .method-label {
+        font-size: 0.9em;
+    }
+}

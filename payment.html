@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="payment.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elaria | Secure Payment</title>
+</head>
+
+<body>
+    <nav class="elaria-navbar">
+        <div class="navbar-top">
+            <div class="logo">
+                <img src="elaria.png" style="height: 60px; width: 100%;" alt="Elaria Logo">
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..."
+                    class="search-input">
+                <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
+                <div class="utility-icons">
+                    <span class="icon"><i class="fa-solid fa-gift"></i>
+                    </span>
+                    <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
+                </div>
+            </div>
+
+            <div class="navbar-utility-right">
+                <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
+                <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon-link cart">
+                    <span><i class="fa-solid fa-cart-shopping"></i></span>
+
+                </a>
+            </div>
+        </div>
+
+        <div class="navbar-bottom">
+            <ul class="menu-list">
+                <li><a href="dailywears.html"><span class="menu-icon"><i class="fa-solid fa-coins"></i>
+                        </span>Daily Wears</a></li>
+                <li><a href="necklaces.html"><span class="menu-icon"><i class="fa-solid fa-heart"></i></span> Necklaces</a></li>
+                <li><a href="earings.html"><span class="menu-icon"><i class="fa-solid fa-gem"></i></span> Earrings</a></li>
+                <li><a href="rings.html"><span class="menu-icon"><i class="fa-solid fa-ring"></i></span> Rings</a></li>
+                <li><a href="wedding.html"><span class="menu-icon"><i class="fa-solid fa-user-group"></i></span> Wedding</a>
+                </li>
+                <li><a href="gifting.html"><span class="menu-icon"><i class="fa-solid fa-gift"></i></span> Gifting</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="minimalist-payment-container">
+        <div class="payment-header-minimal">
+            <h1>Complete Your Order</h1>
+                <span class="step-minimal active current"> Payment</span>
+            </div>
+        </div>
+
+        <div class="payment-layout-minimal">
+            
+            <section class="payment-methods-minimal">
+                <h2 class="section-title-minimal">Payment Method</h2>
+                
+                <div class="method-selector-minimal">
+                    
+                    <input type="radio" id="creditCard" name="payment_method" value="card" checked>
+                    <label for="creditCard" class="method-label"><i class="fa-solid fa-credit-card"></i> Credit / Debit Card</label>
+
+                    <input type="radio" id="upi" name="payment_method" value="upi">
+                    <label for="upi" class="method-label"><i class="fa-solid fa-mobile-screen-button"></i> UPI / QR Code</label>
+                    
+                    <input type="radio" id="netbanking" name="payment_method" value="netbanking">
+                    <label for="netbanking" class="method-label"><i class="fa-solid fa-building-columns"></i> Net Banking</label>
+
+                    <input type="radio" id="cod" name="payment_method" value="cod">
+                    <label for="cod" class="method-label"><i class="fa-solid fa-money-bill-wave"></i> Cash On Delivery (COD)</label>
+                </div>
+
+                <div class="payment-form-content">
+                    
+                    <div id="card-form" class="active-form payment-form-box">
+                        <form>
+                            <div class="form-group-minimal">
+                                <label for="cardNumber">Card Number</label>
+                                <div class="input-with-icon">
+                                    <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                                    <div class="card-icons">
+                                        <i class="fa-brands fa-cc-visa"></i>
+                                        <i class="fa-brands fa-cc-mastercard"></i>
+                                        <i class="fa-brands fa-cc-amex"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group-minimal">
+                                <label for="cardName">Name on Card</label>
+                                <input type="text" id="cardName" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-row-minimal">
+                                <div class="form-group-minimal expiry-group">
+                                    <label for="cardExpiry">Expiry Date</label>
+                                    <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5" required>
+                                </div>
+                                <div class="form-group-minimal cvv-group">
+                                    <label for="cardCVV">CVV</label>
+                                    <input type="text" id="cardCVV" placeholder="123" maxlength="4" required>
+                                </div>
+                            </div>
+                            <p class="security-text-minimal"><i class="fa-solid fa-lock"></i> Secured by 256-bit encryption. Your data is safe.</p>
+                            <button type="submit" class="pay-btn-minimal" disabled>Pay Now ₹<span id="cardPayAmount">1,25,316.00</span></button>
+                        </form>
+                    </div>
+
+                    <div id="upi-form" class="hidden-form payment-form-box">
+                        <div class="upi-option-minimal">
+                            <p class="form-instruction">Enter your **UPI ID**</p>
+                            <input type="text" placeholder="yourname@bank.com" class="upi-input-minimal">
+                            <button class="pay-btn-minimal">Verify & Pay</button>
+                        </div>
+                        <div class="upi-option-minimal qr-container">
+                            <p class="form-instruction">Or **Scan QR Code**</p>
+                            <div class="qr-code-placeholder-minimal">
+                                 
+                                <p>Scan with GPay, Paytm, or PhonePe.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="netbanking-form" class="hidden-form payment-form-box">
+                        <p class="form-instruction">You will be securely redirected to your bank's portal.</p>
+                        <select class="bank-select-minimal">
+                            <option value="">Select Your Bank</option>
+                            <option>HDFC Bank</option>
+                            <option>ICICI Bank</option>
+                            <option>State Bank of India (SBI)</option>
+                            <option>Axis Bank</option>
+                            <option>Kotak Mahindra Bank</option>
+                            <option>Other Banks</option>
+                        </select>
+                        <button class="pay-btn-minimal">Pay via Net Banking</button>
+                    </div>
+
+                    <div id="cod-form" class="hidden-form payment-form-box cod-box-minimal">
+                        <i class="fa-solid fa-handshake-angle cod-icon-minimal"></i>
+                        <p class="cod-info-minimal">You have selected **Cash On Delivery**.</p>
+                        <p class="cod-note-minimal">Amount Due at Delivery: ₹<span id="codPayAmount">1,25,316.00</span></p>
+                        <p class="cod-note-small-minimal">Note: COD is available for orders up to ₹50,000. Your order exceeds this limit, please choose another method.</p>
+                        <button class="pay-btn-minimal cod-confirm-minimal" disabled>Confirm COD Order</button>
+                    </div>
+
+                </div>
+            </section>
+
+            <aside class="order-summary-minimal">
+                <h2 class="section-title-minimal">Order Summary</h2>
+                <div class="summary-line-minimal">
+                    <span>Subtotal (<span id="itemCount">3</span> items)</span>
+                    <span>₹1,18,000.00</span>
+                </div>
+                <div class="summary-line-minimal">
+                    <span>Shipping</span>
+                    <span>FREE</span>
+                </div>
+                <div class="summary-line-minimal discount-line">
+                    <span>Discount (WELCOME10)</span>
+                    <span>- ₹11,800.00</span>
+                </div>
+                <div class="summary-line-minimal tax-line-minimal">
+                    <span>Taxes & GST (18%)</span>
+                    <span>₹19,116.00</span>
+                </div>
+                <div class="summary-line-minimal total-line-minimal">
+                    <span>Amount Payable</span>
+                    <span id="totalAmount">₹1,25,316.00</span>
+                </div>
+                <div class="security-info-minimal">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <p>Powered by Elaria SecurePay.</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // --- Payment Logic Script ---
+        const radioButtons = document.querySelectorAll('input[name="payment_method"]');
+        const formContents = {
+            card: document.getElementById('card-form'),
+            upi: document.getElementById('upi-form'),
+            netbanking: document.getElementById('netbanking-form'),
+            cod: document.getElementById('cod-form')
+        };
+        
+        const allPayButtons = document.querySelectorAll('.pay-btn-minimal');
+        
+        // Function to handle the display and enablement of forms
+        function showPaymentForm(method) {
+            // 1. Hide/Deactivate all forms and disable all pay buttons
+            Object.values(formContents).forEach(form => {
+                form.classList.remove('active-form');
+                form.classList.add('hidden-form');
+                // Disable all internal pay buttons initially
+                form.querySelectorAll('.pay-btn-minimal').forEach(btn => btn.disabled = true);
+            });
+            
+            // 2. Show and partially enable the selected form
+            if (formContents[method]) {
+                formContents[method].classList.add('active-form');
+                formContents[method].classList.remove('hidden-form');
+                
+                // 3. Re-check the validity for the visible form to enable its button
+                if (method === 'card') {
+                    checkCardFormValidity(); // Enables card button if all fields are filled
+                } else {
+                    // For UPI, Net Banking, COD: enable their buttons immediately 
+                    // as they don't have complex form validation here.
+                    formContents[method].querySelector('.pay-btn-minimal').disabled = false;
+                }
+            }
+        }
+
+        // --- Card Form Validation Logic (Kept separate) ---
+        const cardForm = document.getElementById('card-form').querySelector('form');
+        const cardInputs = cardForm.querySelectorAll('input[required]');
+        const cardPayBtn = cardForm.querySelector('.pay-btn-minimal');
+
+        function checkCardFormValidity() {
+            let isComplete = true;
+            cardInputs.forEach(input => {
+                if (input.value.trim() === '') {
+                    isComplete = false;
+                }
+            });
+            cardPayBtn.disabled = !isComplete;
+        }
+
+        cardInputs.forEach(input => {
+            input.addEventListener('input', checkCardFormValidity);
+        });
+        // --- End Card Form Validation ---
+
+
+        // --- Event Listeners and Initial Setup ---
+
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', (e) => {
+                showPaymentForm(e.target.value);
+            });
+        });
+
+        // Initial setup: Only show and enable the 'card' form
+        showPaymentForm('card');
+
+
+        // --- Placeholder Data Setup (Retained) ---
+        const totalAmountSpan = document.getElementById('totalAmount');
+        // Use a default value if the span is empty (e.g., if cart hasn't populated it)
+        const finalTotalText = totalAmountSpan ? totalAmountSpan.textContent : '₹1,25,316.00'; 
+        
+        document.getElementById('cardPayAmount').textContent = finalTotalText.replace('₹', '');
+        document.getElementById('codPayAmount').textContent = finalTotalText;
+
+
+        // --- Re-insert your existing search functionality for the navbar ---
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+
+        function performSearch() {
+            const query = searchInput.value.trim();
+            if (query.length > 0) {
+                const searchURL = `searchresults.html?q=${encodeURIComponent(query)}`;
+                console.log("Simulated Search Query: " + query);
+                window.location.href = searchURL;
+            } else {
+                alert("Please enter a search term.");
+            }
+        }
+
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        // --------------------------------------------------------------------
+    });
+</script>
+</body>
+
+</html>
