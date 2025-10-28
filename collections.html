@@ -5,127 +5,82 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="collection.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elaria - Visual Collection Gallery</title>
 
     <style>
-        /* --- Page Layout --- */
-        .page-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 15px;
-        }
-
-        .collections-header {
-            text-align: center;
-            padding: 20px 0;
-            margin-bottom: 40px;
-        }
-
-        .collections-header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: #4B3832;
-            font-weight: 600;
-        }
-
-        .collections-header p {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        /* --- Image Gallery Card Styles --- */
-        .gallery-card {
-            display: block;
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            height: 380px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .gallery-card-bg {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .gallery-card:hover .gallery-card-bg {
-            transform: scale(1.08);
-        }
-
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .gallery-overlay h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-
-        .gallery-overlay p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 0;
-        }
+        
     </style>
 </head>
 
 <body>
     <nav class="elaria-navbar">
         <div class="navbar-top">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="elaria.png" style="height: 60px; width: 100%;" alt="Elaria Logo">
-                </a>
-            </div>
-            <div class="search-container">
-                <input type="text" id="searchInput"
-                    placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
-                <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
-                <div class="utility-icons">
-                    <span class="icon"><i class="fa-solid fa-gift"></i></span>
-                    <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
-                </div>
-            </div>
-            <div class="navbar-utility-right">
-                <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
-                <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i></a>
-                <a href="cart.html" class="icon-link cart">
-                    <span><i class="fa-solid fa-cart-shopping"></i></span>
-                </a>
-            </div>
+          <div class="logo">
+            <a href="index.html">
+            <img src="elaria.png" alt="Elaria Logo">
+        </a>
+          </div>
+      
+          <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
+            <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
+          </div>
+      
+          <div class="navbar-utility-right">
+            <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
+            <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i></a>
+            <a href="cart.html" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
+      
+          
+            <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+          </div>
         </div>
-
-        <div class="navbar-bottom">
-            <ul class="menu-list">
-                <li><a href="dailywears.html"><span class="menu-icon"><i class="fa-solid fa-coins"></i></span>Daily
-                        Wears</a></li>
-                <li><a href="necklaces.html"><span class="menu-icon"><i class="fa-solid fa-heart"></i></span>
-                        Necklaces</a></li>
-                <li><a href="earings.html"><span class="menu-icon"><i class="fa-solid fa-gem"></i></span> Earrings</a>
-                </li>
-                <li><a href="rings.html"><span class="menu-icon"><i class="fa-solid fa-ring"></i></span> Rings</a></li>
-                <li><a href="wedding.html"><span class="menu-icon"><i class="fa-solid fa-user-group"></i></span>
-                        Wedding</a></li>
-                <li><a href="gifting.html"><span class="menu-icon"><i class="fa-solid fa-gift"></i></span> Gifting</a>
-                </li>
-            </ul>
+      
+        <div class="navbar-bottom" id="navbarBottom">
+          <ul class="menu-list">
+            <li>
+              <a href="dailywears.html">
+                <img src="dailywearslogo.jpg" alt="Daily Wears" class="menu-icon-img">
+                Daily Wears
+              </a>
+            </li>
+            <li>
+              <a href="necklaces.html">
+                <img src="necklacelogo.jpg" alt="Necklaces" class="menu-icon-img">
+                Necklaces
+              </a>
+            </li>
+            <li>
+              <a href="earings.html">
+                <img src="earings.jpg" alt="Earrings" class="menu-icon-img">
+                Earrings
+              </a>
+            </li>
+            <li>
+              <a href="rings.html">
+                <img src="rings.jpg" alt="Rings" class="menu-icon-img">
+                Rings
+              </a>
+            </li>
+            <li>
+              <a href="wedding.html">
+                <img src="wedding.jpg" alt="Wedding" class="menu-icon-img">
+                Wedding
+              </a>
+            </li>
+            <li>
+              <a href="gifting.html">
+                <img src="gift.jpg" alt="Gifting" class="menu-icon-img">
+                Gifting
+              </a>
+            </li>
+          </ul>
         </div>
-    </nav>
+        
+      </nav>
     <header class="collections-header">
         <div class="page-container">
             <h1>Our Entire Jewellery Universe</h1>

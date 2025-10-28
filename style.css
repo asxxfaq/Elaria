@@ -16,10 +16,75 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 10px 40px;
-    height: 60px;
+    height: 70px;
     
     
 }
+.menu-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu-list li {
+    margin: 0 10px;
+  }
+  
+  .menu-list a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000; /* adjust for your theme */
+    font-weight: 500;
+    padding: 8px 10px;
+    transition: 0.3s;
+  }
+  
+  .menu-list a:hover {
+    color: #d4a017; /* gold hover color */
+  }
+  
+  .menu-icon-img {
+    width: 52px;
+    height: 52px;
+    margin-right: 8px;
+    object-fit: contain;
+    vertical-align: middle;
+  }
+  @media (max-width: 768px) {
+    .menu-list {
+      overflow-x: auto;
+      white-space: nowrap;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      padding: 10px 5px;
+      scrollbar-width: none; /* hide scrollbar in Firefox */
+    }
+  
+    .menu-list::-webkit-scrollbar {
+      display: none; /* hide scrollbar in Chrome/Safari */
+    }
+  
+    .menu-list li {
+      display: inline-block;
+    }
+  
+    .menu-list li a {
+      flex-direction: column;
+      font-size: 13px;
+      text-align: center;
+      padding: 5px;
+    }
+  
+    .menu-icon-img {
+      margin: 0 0 5px 0;
+      width: 50px;
+      height: 50px;
+    }
+  }  
 
 /* Logo */
 .logo {
@@ -115,8 +180,9 @@ body {
 .navbar-bottom {
     display: flex;
     justify-content: center;
-    padding: 10px 0;
+    padding: 6px 0;
     border-top: 1px solid #eee;
+    height: 130px;
 }
 
 .menu-list {
@@ -124,7 +190,7 @@ body {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 30px;
+    gap: 10px;
     max-width: 1200px;
     width: 100%;
     justify-content: center;
@@ -150,12 +216,7 @@ body {
 
 .menu-list li a:hover {
     color: #8B0000;
-}.elaria-navbar {
-    width: 100%;
-    background: white;
-    border-bottom: 1px solid #eee;
-    font-family: Poppins, sans-serif;
-  }
+}
   
   /* Top Section */
   .navbar-top {

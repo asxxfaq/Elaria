@@ -14,45 +14,69 @@
 <body>
     <nav class="elaria-navbar">
         <div class="navbar-top">
-            <div class="logo">
-                <a href="index.html">
-                <img src="elaria.png" style="height: 60px; width: 100%;" alt="Elaria Logo">
-            </a>
-            </div>
-
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
-                <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
-                <div class="utility-icons">
-                    <span class="icon"><i class="fa-solid fa-gift"></i>
-                    </span>
-                    <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
-                </div>
-            </div>
-
-            <div class="navbar-utility-right">
-    
-                <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
-                <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i>
-                </a>
-                <a href="cart.html" class="icon-link cart">
-                    <span><i class="fa-solid fa-cart-shopping"></i></span>
-                </a>
-            </div>
+          <div class="logo">
+            <a href="index.html">
+            <img src="elaria.png" alt="Elaria Logo">
+        </a>
+          </div>
+      
+          <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
+            <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
+          </div>
+      
+          <div class="navbar-utility-right">
+            <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
+            <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i></a>
+            <a href="cart.html" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
+      
+          
+            <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+          </div>
         </div>
-
-        <div class="navbar-bottom">
-            <ul class="menu-list">
-                <li><a href="dailywears.html"><span class="menu-icon"><i class="fa-solid fa-coins"></i>
-                                </span>Daily Wear</a></li>
-                <li><a href="necklaces.html"><span class="menu-icon"><i class="fa-solid fa-heart"></i></span> Necklaces</a></li>
-                <li><a href="earings.html"><span class="menu-icon"><i class="fa-solid fa-gem"></i></span> Earrings</a></li>
-                <li><a href="rings.html"><span class="menu-icon"><i class="fa-solid fa-ring"></i></span> Rings</a></li>
-                <li><a href="wedding.html"><span class="menu-icon"><i class="fa-solid fa-user-group"></i></span> Wedding</a></li>
-                <li><a href="gifting.html"><span class="menu-icon"><i class="fa-solid fa-gift"></i></span> Gifting</a></li>
-            </ul>
+      
+        <div class="navbar-bottom" id="navbarBottom">
+          <ul class="menu-list">
+            <li>
+              <a href="dailywears.html">
+                <img src="dailywearslogo.jpg" alt="Daily Wears" class="menu-icon-img">
+                Daily Wears
+              </a>
+            </li>
+            <li>
+              <a href="necklaces.html">
+                <img src="necklacelogo.jpg" alt="Necklaces" class="menu-icon-img">
+                Necklaces
+              </a>
+            </li>
+            <li>
+              <a href="earings.html">
+                <img src="earings.jpg" alt="Earrings" class="menu-icon-img">
+                Earrings
+              </a>
+            </li>
+            <li>
+              <a href="rings.html">
+                <img src="rings.jpg" alt="Rings" class="menu-icon-img">
+                Rings
+              </a>
+            </li>
+            <li>
+              <a href="wedding.html">
+                <img src="wedding.jpg" alt="Wedding" class="menu-icon-img">
+                Wedding
+              </a>
+            </li>
+            <li>
+              <a href="gifting.html">
+                <img src="gift.jpg" alt="Gifting" class="menu-icon-img">
+                Gifting
+              </a>
+            </li>
+          </ul>
         </div>
-    </nav>
+        
+      </nav>
 
     <div class="rings-page-container">
 
@@ -94,7 +118,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Classic Round Solitaire</h5>
                         <p class="card-price">₹ 2,90,000</p>
-                        <a href="#" class="ring-btn-cart">Add to Cart</a>
+                        <a href="#" class="ring-btn-cart btn-add-cart" data-product-id="ring1" >Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -107,7 +131,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Platinum Wedding Band</h5>
                         <p class="card-price">₹ 78,500</p>
-                        <a href="#" class="ring-btn-cart">Add to Cart</a>
+                        <a href="#" class="ring-btn-cart btn-add-cart" data-product-id="ring2">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -121,7 +145,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Rose Gold Flower Cocktail</h5>
                         <p class="card-price">₹ 1,15,000</p>
-                        <a href="#" class="ring-btn-cart">Add to Cart</a>
+                        <a href="#" class="ring-btn-cart btn-add-cart" data-product-id="ring3">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -134,7 +158,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Simple Stackable Diamond Ring</h5>
                         <p class="card-price">₹ 18,200</p>
-                        <a href="#" class="ring-btn-cart">Add to Cart</a>
+                        <a href="#" class="ring-btn-cart btn-add-cart" data-product-id="ring4">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -147,7 +171,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Emerald Cut Statement Ring</h5>
                         <p class="card-price">₹ 1,89,500</p>
-                        <a href="#" class="ring-btn-cart">Add to Cart</a>
+                        <a href="#" class="ring-btn-cart btn-add-cart" data-product-id="ring5">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -160,7 +184,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Textured Gold Finger Ring</h5>
                         <p class="card-price">₹ 45,000</p>
-                        <a href="#" class="ring-btn-cart">Add to Cart</a>
+                        <a href="#" class="ring-btn-cart btn-add-cart" data-product-id="ring6">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -173,7 +197,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Simple Pave Diamond Band</h5>
                         <p class="card-price">₹ 1,50,000</p>
-                        <a href="#" class="ring-btn-cart">Add to Cart</a>
+                        <a href="#" class="ring-btn-cart btn-add-cart" data-product-id="ring7">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -186,7 +210,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Delicate Pavé Eternity Ring</h5>
                         <p class="card-price">₹ 1,50,000</p>
-                        <a href="#" class="ring-btn-cart">Add to Cart</a>
+                        <a href="#" class="ring-btn-cart btn-add-cart" data-product-id="ring8">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -200,7 +224,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Stackable Pavé Diamond Band</h5>
                         <p class="card-price">₹ 1,50,000</p>
-                        <a href="#" class="ring-btn-cart">Add to Cart</a>
+                        <a href="#" class="ring-btn-cart btn-add-cart" data-product-id="ring9">Add to Cart</a>
                     </div>
                 </div>
             </div>
@@ -214,22 +238,13 @@
                     <div class="card-body">
                         <h5 class="card-title">Twisted Gold Knot Ring</h5>
                         <p class="card-price">₹ 32,900</p>
-                        <a href="#" class="ring-btn-cart">Add to Cart</a>
+                        <a href="#" class="ring-btn-cart btn-add-cart" data-product-id="ring10">Add to Cart</a>
                     </div>
                 </div>
             </div>
             
         </div>
         
-        <nav class="mt-5" aria-label="Product Page navigation">
-            <ul class="pagination justify-content-center">
-                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-            </ul>
-        </nav>
         
     </div>
 
@@ -375,5 +390,65 @@
              getSearchQuery();
          });
      </script>
+     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const addToCartButtons = document.querySelectorAll(".btn-add-cart");
+          const cartIcon = document.querySelector(".navbar-utility-right .fa-cart-shopping");
+    
+          // Create badge
+          let cartCount = document.createElement("span");
+          cartCount.classList.add("cart-count");
+          cartCount.style.background = "#8B0000";
+          cartCount.style.color = "white";
+          cartCount.style.borderRadius = "50%";
+          cartCount.style.padding = "2px 6px";
+          cartCount.style.fontSize = "12px";
+          cartCount.style.position = "absolute";
+          cartCount.style.top = "-6px";
+          cartCount.style.right = "-8px";
+          cartCount.textContent = "0";
+          cartIcon.parentElement.style.position = "relative";
+          cartIcon.parentElement.appendChild(cartCount);
+    
+          let cart = JSON.parse(localStorage.getItem("cart")) || [];
+          updateCartCount();
+    
+          addToCartButtons.forEach(button => {
+            button.addEventListener("click", e => {
+              e.preventDefault();
+    
+              const card = button.closest(".product-card");
+              const name = card.querySelector(".card-title").textContent.trim();
+              const priceText = card.querySelector(".card-price").textContent.trim();
+              const image = card.querySelector(".card-img").style.backgroundImage.slice(5, -2);
+              const price = parseInt(priceText.replace(/[^0-9]/g, "")) || 0;
+    
+              const product = {
+                id: name.toLowerCase().replace(/\s+/g, "-"),
+                name,
+                price,
+                image,
+                qty: 1
+              };
+    
+              const existing = cart.find(item => item.id === product.id);
+              if (existing) {
+                existing.qty += 1;
+              } else {
+                cart.push(product);
+              }
+    
+              localStorage.setItem("cart", JSON.stringify(cart));
+              updateCartCount();
+              alert(`${name} added to cart successfully! 🛒`);
+            });
+          });
+    
+          function updateCartCount() {
+            const total = cart.reduce((sum, item) => sum + item.qty, 0);
+            cartCount.textContent = total;
+          }
+        });
+      </script>
 </body>
 </html>

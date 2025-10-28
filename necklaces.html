@@ -1,223 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="necklaces.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elaria - Necklaces</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Elaria - Necklaces</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="necklaces.css">
 </head>
-
 <body>
-    <nav class="elaria-navbar">
-        <div class="navbar-top">
-            <div class="logo">
-                <a href="index.html">
-                <img src="elaria.png" style="height: 60px; width: 100%;" alt="Elaria Logo">
-                </a>
-            </div>
-
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
-                <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
-                <div class="utility-icons">
-                    <span class="icon"><i class="fa-solid fa-gift"></i>
-                    </span>
-                    <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
-                </div>
-            </div>
-
-            <div class="navbar-utility-right">
-                <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
-                <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i>
-                </a>
-                <a href="cart.html" class="icon-link cart">
-                    <span><i class="fa-solid fa-cart-shopping"></i></span>
-                </a>
-            </div>
-        </div>
-
-        <div class="navbar-bottom">
-            <ul class="menu-list">
-                <li><a href="dailywears.html"><span class="menu-icon"><i class="fa-solid fa-coins"></i>
-                                </span>Daily Wear</a></li>
-                <li><a href="necklaces.html"><span class="menu-icon"><i class="fa-solid fa-heart"></i></span> Necklaces</a></li>
-                <li><a href="earings.html"><span class="menu-icon"><i class="fa-solid fa-gem"></i></span> Earrings</a></li>
-                <li><a href="rings.html"><span class="menu-icon"><i class="fa-solid fa-ring"></i></span> Rings</a></li>
-                <li><a href="wedding.html"><span class="menu-icon"><i class="fa-solid fa-user-group"></i></span> Wedding</a></li>
-                <li><a href="gifting.html"><span class="menu-icon"><i class="fa-solid fa-gift"></i></span> Gifting</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="necklace-page-container">
-        
-        <h1 class="page-title">Necklaces & Chains Collection</h1>
-        <p class="page-subtitle">From dainty lockets to magnificent bridal sets, find your perfect centerpiece.</p>
-
-        <div class="row">
-            
-            <div class="col-lg-3 d-none d-lg-block">
-                <div class="filter-sidebar">
-                    <h2 class="filter-heading">Filters</h2>
-                    
-                    <div class="filter-group">
-                        <p class="filter-title">Necklace Type</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="choker">
-                            <label class="form-check-label" for="choker">Chokers (45)</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="collar" >
-                            <label class="form-check-label" for="collar">Collar (15)</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="rani-haar">
-                            <label class="form-check-label" for="rani-haar">Rani Haar (8)</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="simple-chain">
-                            <label class="form-check-label" for="simple-chain">Simple Chains (72)</label>
-                        </div>
-                    </div>
-                    
-                    <div class="filter-group">
-                        <p class="filter-title">Metal</p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gold" >
-                            <label class="form-check-label" for="gold">Yellow Gold</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="diamond">
-                            <label class="form-check-label" for="diamond">Diamond Studded</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="rose">
-                            <label class="form-check-label" for="rose">Rose Gold</label>
-                        </div>
-                    </div>
-
-                    <div class="filter-group">
-                        <p class="filter-title">Price Range</p>
-                        <input type="range" class="form-range" min="10000" max="500000" step="1000" id="priceRange">
-                        <p class="price-display">₹ 50,000 - ₹ 2,50,000</p>
-                    </div>
-                    
-                    <button class="btn btn-apply-filter w-100">Apply Filters</button>
-                </div>
-            </div>
-
-            <div class="col-lg-9">
-                
-                <div class="sorting-bar">
-                    <span class="product-count">140 Products Found</span>
-                    <select class="form-select sort-dropdown">
-                        <option selected>Sort by Relevance</option>
-                        <option value="1">Price: Low to High</option>
-                        <option value="2">Price: High to Low</option>
-                        <option value="3">Newest Arrivals</option>
-                    </select>
-                </div>
-
-                <div class="row row-cols-2 row-cols-md-3 g-4 product-grid">
-                    
-                    <div class="col">
-                        <div class="product-card">
-                            <div class="card-img" style="background-image: url('images/StatementEmeraldNecklace.jpg');">
-                                <span class="discount-badge">-20%</span>
-                                <i class="fa-regular fa-heart wishlist-icon"></i>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Statement Emerald Necklace</h5>
-                                <p class="card-price">₹ 1,55,000 <span class="old-price">₹ 1,93,750</span></p>
-                                <a href="cart.html " class="btn btn-add-cart">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col">
-                        <div class="product-card">
-                            <div class="card-img" style="background-image: url('images/DelicateLocketChain.jpg');">
-                                <i class="fa-regular fa-heart wishlist-icon"></i>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Simple Delicate Locket Chain</h5>
-                                <p class="card-price">₹ 42,000</p>
-                                <a href="cart.html" class="btn btn-add-cart">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-                    
-                    <div class="col">
-                        <div class="product-card">
-                            <div class="card-img" style="background-image: url('images/TraditionalGoldMangalsutra.jpg');">
-                                <span class="discount-badge">New</span>
-                                <i class="fa-regular fa-heart wishlist-icon"></i>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Traditional Gold Mangalsutra</h5>
-                                <p class="card-price">₹ 95,500</p>
-                                <a href="cart.html" class="btn btn-add-cart">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col">
-                        <div class="product-card">
-                            <div class="card-img" style="background-image: url('images/RoseGoldSolitaireSet.jpg');">
-                                <i class="fa-regular fa-heart wishlist-icon"></i>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Rose Gold Solitaire Set</h5>
-                                <p class="card-price">₹ 2,10,000</p>
-                                <a href="cart.html" class="btn btn-add-cart">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col">
-                        <div class="product-card">
-                            <div class="card-img" style="background-image: url('images/SimpleDiamondChain.jpg');">
-                                <i class="fa-regular fa-heart wishlist-icon"></i>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Simple Diamond Chain</h5>
-                                <p class="card-price">₹ 78,000</p>
-                                <a href="cart.html" class="btn btn-add-cart">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col">
-                        <div class="product-card">
-                            <div class="card-img" style="background-image: url('images/BridalV-ShapeNecklace.jpg');">
-                                <i class="fa-regular fa-heart wishlist-icon"></i>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">Bridal V-Shape Necklace</h5>
-                                <p class="card-price">₹ 3,45,000</p>
-                                <a href="cart.html" class="btn btn-add-cart">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-                
-                </div>
-        </div>
-        
+  <nav class="elaria-navbar">
+    <div class="navbar-top">
+      <div class="logo">
+        <a href="index.html">
+        <img src="elaria.png" alt="Elaria Logo">
+    </a>
+      </div>
+  
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
+        <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
+      </div>
+  
+      <div class="navbar-utility-right">
+        <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
+        <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i></a>
+        <a href="cart.html" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
+  
+      
+        <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+      </div>
     </div>
+  
+    <div class="navbar-bottom" id="navbarBottom">
+      <ul class="menu-list">
+        <li>
+          <a href="dailywears.html">
+            <img src="dailywearslogo.jpg" alt="Daily Wears" class="menu-icon-img">
+            Daily Wears
+          </a>
+        </li>
+        <li>
+          <a href="necklaces.html">
+            <img src="necklacelogo.jpg" alt="Necklaces" class="menu-icon-img">
+            Necklaces
+          </a>
+        </li>
+        <li>
+          <a href="earings.html">
+            <img src="earings.jpg" alt="Earrings" class="menu-icon-img">
+            Earrings
+          </a>
+        </li>
+        <li>
+          <a href="rings.html">
+            <img src="rings.jpg" alt="Rings" class="menu-icon-img">
+            Rings
+          </a>
+        </li>
+        <li>
+          <a href="wedding.html">
+            <img src="wedding.jpg" alt="Wedding" class="menu-icon-img">
+            Wedding
+          </a>
+        </li>
+        <li>
+          <a href="gifting.html">
+            <img src="gift.jpg" alt="Gifting" class="menu-icon-img">
+            Gifting
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+  </nav>
+
+  <div class="necklace-page-container">
+    <h1 class="page-title">Necklaces & Chains Collection</h1>
+    <p class="page-subtitle">From dainty lockets to magnificent bridal sets, find your perfect centerpiece.</p>
+
+    <div class="row"> <div class="col-lg-3 d-none d-lg-block"> <div class="filter-sidebar"> <h2 class="filter-heading">Filters</h2> <div class="filter-group"> <p class="filter-title">Necklace Type</p> <div class="form-check"> <input class="form-check-input" type="checkbox" id="choker"> <label class="form-check-label" for="choker">Chokers (45)</label> </div> <div class="form-check"> <input class="form-check-input" type="checkbox" id="collar" > <label class="form-check-label" for="collar">Collar (15)</label> </div> <div class="form-check"> <input class="form-check-input" type="checkbox" id="rani-haar"> <label class="form-check-label" for="rani-haar">Rani Haar (8)</label> </div> <div class="form-check"> <input class="form-check-input" type="checkbox" id="simple-chain"> <label class="form-check-label" for="simple-chain">Simple Chains (72)</label> </div> </div> <div class="filter-group"> <p class="filter-title">Metal</p> <div class="form-check"> <input class="form-check-input" type="checkbox" id="gold" > <label class="form-check-label" for="gold">Yellow Gold</label> </div> <div class="form-check"> <input class="form-check-input" type="checkbox" id="diamond"> <label class="form-check-label" for="diamond">Diamond Studded</label> </div> <div class="form-check"> <input class="form-check-input" type="checkbox" id="rose"> <label class="form-check-label" for="rose">Rose Gold</label> </div> </div> <div class="filter-group"> <p class="filter-title">Price Range</p> <input type="range" class="form-range" min="10000" max="500000" step="1000" id="priceRange"> <p class="price-display">₹ 50,000 - ₹ 2,50,000</p> </div> <button class="btn btn-apply-filter w-100">Apply Filters</button> </div> </div>
+
+      <div class="col-lg-9">
+        <div class="sorting-bar d-flex justify-content-between align-items-center mb-3">
+          <span class="product-count">140 Products Found</span>
+          <select class="form-select sort-dropdown w-auto">
+            <option selected>Sort by Relevance</option>
+            <option value="1">Price: Low to High</option>
+            <option value="2">Price: High to Low</option>
+            <option value="3">Newest Arrivals</option>
+          </select>
+        </div>
+
+        <div class="row row-cols-2 row-cols-md-3 g-4 product-grid">
+          <!-- If you prefer static items, you can keep them here.
+               But by default we'll render from the `products` array below. -->
+        </div>
+      </div>
+    </div>
+  </div>
 
     <footer class="main-footer">
         <div class="footer-content-wrapper">
-            
-            <div class="footer-logo" style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.</div>
-            
+
+            <div class="footer-logo"
+                style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.
+            </div>
+
             <div class="footer-grid">
                 <div class="footer-col">
                     <p class="col-heading">Useful Links</p>
@@ -246,343 +136,228 @@
                 <div class="footer-col contact-col">
                     <p class="col-heading">Contact Us</p>
                     <p class="contact-number">1800-266-0123</p>
-                    
+
                     <p class="col-heading chat-heading">Chat With Us</p>
                     <p class="contact-number">+91 7306614239</p>
-                    
+
                     <div class="contact-icons">
                         <a href="#">💬</a>
                         <a href="#">📧</a>
                         <a href="#">📞</a>
                     </div>
                 </div>
-                
+
             </div>
-            
+
             <div class="footer-social">
                 <p class="col-heading">Social</p>
                 <div class="social-icons">
                     <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
-                    </a> 
+                    </a>
                     <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
-                    </a> 
+                    </a>
                     <a href="#"><i class="fa-brands fa-twitter"> X</i>
-                    </a> 
+                    </a>
                     <a href="#"><i class="fa-brands fa-whatsapp"> whatsapp</i>
                     </a>
                 </div>
             </div>
-            
+
         </div>
     </footer>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // JavaScript to toggle the wishlist icon color/style
-            document.querySelectorAll('.wishlist-icon').forEach(icon => {
-                icon.addEventListener('click', function() {
-                    this.classList.toggle('fa-regular'); // Toggle empty heart
-                    this.classList.toggle('fa-solid');  // Toggle filled heart
-                    this.style.color = this.classList.contains('fa-solid') ? '#8A2D3C' : '#fff';
-                });
-            });
-            
-            // Basic Price Range update display (Optional JavaScript)
-            const priceRange = document.getElementById('priceRange');
-            const priceDisplay = document.querySelector('.price-display');
-            if (priceRange) {
-                priceRange.addEventListener('input', function() {
-                    const min = 50000; // Fixed starting min for simplicity
-                    const val = parseInt(this.value);
-                    priceDisplay.textContent = `₹ ${min.toLocaleString()} - ₹ ${val.toLocaleString()}`;
-                });
-            }
-        });
-    </script>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-     <script>
-        // 1. Product Data Array (Mirroring the HTML content)
-        const products = [
-            {
-                id: 1,
-                title: "Statement Emerald Necklace",
-                price: 155000,
-                oldPrice: 193750,
-                image: 'images/StatementEmeraldNecklace.jpg',
-                type: 'choker',
-                metal: 'gold',
-                tags: ['discount']
-            },
-            {
-                id: 2,
-                title: "Simple Delicate Locket Chain",
-                price: 52000,
-                oldPrice: null,
-                image: 'images/DelicateLocketChain.jpg',
-                type: 'simple-chain',
-                metal: 'gold',
-                tags: []
-            },
-            {
-                id: 3,
-                title: "Traditional Gold Mangalsutra",
-                price: 95500,
-                oldPrice: null,
-                image: 'images/TraditionalGoldMangalsutra.jpg',
-                type: 'collar',
-                metal: 'gold',
-                tags: ['new']
-            },
-            {
-                id: 4,
-                title: "Rose Gold Solitaire Set",
-                price: 210000,
-                oldPrice: null,
-                image: 'images/RoseGoldSolitaireSet.jpg',
-                type: 'collar',
-                metal: 'rose',
-                tags: []
-            },
-            {
-                id: 5,
-                title: "Simple Diamond Chain",
-                price: 78000,
-                oldPrice: null,
-                image: 'images/SimpleDiamondChain.jpg',
-                type: 'simple-chain',
-                metal: 'diamond',
-                tags: []
-            },
-            {
-                id: 6,
-                title: "Bridal V-Shape Necklace",
-                price: 345000,
-                oldPrice: null,
-                image: 'images/BridalV-ShapeNecklace.jpg',
-                type: 'rani-haar',
-                metal: 'gold',
-                tags: []
-            },
-            // --- Add more products here to fully test the filters! ---
-            
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-        ];
-    
-        // Get DOM elements
-        const productGrid = document.querySelector('.product-grid');
-        const applyFilterButton = document.querySelector('.btn-apply-filter');
-        const sortDropdown = document.querySelector('.sort-dropdown');
-        const productCountSpan = document.querySelector('.product-count');
-        const priceRangeInput = document.getElementById('priceRange');
-        const priceDisplay = document.querySelector('.price-display');
-        const ALL_PRODUCTS = products; // Store the original, unsorted list
-    
-        // --- 2. Rendering Function ---
-        function renderProducts(filteredAndSortedProducts) {
-            let htmlContent = '';
-    
-            if (filteredAndSortedProducts.length === 0) {
-                productGrid.innerHTML = '<div class="col-12"><p class="text-center p-5">No products found matching your criteria.</p></div>';
-                productCountSpan.textContent = `0 Products Found`;
-                return;
-            }
-    
-            filteredAndSortedProducts.forEach(product => {
-                const discountBadge = product.tags.includes('discount') ? '<span class="discount-badge">-20%</span>' :
-                                      product.tags.includes('new') ? '<span class="discount-badge">New</span>' : '';
-                const oldPriceHtml = product.oldPrice ? `<span class="old-price">₹ ${product.oldPrice.toLocaleString('en-IN')}</span>` : '';
-    
-                htmlContent += `
-                    <div class="col">
-                        <div class="product-card">
-                            <div class="card-img" style="background-image: url('${product.image}');">
-                                ${discountBadge}
-                                <i class="fa-regular fa-heart wishlist-icon" data-product-id="${product.id}"></i>
-                            </div>
-                            <div class="card-body">
-                                <h5 class="card-title">${product.title}</h5>
-                                <p class="card-price">₹ ${product.price.toLocaleString('en-IN')} ${oldPriceHtml}</p>
-                                <a href="cart.html" class="btn btn-add-cart">Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-    
-            productGrid.innerHTML = htmlContent;
-            productCountSpan.textContent = `${filteredAndSortedProducts.length} Products Found`;
-            
-            // Re-attach wishlist event listeners for newly rendered products
-            attachWishlistListeners();
+  <script>
+  /***********************
+   * Product dataset
+   ***********************/
+  const products = [
+    { id: 1, title: "Statement Emerald Necklace", price: 155000, image: 'images/StatementEmeraldNecklace.jpg', tags: ['discount'] },
+    { id: 2, title: "Simple Delicate Locket Chain", price: 42000, image: 'images/DelicateLocketChain.jpg', tags: [] },
+    { id: 3, title: "Traditional Gold Mangalsutra", price: 95500, image: 'images/TraditionalGoldMangalsutra.jpg', tags: ['new'] },
+    { id: 4, title: "Rose Gold Solitaire Set", price: 210000, image: 'images/RoseGoldSolitaireSet.jpg', tags: [] },
+    { id: 5, title: "Simple Diamond Chain", price: 78000, image: 'images/SimpleDiamondChain.jpg', tags: [] },
+    { id: 6, title: "Bridal V-Shape Necklace", price: 345000, image: 'images/BridalV-ShapeNecklace.jpg', tags: [] }
+  ];
+
+  const productGrid = document.querySelector('.product-grid');
+  const productCountSpan = document.querySelector('.product-count');
+  const sortDropdown = document.querySelector('.sort-dropdown');
+
+  /***********************
+   * Render products (adds data-product-id on the button)
+   ***********************/
+  function renderProducts(list) {
+    productCountSpan.textContent = `${list.length} Products Found`;
+
+    const html = list.map(p => {
+      const discountBadge = (p.tags && p.tags.includes('discount')) ? `<span class="discount-badge">-20%</span>` :
+                            (p.tags && p.tags.includes('new')) ? `<span class="discount-badge">New</span>` : '';
+      return `
+      <div class="col">
+        <div class="product-card">
+          <div class="card-img" style="background-image: url('${p.image}');">
+            ${discountBadge}
+            <i class="fa-regular fa-heart wishlist-icon" data-product-id="${p.id}"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">${p.title}</h5>
+            <p class="card-price">₹ ${p.price.toLocaleString('en-IN')}</p>
+            <!-- IMPORTANT: data-product-id added here -->
+            <a href="#" class="btn btn-add-cart" data-product-id="${p.id}">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+      `;
+    }).join('');
+
+    productGrid.innerHTML = html;
+
+    // Re-attach listeners for wishlist + add to cart
+    attachWishlistListeners();
+    attachAddToCartListeners();
+  }
+
+  /***********************
+   * Wishlist handlers (unchanged)
+   ***********************/
+  function attachWishlistListeners() {
+    document.querySelectorAll('.wishlist-icon').forEach(icon => {
+      icon.removeEventListener('click', toggleWishlist);
+      icon.addEventListener('click', toggleWishlist);
+    });
+  }
+  function toggleWishlist() {
+    this.classList.toggle('fa-regular');
+    this.classList.toggle('fa-solid');
+    this.style.color = this.classList.contains('fa-solid') ? '#8A2D3C' : '#fff';
+  }
+
+  /***********************
+   * Add to Cart logic
+   ***********************/
+  function attachAddToCartListeners() {
+    document.querySelectorAll('.btn-add-cart').forEach(button => {
+      // remove previous handler if any
+      button.replaceWith(button.cloneNode(true));
+    });
+
+    // Re-select after clone to ensure no duplicate listeners
+    document.querySelectorAll('.btn-add-cart').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        // Read cart (or create empty)
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        const card = button.closest('.product-card');
+        const productId = button.dataset.productId || card.querySelector('.wishlist-icon')?.dataset.productId;
+        // Find product data from products array (recommended approach)
+        const productData = products.find(p => String(p.id) === String(productId));
+        if (!productData) {
+          alert('Product data not found. Please try again.');
+          return;
         }
-    
-        // --- 3. Filtering Logic ---
-        function applyFilters() {
-            const selectedTypes = Array.from(document.querySelectorAll('.filter-group:nth-child(1) input[type="checkbox"]:checked'))
-                .map(checkbox => checkbox.id);
-            
-            const selectedMetals = Array.from(document.querySelectorAll('.filter-group:nth-child(2) input[type="checkbox"]:checked'))
-                .map(checkbox => checkbox.id);
-    
-            const maxPrice = parseInt(priceRangeInput.value);
-            const minPrice = 50000; // Hardcoded min as per your HTML JS logic
-    
-            let filteredProducts = ALL_PRODUCTS.filter(product => {
-                // Filter by Necklace Type
-                const typeMatch = selectedTypes.length === 0 || selectedTypes.includes(product.type);
-    
-                // Filter by Metal
-                const metalMatch = selectedMetals.length === 0 || selectedMetals.includes(product.metal);
-    
-                // Filter by Price Range (using product's current price)
-                const priceMatch = product.price >= minPrice && product.price <= maxPrice;
-    
-                return typeMatch && metalMatch && priceMatch;
-            });
-    
-            // After filtering, apply the current sort setting
-            applySorting(filteredProducts);
+
+        const product = {
+          id: String(productData.id),
+          name: productData.title,
+          price: Number(productData.price),
+          image: productData.image,
+          qty: 1
+        };
+
+        // If exists => increase qty else push new
+        const existing = cart.find(item => item.id === product.id);
+        if (existing) {
+          existing.qty = (existing.qty || 0) + 1;
+        } else {
+          cart.push(product);
         }
-        
-        // --- 4. Sorting Logic ---
-        function applySorting(productsToRender) {
-            const sortValue = sortDropdown.value;
-            let sortedProducts = [...productsToRender]; // Create a copy to avoid mutating the filter result
-    
-            switch (sortValue) {
-                case '1': // Price: Low to High
-                    sortedProducts.sort((a, b) => a.price - b.price);
-                    break;
-                case '2': // Price: High to Low
-                    sortedProducts.sort((a, b) => b.price - a.price);
-                    break;
-                case '3': // Newest Arrivals (Assuming higher ID means newer, or use a specific 'date' field in real-world)
-                    sortedProducts.sort((a, b) => b.id - a.id); 
-                    break;
-                case 'Sort by Relevance': // Relevance (Default) - no change to the current filter order
-                default:
-                    // No action needed, maintains the filter order
-                    break;
-            }
-    
-            renderProducts(sortedProducts);
-        }
-        
-        // --- 5. Utility Functions and Event Listeners ---
-        function attachWishlistListeners() {
-             document.querySelectorAll('.wishlist-icon').forEach(icon => {
-                // Remove previous listeners to prevent duplicates
-                icon.removeEventListener('click', toggleWishlist);
-                icon.addEventListener('click', toggleWishlist);
-            });
-        }
-    
-        function toggleWishlist() {
-            this.classList.toggle('fa-regular'); // Toggle empty heart
-            this.classList.toggle('fa-solid');  // Toggle filled heart
-            this.style.color = this.classList.contains('fa-solid') ? '#8A2D3C' : '#fff';
-        }
-    
-        function updatePriceDisplay() {
-            const min = 50000;
-            const val = parseInt(this.value);
-            priceDisplay.textContent = `₹ ${min.toLocaleString('en-IN')} - ₹ ${val.toLocaleString('en-IN')}`;
-        }
-    
-        // Attach Main Event Listeners
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initial render of all products
-            renderProducts(ALL_PRODUCTS);
-    
-            // Filter button click handler
-            applyFilterButton.addEventListener('click', applyFilters);
-    
-            // Sort dropdown change handler (applies filters implicitly)
-            sortDropdown.addEventListener('change', function() {
-                // Re-apply filters to get the current subset, then sort it
-                applyFilters();
-            });
-    
-            // Price range input handler
-            if (priceRangeInput) {
-                priceRangeInput.addEventListener('input', updatePriceDisplay);
-                // Initialize the display to the default range
-                priceRangeInput.value = 250000; // Set default value on load
-                updatePriceDisplay.call(priceRangeInput); // Call once to set initial text
-            }
-        });
-    
-        // Keeping the original search functionality (Optional, but good practice)
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('searchInput');
-            const searchButton = document.getElementById('searchButton');
-    
-            function performSearch() {
-                const query = searchInput.value.trim();
-                if (query.length > 0) {
-                    const searchURL = `searchresults.html?q=${encodeURIComponent(query)}`;
-                    window.location.href = searchURL;
-                } else {
-                    alert("Please enter a search term.");
-                }
-            }
-    
-            searchButton.addEventListener('click', performSearch);
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    performSearch();
-                }
-            });
-        });
-    </script>
-     <script>
-         document.addEventListener('DOMContentLoaded', function() {
-             const searchInput = document.getElementById('searchInput');
-             const searchButton = document.getElementById('searchButton');
-             const displayedQuery = document.getElementById('displayed-query');
- 
-             // --- Function to extract and display the search query from the URL ---
-             function getSearchQuery() {
-                 const params = new URLSearchParams(window.location.search);
-                 const query = params.get('q');
-                 
-                 if (query) {
-                     const decodedQuery = decodeURIComponent(query);
-                     displayedQuery.textContent = '"' + decodedQuery + '"';
-                     
-                     // Pre-fill the navbar search input with the current query
-                     searchInput.value = decodedQuery;
-                 } else {
-                     displayedQuery.textContent = "All Products";
-                     document.getElementById('results-count-info').textContent = "Displaying all products due to empty query.";
-                 }
-             }
-             
-             // --- Re-implement the search logic for the navbar (in case user searches again) ---
-             function performSearch() {
-                 const query = searchInput.value.trim();
-                 if (query.length > 0) {
-                     const searchURL = `searchresults.html?q=${encodeURIComponent(query)}`;
-                     window.location.href = searchURL;
-                 } else {
-                     alert("Please enter a search term.");
-                 }
-             }
- 
-             // --- Attach Event Listeners ---
-             searchButton.addEventListener('click', performSearch);
-             searchInput.addEventListener('keypress', function(e) {
-                 if (e.key === 'Enter') {
-                     performSearch();
-                 }
-             });
- 
-             // --- Run on page load ---
-             getSearchQuery();
-         });
-     </script>
-     
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        // friendly toast-like alert using setTimeout (non-blocking)
+        showToast(`${product.name} added to cart`);
+      });
+    });
+  }
+
+  /***********************
+   * Cart count updater (global function)
+   ***********************/
+  function updateCartCount() {
+    const cartCountElem = document.querySelector('.cart-count');
+    if (!cartCountElem) return;
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const total = cart.reduce((s, it) => s + (it.qty || 0), 0);
+    cartCountElem.textContent = total;
+  }
+
+  /***********************
+   * Small non-blocking toast (instead of alert)
+   ***********************/
+  function showToast(message) {
+    // create small toast element
+    const t = document.createElement('div');
+    t.textContent = message;
+    t.style.position = 'fixed';
+    t.style.right = '20px';
+    t.style.bottom = '20px';
+    t.style.background = '#333';
+    t.style.color = '#fff';
+    t.style.padding = '10px 14px';
+    t.style.borderRadius = '6px';
+    t.style.boxShadow = '0 6px 18px rgba(0,0,0,0.15)';
+    t.style.zIndex = 9999;
+    t.style.opacity = '0';
+    t.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+    t.style.transform = 'translateY(8px)';
+    document.body.appendChild(t);
+    // animate in
+    requestAnimationFrame(() => { t.style.opacity = '1'; t.style.transform = 'translateY(0)'; });
+    setTimeout(() => {
+      t.style.opacity = '0';
+      t.style.transform = 'translateY(8px)';
+      setTimeout(() => t.remove(), 300);
+    }, 1800);
+  }
+
+  /***********************
+   * Sorting (simple)
+   ***********************/
+  function applySorting() {
+    const val = sortDropdown.value;
+    let list = [...products];
+    if (val === '1') list.sort((a,b) => a.price - b.price);
+    else if (val === '2') list.sort((a,b) => b.price - a.price);
+    else if (val === '3') list.sort((a,b) => b.id - a.id);
+    renderProducts(list);
+  }
+
+  /***********************
+   * Init on load
+   ***********************/
+  document.addEventListener('DOMContentLoaded', () => {
+    renderProducts(products);
+    updateCartCount();
+
+    // sort change
+    sortDropdown.addEventListener('change', applySorting);
+
+    // search handlers (existing behavior)
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    function performSearch() {
+      const q = searchInput.value.trim();
+      if (!q) { alert('Please enter a search term.'); return; }
+      window.location.href = `searchresults.html?q=${encodeURIComponent(q)}`;
+    }
+    searchButton.addEventListener('click', performSearch);
+    searchInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') performSearch(); });
+  });
+  </script>
 </body>
 </html>
