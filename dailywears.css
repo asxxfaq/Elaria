@@ -415,13 +415,34 @@
     opacity: 0.8;
     text-decoration: none;
 }
+/* Styling for the Load More button */
+.btn-load-more {
+    background-color: transparent;
+    color: #000000; /* Deep Red accent */
+    border: 2px solid #706868;
+    padding: 10px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 15px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.btn-load-more:hover {
+    background-color: #433737;
+    color: white;
+    box-shadow: 0 4px 10px rgba(139, 0, 0, 0.2);
+}
+
+.btn-load-more:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: #f0f0f0;
+    color: #555;
+    border-color: #ccc;
+}
 
 
-/* ---------------------------------------------------- */
-/* --- 6. Responsive Media Queries - RESTORED --- */
-/* ---------------------------------------------------- */
-
-/* --- Tablet / Footer Switch (max-width: 992px) --- */
 @media (max-width: 992px) {
     /* Footer Grid: Changes to 2 columns on tablets (1.5fr, 1fr) */
     .footer-grid {

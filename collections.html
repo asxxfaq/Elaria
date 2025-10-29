@@ -5,92 +5,302 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="collection.css">
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elaria - Visual Collection Gallery</title>
 
     <style>
-        
+        .page-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 15px;
+
+}
+
+.collections-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #4B3832;
+    font-weight: 600;
+}
+
+.collections-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* --- Image Gallery Card Styles --- */
+.gallery-card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    height: 380px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-card-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.gallery-card:hover .gallery-card-bg {
+    transform: scale(1.08);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+    color: white;
+    text-align: center;
+}
+
+.gallery-overlay h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.gallery-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 0;
+}
+        /* Custom styles for this page (Can be moved to collection.css) */
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .collections-header {
+            background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('images/main-collection-bg.jpg') center/cover no-repeat;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+
+        .collections-header p {
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* Style for the filter buttons */
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding-top: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .filter-buttons button {
+            background-color: #fff;
+            color: #555;
+            border: 1px solid #5550;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .filter-buttons button.active,
+        .filter-buttons button:hover {
+            background-color: #555;
+            color: white;
+        }
+
+        /* Product Card Layout - Assuming basic styling exists in collection.css */
+        .product-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: box-shadow 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-card .price {
+            color: #8B0000;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .wishlist-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #8B0000;
+            z-index: 10;
+            text-shadow: 0 0 5px white;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        /* Toast Notification Styling */
+        #customToast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 16px;
+            position: fixed;
+            z-index: 9999;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 30px;
+            font-size: 17px;
+        }
+
+        #customToast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from {
+                bottom: 0;
+                opacity: 0;
+            }
+
+            to {
+                bottom: 30px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeout {
+            from {
+                bottom: 30px;
+                opacity: 1;
+            }
+
+            to {
+                bottom: 0;
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 
 <body>
     <nav class="elaria-navbar">
         <div class="navbar-top">
-          <div class="logo">
-            <a href="index.html">
-            <img src="elaria.png" alt="Elaria Logo">
-        </a>
-          </div>
-      
-          <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
-            <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
-          </div>
-      
-          <div class="navbar-utility-right">
-            <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
-            <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i></a>
-            <a href="cart.html" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
-      
-          
-            <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
-          </div>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="elaria.png" alt="Elaria Logo">
+                </a>
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="searchInput"
+                    placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
+                <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
+            </div>
+
+            <div class="navbar-utility-right">
+                <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
+                <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i></a>
+                <a href="cart.html" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
+
+
+                <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
         </div>
-      
+
         <div class="navbar-bottom" id="navbarBottom">
-          <ul class="menu-list">
-            <li>
-              <a href="dailywears.html">
-                <img src="dailywearslogo.jpg" alt="Daily Wears" class="menu-icon-img">
-                Daily Wears
-              </a>
-            </li>
-            <li>
-              <a href="necklaces.html">
-                <img src="necklacelogo.jpg" alt="Necklaces" class="menu-icon-img">
-                Necklaces
-              </a>
-            </li>
-            <li>
-              <a href="earings.html">
-                <img src="earings.jpg" alt="Earrings" class="menu-icon-img">
-                Earrings
-              </a>
-            </li>
-            <li>
-              <a href="rings.html">
-                <img src="rings.jpg" alt="Rings" class="menu-icon-img">
-                Rings
-              </a>
-            </li>
-            <li>
-              <a href="wedding.html">
-                <img src="wedding.jpg" alt="Wedding" class="menu-icon-img">
-                Wedding
-              </a>
-            </li>
-            <li>
-              <a href="gifting.html">
-                <img src="gift.jpg" alt="Gifting" class="menu-icon-img">
-                Gifting
-              </a>
-            </li>
-          </ul>
+            <ul class="menu-list">
+                <li>
+                    <a href="dailywears.html">
+                        <img src="dailywearslogo.jpg" alt="Daily Wears" class="menu-icon-img">
+                        Daily Wears
+                    </a>
+                </li>
+                <li>
+                    <a href="necklaces.html">
+                        <img src="necklacelogo.jpg" alt="Necklaces" class="menu-icon-img">
+                        Necklaces
+                    </a>
+                </li>
+                <li>
+                    <a href="earings.html">
+                        <img src="earings.jpg" alt="Earrings" class="menu-icon-img">
+                        Earrings
+                    </a>
+                </li>
+                <li>
+                    <a href="rings.html">
+                        <img src="rings.jpg" alt="Rings" class="menu-icon-img">
+                        Rings
+                    </a>
+                </li>
+                <li>
+                    <a href="wedding.html">
+                        <img src="wedding.jpg" alt="Wedding" class="menu-icon-img">
+                        Wedding
+                    </a>
+                </li>
+                <li>
+                    <a href="gifting.html">
+                        <img src="gift.jpg" alt="Gifting" class="menu-icon-img">
+                        Gifting
+                    </a>
+                </li>
+            </ul>
         </div>
-        
-      </nav>
+
+    </nav>
+    
+<div class="page-container">
+    <div class="filter-buttons">
+        <button class="active" data-filter="all">All (52)</button>
+        <button data-filter="rings">Rings (12)</button>
+        <button data-filter="necklaces">Necklaces (12)</button>
+        <button data-filter="bangles">Bangles & Bracelets (12)</button>
+        <button data-filter="earrings">Earrings (12)</button>
+    </div>
+
+    <div class="row" id="productGrid">
+    </div>
+    </div>
     <header class="collections-header">
         <div class="page-container">
             <h1>Our Entire Jewellery Universe</h1>
             <p>Browse our entire catalog of exquisite gold and diamond jewellery.</p>
-        </div>
-    </header>
-
+            </div>
+</header>
     <div class="page-container">
         <div class="row">
-
             <div class="col-md-6 col-lg-4">
                 <a href="dailywears.html" class="gallery-card">
                     <div class="gallery-card-bg" style="background-image: url('images/dwbg.jpg');"></div>
@@ -153,6 +363,7 @@
 
         </div>
     </div>
+
     <footer class="main-footer">
         <div class="footer-content-wrapper">
 
@@ -213,34 +424,274 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <div id="customToast" class="custom-toast"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script>
+        // --- 1. PRODUCT DATA ARRAY (52 Products Total - 13 per category) ---
+        const ALL_PRODUCTS = [
+            // Rings (13)
+            { id: 2001, category: 'rings', title: 'Solitaire Promise Ring', price: 45000, image: 'images/rings/ring1.jpg', tag: 'rings' },
+            { id: 2002, category: 'rings', title: 'Triple Layer Gold Ring', price: 18500, image: 'images/rings/ring2.jpg', tag: 'rings' },
+            { id: 2003, category: 'rings', title: 'Rose Gold Stackable Ring', price: 12500, image: 'images/rings/ring3.jpg', tag: 'rings' },
+            { id: 2004, category: 'rings', title: 'Vintage Emerald Cut Ring', price: 78000, image: 'images/rings/ring4.jpg', tag: 'rings' },
+            { id: 2005, category: 'rings', title: 'Minimalist Finger Band', price: 9900, image: 'images/rings/ring5.jpg', tag: 'rings' },
+            { id: 2006, category: 'rings', title: 'Diamond Pave Eternity ', price: 62000, image: 'images/rings/ring6.jpg', tag: 'rings' },
+            { id: 2007, category: 'rings', title: 'Twisted Infinity Ring', price: 15500, image: 'images/rings/ring7.jpg', tag: 'rings' },
+            { id: 2008, category: 'rings', title: 'Art Deco Sapphire Ring', price: 55000, image: 'images/rings/ring8.jpg', tag: 'rings' },
+            { id: 2009, category: 'rings', title: 'Contemporary  Ring', price: 21000, image: 'images/rings/ring9.jpg', tag: 'rings' },
+            // Added Rings
+            { id: 2037, category: 'rings', title: 'Tone Engagement Ring', price: 85000, image: 'images/rings/ring10.jpg', tag: 'rings' },
+            { id: 2038, category: 'rings', title: 'Knot Design  Ring', price: 11500, image: 'images/rings/ring11.jpg', tag: 'rings' },
+            { id: 2039, category: 'rings', title: 'Pearl Cluster Cocktail Ring', price: 32000, image: 'images/rings/ring12.jpg', tag: 'rings' },
+            
+
+            // Necklaces (13)
+            { id: 2010, category: 'necklaces', title: 'Delicate Gold Chain', price: 9800, image: 'images/necklaces/necklace1.jpg', tag: 'necklaces' },
+            { id: 2011, category: 'necklaces', title: 'Initial A Pendant', price: 15200, image: 'images/necklaces/necklace2.jpg', tag: 'necklaces' },
+            { id: 2012, category: 'necklaces', title: 'Layered Diamond Locket', price: 38000, image: 'images/necklaces/necklace3.jpg', tag: 'necklaces' },
+            { id: 2013, category: 'necklaces', title: 'Geometric Bar Necklace', price: 11000, image: 'images/necklaces/necklace4.jpg', tag: 'necklaces' },
+            { id: 2014, category: 'necklaces', title: 'Heart Motif Necklace', price: 14500, image: 'images/necklaces/necklace5.jpg', tag: 'necklaces' },
+            { id: 2015, category: 'necklaces', title: 'Classic Pearl Drop Necklace', price: 22000, image: 'images/necklaces/necklace6.jpg', tag: 'necklaces' },
+            { id: 2016, category: 'necklaces', title: 'V-Shape Choker', price: 17800, image: 'images/necklaces/necklace7.jpg', tag: 'necklaces' },
+            { id: 2017, category: 'necklaces', title: 'Celestial Moon Pendant', price: 13500, image: 'images/necklaces/necklace8.jpg', tag: 'necklaces' },
+            { id: 2018, category: 'necklaces', title: 'Bold Link Chain', price: 29900, image: 'images/necklaces/necklace9.jpg', tag: 'necklaces' },
+            // Added Necklaces
+            { id: 2041, category: 'necklaces', title: 'Talisman Eye Pendant', price: 16800, image: 'images/necklaces/necklace10.jpg', tag: 'necklaces' },
+            { id: 2042, category: 'necklaces', title: 'Heavy Bridal Necklace', price: 125000, image: 'images/necklaces/necklace11.jpg', tag: 'necklaces' },
+            { id: 2043, category: 'necklaces', title: 'Infinity Knot Chain', price: 10500, image: 'images/necklaces/necklace12.jpg', tag: 'necklaces' },
+           
+
+            // Bangles & Bracelets (13)
+            { id: 2019, category: 'bangles', title: 'Light Diamond Bracelet', price: 28000, image: 'images/bangles/bangle1.jpg', tag: 'bangles' },
+            { id: 2020, category: 'bangles', title: 'Aurelia Royale Bangle', price: 17000, image: 'images/bangles/bangle2.jpg', tag: 'bangles' },
+            { id: 2021, category: 'bangles', title: 'Regalia Charm Bangle', price: 11000, image: 'images/bangles/bangle3.jpg', tag: 'bangles' },
+            { id: 2022, category: 'bangles', title: 'Solid Gold Kada', price: 48000, image: 'images/bangles/bangle4.jpg', tag: 'bangles' },
+            { id: 2023, category: 'bangles', title: 'Tennis Bracelet', price: 85000, image: 'images/bangles/bangle5.jpg', tag: 'bangles' },
+            { id: 2024, category: 'bangles', title: 'Cuff Bracelet', price: 21500, image: 'images/bangles/bangle6.jpg', tag: 'bangles' },
+            { id: 2025, category: 'bangles', title: 'Adjustable Link Bracelet', price: 16200, image: 'images/bangles/bangle7.jpg', tag: 'bangles' },
+            { id: 2026, category: 'bangles', title: 'Engravable ID Bracelet', price: 19500, image: 'images/bangles/bangle8.jpg', tag: 'bangles' },
+            { id: 2027, category: 'bangles', title: 'Hammered Finish Bangle', price: 32000, image: 'images/bangles/bangle9.jpg', tag: 'bangles' },
+            // Added Bangles
+            { id: 2045, category: 'bangles', title: 'Pearl String Bracelet', price: 14000, image: 'images/bangles/bangle10.jpg', tag: 'bangles' },
+            { id: 2046, category: 'bangles', title: 'Open Diamond Bangle', price: 75000, image: 'images/bangles/bangle11.jpg', tag: 'bangles' },
+            { id: 2047, category: 'bangles', title: 'Gold Charm Bracelet', price: 22500, image: 'images/bangles/bangle12.jpg', tag: 'bangles' },
+            
+
+            // Earrings (13)
+            { id: 2028, category: 'earrings', title: 'Simple Gold Studs', price: 12500, image: 'images/earings/earings1.jpg', tag: 'earrings' },
+            { id: 2029, category: 'earrings', title: 'Tiny Hoop Earrings', price: 11000, image: 'images/earings/earings2.jpg', tag: 'earrings' },
+            { id: 2030, category: 'earrings', title: 'Floral Diamond Drop', price: 35000, image: 'images/earings/earings3.jpg', tag: 'earrings' },
+            { id: 2031, category: 'earrings', title: 'Gold Jhumkas', price: 27500, image: 'images/earings/earings4.jpg', tag: 'earrings' },
+            { id: 2032, category: 'earrings', title: 'Pearl and Gold Studs', price: 9500, image: 'images/earings/earings5.jpg', tag: 'earrings' },
+            { id: 2033, category: 'earrings', title: 'Geometric Dangle', price: 14000, image: 'images/earings/earings6.jpg', tag: 'earrings' },
+            { id: 2034, category: 'earrings', title: 'Climbing Ear Cuff', price: 18800, image: 'images/earings/earings7.jpg', tag: 'earrings' },
+            { id: 2035, category: 'earrings', title: 'Tear Drop Hoops', price: 19900, image: 'images/earings/earings8.jpg', tag: 'earrings' },
+            { id: 2036, category: 'earrings', title: 'Halo Cluster Studs', price: 42000, image: 'images/earings/earings9.jpg', tag: 'earrings' },
+            // Added Earrings
+            { id: 2049, category: 'earrings', title: 'Kundan Drop Earrings', price: 38500, image: 'images/earings/earings10.jpg', tag: 'earrings' },
+            { id: 2050, category: 'earrings', title: 'Small Cartilage Studs', price: 8900, image: 'images/earings/earings11.jpg', tag: 'earrings' },
+            { id: 2051, category: 'earrings', title: 'Oversized Hoop Earrings', price: 24500, image: 'images/earings/earings12.jpg', tag: 'earrings' },
+           
+        ];
+
+
+        // --- 2. GLOBAL CONSTANTS and Utility Functions (UNCHANGED) ---
+        const WISHLIST_STORAGE_KEY = 'elaria_wishlist';
+        const CART_STORAGE_KEY = 'cart'; 
+
+        // ✅ TOAST FUNCTION
+        function showToast(message, type = 'info') {
+            const toast = document.getElementById("customToast");
+            if (!toast) return;
+
+            let bgColor = '#333';
+            if (type === 'success') bgColor = '#4CAF50';
+            if (type === 'error') bgColor = '#F44336';
+            if (type === 'info') bgColor = '#3273a8';
+            
+            toast.innerHTML = message;
+            toast.style.backgroundColor = bgColor;
+
+            toast.classList.add("show");
+            setTimeout(function() {
+                toast.classList.remove("show");
+            }, 3000);
+        }
+
+        // Function to format currency
+        function formatPrice(price) {
+            return `₹ ${price.toLocaleString('en-IN')}`;
+        }
+
+
         document.addEventListener('DOMContentLoaded', function () {
+            
+            const productGrid = document.getElementById('productGrid');
+            const filterButtons = document.querySelectorAll('.filter-buttons button');
             const searchInput = document.getElementById('searchInput');
             const searchButton = document.getElementById('searchButton');
+            const cartIconContainer = document.querySelector(".navbar-utility-right a[href='cart.html']");
+            
+            // --- 3. CART COUNT SETUP (Essential for working Cart Button) ---
+            let cartCountBadge = document.createElement("span");
+            cartCountBadge.classList.add("cart-count");
+            cartCountBadge.style.cssText = "background: #8B0000; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; position: absolute; top: -6px; right: -8px; min-width: 20px; text-align: center;";
+            cartIconContainer.style.position = "relative";
+            cartIconContainer.appendChild(cartCountBadge);
 
-            // --- Function to handle the search logic ---
+            function updateCartCount() {
+                const total = (JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || []).reduce((sum, item) => sum + item.qty, 0);
+                cartCountBadge.textContent = total;
+                cartCountBadge.style.display = total > 0 ? 'inline-block' : 'none';
+            }
+            updateCartCount();
+
+            // --- 4. PRODUCT RENDERING & FILTERING ---
+
+            function createProductCard(product, isFavorited) {
+                const iconClass = isFavorited ? 'fa-solid' : 'fa-regular';
+                
+                return `
+                    <div class="col-6 col-md-4 col-lg-3" data-product-id="${product.id}" data-category="${product.category}">
+                        <div class="product-card">
+                            <i class="${iconClass} fa-heart wishlist-icon"></i>
+                            <a href="product.html?id=${product.id}">
+                                <img src="${product.image}" alt="${product.title}">
+                            </a>
+                            <div class="product-card-body">
+                                <h5 class="product-title">${product.title}</h5>
+                                <p class="price">${formatPrice(product.price)}</p>
+                                <button class="btn btn-sm btn-dark w-100 btn-add-cart" data-product-id="${product.id}">
+                                    <i class="fa-solid fa-cart-plus me-1"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            function renderProducts(filter = 'all') {
+                const wishlist = JSON.parse(localStorage.getItem(WISHLIST_STORAGE_KEY) || '[]');
+                const wishlistIds = new Set(wishlist.map(item => item.id));
+
+                let filteredProducts = ALL_PRODUCTS;
+                if (filter !== 'all') {
+                    filteredProducts = ALL_PRODUCTS.filter(p => p.category === filter);
+                }
+
+                productGrid.innerHTML = filteredProducts.map(product => {
+                    const isFavorited = wishlistIds.has(product.id);
+                    return createProductCard(product, isFavorited);
+                }).join('');
+
+                // Update "All" button count
+                 document.querySelector('.filter-buttons button[data-filter="all"]').textContent = `All (${ALL_PRODUCTS.length})`;
+                
+                // Re-attach event listeners after rendering
+                attachEventListeners();
+            }
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button state
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    renderProducts(filter);
+                });
+            });
+
+            // --- 5. INTERACTIVITY: CART, WISHLIST, SEARCH ---
+
+            function toggleWishlist(productId, icon) {
+                let wishlist = JSON.parse(localStorage.getItem(WISHLIST_STORAGE_KEY) || '[]');
+                
+                if (icon.classList.contains('fa-solid')) {
+                    wishlist = wishlist.filter(item => item.id !== productId);
+                    icon.classList.remove('fa-solid');
+                    icon.classList.add('fa-regular');
+                    showToast('Removed from Favourites!', 'info'); 
+                } else {
+                    const productToAdd = ALL_PRODUCTS.find(p => p.id === productId);
+                    if (productToAdd) {
+                        wishlist.push(productToAdd);
+                        icon.classList.remove('fa-regular');
+                        icon.classList.add('fa-solid');
+                        showToast('Added to Favourites! ❤️', 'success'); 
+                    }
+                }
+                localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(wishlist));
+            }
+
+            function addToCart(productId) {
+                let cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY)) || [];
+                const productData = ALL_PRODUCTS.find(p => p.id === productId);
+
+                if (!productData) {
+                    showToast("Error: Product data not found.", 'error');
+                    return;
+                }
+
+                const existing = cart.find(item => item.id === productId);
+                if (existing) {
+                    existing.qty += 1;
+                } else {
+                    cart.push({ ...productData, qty: 1, name: productData.title });
+                }
+
+                localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+                updateCartCount();
+                showToast(`${productData.title} added to cart! 🛒`, 'success');
+            }
+
+
+            function attachEventListeners() {
+                // Attach listeners to Wishlist icons
+                document.querySelectorAll('.wishlist-icon').forEach(icon => {
+                    icon.onclick = function (e) {
+                        e.preventDefault();
+                        e.stopPropagation(); 
+                        const card = this.closest('.product-card').parentNode; 
+                        const productId = parseInt(card.getAttribute('data-product-id'));
+                        toggleWishlist(productId, this);
+                    };
+                });
+
+                // Attach listeners to Add to Cart buttons
+                document.querySelectorAll('.btn-add-cart').forEach(button => {
+                    button.onclick = function (e) {
+                        e.preventDefault();
+                        const productId = parseInt(this.getAttribute('data-product-id'));
+                        addToCart(productId);
+                    };
+                });
+            }
+
+            // --- Navbar Search Logic ---
             function performSearch() {
                 const query = searchInput.value.trim();
-
                 if (query.length > 0) {
-                    // Simulates redirection to a search results page
                     const searchURL = `searchresults.html?q=${encodeURIComponent(query)}`;
-                    console.log("Simulated Search Query: " + query);
                     window.location.href = searchURL;
                 } else {
                     alert("Please enter a search term.");
                 }
             }
-
-            // --- Event Listener 1: Click the search button ---
             searchButton.addEventListener('click', performSearch);
-
-            // --- Event Listener 2: Press 'Enter' key in the search box ---
-            searchInput.addEventListener('keypress', function (e) {
+            searchInput.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
                     performSearch();
                 }
             });
+
+            // Initial load of products
+            renderProducts('all');
         });
     </script>
 </body>
