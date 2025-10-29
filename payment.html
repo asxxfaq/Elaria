@@ -10,95 +10,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elaria | Secure Payment</title>
-</head>
+    </head>
 
 <body>
     <nav class="elaria-navbar">
         <div class="navbar-top">
-          <div class="logo">
-            <a href="index.html">
-            <img src="elaria.png" alt="Elaria Logo">
-        </a>
-          </div>
-      
-          <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
-            <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
-          </div>
-      
-          <div class="navbar-utility-right">
-            <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
-            <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i></a>
-            <a href="cart.html" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
-      
-          
-            <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
-          </div>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="elaria.png" alt="Elaria Logo">
+                </a>
+            </div>
+
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
+                <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
+            </div>
+
+            <div class="navbar-utility-right">
+                <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
+                <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i></a>
+                <a href="cart.html" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
+
+
+                <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+            </div>
         </div>
-      
+
         <div class="navbar-bottom" id="navbarBottom">
-          <ul class="menu-list">
-            <li>
-              <a href="dailywears.html">
-                <img src="dailywearslogo.jpg" alt="Daily Wears" class="menu-icon-img">
-                Daily Wears
-              </a>
-            </li>
-            <li>
-              <a href="necklaces.html">
-                <img src="necklacelogo.jpg" alt="Necklaces" class="menu-icon-img">
-                Necklaces
-              </a>
-            </li>
-            <li>
-              <a href="earings.html">
-                <img src="earings.jpg" alt="Earrings" class="menu-icon-img">
-                Earrings
-              </a>
-            </li>
-            <li>
-              <a href="rings.html">
-                <img src="rings.jpg" alt="Rings" class="menu-icon-img">
-                Rings
-              </a>
-            </li>
-            <li>
-              <a href="wedding.html">
-                <img src="wedding.jpg" alt="Wedding" class="menu-icon-img">
-                Wedding
-              </a>
-            </li>
-            <li>
-              <a href="gifting.html">
-                <img src="gift.jpg" alt="Gifting" class="menu-icon-img">
-                Gifting
-              </a>
-            </li>
-          </ul>
+            <ul class="menu-list">
+                <li>
+                    <a href="dailywears.html">
+                        <img src="dailywearslogo.jpg" alt="Daily Wears" class="menu-icon-img">
+                        Daily Wears
+                    </a>
+                </li>
+                <li>
+                    <a href="necklaces.html">
+                        <img src="necklacelogo.jpg" alt="Necklaces" class="menu-icon-img">
+                        Necklaces
+                    </a>
+                </li>
+                <li>
+                    <a href="earings.html">
+                        <img src="earings.jpg" alt="Earrings" class="menu-icon-img">
+                        Earrings
+                    </a>
+                </li>
+                <li>
+                    <a href="rings.html">
+                        <img src="rings.jpg" alt="Rings" class="menu-icon-img">
+                        Rings
+                    </a>
+                </li>
+                <li>
+                    <a href="wedding.html">
+                        <img src="wedding.jpg" alt="Wedding" class="menu-icon-img">
+                        Wedding
+                    </a>
+                </li>
+                <li>
+                    <a href="gifting.html">
+                        <img src="gift.jpg" alt="Gifting" class="menu-icon-img">
+                        Gifting
+                    </a>
+                </li>
+            </ul>
         </div>
-        
-      </nav>
+
+    </nav>
 
     <main class="minimalist-payment-container">
         <div class="payment-header-minimal">
             <h1>Complete Your Order</h1>
-                <span class="step-minimal active current"> Payment</span>
-            </div>
+            <span class="step-minimal active current"> Payment</span>
+        </div>
         </div>
 
         <div class="payment-layout-minimal">
-            
+
             <section class="payment-methods-minimal">
                 <h2 class="section-title-minimal">Payment Method</h2>
-                
+
                 <div class="method-selector-minimal">
-                    
+
                     <input type="radio" id="creditCard" name="payment_method" value="card" checked>
                     <label for="creditCard" class="method-label"><i class="fa-solid fa-credit-card"></i> Credit / Debit Card</label>
 
                     <input type="radio" id="upi" name="payment_method" value="upi">
                     <label for="upi" class="method-label"><i class="fa-solid fa-mobile-screen-button"></i> UPI / QR Code</label>
-                    
+
                     <input type="radio" id="netbanking" name="payment_method" value="netbanking">
                     <label for="netbanking" class="method-label"><i class="fa-solid fa-building-columns"></i> Net Banking</label>
 
@@ -107,10 +107,9 @@
                 </div>
 
                 <div class="payment-form-content">
-                    
+
                     <div id="card-form" class="active-form payment-form-box">
-                        <form>
-                            <div class="form-group-minimal">
+                        <form id="cardForm"> <div class="form-group-minimal">
                                 <label for="cardNumber">Card Number</label>
                                 <div class="input-with-icon">
                                     <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19" required>
@@ -143,13 +142,13 @@
                     <div id="upi-form" class="hidden-form payment-form-box">
                         <div class="upi-option-minimal">
                             <p class="form-instruction">Enter your **UPI ID**</p>
-                            <input type="text" placeholder="yourname@bank.com" class="upi-input-minimal">
-                            <button class="pay-btn-minimal">Verify & Pay</button>
+                            <input type="text" placeholder="yourname@bank.com" class="upi-input-minimal" id="upiInput">
+                            <button class="pay-btn-minimal" id="upiPayBtn">Verify & Pay</button>
                         </div>
                         <div class="upi-option-minimal qr-container">
                             <p class="form-instruction">Or Scan QR Code</p>
                             <div class="qr-code-placeholder-minimal">
-                                 
+
                                 <p>Scan with GPay, Paytm, or PhonePe.</p>
                             </div>
                         </div>
@@ -157,7 +156,7 @@
 
                     <div id="netbanking-form" class="hidden-form payment-form-box">
                         <p class="form-instruction">You will be securely redirected to your bank's portal.</p>
-                        <select class="bank-select-minimal">
+                        <select class="bank-select-minimal" id="bankSelect">
                             <option value="">Select Your Bank</option>
                             <option>HDFC Bank</option>
                             <option>ICICI Bank</option>
@@ -166,15 +165,15 @@
                             <option>Kotak Mahindra Bank</option>
                             <option>Other Banks</option>
                         </select>
-                        <button class="pay-btn-minimal">Pay via Net Banking</button>
+                        <button class="pay-btn-minimal" id="netbankingPayBtn" disabled>Pay via Net Banking</button>
                     </div>
 
                     <div id="cod-form" class="hidden-form payment-form-box cod-box-minimal">
                         <i class="fa-solid fa-handshake-angle cod-icon-minimal"></i>
                         <p class="cod-info-minimal">You have selected **Cash On Delivery**.</p>
                         <p class="cod-note-minimal">Amount Due at Delivery: ₹<span id="codPayAmount">1,25,316.00</span></p>
-                        <p class="cod-note-small-minimal">Note: COD is available for orders up to ₹50,000. Your order exceeds this limit, please choose another method.</p>
-                        <button class="pay-btn-minimal cod-confirm-minimal" disabled>Confirm COD Order</button>
+                        <p class="cod-note-small-minimal" style="display: none;">Note: COD is available for orders up to ₹50,000. Your order exceeds this limit, please choose another method.</p>
+                        <button class="pay-btn-minimal cod-confirm-minimal" id="codConfirmBtn" disabled>Confirm COD Order</button>
                     </div>
 
                 </div>
@@ -212,204 +211,263 @@
 
     <footer class="main-footer">
         <div class="footer-content-wrapper">
-    
-          <div class="footer-logo"
-            style= "background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.</div>
-    
-          <div class="footer-grid">
-            <div class="footer-col">
-              <p class="col-heading">Useful Links</p>
-              <ul>
-                <li><a href="delivery.html">Delivery Information</a></li>
-                <li><a href="delivery.html">International Shipping</a></li>
-                <li><a href="payment.html">Payment Options</a></li>
-                <li><a href="track.html">Track your Order</a></li>
-                <li><a href="return.html">Returns</a></li>
-              </ul>
+
+            <div class="footer-logo"
+                style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.</div>
+
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <p class="col-heading">Useful Links</p>
+                    <ul>
+                        <li><a href="delivery.html">Delivery Information</a></li>
+                        <li><a href="delivery.html">International Shipping</a></li>
+                        <li><a href="payment.html">Payment Options</a></li>
+                        <li><a href="track.html">Track your Order</a></li>
+                        <li><a href="return.html">Returns</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <p class="col-heading">Information</p>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="offers.html">Offers & Contest Details</a></li>
+                        <li><a href="helpandfaq.html">Help & FAQs</a></li>
+                        <li><a href="about.html">About Elaria</a></li>
+                        <li><a href="feedback.html">Feedback & Contact Us</a></li>
+
+                    </ul>
+
+                </div>
+
+                <div class="footer-col contact-col">
+                    <p class="col-heading">Contact Us</p>
+                    <p class="contact-number">1800-266-0123</p>
+
+                    <p class="col-heading chat-heading">Chat With Us</p>
+                    <p class="contact-number">+91 7306614239</p>
+
+                    <div class="contact-icons">
+                        <a href="#">💬</a>
+                        <a href="#">📧</a>
+                        <a href="#">📞</a>
+                    </div>
+                </div>
+
             </div>
-    
-            <div class="footer-col">
-              <p class="col-heading">Information</p>
-              <ul>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="offers.html">Offers & Contest Details</a></li>
-                <li><a href="helpandfaq.html">Help & FAQs</a></li>
-                <li><a href="about.html">About Elaria</a></li>
-                <li><a href="feedback.html">Feedback & Contact Us</a></li>
-    
+
+            <div class="footer-social">
+                <p class="col-heading">Social</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
+                    </a>
+                    <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
+                    </a>
+                    <a href="#"><i class="fa-brands fa-twitter"> X</i>
+                    </a>
+                    <a href="https://wa.me/7306614239"><i class="fa-brands fa-whatsapp"> whatsapp</i>
+                    </a>
+                </div>
             </div>
-    
-            <div class="footer-col contact-col">
-              <p class="col-heading">Contact Us</p>
-              <p class="contact-number">1800-266-0123</p>
-    
-              <p class="col-heading chat-heading">Chat With Us</p>
-              <p class="contact-number">+91 7306614239</p>
-    
-              <div class="contact-icons">
-                <a href="#">💬</a>
-                <a href="#">📧</a>
-                <a href="#">📞</a>
-              </div>
-            </div>
-    
-          </div>
-    
-          <div class="footer-social">
-            <p class="col-heading">Social</p>
-            <div class="social-icons">
-              <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
-              </a>
-              <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
-              </a>
-              <a href="#"><i class="fa-brands fa-twitter"> X</i>
-              </a>
-              <a href="https://wa.me/7306614239"><i class="fa-brands fa-whatsapp"> whatsapp</i>
-              </a>
-            </div>
-          </div>
-    
+
         </div>
-      </footer>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        
-        // --- Payment Logic Script ---
-        const radioButtons = document.querySelectorAll('input[name="payment_method"]');
-        const formContents = {
-            card: document.getElementById('card-form'),
-            upi: document.getElementById('upi-form'),
-            netbanking: document.getElementById('netbanking-form'),
-            cod: document.getElementById('cod-form')
-        };
-        
-        const allPayButtons = document.querySelectorAll('.pay-btn-minimal');
-        
-        // Function to handle the display and enablement of forms
-        function showPaymentForm(method) {
-            // 1. Hide/Deactivate all forms and disable all pay buttons
-            Object.values(formContents).forEach(form => {
-                form.classList.remove('active-form');
-                form.classList.add('hidden-form');
-                // Disable all internal pay buttons initially
-                form.querySelectorAll('.pay-btn-minimal').forEach(btn => btn.disabled = true);
-            });
-            
-            // 2. Show and partially enable the selected form
-            if (formContents[method]) {
-                formContents[method].classList.add('active-form');
-                formContents[method].classList.remove('hidden-form');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- 1. Element Selectors & Data Setup ---
+            const radioButtons = document.querySelectorAll('input[name="payment_method"]');
+            const formContents = {
+                card: document.getElementById('card-form'),
+                upi: document.getElementById('upi-form'),
+                netbanking: document.getElementById('netbanking-form'),
+                cod: document.getElementById('cod-form')
+            };
+
+            // Get total amount for logic checks
+            const totalAmountSpan = document.getElementById('totalAmount');
+            const finalTotalText = totalAmountSpan ? totalAmountSpan.textContent.replace('₹', '').replace(/,/g, '') : '125316.00';
+            const finalTotal = parseFloat(finalTotalText);
+            const codLimit = 50000;
+
+
+            // --- 2. LocalStorage & Display Setup ---
+            const orderData = JSON.parse(localStorage.getItem("orderSummary")) || null;
+
+            if (orderData) {
+                const formattedTotal = `₹${orderData.totalAmount.toLocaleString('en-IN')}`;
+                const unformattedTotal = orderData.totalAmount.toLocaleString('en-IN');
                 
-                // 3. Re-check the validity for the visible form to enable its button
-                if (method === 'card') {
-                    checkCardFormValidity(); // Enables card button if all fields are filled
-                } else {
-                    // For UPI, Net Banking, COD: enable their buttons immediately 
-                    // as they don't have complex form validation here.
-                    formContents[method].querySelector('.pay-btn-minimal').disabled = false;
-                }
-            }
-        }
-
-        // --- Card Form Validation Logic (Kept separate) ---
-        const cardForm = document.getElementById('card-form').querySelector('form');
-        const cardInputs = cardForm.querySelectorAll('input[required]');
-        const cardPayBtn = cardForm.querySelector('.pay-btn-minimal');
-
-        function checkCardFormValidity() {
-            let isComplete = true;
-            cardInputs.forEach(input => {
-                if (input.value.trim() === '') {
-                    isComplete = false;
-                }
-            });
-            cardPayBtn.disabled = !isComplete;
-        }
-
-        cardInputs.forEach(input => {
-            input.addEventListener('input', checkCardFormValidity);
-        });
-        // --- End Card Form Validation ---
-
-
-        // --- Event Listeners and Initial Setup ---
-
-        radioButtons.forEach(radio => {
-            radio.addEventListener('change', (e) => {
-                showPaymentForm(e.target.value);
-            });
-        });
-
-        // Initial setup: Only show and enable the 'card' form
-        showPaymentForm('card');
-
-
-        // --- Placeholder Data Setup (Retained) ---
-        const totalAmountSpan = document.getElementById('totalAmount');
-        // Use a default value if the span is empty (e.g., if cart hasn't populated it)
-        const finalTotalText = totalAmountSpan ? totalAmountSpan.textContent : '₹1,25,316.00'; 
-        
-        document.getElementById('cardPayAmount').textContent = finalTotalText.replace('₹', '');
-        document.getElementById('codPayAmount').textContent = finalTotalText;
-
-
-        // --- Re-insert your existing search functionality for the navbar ---
-        const searchInput = document.getElementById('searchInput');
-        const searchButton = document.getElementById('searchButton');
-
-        function performSearch() {
-            const query = searchInput.value.trim();
-            if (query.length > 0) {
-                const searchURL = `searchresults.html?q=${encodeURIComponent(query)}`;
-                console.log("Simulated Search Query: " + query);
-                window.location.href = searchURL;
+                document.getElementById('totalAmount').textContent = formattedTotal;
+                document.getElementById('cardPayAmount').textContent = unformattedTotal;
+                document.getElementById('codPayAmount').textContent = formattedTotal;
+                document.getElementById('itemCount').textContent = orderData.itemCount;
             } else {
-                alert("Please enter a search term.");
+                 // Use the default values from the HTML if localStorage is empty
+                const defaultUnformatted = document.getElementById('totalAmount').textContent.replace('₹', '').replace(/,/g, '');
+                console.warn("No order data found in localStorage — using default: " + defaultUnformatted);
             }
-        }
+            
 
-        searchButton.addEventListener('click', performSearch);
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
+            // --- 3. Core Payment Simulation Logic ---
+            function simulatePayment(method) {
+                // 70% chance of success for digital payments, 100% for valid COD
+                let isSuccess = method === 'cod' ? true : Math.random() > 0.3; 
+                
+                // Disable the button immediately to prevent double-click
+                const activePayBtn = formContents[method].querySelector('.pay-btn-minimal');
+                if (activePayBtn) activePayBtn.disabled = true;
+
+                // Simulate processing delay
+                setTimeout(() => {
+                    if (isSuccess) {
+                        console.log(`Payment via ${method.toUpperCase()} successful. Redirecting.`);
+                        window.location.href = 'paymentsuccess.html';
+                    } else {
+                        console.log(`Payment via ${method.toUpperCase()} failed. Redirecting.`);
+                        window.location.href = 'paymentfailed.html';
+                    }
+                }, 1200); // 1.2 second delay
             }
+
+
+            // --- 4. Card Form Validation Logic ---
+            const cardForm = document.getElementById('cardForm');
+            const cardInputs = cardForm.querySelectorAll('input[required]');
+            const cardPayBtn = cardForm.querySelector('.pay-btn-minimal');
+
+            function checkCardFormValidity() {
+                let isComplete = true;
+                cardInputs.forEach(input => {
+                    // Simple check: ensure every required field has content
+                    if (input.value.trim().length === 0) {
+                        isComplete = false;
+                    }
+                });
+                cardPayBtn.disabled = !isComplete;
+            }
+
+            cardInputs.forEach(input => {
+                input.addEventListener('input', checkCardFormValidity);
+            });
+
+            // Card Form Submission Handler (Triggers payment)
+            cardForm.addEventListener('submit', function(e) {
+                e.preventDefault(); 
+                if (!cardPayBtn.disabled) {
+                    simulatePayment('card');
+                }
+            });
+            // --- End Card Form Logic ---
+
+
+            // --- 5. Payment Method Switching Logic (Updated) ---
+            function showPaymentForm(method) {
+                // Hide/Deactivate all forms
+                Object.values(formContents).forEach(form => {
+                    form.classList.remove('active-form');
+                    form.classList.add('hidden-form');
+                });
+
+                // Show the selected form
+                if (formContents[method]) {
+                    formContents[method].classList.add('active-form');
+                    formContents[method].classList.remove('hidden-form');
+
+                    const payButton = formContents[method].querySelector('.pay-btn-minimal');
+
+                    if (method === 'card') {
+                        checkCardFormValidity(); 
+                    } else if (method === 'cod') {
+                        const codNote = formContents['cod'].querySelector('.cod-note-small-minimal');
+                        if (finalTotal > codLimit) {
+                            payButton.disabled = true;
+                            codNote.style.display = 'block';
+                        } else {
+                            payButton.disabled = false; // Enabled if amount is valid
+                            codNote.style.display = 'none';
+                        }
+                    } else if (method === 'netbanking') {
+                        // Net Banking button enabled only when a bank is selected
+                        const bankSelect = document.getElementById('bankSelect');
+                        payButton.disabled = (bankSelect.value === ""); 
+                    }
+                     else {
+                        // UPI: button is enabled immediately (no form validation needed for simulation)
+                        payButton.disabled = false;
+                    }
+                }
+            }
+            
+            // Event listener for bank selection
+            document.getElementById('bankSelect').addEventListener('change', function() {
+                document.getElementById('netbankingPayBtn').disabled = (this.value === "");
+            });
+
+            // Handle method selection change
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    showPaymentForm(e.target.value);
+                });
+            });
+
+            // Initial setup: Only show and enable the 'card' form
+            showPaymentForm('card');
+
+
+            // --- 6. Event Listeners for other payment buttons (Triggers payment) ---
+            
+            // UPI Pay Button
+            document.getElementById('upiPayBtn').addEventListener('click', function() {
+                // Simple UPI ID check (you could add more complex regex)
+                const upiInput = document.getElementById('upiInput');
+                if (upiInput.value.trim().length > 5 && upiInput.value.includes('@')) {
+                    simulatePayment('upi');
+                } else {
+                    alert("Please enter a valid UPI ID.");
+                    upiInput.focus();
+                }
+            });
+
+            // Net Banking Pay Button
+            document.getElementById('netbankingPayBtn').addEventListener('click', function() {
+                if (!this.disabled) {
+                    simulatePayment('netbanking');
+                }
+            });
+
+            // COD Confirm Button
+            document.getElementById('codConfirmBtn').addEventListener('click', function() {
+                if (!this.disabled) {
+                    simulatePayment('cod');
+                }
+            });
+
+            // --- 7. Navbar Search Functionality (Retained) ---
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+
+            function performSearch() {
+                const query = searchInput.value.trim();
+                if (query.length > 0) {
+                    const searchURL = `searchresults.html?q=${encodeURIComponent(query)}`;
+                    console.log("Simulated Search Query: " + query);
+                    window.location.href = searchURL;
+                } else {
+                    alert("Please enter a search term.");
+                }
+            }
+
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
         });
-        // --------------------------------------------------------------------
-    });
-</script>
-<script>
-  
-document.addEventListener('DOMContentLoaded', function() {
-
-  // --- Load Cart Total from LocalStorage ---
-  const orderData = JSON.parse(localStorage.getItem("orderSummary")) || null;
-
-  if (orderData) {
-    const formattedTotal = `₹${orderData.totalAmount.toLocaleString()}`;
-    document.getElementById('totalAmount').textContent = formattedTotal;
-    document.getElementById('cardPayAmount').textContent = orderData.totalAmount.toLocaleString();
-    document.getElementById('codPayAmount').textContent = formattedTotal;
-    document.getElementById('itemCount').textContent = orderData.itemCount;
-  } else {
-    console.warn("No order data found in localStorage — using default.");
-  }
-
-  // (keep your existing code below unchanged)
-  const radioButtons = document.querySelectorAll('input[name="payment_method"]');
-  const formContents = {
-    card: document.getElementById('card-form'),
-    upi: document.getElementById('upi-form'),
-    netbanking: document.getElementById('netbanking-form'),
-    cod: document.getElementById('cod-form')
-  };
-
-});
-</script>
-
-
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elaria | Order Confirmed</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> 
+    
+    <style>
+        .success-container {
+            max-width: 600px;
+            margin: 80px auto;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        .success-icon {
+            color: #4CAF50; /* Green checkmark */
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: bounce 1s ease-in-out;
+        }
+        .success-container h1 {
+            color: #4B3832;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .order-details p {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .order-details strong {
+            color: #8A2D3C; /* Maroon accent */
+        }
+        .next-steps {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <i class="fa-solid fa-circle-check success-icon"></i>
+        <h1>Payment Successful!</h1>
+        <p class="lead text-muted">Thank you for your Elaria order. We've received your payment.</p>
+        
+        <div class="order-details my-4">
+            <p>Your Order ID is: ELRIA-108734</p>
+            <p>A confirmation email has been sent to your inbox.</p>
+        </div>
+        
+        <div class="next-steps d-grid gap-2">
+            <a href="index.html" class="btn btn-lg" style="background-color: #D4B294; color: #4B3832; font-weight: bold;">Continue Shopping</a>
+            <a href="track.html" class="btn btn-outline-secondary">Track Your Order</a>
+        </div>
+    </div>
+</body>
+</html>

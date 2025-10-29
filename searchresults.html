@@ -131,40 +131,67 @@
 <body>
     <nav class="elaria-navbar">
         <div class="navbar-top">
-            <div class="logo">
-                <img src="elaria.png" style="height: 60px; width: 100%;" alt="Elaria Logo">
-            </div>
-
-            <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
-                <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
-                <div class="utility-icons">
-                    <span class="icon"><i class="fa-solid fa-gift"></i></span>
-                    <span class="icon"><i class="fa-solid fa-cart-shopping"></i></span>
-                </div>
-            </div>
-
-            <div class="navbar-utility-right">
-                <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
-                <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i></a>
-                <a href="cart.html" class="icon-link cart">
-                    <span><i class="fa-solid fa-cart-shopping"></i></span>
-                </a>
-            </div>
+          <div class="logo">
+            <img src="elaria.png" alt="Elaria Logo">
+          </div>
+      
+          <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
+            <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
+          </div>
+      
+          <div class="navbar-utility-right">
+            <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
+            <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i></a>
+            <a href="cart.html" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
+      
+          
+            <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+          </div>
         </div>
-
-        <div class="navbar-bottom">
-            <ul class="menu-list">
-                <li><a href="dailywears.html"><span class="menu-icon"><i class="fa-solid fa-coins"></i></span>Daily Wears</a></li>
-                <li><a href="necklaces.html"><span class="menu-icon"><i class="fa-solid fa-heart"></i></span> Necklaces</a></li>
-                <li><a href="earings.html"><span class="menu-icon"><i class="fa-solid fa-gem"></i></span> Earrings</a></li>
-                <li><a href="rings.html"><span class="menu-icon"><i class="fa-solid fa-ring"></i></span> Rings</a></li>
-                <li><a href="wedding.html"><span class="menu-icon"><i class="fa-solid fa-user-group"></i></span> Wedding</a></li>
-                <li><a href="gifting.html"><span class="menu-icon"><i class="fa-solid fa-gift"></i></span> Gifting</a></li>
-            </ul>
+      
+        <div class="navbar-bottom" id="navbarBottom">
+          <ul class="menu-list">
+            <li>
+              <a href="dailywears.html">
+                <img src="dailywearslogo.jpg" alt="Daily Wears" class="menu-icon-img">
+                Daily Wears
+              </a>
+            </li>
+            <li>
+              <a href="necklaces.html">
+                <img src="necklacelogo.jpg" alt="Necklaces" class="menu-icon-img">
+                Necklaces
+              </a>
+            </li>
+            <li>
+              <a href="earings.html">
+                <img src="earings.jpg" alt="Earrings" class="menu-icon-img">
+                Earrings
+              </a>
+            </li>
+            <li>
+              <a href="rings.html">
+                <img src="rings.jpg" alt="Rings" class="menu-icon-img">
+                Rings
+              </a>
+            </li>
+            <li>
+              <a href="wedding.html">
+                <img src="wedding.jpg" alt="Wedding" class="menu-icon-img">
+                Wedding
+              </a>
+            </li>
+            <li>
+              <a href="gifting.html">
+                <img src="gift.jpg" alt="Gifting" class="menu-icon-img">
+                Gifting
+              </a>
+            </li>
+          </ul>
         </div>
-    </nav>
-
+        
+      </nav>
     <div class="page-container">
         
         <div class="search-header">
@@ -272,61 +299,65 @@
 
     <footer class="main-footer">
         <div class="footer-content-wrapper">
-            
-            <div class="footer-logo" style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.</div>
-            
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <p class="col-heading">Useful Links</p>
-                    <ul>
-                        <li><a href="#">Delivery Information</a></li>
-                        <li><a href="#">International Shipping</a></li>
-                        <li><a href="#">Payment Options</a></li>
-                        <li><a href="#">Track your Order</a></li>
-                        <li><a href="#">Returns</a></li>
-                        <li><a href="#">Find a Store</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <p class="col-heading">Information</p>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Offers & Contest Details</a></li>
-                        <li><a href="#">Help & FAQs</a></li>
-                        <li><a href="#">About Elaria</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col contact-col">
-                    <p class="col-heading">Contact Us</p>
-                    <p class="contact-number">1800-266-0123</p>
-                    
-                    <p class="col-heading chat-heading">Chat With Us</p>
-                    <p class="contact-number">+91 7306614239</p>
-                    
-                    <div class="contact-icons">
-                        <a href="#">💬</a>
-                        <a href="#">📧</a>
-                        <a href="#">📞</a>
-                    </div>
-                </div>
-                
+    
+          <div class="footer-logo"
+            style= "background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.</div>
+    
+          <div class="footer-grid">
+            <div class="footer-col">
+              <p class="col-heading">Useful Links</p>
+              <ul>
+                <li><a href="delivery.html">Delivery Information</a></li>
+                <li><a href="delivery.html">International Shipping</a></li>
+                <li><a href="payment.html">Payment Options</a></li>
+                <li><a href="track.html">Track your Order</a></li>
+                <li><a href="return.html">Returns</a></li>
+              </ul>
             </div>
-            
-            <div class="footer-social">
-                <p class="col-heading">Social</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-instagram"> instagram</i></a> 
-                    <a href="#"><i class="fa-brands fa-facebook-f">acebook</i></a> 
-                    <a href="#"><i class="fa-brands fa-twitter"> X</i></a> 
-                    <a href="#"><i class="fa-brands fa-whatsapp"> whatsapp</i></a>
-                </div>
+    
+            <div class="footer-col">
+              <p class="col-heading">Information</p>
+              <ul>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="offers.html">Offers & Contest Details</a></li>
+                <li><a href="helpandfaq.html">Help & FAQs</a></li>
+                <li><a href="about.html">About Elaria</a></li>
+                <li><a href="feedback.html">Feedback & Contact Us</a></li>
+    
             </div>
-            
+    
+            <div class="footer-col contact-col">
+              <p class="col-heading">Contact Us</p>
+              <p class="contact-number">1800-266-0123</p>
+    
+              <p class="col-heading chat-heading">Chat With Us</p>
+              <p class="contact-number">+91 7306614239</p>
+    
+              <div class="contact-icons">
+                <a href="#">💬</a>
+                <a href="#">📧</a>
+                <a href="#">📞</a>
+              </div>
+            </div>
+    
+          </div>
+    
+          <div class="footer-social">
+            <p class="col-heading">Social</p>
+            <div class="social-icons">
+              <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
+              </a>
+              <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
+              </a>
+              <a href="#"><i class="fa-brands fa-twitter"> X</i>
+              </a>
+              <a href="https://wa.me/7306614239"><i class="fa-brands fa-whatsapp"> whatsapp</i>
+              </a>
+            </div>
+          </div>
+    
         </div>
-    </footer>
-
+      </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
@@ -371,6 +402,118 @@
                 }
             });
 
+            // --- Run on page load ---
+            getSearchQuery();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+            const displayedQuery = document.getElementById('displayed-query');
+            const applyFiltersButton = document.querySelector('.filter-panel .btn-outline-secondary'); // Select the Apply Filters button
+    
+            // --- Function to extract and display the search query from the URL ---
+            function getSearchQuery() {
+                const params = new URLSearchParams(window.location.search);
+                const query = params.get('q');
+                
+                if (query) {
+                    const decodedQuery = decodeURIComponent(query);
+                    displayedQuery.textContent = '"' + decodedQuery + '"';
+                    
+                    // Pre-fill the navbar search input with the current query
+                    searchInput.value = decodedQuery;
+                } else {
+                    displayedQuery.textContent = "All Products";
+                    document.getElementById('results-count-info').textContent = "Displaying all products due to empty query.";
+                }
+            }
+            
+            // --- Re-implement the search logic for the navbar (in case user searches again) ---
+            function performSearch() {
+                const query = searchInput.value.trim();
+                if (query.length > 0) {
+                    const searchURL = `searchresults.html?q=${encodeURIComponent(query)}`;
+                    window.location.href = searchURL;
+                } else {
+                    alert("Please enter a search term.");
+                }
+            }
+    
+            // --- NEW: Function to handle filter application ---
+            function applyFilters() {
+                const selectedFilters = {
+                    'Jewellery Type': [],
+                    'Price Range': [],
+                    'Material': []
+                };
+    
+                // Get all checked checkboxes within the filter panel
+                const checkboxes = document.querySelectorAll('.filter-panel .form-check-input:checked');
+                
+                checkboxes.forEach(checkbox => {
+                    const label = checkbox.nextElementSibling.textContent.trim(); // Get the label text (e.g., Rings (25))
+                    
+                    // Find the parent h5 (the filter category)
+                    let parent = checkbox.closest('.filter-panel');
+                    let categoryElement = checkbox.closest('.form-check');
+                    while(categoryElement && !categoryElement.previousElementSibling?.tagName.startsWith('H')) {
+                        categoryElement = categoryElement.previousElementSibling;
+                    }
+                    
+                    // A simpler way to infer the category based on the filter-panel structure
+                    let currentHeading = '';
+                    const formChecks = parent.querySelectorAll('.form-check');
+                    
+                    for (const h5 of parent.querySelectorAll('h5')) {
+                        // Check if the current checkbox is located *after* this h5 and *before* the next h5
+                        let nextSibling = h5.nextElementSibling;
+                        let isUnderThisHeading = false;
+                        while(nextSibling && nextSibling.tagName !== 'H5') {
+                            if (nextSibling.contains(checkbox)) {
+                                isUnderThisHeading = true;
+                                break;
+                            }
+                            nextSibling = nextSibling.nextElementSibling;
+                        }
+    
+                        if (isUnderThisHeading) {
+                            currentHeading = h5.textContent.trim();
+                            // Strip counts (e.g., 'Rings (25)' -> 'Rings')
+                            const filterValue = label.replace(/\s*\(\d+\)$/, ''); 
+                            selectedFilters[currentHeading].push(filterValue);
+                            break; 
+                        }
+                    }
+                });
+    
+                // Log the selected filters (This is where you'd make an AJAX call or update the URL)
+                console.log("Applying Filters:", selectedFilters);
+                
+                // You would typically:
+                // 1. Construct a new URL with the filters as query parameters (e.g., ?q=ring&type=rings&price=low)
+                // 2. Or, make an AJAX request to fetch the filtered results and update the product grid.
+                
+                alert("Filters applied! Check the console for the selected values.");
+            }
+    
+    
+            // --- Attach Event Listeners ---
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+            
+            // Attach the new filter listener
+            if (applyFiltersButton) {
+                applyFiltersButton.addEventListener('click', applyFilters);
+            }
+    
             // --- Run on page load ---
             getSearchQuery();
         });
