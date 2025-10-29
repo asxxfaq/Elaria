@@ -11,7 +11,6 @@
 
     <style>
         /* --- General and Layout Styles (Replicating style.css) --- */
-        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -19,110 +18,6 @@
             box-sizing: border-box;
         }
 
-        .elaria-navbar {
-            border-bottom: 1px solid #ddd;
-        }
-
-        .navbar-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 40px;
-            height: 60px;
-        }
-
-        .logo img {
-            height: 40px;
-            width: auto;
-        }
-
-        .search-container {
-            flex-grow: 1;
-            max-width: 600px;
-            margin: 0 30px;
-            display: flex;
-            align-items: center;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            height: 40px;
-            overflow: hidden;
-        }
-
-        .search-input {
-            flex-grow: 1;
-            border: none;
-            padding: 0 15px;
-            font-size: 14px;
-            outline: none;
-            height: 100%;
-        }
-
-        .search-icon {
-            background-color: transparent;
-            border: none;
-            padding: 0 10px;
-            cursor: pointer;
-            font-size: 18px;
-            color: #666;
-        }
-        
-        .navbar-utility-right {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .icon-link {
-            text-decoration: none;
-            color: #333;
-            font-size: 20px;
-            position: relative;
-        }
-
-        .cart-count {
-            background-color: #8B0000;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 6px;
-            font-size: 12px;
-            position: absolute;
-            top: -8px;
-            right: -10px;
-            line-height: 1;
-        }
-
-        .navbar-bottom {
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-            border-top: 1px solid #eee;
-        }
-
-        .menu-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            gap: 30px;
-        }
-
-        .menu-list li a {
-            text-decoration: none;
-            color: #333;
-            font-size: 14px;
-            font-weight: 500;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .menu-icon {
-            font-size: 20px;
-            margin-bottom: 4px;
-            color: #666;
-        }
-        
-        /* --- Feedback Page Specific Styles --- */
         .page-container {
             max-width: 900px;
             margin: 60px auto;
@@ -189,211 +84,12 @@
             box-shadow: 0 0 0 0.25rem rgba(212, 178, 148, 0.25);
         }
         
-        /* --- Footer Styles (Simplified) --- */
-        .main-footer {
-    background-color: #381A20; /* Dark Maroon/Brown background */
-    color: #fff;
-    padding: 60px 0 20px 0;
-    font-family: Arial, sans-serif;
-}
-
-.footer-content-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-}
-
-/* --- Logo Styling --- */
-.footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 500;
-    color: #fff;
-    margin-bottom: 40px;
-}
-
-/* --- Main Grid Layout (4 Columns) --- */
-.footer-grid {
-    display: grid;
-    /* Sets up 4 columns for the desktop view */
-    grid-template-columns: 1.5fr repeat(3, 1fr); 
-    gap: 40px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.col-heading {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-/* --- Link List Styling --- */
-.footer-col ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-col ul li {
-    margin-bottom: 10px;
-}
-
-.footer-col ul li a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.3s;
-}
-
-.footer-col ul li a:hover {
-    color: #fff;
-}
-
-/* --- Contact Column Specifics --- */
-.contact-number {
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 15px;
-}
-
-.chat-heading {
-    margin-top: 25px;
-    margin-bottom: 10px;
-}
-
-.contact-icons a {
-    color: #fff;
-    font-size: 1.5rem;
-    margin-right: 15px;
-    text-decoration: none;
-    opacity: 0.7;
-}
-
-
-
-.app-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.app-btn img {
-    width: 120px;
-    height: auto;
-}
-
-/* --- Social Media Row --- */
-.footer-social {
-    display: flex;
-    align-items: center;
-    padding-top: 20px;
-}
-
-.footer-social .col-heading {
-    margin-right: 30px;
-    margin-bottom: 0;
-}
-
-.social-icons a {
-    color: #fff;
-    font-size: 1.5rem;
-    margin-right: 20px;
-    opacity: 0.8;
-}
-        .footer-col { padding: 10px; }
-        .col-heading { font-weight: bold; margin-bottom: 15px; }
-        .footer-col ul { list-style: none; padding: 0; }
-        .footer-col ul li a { color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 0.95rem; }
-        
-        /* Mobile Navbar Responsiveness (Toggle setup) */
-        @media (max-width: 768px) {
-            .navbar-top { padding: 10px 15px; height: 50px; }
-            .logo { flex-grow: 1; text-align: center; margin-left: -40px; }
-            .search-container { display: none; }
-            .menu-toggle { display: block !important; font-size: 24px; cursor: pointer; }
-            .icon-link:not(.cart) { display: none; }
-            .navbar-bottom {
-                position: fixed; top: 60px; left: 0; width: 100%; height: calc(100% - 60px); 
-                background-color: #fff; z-index: 999; overflow-y: auto;
-                transform: translateX(-100%); transition: transform 0.3s ease-in-out;
-                flex-direction: column; align-items: flex-start; padding: 20px 0; border-top: none;
-            }
-            .navbar-bottom.open { transform: translateX(0); }
-            .menu-list { flex-direction: column; width: 100%; gap: 0; padding: 0 20px; }
-            .menu-list li { width: 100%; border-bottom: 1px solid #eee; padding: 15px 0; }
-            .menu-list li a { font-size: 16px; font-weight: 600; flex-direction: row; justify-content: flex-start; }
-            .menu-icon { margin-right: 15px; color: #D4B294; }
-            body { padding-top: 60px; }
-        }
+       
     </style>
 </head>
 
 <body>
-    <nav class="elaria-navbar">
-        <div class="navbar-top">
-          <div class="logo">
-            <a href="index.html">
-            <img src="elaria.png" alt="Elaria Logo">
-        </a>
-          </div>
-      
-          <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
-            <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
-          </div>
-      
-          <div class="navbar-utility-right">
-            <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
-            <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i></a>
-            <a href="cart.html" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
-      
-          
-            <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
-          </div>
-        </div>
-      
-        <div class="navbar-bottom" id="navbarBottom">
-          <ul class="menu-list">
-            <li>
-              <a href="dailywears.html">
-                <img src="dailywearslogo.jpg" alt="Daily Wears" class="menu-icon-img">
-                Daily Wears
-              </a>
-            </li>
-            <li>
-              <a href="necklaces.html">
-                <img src="necklacelogo.jpg" alt="Necklaces" class="menu-icon-img">
-                Necklaces
-              </a>
-            </li>
-            <li>
-              <a href="earings.html">
-                <img src="earings.jpg" alt="Earrings" class="menu-icon-img">
-                Earrings
-              </a>
-            </li>
-            <li>
-              <a href="rings.html">
-                <img src="rings.jpg" alt="Rings" class="menu-icon-img">
-                Rings
-              </a>
-            </li>
-            <li>
-              <a href="wedding.html">
-                <img src="wedding.jpg" alt="Wedding" class="menu-icon-img">
-                Wedding
-              </a>
-            </li>
-            <li>
-              <a href="gifting.html">
-                <img src="gift.jpg" alt="Gifting" class="menu-icon-img">
-                Gifting
-              </a>
-            </li>
-          </ul>
-        </div>
-        
-      </nav>
+    
 
     <div class="page-container">
 
@@ -455,67 +151,7 @@
     </div>
 
     
-    <footer class="main-footer">
-        <div class="footer-content-wrapper">
-            
-            <div class="footer-logo" style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.</div>
-            
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <p class="col-heading">Useful Links</p>
-                    <ul>
-                        <li><a href="#">Delivery Information</a></li>
-                        <li><a href="#">International Shipping</a></li>
-                        <li><a href="#">Payment Options</a></li>
-                        <li><a href="#">Track your Order</a></li>
-                        <li><a href="#">Returns</a></li>
-                        <li><a href="#">Find a Store</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <p class="col-heading">Information</p>
-                    <ul>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="offers.html">Offers & Contest Details</a></li>
-                        <li><a href="helpandfaq.html">Help & FAQs</a></li>
-                        <li><a href="about.html">About Elaria</a></li>
-                        <li><a href="feedback.html">Feedback & Contact Us</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col contact-col">
-                    <p class="col-heading">Contact Us</p>
-                    <p class="contact-number">1800-266-0123</p>
-                    
-                    <p class="col-heading chat-heading">Chat With Us</p>
-                    <p class="contact-number">+91 7306614239</p>
-                    
-                    <div class="contact-icons">
-                        <a href="#">💬</a>
-                        <a href="#">📧</a>
-                        <a href="#">📞</a>
-                    </div>
-                </div>
-                
-            </div>
-            
-            <div class="footer-social">
-                <p class="col-heading">Social</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
-                    </a> 
-                    <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
-                    </a> 
-                    <a href="#"><i class="fa-brands fa-twitter"> X</i>
-                    </a> 
-                    <a href="#"><i class="fa-brands fa-whatsapp"> whatsapp</i>
-                    </a>
-                </div>
-            </div>
-            
-        </div>
-    </footer>
+     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     
@@ -524,7 +160,8 @@
     <script>
         // --- EmailJS Initialization (REPLACE KEYS) ---
         (function() {
-            emailjs.init("SIl8R64ubD65ssrXB"); // <-- REPLACE with your Public Key
+            // **REPLACE with your Public Key**
+            emailjs.init("SIl8R64ubD65ssrXB"); 
         })();
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -542,17 +179,17 @@
                 submitBtn.textContent = "Sending...";
                 submitBtn.disabled = true;
 
-                // These IDs must match the ones you got from the EmailJS dashboard (REPLACE KEYS)
+                // **REPLACE with your Service and Template IDs**
                 const SERVICE_ID = "service_lwqa3xq"; 
                 const TEMPLATE_ID = "template_7jyqvah"; 
 
-                emailjs.sendForm(SERVICE_ID,TEMPLATE_ID, this)
+                emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this)
                     .then(function() {
                         alert("Thank you! Your feedback has been sent successfully.");
                         form.reset();
                     }, function(error) {
                         console.log('FAILED...', error);
-                        alert("Failed to send feedback. Please check your network and try again.");
+                        alert("Failed to send feedback. Please check your network and EmailJS configuration.");
                     })
                     .finally(function() {
                         submitBtn.textContent = "Submit Feedback";
@@ -562,6 +199,8 @@
             
             // --- B. Navbar Toggle Logic (for mobile) ---
             if (menuToggle && navbarBottom) {
+                menuToggle.style.display = 'block'; // Ensure toggle is visible on mobile
+                
                 menuToggle.addEventListener('click', function() {
                     navbarBottom.classList.toggle('open');
                     const icon = menuToggle.querySelector('i');

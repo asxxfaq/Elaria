@@ -9,47 +9,215 @@
     <link rel="stylesheet" href="style.css"> 
     
     <style>
-        .success-container {
-            max-width: 600px;
-            margin: 80px auto;
-            padding: 40px;
-            text-align: center;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        body {
+            background: #dcf0fa;
         }
+    
+        .container {
+            max-width: 380px;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+    
+        .printer-top {
+            z-index: 1;
+            border: 6px solid #666666;
+            height: 6px;
+            border-bottom: 0;
+            border-radius: 6px 6px 0 0;
+            background: #333333;
+        }
+    
+        .printer-bottom {
+            z-index: 0;
+            border: 6px solid #666666;
+            height: 6px;
+            border-top: 0;
+            border-radius: 0 0 6px 6px;
+            background: #333333;
+        }
+    
+        .paper-container {
+            position: relative;
+            overflow: hidden;
+            height: 467px;
+        }
+    
+        .paper {
+            background: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            height: 447px;
+            position: absolute;
+            z-index: 2;
+            margin: 0 12px;
+            margin-top: -12px;
+            animation: print 5000ms cubic-bezier(0.68, -0.55, 0.265, 0.9);
+            /* -moz-animation: print 5000ms cubic-bezier(0.68, -0.55, 0.265, 0.9) infinite; */
+        }
+    
+        .main-contents {
+            margin: 0 12px;
+            padding: 24px;
+        }
+    
+        /* Paper Jagged Edge */
+        .jagged-edge {
+            position: relative;
+            height: 20px;
+            width: 100%;
+            margin-top: -1px;
+        }
+    
+        .jagged-edge:after {
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(45deg,
+                    transparent 33.333%,
+                    #ffffff 33.333%,
+                    #ffffff 66.667%,
+                    transparent 66.667%),
+                linear-gradient(-45deg,
+                    transparent 33.333%,
+                    #ffffff 33.333%,
+                    #ffffff 66.667%,
+                    transparent 66.667%);
+            background-size: 16px 40px;
+            background-position: 0 -20px;
+        }
+    
         .success-icon {
-            color: #4CAF50; /* Green checkmark */
-            font-size: 5rem;
-            margin-bottom: 20px;
-            animation: bounce 1s ease-in-out;
+            text-align: center;
+            font-size: 48px;
+            height: 72px;
+            background: #359d00;
+            border-radius: 50%;
+            width: 72px;
+            height: 72px;
+            margin: 16px auto;
+            color: #fff;
         }
-        .success-container h1 {
-            color: #4B3832;
-            margin-bottom: 15px;
-            font-weight: 700;
+    
+        .success-title {
+            font-size: 22px;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            color: #666;
+            font-weight: bold;
+            margin-bottom: 16px;
         }
-        .order-details p {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
+    
+        .success-description {
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            line-height: 21px;
+            color: #999;
+            text-align: center;
+            margin-bottom: 24px;
         }
-        .order-details strong {
-            color: #8A2D3C; /* Maroon accent */
+    
+        .order-details {
+            text-align: center;
+            color: #333;
+            font-weight: bold;
+    
         }
-        .next-steps {
-            margin-top: 30px;
+    
+        .order-number-label {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+    
+        .order-number {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            line-height: 48px;
+            font-size: 48px;
+            padding: 8px 0;
+            margin-bottom: 24px;
+        }
+    
+        .complement {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #32a852;
+        }
+    
+        @keyframes print {
+            0% {
+                transform: translateY(-90%);
+            }
+    
+            100% {
+                transform: translateY(0%);
+            }
+        }
+    
+        @-webkit-keyframes print {
+            0% {
+                -webkit-transform: translateY(-90%);
+            }
+    
+            100% {
+                -webkit-transform: translateY(0%);
+            }
+        }
+    
+        @-moz-keyframes print {
+            0% {
+                -moz-transform: translateY(-90%);
+            }
+    
+            100% {
+                -moz-transform: translateY(0%);
+            }
+        }
+    
+        @-ms-keyframes print {
+            0% {
+                -ms-transform: translateY(-90%);
+            }
+    
+            100% {
+                -ms-transform: translateY(0%);
+            }
         }
     </style>
-</head>
-<body>
-    <div class="success-container">
-        <i class="fa-solid fa-circle-check success-icon"></i>
-        <h1>Payment Successful!</h1>
-        <p class="lead text-muted">Thank you for your Elaria order. We've received your payment.</p>
+    
+    <body>
+        <div class="container">
+            <div class="printer-top"></div>
+    
+            <div class="paper-container">
+                <div class="printer-bottom"></div>
+    
+                <div class="paper">
+                    <div class="main-contents">
+                        <div class="success-icon">&#10004;</div>
+                        <div class="success-title">
+                            Payment Complete
+                        </div>
+                        <div class="success-description">
+                            Thank you for completing the payment! <br>
+                            You will be redirected shortly
+                            <!-- You will shortly receive an email of your payment. -->
+                        </div>
+                        <div class="order-details">
+                            <div class="order-number-label">Transaction ID</div>
+                            <div class="order-number"></div>
+                            <div class="complement">Thank You!</div>
+                        </div>
+                    </div>
+                    <div class="jagged-edge"></div>
+                </div>
+            </div>
         
         <div class="order-details my-4">
-            <p>Your Order ID is: ELRIA-108734</p>
+            <p>Your <b> Order ID</b> is:  <b>#ELRIA-108734</b> </p>
             <p>A confirmation email has been sent to your inbox.</p>
         </div>
         
@@ -58,5 +226,18 @@
             <a href="track.html" class="btn btn-outline-secondary">Track Your Order</a>
         </div>
     </div>
+    </body>
+    <script>
+    
+        function generateTransactionID() {
+            var min = 100000000;
+            var max = 999999999;
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    
+        var orderNumberElement = document.querySelector('.order-number');
+    
+        orderNumberElement.textContent = generateTransactionID();
+    </script>
 </body>
 </html>

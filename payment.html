@@ -10,7 +10,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elaria | Secure Payment</title>
-    </head>
+</head>
+<style>
+    /* ADDED CSS FROM YOUR PREVIOUS INPUT FOR PRODUCT LIST STYLING */
+    .product-summary-items {
+        border-bottom: 1px dashed #ccc;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+
+    .summary-product-line {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9em;
+        color: #555;
+        margin-bottom: 4px;
+    }
+
+    .summary-product-line .product-name {
+        flex-grow: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Existing styles for layout and sections */
+    .payment-layout-minimal {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 30px;
+        margin-top: 25px;
+        padding: 0 15px;
+    }
+
+    @media (max-width: 1200px) {
+        .payment-layout-minimal {
+            grid-template-columns: 1fr 1fr 300px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .payment-layout-minimal {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+    }
+
+    .billing-address-minimal {
+        margin-bottom: 25px;
+        padding: 20px;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .address-box-minimal {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .checkbox-group-minimal {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .checkbox-group-minimal input[type="checkbox"] {
+        margin-right: 10px;
+        width: 18px;
+        height: 18px;
+        min-width: 18px;
+        min-height: 18px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    .checkbox-group-minimal label {
+        font-size: 0.95em;
+        font-weight: 500;
+        color: #333;
+        cursor: pointer;
+    }
+
+    .address-box-minimal.disabled-address {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 6px;
+        opacity: 0.7;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .address-box-minimal.disabled-address::after {
+        content: "Using Shipping Address";
+        display: block;
+        text-align: center;
+        font-style: italic;
+        color: #6c757d;
+        margin-top: -10px;
+        padding-bottom: 10px;
+    }
+</style>
 
 <body>
     <nav class="elaria-navbar">
@@ -22,7 +124,8 @@
             </div>
 
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
+                <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..."
+                    class="search-input">
                 <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
             </div>
 
@@ -88,31 +191,115 @@
 
         <div class="payment-layout-minimal">
 
+            <section class="billing-address-minimal">
+                <h2 class="section-title-minimal">Billing Address</h2>
+                <div class="address-box-minimal">
+                    <div class="form-group-minimal">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" placeholder="As on official documents" required>
+                    </div>
+                    <div class="form-group-minimal">
+                        <label for="addressLine1">Address Line 1</label>
+                        <input type="text" id="addressLine1" placeholder="Flat / House No. / Building" required>
+                    </div>
+                    <div class="form-group-minimal">
+                        <label for="addressLine2">Address Line 2 (Optional)</label>
+                        <input type="text" id="addressLine2" placeholder="Street / Area / Locality">
+                    </div>
+                    <div class="form-row-minimal">
+                        <div class="form-group-minimal">
+                            <label for="city">City</label>
+                            <input type="text" id="city" required>
+                        </div>
+                        <div class="form-group-minimal">
+                            <label for="pincode">Pincode</label>
+                            <input type="text" id="pincode" maxlength="6" required>
+                        </div>
+                    </div>
+                    <div class="form-group-minimal">
+                        <label for="country">Country</label>
+                        <select id="country" required>
+                            <option value="IN">India</option>
+                            <option value="US">United States</option>
+                            <option value="GB">United Kingdom</option>
+                            <option value="CA">Canada</option>
+                        </select>
+                    </div>
+                    <div class="checkbox-group-minimal">
+                        <input type="checkbox" id="sameAsShipping">
+                        <label for="sameAsShipping">Billing address is the same as shipping address</label>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="order-summary-minimal">
+                <h2 class="section-title-minimal">Order Summary</h2>
+                
+                <div id="product-list-summary">
+                    </div>
+
+                <div class="summary-line-minimal">
+                    <span>Subtotal (<span id="itemCount">0</span> items)</span>
+                    <span id="subtotalAmount">₹0.00</span>
+                </div>
+                
+                <div class="summary-line-minimal">
+                    <span>Shipping</span>
+                    <span id="shippingAmount">FREE</span>
+                </div>
+                
+                <div class="summary-line-minimal discount-line">
+                    <span id="discountLabel">Discount (WELCOME10)</span>
+                    <span id="discountAmount">- ₹0.00</span>
+                </div>
+                
+                <div class="summary-line-minimal tax-line-minimal">
+                    <span id="taxLabel">Taxes & GST (18%)</span>
+                    <span id="taxAmount">₹0.00</span>
+                </div>
+                
+                <div class="summary-line-minimal total-line-minimal">
+                    <span>Amount Payable</span>
+                    <span id="finalPayableAmount">₹0.00</span>
+                </div>
+
+                <div class="security-info-minimal">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <p>Powered by Elaria SecurePay.</p>
+                </div>
+            </aside>
+
             <section class="payment-methods-minimal">
                 <h2 class="section-title-minimal">Payment Method</h2>
 
                 <div class="method-selector-minimal">
 
                     <input type="radio" id="creditCard" name="payment_method" value="card" checked>
-                    <label for="creditCard" class="method-label"><i class="fa-solid fa-credit-card"></i> Credit / Debit Card</label>
+                    <label for="creditCard" class="method-label"><i class="fa-solid fa-credit-card"></i> Credit / Debit
+                        Card</label>
 
                     <input type="radio" id="upi" name="payment_method" value="upi">
-                    <label for="upi" class="method-label"><i class="fa-solid fa-mobile-screen-button"></i> UPI / QR Code</label>
+                    <label for="upi" class="method-label"><i class="fa-solid fa-mobile-screen-button"></i> UPI / QR
+                        Code</label>
 
                     <input type="radio" id="netbanking" name="payment_method" value="netbanking">
-                    <label for="netbanking" class="method-label"><i class="fa-solid fa-building-columns"></i> Net Banking</label>
+                    <label for="netbanking" class="method-label"><i class="fa-solid fa-building-columns"></i> Net
+                        Banking</label>
 
                     <input type="radio" id="cod" name="payment_method" value="cod">
-                    <label for="cod" class="method-label"><i class="fa-solid fa-money-bill-wave"></i> Cash On Delivery (COD)</label>
+                    <label for="cod" class="method-label"><i class="fa-solid fa-money-bill-wave"></i> Cash On Delivery
+                        (COD)</label>
                 </div>
 
                 <div class="payment-form-content">
 
                     <div id="card-form" class="active-form payment-form-box">
-                        <form id="cardForm"> <div class="form-group-minimal">
+                        <form id="cardForm">
+                            <div class="form-group-minimal">
                                 <label for="cardNumber">Card Number</label>
                                 <div class="input-with-icon">
-                                    <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19" required>
+                                    <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="19"
+                                        required>
                                     <div class="card-icons">
                                         <i class="fa-brands fa-cc-visa"></i>
                                         <i class="fa-brands fa-cc-mastercard"></i>
@@ -134,8 +321,11 @@
                                     <input type="text" id="cardCVV" placeholder="123" maxlength="4" required>
                                 </div>
                             </div>
-                            <p class="security-text-minimal"><i class="fa-solid fa-lock"></i> Secured by 256-bit encryption. Your data is safe.</p>
-                            <button type="submit" class="pay-btn-minimal" disabled>Pay Now ₹<span id="cardPayAmount">1,25,316.00</span></button>
+                            <p class="security-text-minimal"><i class="fa-solid fa-lock"></i> Secured by 256-bit
+                                encryption. Your data
+                                is safe.</p>
+                            <button type="submit" class="pay-btn-minimal" disabled>Pay Now ₹<span
+                                    id="cardPayAmount">0.00</span></button>
                         </form>
                     </div>
 
@@ -143,12 +333,11 @@
                         <div class="upi-option-minimal">
                             <p class="form-instruction">Enter your **UPI ID**</p>
                             <input type="text" placeholder="yourname@bank.com" class="upi-input-minimal" id="upiInput">
-                            <button class="pay-btn-minimal" id="upiPayBtn">Verify & Pay</button>
+                            <button class="pay-btn-minimal" id="upiPayBtn" disabled>Verify & Pay</button>
                         </div>
                         <div class="upi-option-minimal qr-container">
                             <p class="form-instruction">Or Scan QR Code</p>
                             <div class="qr-code-placeholder-minimal">
-
                                 <p>Scan with GPay, Paytm, or PhonePe.</p>
                             </div>
                         </div>
@@ -171,41 +360,16 @@
                     <div id="cod-form" class="hidden-form payment-form-box cod-box-minimal">
                         <i class="fa-solid fa-handshake-angle cod-icon-minimal"></i>
                         <p class="cod-info-minimal">You have selected **Cash On Delivery**.</p>
-                        <p class="cod-note-minimal">Amount Due at Delivery: ₹<span id="codPayAmount">1,25,316.00</span></p>
-                        <p class="cod-note-small-minimal" style="display: none;">Note: COD is available for orders up to ₹50,000. Your order exceeds this limit, please choose another method.</p>
-                        <button class="pay-btn-minimal cod-confirm-minimal" id="codConfirmBtn" disabled>Confirm COD Order</button>
+                        <p class="cod-note-minimal">Amount Due at Delivery: ₹<span id="codPayAmount">0.00</span></p>
+                        <p class="cod-note-small-minimal" style="display: none;">Note: COD is available for orders up to
+                            ₹50,000.
+                            Your order exceeds this limit, please choose another method.</p>
+                        <button class="pay-btn-minimal cod-confirm-minimal" id="codConfirmBtn" disabled>Confirm COD
+                            Order</button>
                     </div>
 
                 </div>
             </section>
-
-            <aside class="order-summary-minimal">
-                <h2 class="section-title-minimal">Order Summary</h2>
-                <div class="summary-line-minimal">
-                    <span>Subtotal (<span id="itemCount">3</span> items)</span>
-                    <span>₹1,18,000.00</span>
-                </div>
-                <div class="summary-line-minimal">
-                    <span>Shipping</span>
-                    <span>FREE</span>
-                </div>
-                <div class="summary-line-minimal discount-line">
-                    <span>Discount (WELCOME10)</span>
-                    <span>- ₹11,800.00</span>
-                </div>
-                <div class="summary-line-minimal tax-line-minimal">
-                    <span>Taxes & GST (18%)</span>
-                    <span>₹19,116.00</span>
-                </div>
-                <div class="summary-line-minimal total-line-minimal">
-                    <span>Amount Payable</span>
-                    <span id="totalAmount">₹1,25,316.00</span>
-                </div>
-                <div class="security-info-minimal">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <p>Powered by Elaria SecurePay.</p>
-                </div>
-            </aside>
         </div>
     </main>
 
@@ -275,7 +439,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // --- Calculation Constants ---
+            // These should match your business rules and are hardcoded here for demo
+            const DISCOUNT_RATE = 0.10; // 10%
+            const TAX_RATE = 0.18; // 18% GST
+            const SHIPPING_COST = 0.00; // FREE
+            const codLimit = 200000; // Increased limit to allow this order for demonstration
+
 
             // --- 1. Element Selectors & Data Setup ---
             const radioButtons = document.querySelectorAll('input[name="payment_method"]');
@@ -286,54 +458,101 @@
                 cod: document.getElementById('cod-form')
             };
 
-            // Get total amount for logic checks
-            const totalAmountSpan = document.getElementById('totalAmount');
-            const finalTotalText = totalAmountSpan ? totalAmountSpan.textContent.replace('₹', '').replace(/,/g, '') : '125316.00';
-            const finalTotal = parseFloat(finalTotalText);
-            const codLimit = 50000;
+            const orderData = JSON.parse(localStorage.getItem("orderSummary")) || {};
 
+            // Fallback for subTotal if localStorage is empty
+            const subTotal = orderData.subTotal ? parseFloat(orderData.subTotal) : 118000.00; 
 
-            // --- 2. LocalStorage & Display Setup ---
-            const orderData = JSON.parse(localStorage.getItem("orderSummary")) || null;
+            // --- Helper Functions ---
+            const formatCurrency = (num, includeSymbol = true) => {
+                const formatted = num.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                return includeSymbol ? `₹${formatted}` : formatted;
+            };
 
-            if (orderData) {
-                const formattedTotal = `₹${orderData.totalAmount.toLocaleString('en-IN')}`;
-                const unformattedTotal = orderData.totalAmount.toLocaleString('en-IN');
-                
-                document.getElementById('totalAmount').textContent = formattedTotal;
-                document.getElementById('cardPayAmount').textContent = unformattedTotal;
-                document.getElementById('codPayAmount').textContent = formattedTotal;
-                document.getElementById('itemCount').textContent = orderData.itemCount;
-            } else {
-                 // Use the default values from the HTML if localStorage is empty
-                const defaultUnformatted = document.getElementById('totalAmount').textContent.replace('₹', '').replace(/,/g, '');
-                console.warn("No order data found in localStorage — using default: " + defaultUnformatted);
-            }
+            // --- 2. Order Summary Calculation & Display ---
             
+            // Perform the calculations
+            const discountAmount = subTotal * DISCOUNT_RATE;
+            const taxableAmount = subTotal - discountAmount;
+            const calculatedTaxes = taxableAmount * TAX_RATE;
+            const finalTotal = taxableAmount + calculatedTaxes + SHIPPING_COST; 
+            
+            // Display Summary Details
+            if (document.getElementById('subtotalAmount')) {
+                document.getElementById('subtotalAmount').textContent = formatCurrency(subTotal);
+            }
+            if (document.getElementById('discountAmount')) {
+                document.getElementById('discountAmount').textContent = `- ${formatCurrency(discountAmount)}`;
+            }
+            if (document.getElementById('taxAmount')) {
+                document.getElementById('taxAmount').textContent = formatCurrency(calculatedTaxes);
+            }
+            if (document.getElementById('finalPayableAmount')) {
+                document.getElementById('finalPayableAmount').textContent = formatCurrency(finalTotal);
+            }
+            if (document.getElementById('itemCount')) {
+                document.getElementById('itemCount').textContent = orderData.itemCount || '0';
+            }
 
-            // --- 3. Core Payment Simulation Logic ---
-            function simulatePayment(method) {
-                // 70% chance of success for digital payments, 100% for valid COD
-                let isSuccess = method === 'cod' ? true : Math.random() > 0.3; 
+            // Display Payment Button Amounts
+            if (document.getElementById('cardPayAmount')) {
+                document.getElementById('cardPayAmount').textContent = formatCurrency(finalTotal, false); // No symbol
+            }
+            if (document.getElementById('codPayAmount')) {
+                document.getElementById('codPayAmount').textContent = formatCurrency(finalTotal);
+            }
+
+            // --- 3. Render Cart Products in Summary (FIXED) ---
+            function renderOrderProducts(data) {
+                const productListContainer = document.getElementById('product-list-summary');
+                // Use a proper container for the list before the summary lines
+                let html = '<div class="product-summary-items">';
                 
-                // Disable the button immediately to prevent double-click
+                if (data.items && data.items.length > 0) {
+                    data.items.forEach(item => {
+                        const itemTotal = item.price * item.qty;
+                        html += `
+                            <div class="summary-product-line">
+                                <span class="product-name">${item.name} (x${item.qty})</span>
+                                <span class="product-price">₹${itemTotal.toLocaleString('en-IN')}</span>
+                            </div>
+                        `;
+                    });
+                } else {
+                    html += `<div class="summary-product-line"><span class="product-name">Error: Cart details missing!</span></div>`;
+                }
+                
+                html += '</div>';
+                productListContainer.innerHTML = html;
+            }
+
+            // Run the product rendering
+            renderOrderProducts(orderData);
+
+
+            // --- 4. Core Payment Simulation Logic (Code is unchanged) ---
+            function simulatePayment(method) {
+                let isSuccess = method === 'cod' ? true : Math.random() > 0.3;
+
                 const activePayBtn = formContents[method].querySelector('.pay-btn-minimal');
                 if (activePayBtn) activePayBtn.disabled = true;
 
-                // Simulate processing delay
                 setTimeout(() => {
                     if (isSuccess) {
                         console.log(`Payment via ${method.toUpperCase()} successful. Redirecting.`);
+                        // Clear the cart on successful payment
+                        localStorage.removeItem("cart");
+                        localStorage.removeItem("orderSummary");
                         window.location.href = 'paymentsuccess.html';
                     } else {
                         console.log(`Payment via ${method.toUpperCase()} failed. Redirecting.`);
                         window.location.href = 'paymentfailed.html';
                     }
-                }, 1200); // 1.2 second delay
+                }, 1200);
             }
 
 
-            // --- 4. Card Form Validation Logic ---
+            // --- 5. Card Form Validation Logic (Code is unchanged) ---
             const cardForm = document.getElementById('cardForm');
             const cardInputs = cardForm.querySelectorAll('input[required]');
             const cardPayBtn = cardForm.querySelector('.pay-btn-minimal');
@@ -341,7 +560,6 @@
             function checkCardFormValidity() {
                 let isComplete = true;
                 cardInputs.forEach(input => {
-                    // Simple check: ensure every required field has content
                     if (input.value.trim().length === 0) {
                         isComplete = false;
                     }
@@ -353,99 +571,149 @@
                 input.addEventListener('input', checkCardFormValidity);
             });
 
-            // Card Form Submission Handler (Triggers payment)
-            cardForm.addEventListener('submit', function(e) {
-                e.preventDefault(); 
+            cardForm.addEventListener('submit', function (e) {
+                e.preventDefault();
                 if (!cardPayBtn.disabled) {
-                    simulatePayment('card');
+                    if (checkBillingAddressValidity()) {
+                        simulatePayment('card');
+                    } else {
+                        alert("Please complete the required Billing Address fields.");
+                    }
                 }
             });
             // --- End Card Form Logic ---
 
 
-            // --- 5. Payment Method Switching Logic (Updated) ---
+            // --- 6. New Billing Address Logic (Code is unchanged, but uses finalTotal/codLimit from top) ---
+            const billingAddressSection = document.querySelector('.address-box-minimal');
+            const billingAddressInputs = billingAddressSection.querySelectorAll('input[required], select[required]');
+            const sameAsShippingCheckbox = document.getElementById('sameAsShipping');
+
+            function toggleBillingInputs() {
+                const isChecked = sameAsShippingCheckbox.checked;
+                billingAddressInputs.forEach(input => {
+                    if (input.id !== 'fullName' && input.id !== 'addressLine1' && input.id !== 'city' && input.id !== 'pincode' && input.id !== 'country') {
+                        input.disabled = isChecked;
+                    } else {
+                        input.disabled = isChecked;
+                    }
+                });
+                billingAddressSection.classList.toggle('disabled-address', isChecked);
+                checkAllFormsValidity();
+            }
+
+            function checkBillingAddressValidity() {
+                if (sameAsShippingCheckbox.checked) {
+                    return true;
+                }
+                let isComplete = true;
+                billingAddressInputs.forEach(input => {
+                    if (input.hasAttribute('required') && input.value.trim().length === 0) {
+                        isComplete = false;
+                    }
+                });
+                return isComplete;
+            }
+
+            function checkAllFormsValidity() {
+                const selectedMethod = document.querySelector('input[name="payment_method"]:checked').value;
+                const activePayBtn = formContents[selectedMethod].querySelector('.pay-btn-minimal');
+                let isBillingValid = checkBillingAddressValidity();
+
+                if (selectedMethod === 'card') {
+                    let isCardValid = true;
+                    cardInputs.forEach(input => {
+                        if (input.value.trim().length === 0) isCardValid = false;
+                    });
+                    activePayBtn.disabled = !(isCardValid && isBillingValid);
+                }
+                else if (selectedMethod === 'cod') {
+                    const codNote = formContents['cod'].querySelector('.cod-note-small-minimal');
+                    const isCodValid = finalTotal <= codLimit; // Uses finalTotal from Section 2
+                    activePayBtn.disabled = !(isCodValid && isBillingValid);
+                    codNote.style.display = isCodValid ? 'none' : 'block';
+                }
+                else if (selectedMethod === 'netbanking') {
+                    const bankSelect = document.getElementById('bankSelect');
+                    const isBankSelected = bankSelect.value !== "";
+                    activePayBtn.disabled = !(isBankSelected && isBillingValid);
+                }
+                else if (selectedMethod === 'upi') {
+                    activePayBtn.disabled = !isBillingValid;
+                }
+            }
+
+            sameAsShippingCheckbox.addEventListener('change', toggleBillingInputs);
+            billingAddressInputs.forEach(input => {
+                input.addEventListener('input', checkAllFormsValidity);
+                input.addEventListener('change', checkAllFormsValidity);
+
+            });
+
+            toggleBillingInputs(); // Initial call to set state
+
+            // --- 7. Payment Method Switching Logic (Code is unchanged) ---
             function showPaymentForm(method) {
-                // Hide/Deactivate all forms
                 Object.values(formContents).forEach(form => {
                     form.classList.remove('active-form');
                     form.classList.add('hidden-form');
                 });
 
-                // Show the selected form
                 if (formContents[method]) {
                     formContents[method].classList.add('active-form');
                     formContents[method].classList.remove('hidden-form');
 
-                    const payButton = formContents[method].querySelector('.pay-btn-minimal');
-
-                    if (method === 'card') {
-                        checkCardFormValidity(); 
-                    } else if (method === 'cod') {
-                        const codNote = formContents['cod'].querySelector('.cod-note-small-minimal');
-                        if (finalTotal > codLimit) {
-                            payButton.disabled = true;
-                            codNote.style.display = 'block';
-                        } else {
-                            payButton.disabled = false; // Enabled if amount is valid
-                            codNote.style.display = 'none';
-                        }
-                    } else if (method === 'netbanking') {
-                        // Net Banking button enabled only when a bank is selected
-                        const bankSelect = document.getElementById('bankSelect');
-                        payButton.disabled = (bankSelect.value === ""); 
-                    }
-                     else {
-                        // UPI: button is enabled immediately (no form validation needed for simulation)
-                        payButton.disabled = false;
-                    }
+                    checkAllFormsValidity();
                 }
             }
-            
-            // Event listener for bank selection
-            document.getElementById('bankSelect').addEventListener('change', function() {
-                document.getElementById('netbankingPayBtn').disabled = (this.value === "");
-            });
 
-            // Handle method selection change
+            document.getElementById('bankSelect').addEventListener('change', checkAllFormsValidity);
+
             radioButtons.forEach(radio => {
                 radio.addEventListener('change', (e) => {
                     showPaymentForm(e.target.value);
                 });
             });
 
-            // Initial setup: Only show and enable the 'card' form
-            showPaymentForm('card');
+            showPaymentForm('card'); // Initial setup
 
+            // --- 8. Event Listeners for other payment buttons (Code is unchanged) ---
 
-            // --- 6. Event Listeners for other payment buttons (Triggers payment) ---
-            
-            // UPI Pay Button
-            document.getElementById('upiPayBtn').addEventListener('click', function() {
-                // Simple UPI ID check (you could add more complex regex)
+            document.getElementById('upiPayBtn').addEventListener('click', function () {
                 const upiInput = document.getElementById('upiInput');
-                if (upiInput.value.trim().length > 5 && upiInput.value.includes('@')) {
-                    simulatePayment('upi');
+                if (checkBillingAddressValidity()) {
+                    if (upiInput.value.trim().length > 5 && upiInput.value.includes('@')) {
+                        simulatePayment('upi');
+                    } else {
+                        alert("Please enter a valid UPI ID.");
+                        upiInput.focus();
+                    }
                 } else {
-                    alert("Please enter a valid UPI ID.");
-                    upiInput.focus();
+                    alert("Please complete the required Billing Address fields.");
                 }
             });
 
-            // Net Banking Pay Button
-            document.getElementById('netbankingPayBtn').addEventListener('click', function() {
+            document.getElementById('netbankingPayBtn').addEventListener('click', function () {
                 if (!this.disabled) {
-                    simulatePayment('netbanking');
+                    if (checkBillingAddressValidity()) {
+                        simulatePayment('netbanking');
+                    } else {
+                        alert("Please complete the required Billing Address fields.");
+                    }
                 }
             });
 
-            // COD Confirm Button
-            document.getElementById('codConfirmBtn').addEventListener('click', function() {
+            document.getElementById('codConfirmBtn').addEventListener('click', function () {
                 if (!this.disabled) {
-                    simulatePayment('cod');
+                    if (checkBillingAddressValidity()) {
+                        simulatePayment('cod');
+                    } else {
+                        alert("Please complete the required Billing Address fields.");
+                    }
                 }
             });
 
-            // --- 7. Navbar Search Functionality (Retained) ---
+            // --- 9. Navbar Search Functionality (Code is unchanged) ---
             const searchInput = document.getElementById('searchInput');
             const searchButton = document.getElementById('searchButton');
 
@@ -461,13 +729,14 @@
             }
 
             searchButton.addEventListener('click', performSearch);
-            searchInput.addEventListener('keypress', function(e) {
+            searchInput.addEventListener('keypress', function (e) {
                 if (e.key === 'Enter') {
                     performSearch();
                 }
             });
         });
     </script>
+
 </body>
 
 </html>

@@ -164,15 +164,22 @@
       }
     });
 
-    // ✅ Proceed to payment
-    document.getElementById("paymentBtn").addEventListener("click", () => {
-      const totalAmount = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-      const itemCount = cart.reduce((sum, item) => sum + item.qty, 0);
+    
+    // ✅ Proceed to payment (FIXED TO SAVE DETAILED CART)
+document.getElementById("paymentBtn").addEventListener("click", () => {
+    const subTotalAmount = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+    const itemCount = cart.reduce((sum, item) => sum + item.qty, 0);
 
-      localStorage.setItem("orderSummary", JSON.stringify({ totalAmount, itemCount }));
-      alert("Redirecting to payment page...");
-      window.location.href = "payment.html";
-    });
+    // Save the entire cart and key summary details
+    localStorage.setItem("orderSummary", JSON.stringify({ 
+        subTotal: subTotalAmount, 
+        itemCount: itemCount,
+        items: cart // <--- SAVE THE ACTUAL PRODUCT LIST
+    }));
+    
+    alert("Redirecting to payment page...");
+    window.location.href = "payment.html";
+});
 
     updateCartCount();
   });
