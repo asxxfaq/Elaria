@@ -1,107 +1,49 @@
+/* ---------------------------------------------------- */
+/* --- 1. Base Styles & Global Reset --- */
+/* ---------------------------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-.elaria-navbar { /* Renamed class */
+
+/* ---------------------------------------------------- */
+/* --- 2. Navigation Bar (elaria-navbar) --- */
+/* ---------------------------------------------------- */
+.elaria-navbar {
     border-bottom: 1px solid #ddd;
-    
-   
 }
 
 .navbar-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 40px;
-    height: 70px;
-    
-    
+    padding: 12px 15px; /* Consolidated desktop padding */
+    height: 70px; /* Consolidated height */
 }
-.menu-list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .menu-list li {
-    margin: 0 10px;
-  }
-  
-  .menu-list a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #000; /* adjust for your theme */
-    font-weight: 500;
-    padding: 8px 10px;
-    transition: 0.3s;
-  }
-  
-  .menu-list a:hover {
-    color: #d4a017; /* gold hover color */
-  }
-  
-  .menu-icon-img {
-    width: 52px;
-    height: 52px;
-    margin-right: 8px;
-    object-fit: contain;
-    vertical-align: middle;
-  }
-  @media (max-width: 768px) {
-    .menu-list {
-      overflow-x: auto;
-      white-space: nowrap;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      padding: 10px 5px;
-      scrollbar-width: none; /* hide scrollbar in Firefox */
-    }
-  
-    .menu-list::-webkit-scrollbar {
-      display: none; /* hide scrollbar in Chrome/Safari */
-    }
-  
-    .menu-list li {
-      display: inline-block;
-    }
-  
-    .menu-list li a {
-      flex-direction: column;
-      font-size: 13px;
-      text-align: center;
-      padding: 5px;
-    }
-  
-    .menu-icon-img {
-      margin: 0 0 5px 0;
-      width: 50px;
-      height: 50px;
-    }
-  }  
 
-/* Logo */
 .logo {
     font-size: 30px;
     font-weight: bold;
-    color: #8B0000; /* Deep red color (kept for style consistency) */
+    color: #8B0000;
 }
+
 .logo img {
-    height: 40px;
+    height: 55px; /* Consolidated logo height for desktop */
     width: auto;
 }
 
-/* Search Container (No changes needed) */
 .search-container {
     flex-grow: 1;
     max-width: 600px;
-    margin: 0 30px;
+    margin: 0 15px; /* Consolidated margin */
     display: flex;
     align-items: center;
     border: 1px solid #ccc;
@@ -117,30 +59,19 @@ body {
     font-size: 14px;
     outline: none;
     height: 100%;
+    width: 100%; /* For .search-container: flex: 1; to work */
 }
 
 .search-icon {
-    background-color: transparent;
+    background: transparent;
     border: none;
-    padding: 0 10px;
+    padding: 0 14px;
     cursor: pointer;
     font-size: 18px;
     color: #666;
+    height: 100%;
 }
 
-.utility-icons {
-    display: flex;
-    align-items: center;
-    border-left: 1px solid #eee;
-}
-
-.utility-icons .icon {
-    padding: 0 10px;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-/* Right Side Icons (No changes needed) */
 .navbar-utility-right {
     display: flex;
     gap: 15px;
@@ -159,9 +90,8 @@ body {
     color: #8B0000;
 }
 
-.cart {
-    display: flex;
-    align-items: center;
+.icon-link i {
+    font-size: 20px;
 }
 
 .cart-count {
@@ -176,13 +106,21 @@ body {
     line-height: 1;
 }
 
-/* --- Bottom Menu Styling (No changes needed) --- */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 25px;
+}
+
+/* --- Bottom Menu (Main Nav) --- */
 .navbar-bottom {
     display: flex;
     justify-content: center;
     padding: 6px 0;
     border-top: 1px solid #eee;
     height: 130px;
+    background: white;
 }
 
 .menu-list {
@@ -190,16 +128,24 @@ body {
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    gap: 25px; /* Consolidated gap */
     max-width: 1200px;
     width: 100%;
-    justify-content: center;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    padding: 12px; /* Consolidated padding */
+}
+
+.menu-list::-webkit-scrollbar {
+    display: none;
 }
 
 .menu-list li a {
     text-decoration: none;
     color: #333;
-    font-size: 14px;
+    font-size: 14px; /* Consolidated font size */
     font-weight: 500;
     display: flex;
     flex-direction: column;
@@ -208,134 +154,32 @@ body {
     transition: color 0.2s;
 }
 
-.menu-icon {
-    font-size: 20px;
-    margin-bottom: 4px;
-    color: #666;
-}
-
 .menu-list li a:hover {
-    color: #8B0000;
-}
-  
-  /* Top Section */
-  .navbar-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 15px;
-  }
-  
-  .logo img {
-    height: 55px;
-  }
-  
-  .search-container {
-    flex: 1;
-    display: flex;
-    max-width: 600px;
-    margin: 0 15px;
-  }
-  
-  .search-input {
-    width: 100%;
-    padding: 10px;
-  }
-  
-  .search-icon {
-    background: transparent;
-    color:black;
-    padding: 10px 14px;
-    border: none;
-  }
-  
-  .navbar-utility-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  .icon-link i {
-    font-size: 20px;
-  }
-  
-  .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 25px;
-  }
-  
-  /* Bottom Menu */
-  .navbar-bottom {
-    background: white;
-  }
-  
-  .menu-list {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    list-style: none;
-    padding: 12px;
-  }
-  
-  .menu-list li a {
-    text-decoration: none;
-    font-size: 15px;
-    color: #444;
-    font-weight: 500;
-  }
-  
-  /* ✅ RESPONSIVE RULES */
-  @media (max-width: 768px) {
-    .search-container {
-      display: none;
-    }
-  
-    .menu-toggle {
-      display: block;
-    }
-    
-    .navbar-bottom {
-      display: none;
-      text-align: center;
-    }
-  
-    .menu-list {
-      display: block;
-      padding: 10px 0;
-    }
-  
-    .menu-list li {
-      padding: 10px 0;
-    }
-    .navbar-utility-right {
-        display: flex !important;
-        gap: 12px;
-      }
-  }
-  
-
-/* Basic Reset */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    color: #d4a017; /* Consolidated gold hover color */
 }
 
+.menu-icon-img {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 4px; /* Consolidated margin */
+    object-fit: contain;
+}
+
+/* ---------------------------------------------------- */
+/* --- 3. Hero Carousel (Bootstrap/Generic) --- */
+/* ---------------------------------------------------- */
 .carousel-item {
     height: 80vh;
     min-height: 200px;
 }
-  
-  .background-slide {
 
+.background-slide {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
-  }
-  
-  .centered-content {
+}
+
+.centered-content {
     position: absolute;
     top: 30%;
     left: 30%;
@@ -345,28 +189,24 @@ body {
     padding: 85px 65px;
     border-radius: 10px;
     color: #4B3832;
-  }
-  
-  .brand-logo {
+}
+
+.brand-logo {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 40px;
     color: #8B4513;
     margin-bottom: 2px;
     font-weight: bold;
+}
 
-    
-  }
-  
-  .centered-content h1 {
+.centered-content h1 {
     font-family: 'Playfair Display', serif;
     font-size: 3.2rem;
     font-style: italic;
     align-items: center;
-    
-   
-  }
-  
-  .shop-btn {
+}
+
+.shop-btn {
     background-color: #D4B294;
     color: #4B3832;
     border: none;
@@ -376,21 +216,24 @@ body {
     letter-spacing: 1px;
     transition: 0.3s;
     align-items: center;
-  }
-  
-  .shop-btn:hover {
-    background-color: #C1A082;
-  }
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    filter: invert(100%);
-  }
-  /* --- COLLECTION SECTION STYLES --- */
+}
 
+.shop-btn:hover {
+    background-color: #C1A082;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(100%);
+}
+
+/* ---------------------------------------------------- */
+/* --- 4. Collection/Promo Grid Section --- */
+/* ---------------------------------------------------- */
 .collection-section {
     width: 90%;
     max-width: 1200px;
-    margin: 60px auto; /* Centers the section below the carousel */
+    margin: 60px auto;
     text-align: center;
 }
 
@@ -408,30 +251,25 @@ body {
     margin-bottom: 40px;
 }
 
-/* --- THE GRID LAYOUT (Main Structure) --- */
 .collection-grid {
     display: grid;
-    /* Defines a 2-column layout */
     grid-template-columns: 1fr 1fr;
-    /* Defines the structure: 
-       Item 1 spans 2 rows, Item 2 & 3 are the small tiles, Item 4 spans 2 rows */
-    grid-template-areas: 
+    grid-template-areas:
         "item1 item2"
         "item1 item3"
-        "item4 item4"; /* Making the bottom item full width initially for a more dynamic look */
+        "item4 item4";
     gap: 20px;
 }
 
-/* --- Individual Item Styling --- */
 .collection-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 350px; /* Default height */
+    height: 350px;
     background-size: cover;
     background-position: center;
     border-radius: 8px;
-    text-decoration: none; /* Remove underline from anchor tag */
+    text-decoration: none;
     overflow: hidden;
     position: relative;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -439,12 +277,11 @@ body {
 }
 
 .collection-item:hover {
-    transform: translateY(-5px); /* Subtle lift on hover */
+    transform: translateY(-5px);
 }
 
 .collection-text-box {
     position: absolute;
-    /* Position the text to the bottom right/center based on the source image style */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -466,12 +303,9 @@ body {
     font-size: 1rem;
 }
 
-
-/* --- Grid Area Assignments (The key to the complex layout) --- */
 .collection-grid .collection-item:nth-child(1) {
     grid-area: item1;
-    /* Adjust height for the large vertical block */
-    height: calc(350px * 2 + 20px); 
+    height: calc(350px * 2 + 20px);
 }
 
 .collection-grid .collection-item:nth-child(2) {
@@ -484,31 +318,17 @@ body {
 
 .collection-grid .collection-item:nth-child(4) {
     grid-area: item4;
+    height: 350px; /* Ensure this is reset or set explicitly */
 }
 
-/* --- RESPONSIVENESS for Grid --- */
 
-/* Tablet View (2 columns, standard grid) */
-@media (max-width: 900px) {
-    .collection-grid {
-        /* Simplifies to a standard 2x2 grid */
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas: 
-            "item1 item2"
-            "item3 item4";
-    }
-
-    /* Reset the vertical item height to standard */
-    .collection-grid .collection-item:nth-child(1) {
-        height: 350px; 
-    }
-}
-/* --- CATEGORY SECTION STYLES (Headers) --- */
-
+/* ---------------------------------------------------- */
+/* --- 5. Category Showcase Section --- */
+/* ---------------------------------------------------- */
 .category-section {
     width: 90%;
     max-width: 1200px;
-    margin: 60px auto; 
+    margin: 60px auto;
     text-align: center;
 }
 
@@ -526,15 +346,12 @@ body {
     margin-bottom: 40px;
 }
 
-/* --- THE GRID LAYOUT (Main Structure) --- */
 .category-grid {
     display: grid;
-    /* 4 equal columns on desktop */
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-/* --- Individual Category Item Styling --- */
 .category-item {
     display: block;
     text-decoration: none;
@@ -543,14 +360,12 @@ body {
 }
 
 .category-item:hover {
-    transform: translateY(-5px); /* Subtle lift on hover */
+    transform: translateY(-5px);
 }
 
-/* The box containing the image, with soft rounded corners */
 .category-image-box {
     width: 100%;
-    /* Creates a perfect square for the image area */
-    padding-top: 100%; 
+    padding-top: 100%;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
@@ -566,30 +381,30 @@ body {
     letter-spacing: 1px;
 }
 
-/* --- NEW ARRIVALS SECTION STYLES --- */
 
+/* ---------------------------------------------------- */
+/* --- 6. New Arrivals Promo Section --- */
+/* ---------------------------------------------------- */
 .arrivals-container {
     width: 100%;
-    /* Use a combined image that includes the rings and the beige background */
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
-    padding: 80px 0; /* Vertical spacing */
-    margin: 40px 0; /* Space from sections above/below */
+    padding: 80px 0;
+    margin: 40px 0;
 }
 
 .arrivals-header-wrapper {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 5%;
-    /* Aligns the text content to the left side */
-    display: flex; 
+    display: flex;
     justify-content: flex-start;
 }
 
 .arrivals-text-content {
     max-width: 500px;
-    color: #333; /* Dark text for contrast against the beige background */
+    color: #333;
     text-align: left;
     padding-bottom: 40px;
 }
@@ -618,11 +433,9 @@ body {
     margin-bottom: 5px;
 }
 
-/* --- THE IMAGE GRID --- */
 .arrivals-image-grid {
     display: grid;
-    /* Two equal columns for the images */
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -632,8 +445,8 @@ body {
 .arrivals-item {
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Text is at the bottom of the image */
-    height: 400px; 
+    align-items: flex-end;
+    height: 400px;
     background-size: cover;
     background-position: center;
     border-radius: 8px;
@@ -644,7 +457,7 @@ body {
 }
 
 .arrivals-text-overlay {
-    background-color: rgba(255, 255, 255, 0.85); /* Light translucent box */
+    background-color: rgba(255, 255, 255, 0.85);
     padding: 15px 30px;
     width: 90%;
     margin-bottom: 20px;
@@ -658,25 +471,25 @@ body {
     color: #4B3832;
     margin: 0;
 }
-/* --- ASSURANCE SECTION STYLES --- */
 
+
+/* ---------------------------------------------------- */
+/* --- 7. Assurance/Feature Section --- */
+/* ---------------------------------------------------- */
 .assurance-section {
     display: flex;
-    /* Aligns items side-by-side */
     justify-content: space-between;
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    height: 400px; /* Gives the section a good vertical presence */
+    height: 400px;
     margin: 80px auto;
-    background-color: #fff; /* White background for the Tanishq Assurance text side */
-    /* Separates the left white side from the right off-white side */
-    border-right: 1px solid #eee; 
+    background-color: #fff;
+    border-right: 1px solid #eee;
 }
 
-/* --- Left Column: Title Block --- */
 .assurance-title-block {
-    flex: 1; /* Takes up one part of the space */
+    flex: 1;
     padding: 0 5%;
     text-align: left;
 }
@@ -691,7 +504,7 @@ body {
 }
 
 .assurance-highlight {
-    color: #8A2D3C; /* Deep maroon/red for the 'Assurance' word */
+    color: #8A2D3C;
 }
 
 .assurance-title-block p {
@@ -701,14 +514,13 @@ body {
     font-weight: 300;
 }
 
-/* --- Right Column: Icons Block --- */
 .assurance-icons-block {
-    flex: 1; /* Takes up one part of the space */
+    flex: 1;
     display: flex;
-    justify-content: space-around; /* Spreads the icons out */
+    justify-content: space-around;
     align-items: center;
     height: 100%;
-    background-color: #F8F7F6; /* Light gray/off-white background */
+    background-color: #F8F7F6;
     padding: 0 2%;
     text-align: center;
 }
@@ -719,13 +531,12 @@ body {
 }
 
 .icon-placeholder {
-    /* Styles for the gold-toned icons */
     font-size: 3rem;
-    color: #D4AF37; /* Gold color */
-    background-color: #F0E6D1; /* Light beige/tan background for the square effect */
+    color: #D4AF37;
+    background-color: #F0E6D1;
     width: 80px;
     height: 80px;
-    line-height: 80px; /* Vertically centers the emoji/placeholder */
+    line-height: 80px;
     border-radius: 8px;
     margin: 0 auto 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -738,39 +549,12 @@ body {
     line-height: 1.4;
 }
 
-/* --- RESPONSIVENESS --- */
 
-@media (max-width: 992px) {
-    .assurance-section {
-        /* Stacks columns vertically on smaller screens */
-        flex-direction: column;
-        height: auto; 
-        margin: 40px auto;
-        border-right: none; 
-    }
-
-    .assurance-title-block {
-        text-align: center;
-        padding: 40px 5%;
-    }
-
-    .assurance-title-block h1 {
-        font-size: 3.5rem;
-    }
-    
-    .assurance-title-block p {
-        font-size: 1.2rem;
-    }
-
-    .assurance-icons-block {
-        height: 180px;
-        padding: 20px 5%;
-    }
-}
-/* --- FOOTER STYLES --- */
-
+/* ---------------------------------------------------- */
+/* --- 8. Footer (main-footer) --- */
+/* ---------------------------------------------------- */
 .main-footer {
-    background-color: #381A20; /* Dark Maroon/Brown background */
+    background-color: #381A20;
     color: #fff;
     padding: 60px 0 20px 0;
     font-family: Arial, sans-serif;
@@ -782,7 +566,6 @@ body {
     padding: 0 5%;
 }
 
-/* --- Logo Styling --- */
 .footer-logo {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
@@ -791,11 +574,9 @@ body {
     margin-bottom: 40px;
 }
 
-/* --- Main Grid Layout (4 Columns) --- */
 .footer-grid {
     display: grid;
-    /* Sets up 4 columns for the desktop view */
-    grid-template-columns: 1.5fr repeat(3, 1fr); 
+    grid-template-columns: 1.5fr repeat(3, 1fr); /* 4 columns for desktop */
     gap: 40px;
     padding-bottom: 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -808,7 +589,6 @@ body {
     color: #fff;
 }
 
-/* --- Link List Styling --- */
 .footer-col ul {
     list-style: none;
     padding: 0;
@@ -829,7 +609,6 @@ body {
     color: #fff;
 }
 
-/* --- Contact Column Specifics --- */
 .contact-number {
     font-size: 1rem;
     font-weight: 500;
@@ -849,8 +628,6 @@ body {
     opacity: 0.7;
 }
 
-
-
 .app-buttons {
     display: flex;
     gap: 10px;
@@ -861,7 +638,6 @@ body {
     height: auto;
 }
 
-/* --- Social Media Row --- */
 .footer-social {
     display: flex;
     align-items: center;
@@ -880,145 +656,160 @@ body {
     opacity: 0.8;
 }
 
-/* --- RESPONSIVENESS --- */
 
+/* ---------------------------------------------------- */
+/* --- 9. Responsive Media Queries --- */
+/* ---------------------------------------------------- */
+
+/* --- Tablet / Smaller Desktop (max-width: 992px) --- */
 @media (max-width: 992px) {
+    /* Category Grid */
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Assurance Section */
+    .assurance-section {
+        flex-direction: column;
+        height: auto;
+        margin: 40px auto;
+        border-right: none;
+    }
+
+    .assurance-title-block {
+        text-align: center;
+        padding: 40px 5%;
+    }
+
+    .assurance-title-block h1 {
+        font-size: 3.5rem;
+    }
+
+    .assurance-title-block p {
+        font-size: 1.2rem;
+    }
+
+    .assurance-icons-block {
+        height: 180px;
+        padding: 20px 5%;
+    }
+    
+    /* Footer Grid */
     .footer-grid {
-        /* Changes to 2 columns on tablets */
         grid-template-columns: 1.5fr 1fr;
     }
 
-    /* Stack Information and Contact columns on top of each other */
     .footer-grid .footer-col:nth-child(3),
     .footer-grid .footer-col:nth-child(4) {
-        grid-column: span 2; /* Forces these two to span the full width */
+        grid-column: span 2;
     }
 }
 
-@media (max-width: 600px) {
-    .footer-grid {
-        /* Stacks all columns vertically on mobile */
-        grid-template-columns: 1fr;
-        gap: 30px;
+/* --- Medium Tablet / Collection Grid Switch (max-width: 900px) --- */
+@media (max-width: 900px) {
+    .collection-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "item1 item2"
+            "item3 item4";
     }
 
-    .footer-grid .footer-col {
-        grid-column: span 1; 
-    }
-    
-    .footer-logo {
-        text-align: center;
-    }
-
-    .col-heading,
-    .footer-col ul,
-    .contact-number {
-        text-align: center;
-    }
-
-    /* Center QR Code and App Buttons */
-    .download-col .col-heading {
-        margin-top: 0;
-    }
-    .qr-code-placeholder, .app-buttons {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .app-buttons {
-        justify-content: center;
-    }
-    
-    /* Center Contact Icons */
-    .contact-icons {
-        text-align: center;
-    }
-
-    /* Center Social Icons */
-    .footer-social {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .footer-social .col-heading {
-        margin-right: 0;
-        margin-bottom: 15px;
-    }
-    
-    .social-icons {
-        margin-bottom: 20px;
+    .collection-grid .collection-item:nth-child(1) {
+        height: 350px;
     }
 }
-@media (max-width: 600px) {
-    .assurance-title-block h1 {
-        font-size: 3rem;
-    }
-    
-    .assurance-icons-block {
-        /* Ensures icons wrap nicely if the screen is very small */
-        flex-wrap: wrap; 
-        height: auto;
-        padding: 20px 10px;
-    }
 
-    .assurance-item {
-        width: 30%; /* Gives space for the three items */
-        margin-bottom: 20px;
-    }
-    
-    .icon-placeholder {
-        width: 60px;
-        height: 60px;
-        line-height: 60px;
-        font-size: 2rem;
-    }
-}
-/* --- RESPONSIVENESS --- */
-
-/* Mobile View (1 column) */
+/* --- Mobile View (max-width: 768px) --- */
 @media (max-width: 768px) {
+    /* Navigation Adjustments */
+    .navbar-top {
+        padding: 10px 15px;
+        justify-content: space-between; /* Use space-between for better control */
+        height: 60px; /* Consolidated to 60px */
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .search-container {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar-utility-right {
+        display: flex !important;
+        gap: 12px;
+    }
+
+    /* Hide specific icons to clean up mobile view */
+    .icon-link:nth-child(1),
+    .icon-link:nth-child(2) {
+        display: none;
+    }
+    .navbar-bottom {
+        display: none;
+    }
+    
+    .menu-list {
+        overflow-x: auto;
+        white-space: nowrap;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 10px 5px;
+        display: block; /* Use block when toggled by JS */
+        text-align: center;
+    }
+
+    .menu-list li {
+        display: inline-block;
+        padding: 10px 0;
+    }
+
+    .menu-list li a {
+        flex-direction: column;
+        font-size: 13px;
+        padding: 5px;
+    }
+
+    .menu-icon-img {
+        margin: 0 0 5px 0;
+        width: 50px;
+        height: 50px;
+    }
+    
+    /* Arrivals Section */
     .arrivals-container {
         padding: 40px 0;
     }
 
     .arrivals-text-content {
-        max-width: none; /* Allows text to use full width */
-        text-align: center; /* Center text on mobile */
+        max-width: none;
+        text-align: center;
     }
 
     .arrivals-text-content h1 {
         font-size: 2.5rem;
     }
-    
+
     .arrivals-image-grid {
-        grid-template-columns: 1fr; /* Stacks images vertically */
+        grid-template-columns: 1fr;
     }
 
     .arrivals-item {
         height: 300px;
     }
 }
-@media (max-width: 992px) {
-    .category-grid {
-        /* Changes to 2 columns on tablets */
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
 
-/* Mobile View (1 column) */
+/* --- Small Mobile View (max-width: 600px) --- */
 @media (max-width: 600px) {
-    .category-grid {
-        /* Stacks all items vertically on small screens */
-        grid-template-columns: 1fr;
-        gap: 30px; /* More space between stacked items */
-    }
-}
-
-/* Mobile View (1 column) */
-@media (max-width: 600px) {
+    /* Collection Grid */
     .collection-grid {
-        /* Stacks all items vertically */
         grid-template-columns: 1fr;
-        grid-template-areas: 
+        grid-template-areas:
             "item1"
             "item2"
             "item3"
@@ -1026,56 +817,80 @@ body {
     }
 
     .collection-item {
-        height: 250px; /* Shorter height for mobile */
+        height: 250px;
     }
 
-    /* Ensure item 1 still uses the standard height after the grid change */
     .collection-grid .collection-item:nth-child(1) {
-        height: 250px; 
-    }
-}
-  
-@media (max-width: 768px) {
-    /* --- Top Bar Changes --- */
-    .navbar-top {
-        padding: 10px 15px;
-        justify-content: space-around;
-        height: 50px;
-    }
-
-    .search-container {
-        max-width: 40px;
-        border: none;
-        margin: 0 10px;
-    }
-
-    .search-input {
-        display: none;
-    }
-
-    .search-icon {
-        padding: 0;
-        font-size: 20px;
-    }
-
-    .utility-icons {
-        display: none;
+        height: 250px;
     }
     
-    .navbar-utility-right {
-        gap: 15px;
+    /* Category Grid */
+    .category-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
     
-    /* Hide specific icons to clean up mobile view */
-    .icon-link:nth-child(1),
-    .icon-link:nth-child(2),
-    .icon-link:nth-child(3)
-    {
-        display: none; 
+    /* Assurance Section */
+    .assurance-title-block h1 {
+        font-size: 3rem;
     }
 
-    /* --- Bottom Bar Removal --- */
-    .navbar-bottom {
-        display: none;
+    .assurance-icons-block {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 20px 10px;
+    }
+
+    .assurance-item {
+        width: 30%;
+        margin-bottom: 20px;
+    }
+
+    .icon-placeholder {
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        font-size: 2rem;
+    }
+    
+    /* Footer Grid */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-grid .footer-col {
+        grid-column: span 1;
+    }
+
+    .footer-logo {
+        text-align: center;
+    }
+    
+    /* Center text/elements in stacked footer columns */
+    .col-heading,
+    .footer-col ul,
+    .contact-number {
+        text-align: center;
+    }
+
+    .app-buttons {
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-icons {
+        text-align: center;
+    }
+
+    .footer-social {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-social .col-heading {
+        margin-right: 0;
+        margin-bottom: 15px;
     }
 }

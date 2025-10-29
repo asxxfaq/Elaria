@@ -1,332 +1,471 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="earings.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elaria - Earrings</title>
-</head>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+      <link rel="stylesheet" href="earings.css">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Elaria - Earrings</title>
+  </head>
 
-<body>
-  <nav class="elaria-navbar">
-    <div class="navbar-top">
-      <div class="logo">
-        <a href="index.html">
-        <img src="elaria.png" alt="Elaria Logo">
-    </a>
-      </div>
-  
-      <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
-        <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
-      </div>
-  
-      <div class="navbar-utility-right">
-        <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
-        <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i></a>
-        <a href="cart.html" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
-  
+  <body>
+      <nav class="elaria-navbar">
+          <div class="navbar-top">
+              <div class="logo">
+                  <a href="index.html">
+                      <img src="elaria.png" alt="Elaria Logo">
+                  </a>
+              </div>
+          
+              <div class="search-container">
+                  <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
+                  <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
+              </div>
+          
+              <div class="navbar-utility-right">
+                  <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
+                  <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i></a>
+                  <a href="cart.html" class="icon-link">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                      <span class="cart-count"></span>
+                  </a>
+          
+                  <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+              </div>
+          </div>
       
-        <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
+          <div class="navbar-bottom" id="navbarBottom">
+              <ul class="menu-list">
+                  <li>
+                      <a href="dailywears.html">
+                          <img src="dailywearslogo.jpg" alt="Daily Wears" class="menu-icon-img">
+                          Daily Wears
+                      </a>
+                  </li>
+                  <li>
+                      <a href="necklaces.html">
+                          <img src="necklacelogo.jpg" alt="Necklaces" class="menu-icon-img">
+                          Necklaces
+                      </a>
+                  </li>
+                  <li>
+                      <a href="earings.html">
+                          <img src="earings.jpg" alt="Earrings" class="menu-icon-img">
+                          Earrings
+                      </a>
+                  </li>
+                  <li>
+                      <a href="rings.html">
+                          <img src="rings.jpg" alt="Rings" class="menu-icon-img">
+                          Rings
+                      </a>
+                  </li>
+                  <li>
+                      <a href="wedding.html">
+                          <img src="wedding.jpg" alt="Wedding" class="menu-icon-img">
+                          Wedding
+                      </a>
+                  </li>
+                  <li>
+                      <a href="gifting.html">
+                          <img src="gift.jpg" alt="Gifting" class="menu-icon-img">
+                          Gifting
+                      </a>
+                  </li>
+              </ul>
+          </div>
+          
+      </nav>
+
+      <div class="earrings-page-container">
+          <div class="earrings-hero-banner" style="background-image: url('images/earingbg.jpg');">
+              <div class="hero-content">
+                  <h2>The Sparkle Collection</h2>
+                  <p>Find your signature piece, from subtle studs to stunning drops.</p>
+              </div>
+          </div>
+
+          <h1 class="page-title">Earrings Collection</h1>
+          <p class="page-subtitle">Find your perfect pair: from classic studs to dazzling drops and traditional jhumkas.</p>
+
+          <div class="row">
+              <div class="col-lg-3 d-none d-lg-block">
+                  <div class="filter-sidebar">
+                      <h2 class="filter-heading">Filters</h2>
+                      <div class="filter-group"> <p class="filter-title">Earring Style</p> <div class="form-check"> <input class="form-check-input" type="checkbox" id="studs" checked> <label class="form-check-label" for="studs">Studs (88)</label> </div> <div class="form-check"> <input class="form-check-input" type="checkbox" id="drops"> <label class="form-check-label" for="drops">Drops & Dangles (52)</label> </div> <div class="form-check"> <input class="form-check-input" type="checkbox" id="hoops"> <label class="form-check-label" for="hoops">Hoops (29)</label> </div> <div class="form-check"> <input class="form-check-input" type="checkbox" id="jhumkas"> <label class="form-check-label" for="jhumkas">Jhumkas (15)</label> </div> </div> <div class="filter-group"> <p class="filter-title">Gemstone</p> <div class="form-check"> <input class="form-check-input" type="checkbox" id="diamond"> <label class="form-check-label" for="diamond">Diamond</label> </div> <div class="form-check"> <input class="form-check-input" type="checkbox" id="pearl"> <label class="form-check-label" for="pearl">Pearl</label> </div> <div class="form-check"> <input class="form-check-input" type="checkbox" id="rubie"> <label class="form-check-label" for="rubie">Rubies</label> </div> </div> <div class="filter-group"> <p class="filter-title">Price Range</p> <input type="range" class="form-range" min="5000" max="300000" step="1000" id="priceRangeEarrings"> <p class="price-display">₹ 10,000 - ₹ 1,50,000</p> </div> <button class="btn btn-apply-filter w-100">Apply Filters</button>
+                  </div>
+              </div>
+
+              <div class="col-lg-9">
+                  <div class="sorting-bar">
+                      <span class="product-count">184 Products Found</span>
+                      <select class="form-select sort-dropdown">
+                          <option selected>Sort by Relevance</option>
+                          <option value="1">Price: Low to High</option>
+                          <option value="2">Price: High to Low</option>
+                          <option value="3">Newest Arrivals</option>
+                      </select>
+                  </div>
+
+                  <div class="row row-cols-2 row-cols-md-3 g-4 product-grid">
+                      <div class="col">
+                          <div class="product-card earring-card-style">
+                              <div class="card-img" style="background-image: url('images/ClassicDiamondStuds.jpg'); border: 2px solid #33A7A1;">
+                                  <span class="discount-badge">Top Rated</span>
+                                  <i class="fa-regular fa-heart wishlist-icon" data-product-id="ear1"></i>
+                              </div>
+                              <div class="card-body">
+                                  <h5 class="card-title">Classic Diamond Studs</h5>
+                                  <p class="card-price">₹ 75,000</p>
+                                  <a href="#" class="earring-btn-cart btn-add-cart" data-product-id="ear1">Add to Cart</a>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="col">
+                          <div class="product-card earring-card-style">
+                              <div class="card-img" style="background-image: url('images/MinimalistGoldHoops.jpg'); border: 2px solid #33A7A1;">
+                                  <i class="fa-regular fa-heart wishlist-icon" data-product-id="ear2"></i>
+                              </div>
+                              <div class="card-body">
+                                  <h5 class="card-title">Minimalist Gold Hoops</h5>
+                                  <p class="card-price">₹ 18,500</p>
+                                  <a href="#" class="earring-btn-cart btn-add-cart" data-product-id="ear2">Add to Cart</a>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="col">
+                          <div class="product-card earring-card-style">
+                              <div class="card-img" style="background-image: url('images/TraditionalTempleJhumkas.jpg'); border: 2px solid #33A7A1;">
+                                  <span class="discount-badge">-10%</span>
+                                  <i class="fa-regular fa-heart wishlist-icon" data-product-id="ear3"></i>
+                              </div>
+                              <div class="card-body">
+                                  <h5 class="card-title">Traditional Temple Jhumkas</h5>
+                                  <p class="card-price">₹ 45,000</p>
+                                  <a href="#" class="earring-btn-cart btn-add-cart" data-product-id="ear3">Add to Cart</a>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="col">
+                          <div class="product-card earring-card-style">
+                              <div class="card-img" style="background-image: url('images/RoseGoldDiamondDrops.jpg'); border: 2px solid #33A7A1;">
+                                  <i class="fa-regular fa-heart wishlist-icon" data-product-id="ear4"></i>
+                              </div>
+                              <div class="card-body">
+                                  <h5 class="card-title">Rose Gold Diamond Drops</h5>
+                                  <p class="card-price">₹ 1,12,000</p>
+                                  <a href="#" class="earring-btn-cart btn-add-cart" data-product-id="ear4">Add to Cart</a>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="col">
+                          <div class="product-card earring-card-style">
+                              <div class="card-img" style="background-image: url('images/PearlandGoldClusterStuds.jpg'); border: 2px solid #33A7A1;">
+                                  <i class="fa-regular fa-heart wishlist-icon" data-product-id="ear5"></i>
+                              </div>
+                              <div class="card-body">
+                                  <h5 class="card-title">Pearl and Gold Cluster Studs</h5>
+                                  <p class="card-price">₹ 29,500</p>
+                                  <a href="#" class="earring-btn-cart btn-add-cart" data-product-id="ear5">Add to Cart</a>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class="col">
+                          <div class="product-card earring-card-style">
+                              <div class="card-img" style="background-image: url('images/Geometric Daily Wear Hoops.jpg'); border: 2px solid #33A7A1;">
+                                  <span class="discount-badge">New</span>
+                                  <i class="fa-regular fa-heart wishlist-icon" data-product-id="ear6"></i>
+                              </div>
+                              <div class="card-body">
+                                  <h5 class="card-title">Geometric Daily Wear Hoops</h5>
+                                  <p class="card-price">₹ 15,000</p>
+                                  <a href="#" class="earring-btn-cart btn-add-cart" data-product-id="ear6">Add to Cart</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="text-center mt-5">
+                      <a href="collections.html"><button class="btn btn-load-more">Load More Products</button></a>
+                  </div>
+              </div>
+          </div> <br>
       </div>
-    </div>
-  
-    <div class="navbar-bottom" id="navbarBottom">
-      <ul class="menu-list">
-        <li>
-          <a href="dailywears.html">
-            <img src="dailywearslogo.jpg" alt="Daily Wears" class="menu-icon-img">
-            Daily Wears
-          </a>
-        </li>
-        <li>
-          <a href="necklaces.html">
-            <img src="necklacelogo.jpg" alt="Necklaces" class="menu-icon-img">
-            Necklaces
-          </a>
-        </li>
-        <li>
-          <a href="earings.html">
-            <img src="earings.jpg" alt="Earrings" class="menu-icon-img">
-            Earrings
-          </a>
-        </li>
-        <li>
-          <a href="rings.html">
-            <img src="rings.jpg" alt="Rings" class="menu-icon-img">
-            Rings
-          </a>
-        </li>
-        <li>
-          <a href="wedding.html">
-            <img src="wedding.jpg" alt="Wedding" class="menu-icon-img">
-            Wedding
-          </a>
-        </li>
-        <li>
-          <a href="gifting.html">
-            <img src="gift.jpg" alt="Gifting" class="menu-icon-img">
-            Gifting
-          </a>
-        </li>
-      </ul>
-    </div>
+      <footer class="main-footer">
+        <div class="footer-content-wrapper">
     
-  </nav>
-
-  <div class="earrings-page-container">
-    <div class="earrings-hero-banner" style="background-image: url('images/earingbg.jpg');">
-      <div class="hero-content">
-        <h2>The Sparkle Collection</h2>
-        <p>Find your signature piece, from subtle studs to stunning drops.</p>
-      </div>
-    </div>
-
-    <h1 class="page-title">Earrings Collection</h1>
-    <p class="page-subtitle">Find your perfect pair: from classic studs to dazzling drops and traditional jhumkas.</p>
-
-    <div class="row">
-      <div class="col-lg-3 d-none d-lg-block">
-        <div class="filter-sidebar">
-          <h2 class="filter-heading">Filters</h2>
-          <div class="filter-group"> <p class="filter-title">Earring Style</p> <div class="form-check"> <input class="form-check-input" type="checkbox" id="studs" checked> <label class="form-check-label" for="studs">Studs (88)</label> </div> <div class="form-check"> <input class="form-check-input" type="checkbox" id="drops"> <label class="form-check-label" for="drops">Drops & Dangles (52)</label> </div> <div class="form-check"> <input class="form-check-input" type="checkbox" id="hoops"> <label class="form-check-label" for="hoops">Hoops (29)</label> </div> <div class="form-check"> <input class="form-check-input" type="checkbox" id="jhumkas"> <label class="form-check-label" for="jhumkas">Jhumkas (15)</label> </div> </div> <div class="filter-group"> <p class="filter-title">Gemstone</p> <div class="form-check"> <input class="form-check-input" type="checkbox" id="diamond"> <label class="form-check-label" for="diamond">Diamond</label> </div> <div class="form-check"> <input class="form-check-input" type="checkbox" id="pearl"> <label class="form-check-label" for="pearl">Pearl</label> </div> <div class="form-check"> <input class="form-check-input" type="checkbox" id="rubie"> <label class="form-check-label" for="rubie">Rubies</label> </div> </div> <div class="filter-group"> <p class="filter-title">Price Range</p> <input type="range" class="form-range" min="5000" max="300000" step="1000" id="priceRangeEarrings"> <p class="price-display">₹ 10,000 - ₹ 1,50,000</p> </div> <button class="btn btn-apply-filter w-100">Apply Filters</button>
-        </div>
-      </div>
-
-      <div class="col-lg-9">
-        <div class="sorting-bar">
-          <span class="product-count">184 Products Found</span>
-          <select class="form-select sort-dropdown">
-            <option selected>Sort by Relevance</option>
-            <option value="1">Price: Low to High</option>
-            <option value="2">Price: High to Low</option>
-            <option value="3">Newest Arrivals</option>
-          </select>
-        </div>
-
-        <div class="row row-cols-2 row-cols-md-3 g-4 product-grid">
-          <!-- ✅ Added unique IDs for each -->
-          <div class="col">
-            <div class="product-card earring-card-style">
-              <div class="card-img" style="background-image: url('images/ClassicDiamondStuds.jpg'); border: 2px solid #33A7A1;">
-                <span class="discount-badge">Top Rated</span>
-                <i class="fa-regular fa-heart wishlist-icon"></i>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Classic Diamond Studs</h5>
-                <p class="card-price">₹ 75,000</p>
-                <a href="#" class="earring-btn-cart btn-add-cart" data-product-id="ear1">Add to Cart</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="product-card earring-card-style">
-              <div class="card-img" style="background-image: url('images/MinimalistGoldHoops.jpg'); border: 2px solid #33A7A1;">
-                <i class="fa-regular fa-heart wishlist-icon"></i>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Minimalist Gold Hoops</h5>
-                <p class="card-price">₹ 18,500</p>
-                <a href="#" class="earring-btn-cart btn-add-cart" data-product-id="ear2">Add to Cart</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="product-card earring-card-style">
-              <div class="card-img" style="background-image: url('images/TraditionalTempleJhumkas.jpg'); border: 2px solid #33A7A1;">
-                <span class="discount-badge">-10%</span>
-                <i class="fa-regular fa-heart wishlist-icon"></i>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Traditional Temple Jhumkas</h5>
-                <p class="card-price">₹ 45,000</p>
-                <a href="#" class="earring-btn-cart btn-add-cart" data-product-id="ear3">Add to Cart</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="product-card earring-card-style">
-              <div class="card-img" style="background-image: url('images/RoseGoldDiamondDrops.jpg'); border: 2px solid #33A7A1;">
-                <i class="fa-regular fa-heart wishlist-icon"></i>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Rose Gold Diamond Drops</h5>
-                <p class="card-price">₹ 1,12,000</p>
-                <a href="#" class="earring-btn-cart btn-add-cart" data-product-id="ear4">Add to Cart</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="product-card earring-card-style">
-              <div class="card-img" style="background-image: url('images/PearlandGoldClusterStuds.jpg'); border: 2px solid #33A7A1;">
-                <i class="fa-regular fa-heart wishlist-icon"></i>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Pearl and Gold Cluster Studs</h5>
-                <p class="card-price">₹ 29,500</p>
-                <a href="#" class="earring-btn-cart btn-add-cart" data-product-id="ear5">Add to Cart</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col">
-            <div class="product-card earring-card-style">
-              <div class="card-img" style="background-image: url('images/Geometric Daily Wear Hoops.jpg'); border: 2px solid #33A7A1;">
-                <span class="discount-badge">New</span>
-                <i class="fa-regular fa-heart wishlist-icon"></i>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Geometric Daily Wear Hoops</h5>
-                <p class="card-price">₹ 15,000</p>
-                <a href="#" class="earring-btn-cart btn-add-cart" data-product-id="ear6">Add to Cart</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-5">
-          <a href="collections.html"><button class="btn btn-load-more">Load More Products</button></a>
-        </div>
-      </div>
-    </div> <br>
-  </div>
-  <footer class="main-footer">
-    <div class="footer-content-wrapper">
-
-        <div class="footer-logo"
-            style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.
-        </div>
-
-        <div class="footer-grid">
+          <div class="footer-logo"
+            style= "background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.</div>
+    
+          <div class="footer-grid">
             <div class="footer-col">
-                <p class="col-heading">Useful Links</p>
-                <ul>
-                    <li><a href="#">Delivery Information</a></li>
-                    <li><a href="#">International Shipping</a></li>
-                    <li><a href="#">Payment Options</a></li>
-                    <li><a href="#">Track your Order</a></li>
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">Find a Store</a></li>
-                </ul>
+              <p class="col-heading">Useful Links</p>
+              <ul>
+                <li><a href="delivery.html">Delivery Information</a></li>
+                <li><a href="delivery.html">International Shipping</a></li>
+                <li><a href="payment.html">Payment Options</a></li>
+                <li><a href="track.html">Track your Order</a></li>
+                <li><a href="return.html">Returns</a></li>
+              </ul>
             </div>
-
+    
             <div class="footer-col">
-                <p class="col-heading">Information</p>
-                <ul>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="offers.html">Offers & Contest Details</a></li>
-                    <li><a href="helpandfaq.html">Help & FAQs</a></li>
-                    <li><a href="about.html">About Elaria</a></li>
-                    <li><a href="feedback.html">Feedback & Contact Us</a></li>
-
-                </ul>
+              <p class="col-heading">Information</p>
+              <ul>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="offers.html">Offers & Contest Details</a></li>
+                <li><a href="helpandfaq.html">Help & FAQs</a></li>
+                <li><a href="about.html">About Elaria</a></li>
+                <li><a href="feedback.html">Feedback & Contact Us</a></li>
+    
             </div>
-
+    
             <div class="footer-col contact-col">
-                <p class="col-heading">Contact Us</p>
-                <p class="contact-number">1800-266-0123</p>
-
-                <p class="col-heading chat-heading">Chat With Us</p>
-                <p class="contact-number">+91 7306614239</p>
-
-                <div class="contact-icons">
-                    <a href="#">💬</a>
-                    <a href="#">📧</a>
-                    <a href="#">📞</a>
-                </div>
+              <p class="col-heading">Contact Us</p>
+              <p class="contact-number">1800-266-0123</p>
+    
+              <p class="col-heading chat-heading">Chat With Us</p>
+              <p class="contact-number">+91 7306614239</p>
+    
+              <div class="contact-icons">
+                <a href="#">💬</a>
+                <a href="#">📧</a>
+                <a href="#">📞</a>
+              </div>
             </div>
-
-        </div>
-
-        <div class="footer-social">
+    
+          </div>
+    
+          <div class="footer-social">
             <p class="col-heading">Social</p>
             <div class="social-icons">
-                <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
-                </a>
-                <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
-                </a>
-                <a href="#"><i class="fa-brands fa-twitter"> X</i>
-                </a>
-                <a href="#"><i class="fa-brands fa-whatsapp"> whatsapp</i>
-                </a>
+              <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
+              </a>
+              <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
+              </a>
+              <a href="#"><i class="fa-brands fa-twitter"> X</i>
+              </a>
+              <a href="https://wa.me/7306614239"><i class="fa-brands fa-whatsapp"> whatsapp</i>
+              </a>
             </div>
+          </div>
+    
         </div>
+      </footer>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    </div>
-</footer>
-  <!-- ✅ Simplified Cart Script -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const addButtons = document.querySelectorAll(".btn-add-cart");
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-      // update navbar count
-      updateCartCount();
-
-      addButtons.forEach(btn => {
-        btn.addEventListener("click", (e) => {
-          e.preventDefault();
-
-          const card = btn.closest(".product-card");
-          const product = {
-            id: btn.dataset.productId,
-            name: card.querySelector(".card-title").textContent,
-            price: parseInt(card.querySelector(".card-price").textContent.replace(/[₹,]/g, "").trim()),
-            image: card.querySelector(".card-img").style.backgroundImage.slice(5, -2),
-            qty: 1
-          };
-
-          // check duplicate
-          const existing = cart.find(p => p.id === product.id);
-          if (existing) {
-            existing.qty += 1;
-          } else {
-            cart.push(product);
-          }
-
-          localStorage.setItem("cart", JSON.stringify(cart));
-          updateCartCount();
-
-          // simple toast
-          showToast(`${product.name} added to cart 🛍️`);
+      <script>
+        const WISHLIST_STORAGE_KEY = 'elaria_wishlist';
+        const CART_STORAGE_KEY = 'cart';
+    
+        /***********************
+         * Wishlist Logic
+         ***********************/
+    
+        function getWishlist() {
+            return JSON.parse(localStorage.getItem(WISHLIST_STORAGE_KEY) || '[]');
+        }
+    
+        function saveWishlist(wishlist) {
+            localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(wishlist));
+        }
+    
+        function toggleWishlist() {
+            const icon = this;
+            const productId = icon.getAttribute('data-product-id');
+            const card = icon.closest(".product-card");
+            
+            // NOTE: Extract product info from the card structure
+            const productData = {
+                id: productId,
+                title: card.querySelector(".card-title").textContent,
+                price: parseInt(card.querySelector(".card-price").textContent.replace(/[₹,]/g, "").trim()),
+                // The slice(5, -2) is to remove 'url("' and '")' from the style string
+                image: card.querySelector(".card-img").style.backgroundImage.slice(5, -2) 
+            };
+    
+            let wishlist = getWishlist();
+            // Check if the item is already favorited using strict equality (since IDs are strings)
+            const isFavorited = wishlist.some(item => item.id === productId);
+    
+            if (isFavorited) {
+                // REMOVE from wishlist
+                wishlist = wishlist.filter(item => item.id !== productId);
+                
+                // Visual feedback: Change to outline heart and default color
+                icon.classList.remove('fa-solid');
+                icon.classList.add('fa-regular');
+                icon.style.color = '#fff'; // White color for the outline heart
+                showToast(`${productData.title} removed from favorites.`);
+    
+            } else {
+                // ADD to wishlist
+                wishlist.push(productData);
+                
+                // Visual feedback: Change to solid heart and brand color
+                icon.classList.remove('fa-regular');
+                icon.classList.add('fa-solid');
+                icon.style.color = '#33A7A1'; // Brand color for the solid heart
+                showToast(`${productData.title} added to favorites! 💖`);
+            }
+    
+            saveWishlist(wishlist);
+        }
+    
+        /**
+         * Attaches event listeners and initializes the icon state on load.
+         */
+        function attachWishlistListeners() {
+            const wishlist = getWishlist();
+    
+            document.querySelectorAll('.wishlist-icon').forEach(icon => {
+                // Remove previous listeners to prevent multiple clicks firing
+                icon.removeEventListener('click', toggleWishlist);
+                icon.addEventListener('click', toggleWishlist);
+    
+                // Initialize icon state on load
+                const productId = icon.getAttribute('data-product-id');
+                const isFavorited = wishlist.some(item => item.id === productId);
+    
+                if (isFavorited) {
+                    // Item is in wishlist -> solid heart (filled)
+                    icon.classList.remove('fa-regular');
+                    icon.classList.add('fa-solid');
+                    icon.style.color = '#33A7A1';
+                } else {
+                    // Item is NOT in wishlist -> outline heart (empty)
+                    icon.classList.remove('fa-solid');
+                    icon.classList.add('fa-regular');
+                    icon.style.color = '#fff'; // White color to stand out on the product image
+                }
+            });
+        }
+        
+        /***********************
+         * Cart Logic (Kept as is - it looks functional)
+         ***********************/
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || '[]');
+            const totalItems = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+            const countBadge = document.querySelector('.cart-count'); 
+            
+            if (countBadge) {
+                countBadge.textContent = totalItems > 0 ? totalItems : '';
+                countBadge.style.display = totalItems > 0 ? 'inline-block' : 'none';
+            }
+        }
+        
+        function handleAddToCartClick(e) {
+            e.preventDefault();
+            
+            let cart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || '[]');
+            const btn = this;
+            const card = btn.closest(".product-card");
+            
+            const product = {
+                id: btn.dataset.productId,
+                name: card.querySelector(".card-title").textContent,
+                price: parseInt(card.querySelector(".card-price").textContent.replace(/[₹,]/g, "").trim()),
+                image: card.querySelector(".card-img").style.backgroundImage.slice(5, -2),
+            };
+    
+            const existing = cart.find(item => item.id === product.id);
+            if (existing) {
+                existing.qty = (existing.qty || 0) + 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+    
+            localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+            updateCartCount();
+            showToast(`${product.name} added to cart! 🛍️`);
+        }
+        
+        /***********************
+         * Utility Functions
+         ***********************/
+        function showToast(msg) {
+            const toast = document.createElement("div");
+            toast.textContent = msg;
+            toast.style.position = "fixed";
+            toast.style.right = "20px";
+            toast.style.bottom = "20px";
+            toast.style.background = "#33A7A1"; 
+            toast.style.color = "#fff";
+            toast.style.padding = "10px 16px";
+            toast.style.borderRadius = "6px";
+            toast.style.zIndex = "9999";
+            toast.style.opacity = "0";
+            toast.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+            toast.style.transform = 'translateY(8px)';
+            document.body.appendChild(toast);
+            requestAnimationFrame(() => { toast.style.opacity = "1"; toast.style.transform = 'translateY(0)'; });
+            setTimeout(() => {
+                toast.style.opacity = "0";
+                toast.style.transform = 'translateY(8px)';
+                setTimeout(() => toast.remove(), 400);
+            }, 2000);
+        }
+        
+        /***********************
+         * Init on load
+         ***********************/
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+            const menuToggle = document.getElementById('menuToggle');
+            const navbarBottom = document.getElementById('navbarBottom');
+    
+            // 1. Core Functions
+            updateCartCount();
+            attachWishlistListeners(); // Ensures initial state is correct
+            document.querySelectorAll('.btn-add-cart').forEach(button => {
+                button.addEventListener('click', handleAddToCartClick);
+            });
+    
+            // 2. Mobile Menu Toggle
+            if(menuToggle && navbarBottom) {
+                // Ensure initial state is closed
+                navbarBottom.classList.remove('active'); 
+                menuToggle.addEventListener('click', () => {
+                    navbarBottom.classList.toggle('active');
+                    // Toggle icon
+                    menuToggle.querySelector('i').classList.toggle('fa-bars');
+                    menuToggle.querySelector('i').classList.toggle('fa-xmark');
+                });
+            }
+    
+            // 3. Search Logic
+            function performSearch() {
+                const query = searchInput.value.trim();
+                if (query.length > 0) {
+                    const searchURL = `searchresults.html?q=${encodeURIComponent(query)}`;
+                    window.location.href = searchURL;
+                } else {
+                    alert("Please enter a search term.");
+                }
+            }
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+    
+            // 4. Handle initial URL query (if any)
+            const params = new URLSearchParams(window.location.search);
+            const query = params.get('q');
+            if (query) {
+                searchInput.value = decodeURIComponent(query);
+            }
+            
         });
-      });
-
-      function updateCartCount() {
-        const countEl = document.querySelector(".cart-count");
-        if (!countEl) return;
-        const total = cart.reduce((sum, p) => sum + p.qty, 0);
-        countEl.textContent = total;
-      }
-
-      function showToast(msg) {
-        const toast = document.createElement("div");
-        toast.textContent = msg;
-        toast.style.position = "fixed";
-        toast.style.right = "20px";
-        toast.style.bottom = "20px";
-        toast.style.background = "#333";
-        toast.style.color = "#fff";
-        toast.style.padding = "10px 16px";
-        toast.style.borderRadius = "6px";
-        toast.style.zIndex = "9999";
-        toast.style.opacity = "0";
-        toast.style.transition = "opacity 0.3s ease";
-        document.body.appendChild(toast);
-        requestAnimationFrame(() => toast.style.opacity = "1");
-        setTimeout(() => {
-          toast.style.opacity = "0";
-          setTimeout(() => toast.remove(), 400);
-        }, 2000);
-      }
-    });
-  </script>
-  
-</body>
-</html>
+    </script>
+  </body>
+  </html>

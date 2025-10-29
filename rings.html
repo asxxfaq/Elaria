@@ -450,5 +450,87 @@
           }
         });
       </script>
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const WISHLIST_KEY = "elaria_wishlist";
+          const wishlistIcons = document.querySelectorAll(".wishlist-icon");
+        
+          // --- Load current wishlist ---
+          let wishlist = JSON.parse(localStorage.getItem(WISHLIST_KEY)) || [];
+        
+          // --- Mark icons that are already favourited ---
+          wishlist.forEach(item => {
+            const icon = document.querySelector(`.wishlist-icon[data-product-id="${item.id}"]`);
+            if (icon) {
+              icon.classList.remove("fa-regular");
+              icon.classList.add("fa-solid");
+              icon.style.color = "#8A2D3C";
+            }
+          });
+        
+          // --- Attach event listeners ---
+          wishlistIcons.forEach(icon => {
+            const card = icon.closest(".product-card");
+            const id = card.querySelector(".btn-add-cart").getAttribute("data-product-id");
+            const name = card.querySelector(".card-title").textContent.trim();
+            const priceText = card.querySelector(".card-price").textContent.trim();
+            const image = card.querySelector(".card-img").style.backgroundImage.slice(5, -2);
+            const price = parseInt(priceText.replace(/[^0-9]/g, "")) || 0;
+        
+            // attach id attribute to each icon for identification
+            icon.setAttribute("data-product-id", id);
+        
+            icon.addEventListener("click", () => {
+              const existingIndex = wishlist.findIndex(item => item.id === id);
+        
+              if (existingIndex !== -1) {
+                // remove from favourites
+                wishlist.splice(existingIndex, 1);
+                icon.classList.add("fa-regular");
+                icon.classList.remove("fa-solid");
+                icon.style.color = "#fff";
+                showToast(`${name} removed from favourites`, "#8A2D3C");
+              } else {
+                // add to favourites
+                wishlist.push({ id, name, price, image });
+                icon.classList.remove("fa-regular");
+                icon.classList.add("fa-solid");
+                icon.style.color = "#8A2D3C";
+                showToast(`${name} added to favourites ❤️`, "#28A745");
+              }
+        
+              localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
+            });
+          });
+        
+          // --- Small toast notification ---
+          function showToast(message, bg = "#8A2D3C") {
+            const t = document.createElement("div");
+            t.textContent = message;
+            t.style.position = "fixed";
+            t.style.right = "20px";
+            t.style.bottom = "20px";
+            t.style.background = bg;
+            t.style.color = "#fff";
+            t.style.padding = "10px 14px";
+            t.style.borderRadius = "6px";
+            t.style.boxShadow = "0 6px 18px rgba(0,0,0,0.15)";
+            t.style.zIndex = 9999;
+            t.style.opacity = "0";
+            t.style.transition = "opacity 0.25s, transform 0.25s";
+            document.body.appendChild(t);
+            requestAnimationFrame(() => {
+              t.style.opacity = "1";
+              t.style.transform = "translateY(0)";
+            });
+            setTimeout(() => {
+              t.style.opacity = "0";
+              t.style.transform = "translateY(8px)";
+              setTimeout(() => t.remove(), 300);
+            }, 1500);
+          }
+        });
+        </script>
+        
 </body>
 </html>

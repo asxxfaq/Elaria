@@ -7,290 +7,183 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+
   <style>
+    #paymentBtn, #clearCartBtn {
+      border: none;
+      padding: 10px 25px;
+      font-size: 16px;
+      border-radius: 5px;
+      transition: 0.3s;
+      color: #fff;
+    }
+
     #paymentBtn {
-  background-color: #28a745;
-  border: none;
-  padding: 10px 25px;
-  font-size: 16px;
-  border-radius: 5px;
-  transition: 0.3s;
-}
+      background-color: #28a745;
+    }
+    #paymentBtn:hover {
+      background-color: #218838;
+    }
 
-#paymentBtn:hover {
-  background-color: #218838;
-}
-
+    #clearCartBtn {
+      background-color: #dc3545;
+      margin-right: 10px;
+    }
+    #clearCartBtn:hover {
+      background-color: #c82333;
+    }
   </style>
 </head>
 
 <body>
+  <!-- ✅ Navbar -->
   <nav class="elaria-navbar">
     <div class="navbar-top">
       <div class="logo">
         <a href="index.html">
-        <img src="elaria.png" alt="Elaria Logo">
-    </a>
+          <img src="elaria.png" alt="Elaria Logo">
+        </a>
       </div>
-  
+
       <div class="search-container">
         <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
         <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
       </div>
-  
+
       <div class="navbar-utility-right">
         <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
         <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i></a>
         <a href="cart.html" class="icon-link"><i class="fa-solid fa-cart-shopping"></i></a>
-  
-      
         <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
       </div>
     </div>
-  
+
     <div class="navbar-bottom" id="navbarBottom">
       <ul class="menu-list">
-        <li>
-          <a href="dailywears.html">
-            <img src="dailywearslogo.jpg" alt="Daily Wears" class="menu-icon-img">
-            Daily Wears
-          </a>
-        </li>
-        <li>
-          <a href="necklaces.html">
-            <img src="necklacelogo.jpg" alt="Necklaces" class="menu-icon-img">
-            Necklaces
-          </a>
-        </li>
-        <li>
-          <a href="earings.html">
-            <img src="earings.jpg" alt="Earrings" class="menu-icon-img">
-            Earrings
-          </a>
-        </li>
-        <li>
-          <a href="rings.html">
-            <img src="rings.jpg" alt="Rings" class="menu-icon-img">
-            Rings
-          </a>
-        </li>
-        <li>
-          <a href="wedding.html">
-            <img src="wedding.jpg" alt="Wedding" class="menu-icon-img">
-            Wedding
-          </a>
-        </li>
-        <li>
-          <a href="gifting.html">
-            <img src="gift.jpg" alt="Gifting" class="menu-icon-img">
-            Gifting
-          </a>
-        </li>
+        <li><a href="dailywears.html"><img src="dailywearslogo.jpg" alt="Daily Wears" class="menu-icon-img"> Daily Wears</a></li>
+        <li><a href="necklaces.html"><img src="necklacelogo.jpg" alt="Necklaces" class="menu-icon-img"> Necklaces</a></li>
+        <li><a href="earings.html"><img src="earings.jpg" alt="Earrings" class="menu-icon-img"> Earrings</a></li>
+        <li><a href="rings.html"><img src="rings.jpg" alt="Rings" class="menu-icon-img"> Rings</a></li>
+        <li><a href="wedding.html"><img src="wedding.jpg" alt="Wedding" class="menu-icon-img"> Wedding</a></li>
+        <li><a href="gifting.html"><img src="gift.jpg" alt="Gifting" class="menu-icon-img"> Gifting</a></li>
       </ul>
     </div>
-    
   </nav>
 
+  <!-- ✅ Cart Section -->
   <div class="cart-page-container">
     <h2 style="text-align:center; margin-top:20px;">🛒 Your Shopping Cart</h2>
     <div id="cartContainer" style="max-width:800px; margin:20px auto; padding:10px;"></div>
-      </div>
+  </div>
 
-
+  <!-- ✅ Cart Script -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const cartContainer = document.getElementById("cartContainer");
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    
-      if (cart.length === 0) {
-        cartContainer.innerHTML = `
-          <div class="text-center p-5 border rounded">
-            <h4>Your cart is empty.</h4>
-            <a href="index.html" class="btn btn-primary mt-3">Continue Shopping</a>
-          </div>`;
-        updateCartCount();
-        return;
-      }
-    
-      let total = 0;
-      let html = `
-        <table class="table table-bordered align-middle">
-          <thead class="table-light">
-            <tr>
-              <th>Image</th>
-              <th>Product</th>
-              <th>Price</th>
-              <th>Qty</th>
-              <th>Total</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-      `;
-    
-      cart.forEach((item, index) => {
-        const itemTotal = item.price * item.qty;
-        total += itemTotal;
-        html += `
-          <tr>
-            <td><img src="${item.image}" width="70" class="rounded"></td>
-            <td>${item.name}</td>
-            <td>₹${item.price.toLocaleString()}</td>
-            <td>${item.qty}</td>
-            <td>₹${itemTotal.toLocaleString()}</td>
-            <td><button class="btn btn-sm btn-danger remove-btn" data-index="${index}">Remove</button></td>
-          </tr>
-        `;
-      });
-    
-      html += `
-          </tbody>
-          <tfoot>
-            <tr>
-              <td colspan="4" class="text-end fw-bold">Grand Total</td>
-              <td colspan="2" class="fw-bold">₹${total.toLocaleString()}</td>
-            </tr>
-          </tfoot>
-        </table>
-      `;
-    
-      cartContainer.innerHTML = html;
-    
-      // ✅ Remove button handler
-      document.querySelectorAll(".remove-btn").forEach(btn => {
-        btn.addEventListener("click", (e) => {
-          const index = e.target.dataset.index;
-          cart.splice(index, 1);
-          localStorage.setItem("cart", JSON.stringify(cart));
-          alert("Item removed from cart!");
-          updateCartCount();
-          location.reload();
-        });
-      });
-    
-      // ✅ Update cart count in navbar
+  document.addEventListener("DOMContentLoaded", () => {
+    const cartContainer = document.getElementById("cartContainer");
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cart.length === 0) {
+      cartContainer.innerHTML = `
+        <div class="text-center p-5 border rounded">
+          <h4>Your cart is empty.</h4>
+          <a href="index.html" class="btn btn-primary mt-3">Continue Shopping</a>
+        </div>`;
       updateCartCount();
-    });
-    
-    function updateCartCount() {
-      const cart = JSON.parse(localStorage.getItem("cart")) || [];
-      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-      const cartCount = document.querySelector(".cart-count");
-      if (cartCount) cartCount.textContent = totalItems;
+      return;
     }
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const cartContainer = document.getElementById("cartContainer");
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    
-        if (cart.length === 0) {
-          cartContainer.innerHTML = `
-            <div class="text-center p-5 border rounded">
-              <h4>Your cart is empty.</h4>
-              <a href="index.html" class="btn btn-primary mt-3">Continue Shopping</a>
-            </div>`;
-          updateCartCount();
-          return;
-        }
-    
-        let total = 0;
-        let html = `
-          <table class="table table-bordered align-middle">
-            <thead class="table-light">
-              <tr>
-                <th>Image</th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Qty</th>
-                <th>Total</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-        `;
-    
-        cart.forEach((item, index) => {
-          const itemTotal = item.price * item.qty;
-          total += itemTotal;
-          html += `
-            <tr>
-              <td><img src="${item.image}" width="70" class="rounded"></td>
-              <td>${item.name}</td>
-              <td>₹${item.price.toLocaleString()}</td>
-              <td>${item.qty}</td>
-              <td>₹${itemTotal.toLocaleString()}</td>
-              <td><button class="btn btn-sm btn-danger remove-btn" data-index="${index}">Remove</button></td>
-            </tr>
-          `;
-        });
-    
-        html += `
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="4" class="text-end fw-bold">Grand Total</td>
-                <td colspan="2" class="fw-bold">₹${total.toLocaleString()}</td>
-              </tr>
-              <tr>
-                <td colspan="6" class="text-end">
-                  <button id="paymentBtn" class="btn btn-success mt-3">Proceed to Payment</button>
-                </td>
-              </tr>
-            </tfoot>
-          </table>
-        `;
-    
-        cartContainer.innerHTML = html;
-    
-        // ✅ Remove button
-        document.querySelectorAll(".remove-btn").forEach(btn => {
-          btn.addEventListener("click", (e) => {
-            const index = e.target.dataset.index;
-            cart.splice(index, 1);
-            localStorage.setItem("cart", JSON.stringify(cart));
-            alert("Item removed from cart!");
-            updateCartCount();
-            location.reload();
-          });
-        });
-    
-        // ✅ Redirect to payment page
-        document.getElementById("paymentBtn").addEventListener("click", () => {
-          alert("Redirecting to payment page...");
-          window.location.href = "payment.html";
-        });
-    
+
+    let total = 0;
+    let html = `
+      <table class="table table-bordered align-middle">
+        <thead class="table-light">
+          <tr>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+    `;
+
+    cart.forEach((item, index) => {
+      const itemTotal = item.price * item.qty;
+      total += itemTotal;
+      html += `
+        <tr>
+          <td><img src="${item.image}" width="70" class="rounded"></td>
+          <td>${item.name}</td>
+          <td>₹${item.price.toLocaleString()}</td>
+          <td>${item.qty}</td>
+          <td>₹${itemTotal.toLocaleString()}</td>
+          <td><button class="btn btn-sm btn-danger remove-btn" data-index="${index}">Remove</button></td>
+        </tr>
+      `;
+    });
+
+    html += `
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4" class="text-end fw-bold">Grand Total</td>
+            <td colspan="2" class="fw-bold">₹${total.toLocaleString()}</td>
+          </tr>
+          <tr>
+            <td colspan="6" class="text-end">
+              <button id="clearCartBtn" class="btn btn-danger mt-3">Remove All</button>
+              <button id="paymentBtn" class="btn btn-success mt-3">Proceed to Payment</button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    `;
+
+    cartContainer.innerHTML = html;
+
+    // ✅ Remove individual product
+    document.querySelectorAll(".remove-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        const index = e.target.dataset.index;
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("Item removed from cart!");
         updateCartCount();
+        location.reload();
       });
-    
-      function updateCartCount() {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
-        const cartCount = document.querySelector(".cart-count");
-        if (cartCount) cartCount.textContent = totalItems;
+    });
+
+    // ✅ Remove all products
+    document.getElementById("clearCartBtn").addEventListener("click", () => {
+      if (confirm("Are you sure you want to remove all products from your cart?")) {
+        localStorage.removeItem("cart");
+        alert("All products removed successfully!");
+        updateCartCount();
+        location.reload();
       }
-    </script>
-    <script>
-      document.getElementById("paymentBtn").addEventListener("click", () => {
-  // Calculate total before redirecting
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const totalAmount = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
-  const itemCount = cart.reduce((sum, item) => sum + item.qty, 0);
+    });
 
-  // ✅ Save total and item count to localStorage for payment page
-  localStorage.setItem("orderSummary", JSON.stringify({
-    totalAmount,
-    itemCount
-  }));
+    // ✅ Proceed to payment
+    document.getElementById("paymentBtn").addEventListener("click", () => {
+      const totalAmount = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+      const itemCount = cart.reduce((sum, item) => sum + item.qty, 0);
 
-  alert("Redirecting to payment page...");
-  window.location.href = "payment.html";
-});
+      localStorage.setItem("orderSummary", JSON.stringify({ totalAmount, itemCount }));
+      alert("Redirecting to payment page...");
+      window.location.href = "payment.html";
+    });
 
-    </script>
-    
-    
+    updateCartCount();
+  });
+
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+    const cartCount = document.querySelector(".cart-count");
+    if (cartCount) cartCount.textContent = totalItems;
+  }
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

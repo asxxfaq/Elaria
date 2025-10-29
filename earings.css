@@ -1,100 +1,62 @@
-.elaria-navbar { /* Renamed class */
+/* ---------------------------------------------------- */
+/* --- 1. Custom Toast CSS (FOR NOTIFICATIONS) --- */
+/* ---------------------------------------------------- */
+.custom-toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #760000;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s, bottom 0.3s;
+}
+
+.custom-toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px;
+}
+
+/* ---------------------------------------------------- */
+/* --- 2. Navigation Bar (elaria-navbar) - RESTORED --- */
+/* --- Utilizing previous saved navbar structure.     --- */
+/* ---------------------------------------------------- */
+.elaria-navbar {
     border-bottom: 1px solid #ddd;
-    
-   
 }
 
 .navbar-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 40px;
+    padding: 12px 15px; /* Restored desktop padding */
     height: 70px;
-    
-    
 }
-.menu-list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .menu-list li {
-    margin: 0 10px;
-  }
-  
-  .menu-list a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #000; /* adjust for your theme */
-    font-weight: 500;
-    padding: 8px 10px;
-    transition: 0.3s;
-  }
-  
-  .menu-list a:hover {
-    color: #d4a017; /* gold hover color */
-  }
-  
-  .menu-icon-img {
-    width: 52px;
-    height: 52px;
-    margin-right: 8px;
-    object-fit: contain;
-    vertical-align: middle;
-  }
-  @media (max-width: 768px) {
-    .menu-list {
-      overflow-x: auto;
-      white-space: nowrap;
-      flex-wrap: nowrap;
-      justify-content: flex-start;
-      padding: 10px 5px;
-      scrollbar-width: none; /* hide scrollbar in Firefox */
-    }
-  
-    .menu-list::-webkit-scrollbar {
-      display: none; /* hide scrollbar in Chrome/Safari */
-    }
-  
-    .menu-list li {
-      display: inline-block;
-    }
-  
-    .menu-list li a {
-      flex-direction: column;
-      font-size: 13px;
-      text-align: center;
-      padding: 5px;
-    }
-  
-    .menu-icon-img {
-      margin: 0 0 5px 0;
-      width: 50px;
-      height: 50px;
-    }
-  }  
 
-/* Logo */
 .logo {
     font-size: 30px;
     font-weight: bold;
-    color: #8B0000; /* Deep red color (kept for style consistency) */
+    color: #8B0000;
 }
+
 .logo img {
-    height: 40px;
+    height: 55px; /* Restored logo height for desktop */
     width: auto;
 }
 
-/* Search Container (No changes needed) */
+/* Search Container */
 .search-container {
     flex-grow: 1;
     max-width: 600px;
-    margin: 0 30px;
+    margin: 0 15px; /* Restored margin */
     display: flex;
     align-items: center;
     border: 1px solid #ccc;
@@ -110,30 +72,20 @@
     font-size: 14px;
     outline: none;
     height: 100%;
+    width: 100%;
 }
 
 .search-icon {
-    background-color: transparent;
+    background: transparent;
     border: none;
-    padding: 0 10px;
+    padding: 0 14px;
     cursor: pointer;
     font-size: 18px;
     color: #666;
+    height: 100%;
 }
 
-.utility-icons {
-    display: flex;
-    align-items: center;
-    border-left: 1px solid #eee;
-}
-
-.utility-icons .icon {
-    padding: 0 10px;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-/* Right Side Icons (No changes needed) */
+/* Right Side Icons */
 .navbar-utility-right {
     display: flex;
     gap: 15px;
@@ -152,9 +104,8 @@
     color: #8B0000;
 }
 
-.cart {
-    display: flex;
-    align-items: center;
+.icon-link i {
+    font-size: 20px;
 }
 
 .cart-count {
@@ -169,13 +120,21 @@
     line-height: 1;
 }
 
-/* --- Bottom Menu Styling (No changes needed) --- */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 25px;
+}
+
+/* --- Bottom Menu (Main Nav) - RESTORED --- */
 .navbar-bottom {
     display: flex;
     justify-content: center;
     padding: 6px 0;
     border-top: 1px solid #eee;
-    height: 130px;
+    height: 130px; /* Restored height for icon + text menu */
+    background: white;
 }
 
 .menu-list {
@@ -183,10 +142,18 @@
     padding: 0;
     margin: 0;
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    gap: 25px; /* Restored gap */
     max-width: 1200px;
     width: 100%;
-    justify-content: center;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    padding: 12px;
+}
+
+.menu-list::-webkit-scrollbar {
+    display: none;
 }
 
 .menu-list li a {
@@ -201,112 +168,25 @@
     transition: color 0.2s;
 }
 
-.menu-icon {
-    font-size: 20px;
-    margin-bottom: 4px;
-    color: #666;
+.menu-list li a:hover {
+    color: #8B0000; /* Deep red theme hover */
 }
 
-.menu-list li a:hover {
-    color: #8B0000;
+.menu-icon-img {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 4px;
+    object-fit: contain;
 }
-  
-  /* Top Section */
-  .navbar-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 15px;
-  }
-  
-  .logo img {
-    height: 55px;
-  }
-  
-  .search-container {
-    flex: 1;
-    display: flex;
-    max-width: 600px;
-    margin: 0 15px;
-  }
-  
-  .search-input {
-    width: 100%;
-    padding: 10px;
-  }
-  
-  .search-icon {
-    background: transparent;
-    color:black;
-    padding: 10px 14px;
-    border: none;
-  }
-  
-  .navbar-utility-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-  }
-  .icon-link i {
-    font-size: 20px;
-  }
-  
-  .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 25px;
-  }
-  
-  /* Bottom Menu */
-  .navbar-bottom {
-    background: white;
-  }
-  
-  .menu-list {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    list-style: none;
-    padding: 12px;
-  }
-  
-  .menu-list li a {
-    text-decoration: none;
-    font-size: 15px;
-    color: #444;
-    font-weight: 500;
-  }
-  
-  /* ✅ RESPONSIVE RULES */
-  @media (max-width: 768px) {
-    .search-container {
-      display: none;
-    }
-  
-    .menu-toggle {
-      display: block;
-    }
-    
-    .navbar-bottom {
-      display: none;
-      text-align: center;
-    }
-  
-    .menu-list {
-      display: block;
-      padding: 10px 0;
-    }
-  
-    .menu-list li {
-      padding: 10px 0;
-    }
-    .navbar-utility-right {
-        display: flex !important;
-        gap: 12px;
-      }
-  }
-   
+
+/* ---------------------------------------------------- */
+/* --- 3. Page Layout & Typography CSS --- */
+/* ---------------------------------------------------- */
+.necklace-page-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 5%;
+}
 
 .page-title {
     font-family: 'Playfair Display', serif;
@@ -324,7 +204,20 @@
     text-align: center;
 }
 
-/* --- Product Carousel Styling (Bootstrap Based) --- */
+.product-grid-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #4B3832;
+    /* Keeping the decorative border from the original style */
+    border-bottom: 2px solid #D4B294; 
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* ---------------------------------------------------- */
+/* --- 4. Product Carousel & Grid Styling --- */
+/* ---------------------------------------------------- */
 .product-carousel-wrapper {
     margin-bottom: 60px;
 }
@@ -338,13 +231,13 @@
 }
 
 .carousel-slide-content {
-    height: 400px; /* Define the height of the banner */
+    height: 400px;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     display: flex;
-    align-items: center; /* Vertically center content */
+    align-items: center;
     padding-left: 10%;
 }
 
@@ -363,7 +256,7 @@
 }
 
 .shop-btn-small {
-    background-color: #D4B294; 
+    background-color: #D4B294; /* Gold accent color */
     color: #4B3832;
     border: none;
     padding: 10px 20px;
@@ -378,22 +271,11 @@
     background-color: #C5A485;
 }
 
-/* Adjust Bootstrap carousel controls */
 .product-carousel-wrapper .carousel-control-prev-icon,
 .product-carousel-wrapper .carousel-control-next-icon {
-    background-color: rgba(75, 56, 50, 0.7); /* Dark brown tint */
+    background-color: rgba(75, 56, 50, 0.7);
     border-radius: 50%;
     padding: 20px;
-}
-
-
-/* --- Product Grid & Card Styling --- */
-.product-grid-section h2 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 30px;
-    font-size: 2rem;
-    color: #4B3832;
-    text-align: center;
 }
 
 .product-card {
@@ -411,8 +293,7 @@
 
 .card-img {
     width: 100%;
-    /* Creates a square ratio for the product image */
-    padding-top: 100%; 
+    padding-top: 100%;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -435,7 +316,7 @@
     top: 10px;
     right: 10px;
     font-size: 1.2rem;
-    color: #fff;
+    color: #652e2e;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 50%;
     padding: 8px;
@@ -445,7 +326,7 @@
 
 .wishlist-icon:hover {
     color: #8A2D3C;
-    background-color: #fff;
+    background-color: #6d3939;
 }
 
 .card-body {
@@ -475,7 +356,7 @@
 }
 
 .btn-add-cart {
-    background-color: #D4B294; 
+    background-color: #D4B294; /* Gold accent color */
     color: #4B3832;
     border: none;
     padding: 8px 20px;
@@ -506,54 +387,15 @@
     color: #fff;
 }
 
-/* --- Responsive Adjustments for Carousel --- */
-@media (max-width: 768px) {
-    .carousel-slide-content {
-        height: 300px;
-        padding-left: 5%;
-        align-items: flex-end; /* Move content to the bottom */
-        padding-bottom: 20px;
-    }
-}
-    
-    .slide-text {
-        padding: 15px;
-        max-width: 90%;
-        text-align: center;
-    }
-    
-    .slide-text h3 {
-        font-size: 1.5rem;
-    }
-.necklace-page-container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 5%;
-}
-
-.page-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 500;
-    color: #4B3832;
-    margin-bottom: 5px;
-    text-align: center;
-}
-
-.page-subtitle {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-/* --- Filter Sidebar Styling (Left Column) --- */
+/* ---------------------------------------------------- */
+/* --- 5. Filter Sidebar & Product Listing CSS --- */
+/* ---------------------------------------------------- */
 .filter-sidebar {
-    background-color: #f8f7f6; /* Light background */
+    background-color: #f8f7f6;
     padding: 20px;
     border-radius: 8px;
     position: sticky;
-    top: 20px; /* Sticks the filter bar near the top when scrolling */
+    top: 20px;
 }
 
 .filter-heading {
@@ -587,7 +429,6 @@
     color: #666;
 }
 
-/* Custom Checkbox/Radio styling to match theme */
 .form-check-input:checked {
     background-color: #8A2D3C;
     border-color: #8A2D3C;
@@ -601,7 +442,7 @@
 }
 
 .btn-apply-filter {
-    background-color: #D4B294; /* Gold button color */
+    background-color: #D4B294;
     color: #4B3832;
     padding: 10px 0;
     font-weight: bold;
@@ -614,7 +455,6 @@
     background-color: #C5A485;
 }
 
-/* --- Sorting Bar (Right Column Top) --- */
 .sorting-bar {
     display: flex;
     justify-content: space-between;
@@ -635,14 +475,6 @@
     border-color: #ccc;
 }
 
-/* --- Product Grid in the Context of a Sidebar --- */
-.product-grid {
-    /* Ensures the row starts correctly within the column */
-    margin-left: 0;
-    margin-right: 0;
-}
-
-/* --- Pagination Customization --- */
 .pagination .page-link {
     color: #4B3832;
     border: 1px solid #ccc;
@@ -661,6 +493,9 @@
 }
 
 
+/* ---------------------------------------------------- */
+/* --- 6. Earrings Page (Distinct Styles) --- */
+/* ---------------------------------------------------- */
 .earrings-hero-banner {
     height: 250px;
     background-size: cover;
@@ -681,7 +516,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(51, 167, 161, 0.5); /* Teal overlay */
+    /* Unique background color for Earrings page */
+    background: rgba(51, 167, 161, 0.5); 
     z-index: 1;
 }
 
@@ -696,23 +532,21 @@
     font-weight: 700;
 }
 
-/* Distinct Earring Card Style */
 .earring-card-style {
-    /* Removes the default border, relies on shadow */
     border: none;
     border-radius: 8px;
     transition: box-shadow 0.3s, transform 0.3s;
 }
 
 .earring-card-style:hover {
-    /* Unique subtle blue shadow */
+    /* Unique hover color for Earrings page */
     box-shadow: 0 5px 20px rgba(51, 167, 161, 0.3);
     transform: translateY(-5px);
 }
 
-/* Unique button style for Earrings page */
 .earring-btn-cart {
-    background-color: #33A7A1; /* Teal button */
+    /* Unique button color for Earrings page */
+    background-color: #33A7A1;
     color: #fff;
     border: none;
     padding: 8px 20px;
@@ -729,13 +563,17 @@
     color: #fff;
 }
 
-/* Wishlist icon color change for contrast */
 .earring-card-style .wishlist-icon {
-    color: #33A7A1; /* Teal heart */
+    /* Unique wishlist icon color for Earrings page */
+    color: #33A7A1;
     background-color: rgba(255, 255, 255, 0.9);
 }
+
+/* ---------------------------------------------------- */
+/* --- 7. Footer CSS - RESTORED --- */
+/* ---------------------------------------------------- */
 .main-footer {
-    background-color: #381A20; /* Dark Maroon/Brown background */
+    background-color: #381A20;
     color: #fff;
     padding: 60px 0 20px 0;
     font-family: Arial, sans-serif;
@@ -747,7 +585,6 @@
     padding: 0 5%;
 }
 
-/* --- Logo Styling --- */
 .footer-logo {
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
@@ -756,11 +593,9 @@
     margin-bottom: 40px;
 }
 
-/* --- Main Grid Layout (4 Columns) --- */
 .footer-grid {
     display: grid;
-    /* Sets up 4 columns for the desktop view */
-    grid-template-columns: 1.5fr repeat(3, 1fr); 
+    grid-template-columns: 1.5fr repeat(3, 1fr);
     gap: 40px;
     padding-bottom: 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -773,7 +608,6 @@
     color: #fff;
 }
 
-/* --- Link List Styling --- */
 .footer-col ul {
     list-style: none;
     padding: 0;
@@ -794,7 +628,6 @@
     color: #fff;
 }
 
-/* --- Contact Column Specifics --- */
 .contact-number {
     font-size: 1rem;
     font-weight: 500;
@@ -814,8 +647,6 @@
     opacity: 0.7;
 }
 
-
-
 .app-buttons {
     display: flex;
     gap: 10px;
@@ -826,7 +657,6 @@
     height: auto;
 }
 
-/* --- Social Media Row --- */
 .footer-social {
     display: flex;
     align-items: center;
@@ -843,4 +673,154 @@
     font-size: 1.5rem;
     margin-right: 20px;
     opacity: 0.8;
+    text-decoration: none;
+}
+
+
+/* ---------------------------------------------------- */
+/* --- 8. Responsive Media Queries - CONSOLIDATED --- */
+/* ---------------------------------------------------- */
+
+/* Tablet / Footer Switch (max-width: 992px) */
+@media (max-width: 992px) {
+    /* Navbar */
+    .search-container {
+        margin: 0 10px;
+    }
+
+    /* Footer Grid: Changes to 2 columns on tablets */
+    .footer-grid {
+        grid-template-columns: 1.5fr 1fr;
+    }
+
+    .footer-grid .footer-col:nth-child(3),
+    .footer-grid .footer-col:nth-child(4) {
+        grid-column: span 2;
+    }
+}
+
+/* Mobile View (max-width: 768px) */
+@media (max-width: 768px) {
+    /* --- Top Bar Changes --- */
+    .navbar-top {
+        padding: 10px 15px;
+        justify-content: space-around;
+        height: 50px;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    .search-container {
+        display: none; /* Hide search bar completely on small screen */
+    }
+
+    .navbar-utility-right {
+        gap: 12px; /* Consolidated gap to 12px */
+    }
+
+    /* Hide specific icons to clean up mobile view */
+    /* Assuming icon-link:nth-child(1) and (2) are Wishlist, Profile etc. */
+    .icon-link:nth-child(1), 
+    .icon-link:nth-child(2) {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    /* --- Bottom Bar Removal --- */
+    .navbar-bottom {
+        display: none;
+    }
+    
+    /* Carousel */
+    .carousel-slide-content {
+        height: 300px;
+        padding-left: 5%;
+        align-items: flex-end;
+        padding-bottom: 20px;
+    }
+
+    .slide-text {
+        padding: 15px;
+        max-width: 90%;
+        text-align: center;
+    }
+
+    .slide-text h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Filter Sidebar */
+    .page-title, .page-subtitle {
+        text-align: left;
+    }
+}
+
+/* Small Mobile View (max-width: 600px) */
+@media (max-width: 600px) {
+    /* Footer Grid: Stacks all columns vertically on mobile */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-grid .footer-col {
+        grid-column: span 1;
+    }
+
+    .footer-logo {
+        text-align: center;
+    }
+
+    .col-heading,
+    .footer-col ul,
+    .contact-number {
+        text-align: center;
+    }
+
+    .app-buttons {
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-icons {
+        text-align: center;
+    }
+
+    .footer-social {
+        flex-direction: column;
+        align-items: center; /* Centering the social heading/icons for better flow */
+        text-align: center;
+    }
+
+    .footer-social .col-heading {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .social-icons {
+        margin-bottom: 20px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Very Small Mobile View (max-width: 576px) */
+@media (max-width: 576px) {
+    /* Product Listing */
+    .sorting-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .sort-dropdown {
+        width: 100%;
+    }
 }
