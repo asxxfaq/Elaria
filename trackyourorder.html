@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Your Order - Elaria</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background-color: #f7f3f0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .track-container {
+      max-width: 700px;
+      background: #fff;
+      margin: 60px auto;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .track-container h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #4B3832;
+      margin-bottom: 20px;
+    }
+
+    .track-container p {
+      text-align: center;
+      color: #777;
+      margin-bottom: 30px;
+    }
+
+    .form-control {
+      border-radius: 8px;
+      border: 1px solid #D4B294;
+    }
+
+    .btn-track {
+      background-color: #D4B294;
+      color: #4B3832;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: 0.3s;
+      width: 100%;
+    }
+
+    .btn-track:hover {
+      background-color: #c9a078;
+    }
+
+    .status-container {
+      margin-top: 40px;
+    }
+
+    .status-step {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .status-step .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+
+    .status-step.active .icon {
+      background-color: #D4B294;
+    }
+
+    .status-step::after {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 40px;
+      width: 2px;
+      height: 25px;
+      background-color: #ddd;
+    }
+
+    .status-step:last-child::after {
+      display: none;
+    }
+
+    .status-step span {
+      font-weight: 600;
+      color: #4B3832;
+    }
+
+    .order-info {
+      background-color: #f8f1ea;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 25px;
+    }
+
+    .order-info p {
+      margin: 0;
+      color: #4B3832;
+    }
+
+    @media (max-width: 576px) {
+      .track-container {
+        padding: 25px 20px;
+      }
+      .track-container h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="elaria-navbar">
+    <!-- Your existing navbar code -->
+  </nav>
+
+  <div class="track-container">
+    <h2>Track Your Order</h2>
+    <p>Enter your Order ID below to check your delivery status.</p>
+
+    <div class="input-group mb-3">
+      <input type="text" id="orderIdInput" class="form-control" placeholder="Enter Product or Order ID">
+      <button class="btn btn-track" id="trackBtn">Track Order</button>
+    </div>
+
+    <div id="orderDetails" class="status-container" style="display:none;">
+      <div class="order-info mb-4">
+        <p><strong>Order ID:</strong> <span id="displayOrderId"></span></p>
+        <p><strong>Product:</strong> <span id="productName"></span></p>
+      </div>
+
+      <div class="status-step" id="step1">
+        <div class="icon"><i class="fa-solid fa-box"></i></div>
+        <span>Order Placed</span>
+      </div>
+      <div class="status-step" id="step2">
+        <div class="icon"><i class="fa-solid fa-truck"></i></div>
+        <span>Shipped</span>
+      </div>
+      <div class="status-step" id="step3">
+        <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+        <span>Out for Delivery</span>
+      </div>
+      <div class="status-step" id="step4">
+        <div class="icon"><i class="fa-solid fa-check"></i></div>
+        <span>Delivered</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const mockOrders = {
+      "ELR12345": { product: "Diamond Necklace", status: 4 },
+      "ELR67890": { product: "Gold Ring", status: 3 },
+      "ELR24680": { product: "Pearl Earrings", status: 2 },
+      "ELR13579": { product: "Silver Bracelet", status: 1 }
+    };
+
+    document.getElementById("trackBtn").addEventListener("click", () => {
+      const orderId = document.getElementById("orderIdInput").value.trim().toUpperCase();
+      const orderDetails = document.getElementById("orderDetails");
+      const displayOrderId = document.getElementById("displayOrderId");
+      const productName = document.getElementById("productName");
+
+      if (!orderId) {
+        alert("Please enter your Order ID.");
+        return;
+      }
+
+      const order = mockOrders[orderId];
+      if (!order) {
+        orderDetails.style.display = "none";
+        alert("Order not found. Please check your ID and try again.");
+        return;
+      }
+
+      orderDetails.style.display = "block";
+      displayOrderId.textContent = orderId;
+      productName.textContent = order.product;
+
+      // Reset all steps
+      document.querySelectorAll(".status-step").forEach(s => s.classList.remove("active"));
+      for (let i = 1; i <= order.status; i++) {
+        document.getElementById(`step${i}`).classList.add("active");
+      }
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

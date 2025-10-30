@@ -25,7 +25,7 @@
         .about-header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
-            color: #4B3832; /* Deep Brown */
+            color: #4B3832;
             font-weight: 700;
         }
         
@@ -36,7 +36,7 @@
             margin: 10px auto 0;
         }
 
-        /* --- Story Section Styles --- */
+        /* --- Story Section --- */
         .story-section {
             padding: 40px 0;
             margin-bottom: 50px;
@@ -44,21 +44,20 @@
 
         .story-section img {
             max-width: 100%;
-            height: auto;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .story-text h2 {
             font-family: 'Playfair Display', serif;
-            color: #8A2D3C; /* Accent Color */
+            color: #8A2D3C;
             margin-bottom: 20px;
             font-size: 2rem;
         }
 
-        /* --- Values Section (Gold/Accent Background) --- */
+        /* --- Values Section --- */
         .values-section {
-            background-color: #f7f3f0; /* Soft background */
+            background-color: #f7f3f0;
             padding: 60px 0;
             margin-bottom: 50px;
             text-align: center;
@@ -77,7 +76,7 @@
 
         .value-item i {
             font-size: 2.5rem;
-            color: #D4B294; /* Gold accent */
+            color: #D4B294;
             margin-bottom: 15px;
         }
         
@@ -87,7 +86,54 @@
             margin-bottom: 10px;
         }
 
-        /* --- Mission Section (Image Background) --- */
+        /* --- Team Section --- */
+        .team-section {
+            background-color: #fffaf5;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .team-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #4B3832;
+            margin-bottom: 40px;
+        }
+
+        .team-member {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-member img {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 3px solid #D4B294;
+        }
+
+        .team-member h4 {
+            color: #8A2D3C;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .team-member p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* --- Mission Section --- */
         .mission-cta {
             background: url('placeholder-mission-bg.jpg') center center no-repeat;
             background-size: cover;
@@ -95,7 +141,7 @@
             padding: 80px 20px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5); /* Dark overlay */
+            box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
         }
         
         .mission-cta h3 {
@@ -120,12 +166,19 @@
             background-color: #f0c9a4;
         }
 
+        @media (max-width: 768px) {
+            .team-member img {
+                width: 110px;
+                height: 110px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <nav class="elaria-navbar">
-        </nav>
+        <!-- Navbar content (your existing design) -->
+    </nav>
     
     <header class="about-header">
         <div class="page-container">
@@ -136,48 +189,78 @@
     
     <div class="page-container story-section">
         <div class="row align-items-center">
-            
             <div class="col-lg-6 mb-4 mb-lg-0">
                 <img src="elaria.png" alt="Jewelry artisan working in a clean workshop">
             </div>
-            
             <div class="col-lg-6 story-text">
                 <h2>Our Journey: From A Single Sketch to Timeless Collections</h2>
-                <p>Elaria was founded in 2010 by master jeweler, Anya Sharma, with the simple idea that exceptional jewelry shouldn't be reserved for special occasions—it should be a part of everyday life. What started as a small, bespoke workshop has grown into a global brand known for its delicate balance of **classic elegance and modern minimalism.**</p>
+                <p>Elaria was founded in 2025 by Businessman, Abdul Ashfaqe, with the simple idea that exceptional jewelry shouldn't be reserved for special occasions—it should be a part of everyday life.</p>
                 <p>Every piece starts as a hand-drawn sketch, evolving through meticulous CAD rendering and finally brought to life by artisans who share our passion for detail. We believe jewelry is a language, and we're here to help you tell your story.</p>
             </div>
-            
         </div>
     </div>
     
     <div class="values-section">
         <div class="page-container">
             <h2>Our Foundation: Guiding Principles</h2>
-            
             <div class="row">
-                
                 <div class="col-md-4 value-item">
                     <i class="fa-solid fa-hand-holding-heart"></i>
                     <h4>Ethical Sourcing</h4>
                     <p>We commit to conflict-free diamonds and traceable, recycled gold. Beauty shouldn't come at a cost to the earth or its people.</p>
                 </div>
-                
                 <div class="col-md-4 value-item">
                     <i class="fa-solid fa-star"></i>
                     <h4>Uncompromising Quality</h4>
                     <p>From the initial metal pour to the final polish, every step is overseen by expert craftsmen to ensure flawless, enduring quality.</p>
                 </div>
-                
                 <div class="col-md-4 value-item">
                     <i class="fa-solid fa-gem"></i>
                     <h4>Timeless Design</h4>
                     <p>We ignore fleeting trends, focusing instead on creating pieces that are classic, versatile, and designed to be cherished for generations.</p>
                 </div>
-                
             </div>
         </div>
     </div>
-    
+
+    <!-- 🧑‍💼 Meet Our Team Section -->
+    <div class="team-section">
+        <div class="page-container">
+            <h2>Meet Our Officials</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="team-member">
+                        <img src="images/team1.jpg" alt="CEO">
+                        <h4>Abdul Ashfaqe</h4>
+                        <p>Founder & CEO</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="team-member">
+                        <img src="images/team3.jpg" alt="Creative Director">
+                        <h4>Ashfak Nasar</h4>
+                        <p>Creative Director</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="team-member">
+                        <img src="images/team2.jpg" alt="Marketing Head">
+                        <h4>Ansar Nasim</h4>
+                        <p>Head of Marketing</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="team-member">
+                        <img src="images/team4.jpg" alt="Production Manager">
+                        <h4>Rabah Kg</h4>
+                        <p>Production Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🌟 Mission CTA -->
     <div class="page-container">
         <div class="mission-cta" style="background-image: url(images/aboutusbg.jpg);">
             <h3>Find the Piece that Tells Your Story.</h3>
@@ -186,9 +269,6 @@
         </div>
     </div>
 
-
-   
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+</body>
 </html>

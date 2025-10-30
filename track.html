@@ -18,6 +18,16 @@
             margin: 0 auto;
             text-align: center;
         }
+        .status-step {
+  transition: all 0.4s ease;
+  margin-bottom: 10px;
+}
+
+.status-step.active {
+  color: #008000;
+  font-weight: 600;
+  transform: translateX(5px);
+}
 
         .track-form-card {
             background-color: #fff8f8;
@@ -222,124 +232,162 @@
             const orderStatusResult = document.getElementById('orderStatusResult');
             const searchInput = document.getElementById('searchInput');
             const searchButton = document.getElementById('searchButton');
-
-            // --- FAKE DATA FOR DEMONSTRATION ---
+            const statusElement = document.getElementById('currentStatus');
+            const timelineElement = document.getElementById('trackingTimeline');
+        
+            // ✅ Add return section dynamically
+            const returnContainer = document.createElement('div');
+            returnContainer.id = 'returnSection';
+            returnContainer.style.display = 'none';
+            returnContainer.style.marginTop = '20px';
+            orderStatusResult.appendChild(returnContainer);
+        
+            // --- FAKE DATA INCLUDING YOUR SUCCESS ORDER ---
             const FAKE_ORDERS = {
                 'ELARIA-12345': {
                     email: 'test@example.com',
-                    status: 'Shipped',
-                    lastUpdate: '2025-10-25 10:30 AM',
+                    status: 'Delivered',
+                    lastUpdate: '2025-10-28 06:30 PM',
                     timeline: [
-                        { date: '2025-10-22', text: 'Order Placed', active: true },
-                        { date: '2025-10-23', text: 'Quality Check Complete', active: true },
-                        { date: '2025-10-24', text: 'Handed to Carrier (Tracking: ABC123XYZ)', active: true },
-                        { date: '2025-10-25', text: 'In Transit: Bangalore Hub', active: true },
-                        { date: '2025-10-28', text: 'Out for Delivery', active: false },
-                        { date: '2025-10-28', text: 'Delivered', active: false }
+                        { date: '2025-10-22', text: 'Order Confirmed' },
+                        { date: '2025-10-23', text: 'Shipped' },
+                        { date: '2025-10-25', text: 'Out for Delivery' },
+                        { date: '2025-10-28', text: 'Delivered' }
                     ]
                 },
                 'ELARIA-98765': {
                     email: 'user@mail.com',
-                    status: 'Processing',
+                    status: 'Shipped',
                     lastUpdate: '2025-10-28 02:00 PM',
                     timeline: [
-                        { date: '2025-10-28', text: 'Order Placed', active: true },
-                        { date: '2025-10-29', text: 'In Production/Customization', active: true },
-                        { date: 'Future', text: 'Shipped', active: false },
-                        { date: 'Future', text: 'Delivered', active: false }
+                        { date: '2025-10-26', text: 'Order Confirmed' },
+                        { date: '2025-10-27', text: 'Packed & Dispatched' },
+                        { date: '2025-10-28', text: 'Shipped' },
+                        { date: 'Pending', text: 'Out for Delivery' },
+                        { date: 'Pending', text: 'Delivered' }
+                    ]
+                },
+                'ELARIA-108734': { // ✅ Your success order
+                    email: 'customer@elaria.com',
+                    status: 'Delivered',
+                    lastUpdate: '2025-10-29 10:45 AM',
+                    timeline: [
+                        { date: '2025-10-24', text: 'Order Confirmed' },
+                        { date: '2025-10-25', text: 'Packed & Quality Checked' },
+                        { date: '2025-10-26', text: 'Shipped from Warehouse (Tracking ID: EL108734IN)' },
+                        { date: '2025-10-28', text: 'Out for Delivery' },
+                        { date: '2025-10-29', text: 'Delivered Successfully to Customer' }
                     ]
                 }
             };
-            // ------------------------------------
-
-            // --- Function to update the results area with data ---
-            function displayStatus(orderData, orderNo) {
-                const statusElement = document.getElementById('currentStatus');
-                const timelineElement = document.getElementById('trackingTimeline');
-                
-                // Clear previous results
+        
+            // --- Function to show animated timeline ---
+            async function displayStatus(orderData, orderNo) {
                 timelineElement.innerHTML = '';
-
-                // Update basic info
+                returnContainer.style.display = 'none'; // Hide old return button
+                orderStatusResult.style.display = 'block';
                 document.getElementById('displayOrderNo').textContent = orderNo;
                 document.getElementById('displayLastUpdate').textContent = orderData.lastUpdate;
-                statusElement.textContent = orderData.status;
-
-                // Update badge color based on status
-                statusElement.classList.remove('bg-secondary', 'bg-success', 'bg-warning', 'bg-danger');
-                if (orderData.status === 'Delivered') {
-                    statusElement.classList.add('bg-success');
-                } else if (orderData.status === 'Shipped' || orderData.status === 'Out for Delivery') {
-                    statusElement.classList.add('bg-warning');
-                } else {
-                    statusElement.classList.add('bg-secondary');
-                }
-
-                // Populate timeline
-                orderData.timeline.forEach(step => {
+                statusElement.textContent = "Loading...";
+                statusElement.className = "badge bg-warning";
+        
+                await new Promise(r => setTimeout(r, 800));
+        
+                for (let i = 0; i < orderData.timeline.length; i++) {
+                    const step = orderData.timeline[i];
                     const li = document.createElement('li');
                     li.classList.add('status-step');
-                    if (step.active) {
-                        li.classList.add('active');
-                        li.innerHTML = `<i class="fa-solid fa-circle-dot me-2"></i> ${step.date}: ${step.text}`;
-                    } else {
-                         li.innerHTML = `<i class="fa-regular fa-circle me-2" style="color: #ccc;"></i> ${step.date}: ${step.text}`;
-                    }
+                    li.style.opacity = 0;
+                    li.innerHTML = `<i class="fa-regular fa-circle me-2" style="color:#ccc;"></i> ${step.date}: ${step.text}`;
                     timelineElement.appendChild(li);
-                });
-
-                // Show the result container
-                orderStatusResult.style.display = 'block';
+        
+                    await new Promise(r => setTimeout(r, 700));
+        
+                    li.classList.add('active');
+                    li.querySelector('i').classList.remove('fa-regular');
+                    li.querySelector('i').classList.add('fa-solid', 'fa-circle-dot');
+                    li.style.opacity = 1;
+                }
+        
+                // --- Update Status Color ---
+                statusElement.textContent = orderData.status;
+                statusElement.classList.remove('bg-warning', 'bg-danger', 'bg-secondary');
+                statusElement.classList.add(
+                    orderData.status === 'Delivered' ? 'bg-success' :
+                    orderData.status === 'Shipped' ? 'bg-info' : 'bg-secondary'
+                );
+        
+                // --- If Delivered, show Return Option ---
+                if (orderData.status === 'Delivered') {
+                    returnContainer.style.display = 'block';
+                    returnContainer.innerHTML = `
+                        <div class="text-center">
+                            <p class="mt-3 text-muted">Need to return this product?</p>
+                            <button id="returnOrderBtn" class="btn btn-outline-danger px-4 py-2 rounded-pill">
+                                <i class="fa-solid fa-rotate-left me-2"></i>Return Your Order
+                            </button>
+                        </div>
+                    `;
+        
+                    // Handle return button click
+                    document.getElementById('returnOrderBtn').addEventListener('click', function () {
+                        const confirmReturn = confirm("Are you sure you want to return this order?");
+                        if (confirmReturn) {
+                            // Redirect or show message
+                            alert("Your return request has been initiated successfully.\nOur support team will contact you shortly!");
+                            // Example redirect (optional):
+                            // window.location.href = 'return-form.html?order=' + orderNo;
+                        }
+                    });
+                }
             }
-
-
+        
             // --- Form Submission Handler ---
-            trackOrderForm.addEventListener('submit', function (e) {
+            trackOrderForm.addEventListener('submit', async function (e) {
                 e.preventDefault();
                 const orderNo = document.getElementById('orderNumber').value.trim().toUpperCase();
                 const orderEmail = document.getElementById('orderEmail').value.trim().toLowerCase();
-
-                // Check fake data
+        
                 const orderData = FAKE_ORDERS[orderNo];
-
-                if (orderData && orderData.email.toLowerCase() === orderEmail) {
-                    // Match found
+        
+                timelineElement.innerHTML = `<li><i class="fa-solid fa-spinner fa-spin me-2"></i> Fetching order details...</li>`;
+                orderStatusResult.style.display = 'block';
+                statusElement.textContent = "Loading...";
+                statusElement.className = "badge bg-warning";
+        
+                await new Promise(r => setTimeout(r, 1000));
+        
+                if (orderData && orderData.email === orderEmail) {
                     displayStatus(orderData, orderNo);
                 } else {
-                    // No match or wrong email
                     orderStatusResult.style.display = 'block';
                     document.getElementById('displayOrderNo').textContent = orderNo;
                     document.getElementById('displayLastUpdate').textContent = new Date().toLocaleString();
-                    document.getElementById('currentStatus').textContent = 'Order Not Found';
-                    document.getElementById('currentStatus').classList.remove('bg-success', 'bg-warning');
-                    document.getElementById('currentStatus').classList.add('bg-danger');
-                    document.getElementById('trackingTimeline').innerHTML = '<li class="text-danger">Could not find an order matching the number and email provided. Please check your details and try again.</li>';
+                    statusElement.textContent = 'Order Not Found';
+                    statusElement.className = "badge bg-danger";
+                    timelineElement.innerHTML = '<li class="text-danger">❌ No order found with the given details.</li>';
+                    returnContainer.style.display = 'none';
                 }
             });
-
-
-            // --- Navbar Search Logic (Reused) ---
+        
+            // --- Navbar Search ---
             function performSearch() {
                 const query = searchInput.value.trim();
                 if (query.length > 0) {
-                    // Redirect to the search results page with the query parameter
-                    const searchURL = `searchresults.html?q=${encodeURIComponent(query)}`;
-                    window.location.href = searchURL;
+                    window.location.href = `searchresults.html?q=${encodeURIComponent(query)}`;
                 } else {
                     alert("Please enter a search term.");
                 }
             }
-
-            // --- Attach Event Listeners ---
+        
             searchButton.addEventListener('click', performSearch);
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    performSearch();
-                }
+            searchInput.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') performSearch();
             });
-            
         });
-    </script>
+        </script>
+        
+        
 </body>
 
 </html>
