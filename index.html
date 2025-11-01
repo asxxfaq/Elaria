@@ -321,14 +321,11 @@
         const searchInput = document.getElementById('searchInput');
         const searchButton = document.getElementById('searchButton');
 
-        // --- Function to handle the search logic ---
         function performSearch() {
             const query = searchInput.value.trim();
             
             if (query.length > 0) {
-                // For a live site, this would call an API or load a dynamic page.
-                // For this static prototype, we simulate redirection to a results page.
-                // Note: You would need a 'search-results.html' page to display results.
+              
                 const searchURL = `searchresults.html?q=${encodeURIComponent(query)}`;
                 console.log("Simulated Search Query: " + query);
                 window.location.href = searchURL;
@@ -337,10 +334,8 @@
             }
         }
 
-        // --- Event Listener 1: Click the search button ---
         searchButton.addEventListener('click', performSearch);
 
-        // --- Event Listener 2: Press 'Enter' key in the search box ---
         searchInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
                 performSearch();

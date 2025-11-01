@@ -62,8 +62,8 @@
             
             <h4 class="form-section-header">1. The Personal Message</h4>
             <div class="mb-4">
-                <label for="giftMessage" class="form-label">Write your personal note (max 250 characters)</label>
-                <textarea class="form-control" id="giftMessage" rows="4" maxlength="250" placeholder="E.g., Happy Birthday! Wishing you all the best. Love, [Your Name]"></textarea>
+                <label for="giftMessage" name="giftMessage" class="form-label">Write your personal note (max 250 characters)</label>
+                <textarea class="form-control" name="giftMessage" id="giftMessage" rows="4" maxlength="250" placeholder="E.g., Happy Birthday! Wishing you all the best. Love, [Your Name]"></textarea>
                 <div class="form-text">This will be printed on a beautiful Elaria gift card.</div>
             </div>
 
@@ -75,7 +75,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="recipientEmail" class="form-label">Recipient's Email (for delivery updates)</label>
-                    <input type="email" class="form-control" id="recipientEmail">
+                    <input type="email" class="form-control" id="recipientEmail" required>
                 </div>
             </div>
 
@@ -100,6 +100,85 @@
 
 
     <script>
+       
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("giftForm");
+    const message = document.getElementById("giftMessage");
+    const nameField = document.getElementById("recipientName");
+    const emailField = document.getElementById("recipientEmail");
+    const dateSwitch = document.getElementById("futureDeliverySwitch");
+    const dateField = document.getElementById("deliveryDate");
+
+    // Show/hide delivery date input
+    dateSwitch.addEventListener("change", function () {
+        dateField.style.display = this.checked ? "block" : "none";
+    });
+
+    // Form validation
+    form.addEventListener("submit", function (e) {
+        e.preventDefault(); // prevent immediate submission
+
+        // Trim inputs
+        const messageText = message.value.trim();
+        const name = nameField.value.trim();
+        const email = emailField.value.trim();
+        const deliveryDate = dateField.value;
+
+        // Check message
+        if (messageText.length === 0) {
+            alert("Please enter a personal message.");
+            message.focus();
+            return;
+        }
+
+        if (messageText.length > 250) {
+            alert("Message must be under 250 characters.");
+            message.focus();
+            return;
+        }
+
+        // Check name
+        if (name.length === 0) {
+            alert("Please enter the recipient's name.");
+            nameField.focus();
+            return;
+        }
+
+        // Check email (optional but if filled, validate format)
+        if (email.length > 0) {
+            const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid recipient email.");
+                emailField.focus();
+                return;
+            }
+        }
+
+        // Check delivery date (if scheduled)
+        if (dateSwitch.checked) {
+            if (!deliveryDate) {
+                alert("Please select a delivery date.");
+                dateField.focus();
+                return;
+            }
+            const today = new Date();
+            const chosenDate = new Date(deliveryDate);
+            if (chosenDate < today.setHours(0,0,0,0)) {
+                alert("Delivery date cannot be in the past.");
+                dateField.focus();
+                return;
+            }
+        }
+
+        // If all validations pass
+        alert("🎁 Gift details saved successfully!");
+        // Redirect or proceed as needed:
+        window.location.href = "payment.html";
+    });
+});
+</script>
+<script>
+
         document.addEventListener("DOMContentLoaded", () => {
             const productSummary = document.getElementById("productSummary");
             const giftForm = document.getElementById("giftForm");
@@ -197,7 +276,9 @@
              const cartCount = document.querySelector(".cart-count");
              if (cartCount) cartCount.textContent = totalItems;
          }
+         
     </script>
+  
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -388,11 +388,8 @@
                 cartCountBadge.style.display = total > 0 ? 'inline-block' : 'none';
             }
 
-            // --- 5. NAV BAR SEARCH LOGIC ---
             const searchInput = document.getElementById('searchInput');
             const searchButton = document.getElementById('searchButton');
-            // Note: 'displayed-query' element is not present on this page, but keeping the logic for robustness.
-            // const displayedQuery = document.getElementById('displayed-query');
 
             function getSearchQuery() {
                 const params = new URLSearchParams(window.location.search);
@@ -400,16 +397,13 @@
                 
                 if (query) {
                     const decodedQuery = decodeURIComponent(query);
-                    // Pre-fill the navbar search input with the current query
                     searchInput.value = decodedQuery;
                 }
-                // Removed redundant logic for 'displayed-query' since it seems intended for a search results page.
             }
             
             function performSearch() {
                 const query = searchInput.value.trim();
                 if (query.length > 0) {
-                    // Redirect to the search results page with the query parameter
                     const searchURL = `searchresults.html?q=${encodeURIComponent(query)}`;
                     window.location.href = searchURL;
                 } else {

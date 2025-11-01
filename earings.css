@@ -1,6 +1,7 @@
 /* ---------------------------------------------------- */
 /* --- 1. Custom Toast CSS (FOR NOTIFICATIONS) --- */
 /* ---------------------------------------------------- */
+
 .custom-toast {
     visibility: hidden;
     min-width: 250px;
