@@ -3,12 +3,30 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elaria - Favourites</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css">
     <style>
+        /* Show the badge only when it has content (optional, JavaScript handles it too) */
+        .btn-remove-link {
+            text-decoration: none;
+            background-color: #D4B294;
+            color: #4B3832;
+
+        }
+
+        .btn-remove-link:hover {
+            color: white;
+            background-color: #4B3832;
+
+        }
+
+        .cart-count:not(:empty) {
+            display: inline-block;
+        }
+
         .favourites-page-container {
             max-width: 1200px;
             margin: 40px auto;
@@ -123,32 +141,14 @@
             border: none;
         }
 
-        .btn-remove {
-            color: #8A2D3C;
-            background: none;
-            border: none;
-            text-decoration: underline;
-            font-size: 0.9rem;
-            cursor: pointer;
+        .btn-move-cart:hover {
+            color: white;
+            background-color: #4B3832;
         }
+
+
 
         /* Empty state view */
-        .empty-favourites {
-            text-align: center;
-            padding: 100px 0;
-            background-color: #f7f7f7;
-            border-radius: 8px;
-        }
-
-        .empty-favourites h3 {
-            color: #4B3832;
-        }
-
-        .empty-favourites i {
-            font-size: 3rem;
-            color: #8A2D3C;
-            margin-bottom: 20px;
-        }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -195,12 +195,13 @@
                     <img src="elaria.png" alt="Elaria Logo">
                 </a>
             </div>
-        
+
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
+                <input type="text" id="searchInput"
+                    placeholder="Search for Gold Jewellery, Diamond Jewellery and more..." class="search-input">
                 <button class="search-icon" id="searchButton"><i class="fa fa-search"></i></button>
             </div>
-        
+
             <div class="navbar-utility-right">
                 <a href="favourites.html" class="icon-link"><i class="fa-solid fa-heart"></i></a>
                 <a href="login.html" class="icon-link"><i class="fa-solid fa-user"></i></a>
@@ -208,11 +209,11 @@
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span class="cart-count"></span>
                 </a>
-        
+
                 <button class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></button>
             </div>
         </div>
-    
+
         <div class="navbar-bottom" id="navbarBottom">
             <ul class="menu-list">
                 <li>
@@ -253,7 +254,7 @@
                 </li>
             </ul>
         </div>
-        
+
     </nav>
 
 
@@ -264,11 +265,12 @@
         <div class="favourites-header">
             <div class="header-status">
                 <h2>Ready to buy your favourites?</h2>
-                <p><i class="fa-solid fa-heart"></i> You have <span id="wishlist-count">0</span> items saved in your wishlist.</p>
+                <p><i class="fa-solid fa-heart"></i> You have <span id="wishlist-count">0</span> items saved in your
+                    wishlist.</p>
             </div>
             <a href="#" class="btn-consult"><i class="fa-solid fa-phone"></i> Request a Free Consultation</a>
         </div>
-        
+
         <div id="favourites-list-container">
         </div>
 
@@ -278,303 +280,330 @@
             <p class="text-muted">Start favoriting products to see them here.</p>
             <a href="index.html" class="btn-consult">Start Shopping</a>
         </div>
-        
+
     </div>
 
     <footer class="main-footer">
         <div class="footer-content-wrapper">
-
-            <div class="footer-logo"
-                style="background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.
+    
+          <div class="footer-logo"
+            style= "background-image: url(elaria.png); background-repeat: no-repeat; background-size: contain;">.</div>
+    
+          <div class="footer-grid">
+            <div class="footer-col">
+              <p class="col-heading">Useful Links</p>
+              <ul>
+                <li><a href="delivery.html">Delivery Information</a></li>
+                <li><a href="delivery.html">International Shipping</a></li>
+                <li><a href="payment.html">Payment Options</a></li>
+                <li><a href="track.html">Track your Order</a></li>
+                <li><a href="return.html">Returns</a></li>
+              </ul>
             </div>
-
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <p class="col-heading">Useful Links</p>
-                    <ul>
-                        <li><a href="#">Delivery Information</a></li>
-                        <li><a href="#">International Shipping</a></li>
-                        <li><a href="#">Payment Options</a></li>
-                        <li><a href="#">Track your Order</a></li>
-                        <li><a href="#">Returns</a></li>
-                        <li><a href="#">Find a Store</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <p class="col-heading">Information</p>
-                    <ul>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="offers.html">Offers & Contest Details</a></li>
-                        <li><a href="helpandfaq.html">Help & FAQs</a></li>
-                        <li><a href="about.html">About Elaria</a></li>
-                        <li><a href="feedback.html">Feedback & Contact Us</a></li>
-
-                    </ul>
-                </div>
-
-                <div class="footer-col contact-col">
-                    <p class="col-heading">Contact Us</p>
-                    <p class="contact-number">1800-266-0123</p>
-
-                    <p class="col-heading chat-heading">Chat With Us</p>
-                    <p class="contact-number">+91 7306614239</p>
-
-                    <div class="contact-icons">
-                        <a href="#">💬</a>
-                        <a href="#">📧</a>
-                        <a href="#">📞</a>
-                    </div>
-                </div>
-
+    
+            <div class="footer-col">
+              <p class="col-heading">Information</p>
+              <ul>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="offers.html">Offers & Contest Details</a></li>
+                <li><a href="helpandfaq.html">Help & FAQs</a></li>
+                <li><a href="about.html">About Elaria</a></li>
+                <li><a href="feedback.html">Feedback & Contact Us</a></li>
+    
             </div>
-
-            <div class="footer-social">
-                <p class="col-heading">Social</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
-                    </a>
-                    <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
-                    </a>
-                    <a href="#"><i class="fa-brands fa-twitter"> X</i>
-                    </a>
-                    <a href="#"><i class="fa-brands fa-whatsapp"> whatsapp</i>
-                    </a>
-                </div>
+    
+            <div class="footer-col contact-col">
+              <p class="col-heading">Contact Us</p>
+              <p class="contact-number">1800-266-0123</p>
+    
+              <p class="col-heading chat-heading">Chat With Us</p>
+              <p class="contact-number">+91 7306614239</p>
+    
+              <div class="contact-icons">
+                <a href="#">💬</a>
+                <a href="#">📧</a>
+                <a href="#">📞</a>
+              </div>
             </div>
-
+    
+          </div>
+    
+          <div class="footer-social">
+            <p class="col-heading">Social</p>
+            <div class="social-icons">
+              <a href="#"><i class="fa-brands fa-instagram"> instagram</i>
+              </a>
+              <a href="#"><i class="fa-brands fa-facebook-f">acebook</i>
+              </a>
+              <a href="#"><i class="fa-brands fa-twitter"> X</i>
+              </a>
+              <a href="https://wa.me/7306614239"><i class="fa-brands fa-whatsapp"> whatsapp</i>
+              </a>
+            </div>
+          </div>
+    
         </div>
+      </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-    // ---------- FAVOURITES PAGE SCRIPT (Fixed) ----------
-    (function () {
-        const WISHLIST_STORAGE_KEY = 'elaria_wishlist';
-        const CART_STORAGE_KEY = 'cart';
+        <script>
+            // ----------------------------------------------------------------
+            // ✅ MISSING FUNCTION ADDED: Calculates total items and updates the navbar span
+            // ----------------------------------------------------------------
+            function updateCartCount() {
+                const cart = JSON.parse(localStorage.getItem("cart")) || [];
+                // Use reduce to sum up the 'qty' of all items in the cart
+                const totalItems = cart.reduce((sum, item) => sum + Number(item.qty || 1), 0);
 
-        // small toast helper
-        function showToast(message, bg = '#8A2D3C') {
-            const t = document.createElement('div');
-            t.textContent = message;
-            t.style.position = 'fixed';
-            t.style.right = '20px';
-            t.style.bottom = '20px';
-            t.style.background = bg;
-            t.style.color = '#fff';
-            t.style.padding = '10px 14px';
-            t.style.borderRadius = '6px';
-            t.style.boxShadow = '0 6px 18px rgba(0,0,0,0.15)';
-            t.style.zIndex = 9999;
-            t.style.opacity = '0';
-            t.style.transition = 'opacity 0.25s, transform 0.25s';
-            document.body.appendChild(t);
-            requestAnimationFrame(() => { t.style.opacity = '1'; t.style.transform = 'translateY(0)'; });
-            setTimeout(() => {
-                t.style.opacity = '0';
-                t.style.transform = 'translateY(8px)';
-                setTimeout(() => t.remove(), 300);
-            }, 1600);
-        }
-
-        // Normalize stored wishlist so all item ids are strings (safe migration)
-        function normalizeWishlist(wishlist) {
-            return wishlist.map(item => {
-                return Object.assign({}, item, { id: String(item.id) });
-            });
-        }
-
-        function getWishlist() {
-            try {
-                const raw = JSON.parse(localStorage.getItem(WISHLIST_STORAGE_KEY) || '[]');
-                return normalizeWishlist(Array.isArray(raw) ? raw : []);
-            } catch (e) {
-                console.error('Invalid wishlist in localStorage, resetting.', e);
-                localStorage.removeItem(WISHLIST_STORAGE_KEY);
-                return [];
+                const cartCount = document.querySelector(".cart-count");
+                if (cartCount) {
+                    cartCount.textContent = totalItems > 0 ? totalItems : ''; // Show number or leave empty
+                    // Optional: You might want to toggle a class for styling if the count is > 0
+                    if (totalItems > 0) {
+                        cartCount.style.display = 'inline-block'; // If your CSS hides it by default
+                    } else {
+                        cartCount.style.display = 'none';
+                    }
+                }
             }
-        }
+            // ----------------------------------------------------------------
 
-        function saveWishlist(list) {
-            // ensure ids stored as strings
-            const normalized = normalizeWishlist(list);
-            localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(normalized));
-        }
 
-        function getCart() {
-            try {
-                const raw = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || '[]');
-                // ensure normalized cart item ids are strings and qty exists
-                return (Array.isArray(raw) ? raw : []).map(i => Object.assign({}, i, { id: String(i.id), qty: i.qty ? Number(i.qty) : 1 }));
-            } catch (e) {
-                console.error('Invalid cart in localStorage, resetting.', e);
-                localStorage.removeItem(CART_STORAGE_KEY);
-                return [];
-            }
-        }
+            // ---------- FAVOURITES PAGE SCRIPT (Fixed) ----------
+            (function () {
+                const WISHLIST_STORAGE_KEY = 'elaria_wishlist';
+                const CART_STORAGE_KEY = 'cart';
 
-        function saveCart(cart) {
-            // normalize
-            const normalized = cart.map(i => ({ ...i, id: String(i.id), qty: Number(i.qty || 1) }));
-            localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(normalized));
-        }
+                // small toast helper
+                function showToast(message, bg = '#8A2D3C') {
+                    const t = document.createElement('div');
+                    t.textContent = message;
+                    t.style.position = 'fixed';
+                    t.style.right = '20px';
+                    t.style.bottom = '20px';
+                    t.style.background = bg;
+                    t.style.color = '#fff';
+                    t.style.padding = '10px 14px';
+                    t.style.borderRadius = '6px';
+                    t.style.boxShadow = '0 6px 18px rgba(0,0,0,0.15)';
+                    t.style.zIndex = 9999;
+                    t.style.opacity = '0';
+                    t.style.transform = 'translateY(8px)';
+                    t.style.transition = 'opacity 0.25s, transform 0.25s';
+                    document.body.appendChild(t);
+                    requestAnimationFrame(() => { t.style.opacity = '1'; t.style.transform = 'translateY(0)'; });
+                    setTimeout(() => {
+                        t.style.opacity = '0';
+                        t.style.transform = 'translateY(8px)';
+                        setTimeout(() => t.remove(), 300);
+                    }, 1600);
+                }
 
-        // Renders the wishlist items using the template you already provided
-        function renderFavourites() {
-            const wishlist = getWishlist();
-            const container = document.getElementById('favourites-list-container');
-            const emptyState = document.getElementById('empty-state');
-            const countSpan = document.getElementById('wishlist-count');
+                // Normalize stored wishlist so all item ids are strings (safe migration)
+                function normalizeWishlist(wishlist) {
+                    return wishlist.map(item => {
+                        return Object.assign({}, item, { id: String(item.id) });
+                    });
+                }
 
-            if (!container || !countSpan) return;
-            countSpan.textContent = wishlist.length;
+                function getWishlist() {
+                    try {
+                        const raw = JSON.parse(localStorage.getItem(WISHLIST_STORAGE_KEY) || '[]');
+                        return normalizeWishlist(Array.isArray(raw) ? raw : []);
+                    } catch (e) {
+                        console.error('Invalid wishlist in localStorage, resetting.', e);
+                        localStorage.removeItem(WISHLIST_STORAGE_KEY);
+                        return [];
+                    }
+                }
 
-            if (wishlist.length === 0) {
-                container.innerHTML = '';
-                emptyState.classList.remove('d-none');
-                return;
-            }
+                function saveWishlist(list) {
+                    // ensure ids stored as strings
+                    const normalized = normalizeWishlist(list);
+                    localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(normalized));
+                }
 
-            emptyState.classList.add('d-none');
+                function getCart() {
+                    try {
+                        const raw = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || '[]');
+                        // ensure normalized cart item ids are strings and qty exists
+                        return (Array.isArray(raw) ? raw : []).map(i => Object.assign({}, i, { id: String(i.id), qty: i.qty ? Number(i.qty) : 1 }));
+                    } catch (e) {
+                        console.error('Invalid cart in localStorage, resetting.', e);
+                        localStorage.removeItem(CART_STORAGE_KEY);
+                        return [];
+                    }
+                }
 
-            const html = wishlist.map(item => {
-                // ensure item fields exist
-                const id = String(item.id || '');
-                const title = item.title || item.name || 'Product';
-                const image = item.image || item.img || 'images/placeholder.jpg';
-                const price = typeof item.price === 'number' ? item.price : (parseFloat(item.price) || 0);
+                function saveCart(cart) {
+                    // normalize
+                    const normalized = cart.map(i => ({ ...i, id: String(i.id), qty: Number(i.qty || 1) }));
+                    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(normalized));
+                }
 
-                return `
-                <div class="favourite-item" data-product-id="${id}">
-                    <div class="item-image" style="background-image: url('${image}');"></div>
-                    <div class="item-details">
-                        <h5>${title}</h5>
-                        <p>Product ID: ${id} | Jewellery Piece</p>
-                        <p class="item-price">₹ ${price.toLocaleString('en-IN')}</p>
-                    </div>
-                    <div class="item-actions">
-                        <button class="btn-move-cart btn btn-sm btn-primary" data-product-id="${id}"><i class="fa-solid fa-cart-shopping"></i> Move to Cart</button>
-                        <button class="btn-remove btn-remove-link btn btn-link" data-product-id="${id}">Remove from Favourites</button>
-                    </div>
-                </div>`;
-            }).join('');
+                // Remove item from wishlist (animated removal then rerender)
+                function removeFromWishlist(productId) {
+                    if (!productId) return;
+                    let wishlist = getWishlist();
+                    const item = wishlist.find(i => String(i.id) === String(productId));
+                    wishlist = wishlist.filter(i => String(i.id) !== String(productId));
+                    saveWishlist(wishlist);
 
-            container.innerHTML = html;
+                    // animation: try to fade the DOM element
+                    const el = document.querySelector(`.favourite-item[data-product-id="${productId}"]`);
+                    if (el) {
+                        el.style.transition = 'opacity 0.25s, transform 0.25s';
+                        el.style.opacity = '0';
+                        el.style.transform = 'translateX(-12px)';
+                        setTimeout(() => {
+                            renderFavourites();
+                            showToast((item && (item.title || item.name)) ? `${item.title || item.name} removed from favorites.` : 'Item removed from favorites.', '#8A2D3C');
+                            updateCartCount(); // Update cart count after wishlist change
+                        }, 260);
+                    } else {
+                        renderFavourites();
+                        showToast('Item removed from favorites.', '#8A2D3C');
+                        updateCartCount();
+                    }
+                }
 
-            // attach listeners
-            container.querySelectorAll('.btn-remove').forEach(btn => {
-                btn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const pid = this.getAttribute('data-product-id');
-                    removeFromWishlist(pid);
-                });
-            });
+                // Renders the wishlist items using the template you already provided
+                function renderFavourites() {
+                    const wishlist = getWishlist();
+                    const container = document.getElementById('favourites-list-container');
+                    const emptyState = document.getElementById('empty-state');
+                    const countSpan = document.getElementById('wishlist-count');
 
-            container.querySelectorAll('.btn-move-cart').forEach(btn => {
-                btn.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const pid = this.getAttribute('data-product-id');
-                    moveToCart(pid);
-                });
-            });
-        }
+                    if (!container || !countSpan) return;
+                    countSpan.textContent = wishlist.length;
 
-        // Remove item from wishlist (animated removal then rerender)
-        function removeFromWishlist(productId) {
-            if (!productId) return;
-            let wishlist = getWishlist();
-            const item = wishlist.find(i => String(i.id) === String(productId));
-            wishlist = wishlist.filter(i => String(i.id) !== String(productId));
-            saveWishlist(wishlist);
+                    if (wishlist.length === 0) {
+                        container.innerHTML = '';
+                        emptyState.classList.remove('d-none');
+                        return;
+                    }
 
-            // animation: try to fade the DOM element
-            const el = document.querySelector(`.favourite-item[data-product-id="${productId}"]`);
-            if (el) {
-                el.style.transition = 'opacity 0.25s, transform 0.25s';
-                el.style.opacity = '0';
-                el.style.transform = 'translateX(-12px)';
-                setTimeout(() => {
+                    emptyState.classList.add('d-none');
+
+                    const html = wishlist.map(item => {
+                        // ensure item fields exist
+                        const id = String(item.id || '');
+                        const title = item.title || item.name || 'Product';
+                        const image = item.image || item.img || 'images/placeholder.jpg';
+                        const price = typeof item.price === 'number' ? item.price : (parseFloat(item.price) || 0);
+
+                        return `
+                        <div class="favourite-item" data-product-id="${id}">
+                            <div class="item-image" style="background-image: url('${image}');"></div>
+                            <div class="item-details">
+                                <h5>${title}</h5>
+                                <p>Product ID: ${id} | Jewellery Piece</p>
+                                <p class="item-price">₹ ${price.toLocaleString('en-IN')}</p>
+                            </div>
+                            <div class="item-actions">
+                                <button class="btn-move-cart btn btn-sm btn-primary" data-product-id="${id}"><i class="fa-solid fa-cart-shopping"></i> Move to Cart</button>
+                                <button class="btn-remove btn-remove-link btn btn-link" data-product-id="${id}">
+                                     Remove from Favourites
+                                </button>
+                                </div>
+                        </div>`;
+                    }).join('');
+
+                    container.innerHTML = html;
+
+                    // attach listeners
+                    container.querySelectorAll('.btn-remove').forEach(btn => {
+                        btn.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            const pid = this.getAttribute('data-product-id');
+                            removeFromWishlist(pid);
+                        });
+                    });
+
+                    container.querySelectorAll('.btn-move-cart').forEach(btn => {
+                        btn.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            const pid = this.getAttribute('data-product-id');
+                            moveToCart(pid);
+                        });
+                    });
+                }
+
+
+                // Move item from wishlist to cart
+                function moveToCart(productId) {
+                    if (!productId) return;
+                    let wishlist = getWishlist();
+                    // find using string compare
+                    const itemToMove = wishlist.find(i => String(i.id) === String(productId));
+                    if (!itemToMove) {
+                        // If item not found — show a helpful note and re-render to stay consistent
+                        showToast('Error: Item not found in favorites.', '#D9534F');
+                        renderFavourites();
+                        return;
+                    }
+
+                    // remove from wishlist
+                    wishlist = wishlist.filter(i => String(i.id) !== String(productId));
+                    saveWishlist(wishlist);
+
+                    // add to cart (preserve fields)
+                    const cart = getCart();
+                    const existing = cart.find(c => String(c.id) === String(productId));
+                    if (existing) {
+                        existing.qty = Number(existing.qty || 0) + 1;
+                    } else {
+                        // standardize cart item shape: id,name,price,image,qty
+                        const cartItem = {
+                            id: String(itemToMove.id),
+                            name: itemToMove.title || itemToMove.name || 'Product',
+                            price: Number(itemToMove.price || 0),
+                            image: itemToMove.image || itemToMove.img || '',
+                            qty: 1
+                        };
+                        cart.push(cartItem);
+                    }
+                    saveCart(cart);
+
+                    // update UI
+                    showToast(`${itemToMove.title || itemToMove.name || 'Item'} moved to cart!`, '#28A745');
                     renderFavourites();
-                    showToast((item && (item.title || item.name)) ? `${item.title || item.name} removed from favorites.` : 'Item removed from favorites.', '#8A2D3C');
-                }, 260);
-            } else {
-                renderFavourites();
-                showToast('Item removed from favorites.', '#8A2D3C');
-            }
-        }
 
-        // Move item from wishlist to cart
-        function moveToCart(productId) {
-            if (!productId) return;
-            let wishlist = getWishlist();
-            // find using string compare
-            const itemToMove = wishlist.find(i => String(i.id) === String(productId));
-            if (!itemToMove) {
-                // If item not found — show a helpful note and re-render to stay consistent
-                showToast('Error: Item not found in favorites.', '#D9534F');
-                renderFavourites();
-                return;
-            }
+                    // ✅ CALL UPDATE CART COUNT AFTER CART CHANGE (Crucial for the navbar)
+                    updateCartCount();
+                }
 
-            // remove from wishlist
-            wishlist = wishlist.filter(i => String(i.id) !== String(productId));
-            saveWishlist(wishlist);
+                // On page load render
+                document.addEventListener('DOMContentLoaded', function () {
+                    // migrate and ensure wishlist stored as array of objects with string ids
+                    const raw = JSON.parse(localStorage.getItem(WISHLIST_STORAGE_KEY) || '[]');
+                    if (!Array.isArray(raw)) {
+                        localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify([]));
+                    } else {
+                        // Save normalized
+                        saveWishlist(raw);
+                    }
+                    // also normalize cart
+                    const rawCart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || '[]');
+                    if (Array.isArray(rawCart)) saveCart(rawCart);
 
-            // add to cart (preserve fields)
-            const cart = getCart();
-            const existing = cart.find(c => String(c.id) === String(productId));
-            if (existing) {
-                existing.qty = Number(existing.qty || 0) + 1;
-            } else {
-                // standardize cart item shape: id,name,price,image,qty
-                const cartItem = {
-                    id: String(itemToMove.id),
-                    name: itemToMove.title || itemToMove.name || 'Product',
-                    price: Number(itemToMove.price || 0),
-                    image: itemToMove.image || itemToMove.img || '',
-                    qty: 1
+                    renderFavourites();
+                    // ✅ CALL UPDATE CART COUNT ON PAGE LOAD
+                    updateCartCount();
+                });
+
+                // expose for debugging in console if needed
+                window._elariaWishlist = {
+                    get: getWishlist,
+                    save: saveWishlist,
+                    remove: removeFromWishlist,
+                    moveToCart
                 };
-                cart.push(cartItem);
-            }
-            saveCart(cart);
 
-            // update UI
-            showToast(`${itemToMove.title || itemToMove.name || 'Item'} moved to cart!`, '#28A745');
-            renderFavourites();
-
-            // attempt to call/update cart-count in nav if present
-            if (typeof updateCartCount === 'function') {
-                try { updateCartCount(); } catch (e) { /*ignore*/ }
-            }
-        }
-
-        // On page load render
-        document.addEventListener('DOMContentLoaded', function () {
-            // migrate and ensure wishlist stored as array of objects with string ids
-            const raw = JSON.parse(localStorage.getItem(WISHLIST_STORAGE_KEY) || '[]');
-            if (!Array.isArray(raw)) {
-                localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify([]));
-            } else {
-                // Save normalized
-                saveWishlist(raw);
-            }
-            // also normalize cart
-            const rawCart = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || '[]');
-            if (Array.isArray(rawCart)) saveCart(rawCart);
-
-            renderFavourites();
-        });
-
-        // expose for debugging in console if needed
-        window._elariaWishlist = {
-            get: getWishlist,
-            save: saveWishlist,
-            remove: removeFromWishlist,
-            moveToCart
-        };
-
-    })();
-    // ---------- end script ----------
-    </script>
+            })();
+            // ---------- end script ----------
+        </script>
 </body>
+
 </html>

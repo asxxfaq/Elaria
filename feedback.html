@@ -109,8 +109,9 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="abdulashfaqehere@gmail.com" required checked >
+                        <label for="email" class="form-label">Email Address</label> <br>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="abdulashfaqehere@gmail.com" required checked hidden>
+                        <input type="email" class="form-control" name="email" id="" placeholder="Enter Your email!">
                     </div>
 
                     <div class="mb-3">
@@ -245,6 +246,146 @@
                     }
                 });
             }
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('feedbackForm');
+            
+            // Find all relevant form inputs
+            const nameInput = document.getElementById('name');
+            // NOTE: The HTML contains two email inputs, one hidden. We will target the visible one.
+            const emailInput = form.querySelector('input[placeholder="Enter Your email!"]'); 
+            const messageInput = document.getElementById('message');
+            const submitButton = document.getElementById('submitBtn');
+    
+            // --- 1. Validation Logic Functions ---
+    
+            /**
+             * Checks if the name is non-empty and contains at least two words.
+             * @param {string} name - The value of the name input.
+             * @returns {boolean} True if valid, false otherwise.
+             */
+            function validateName(name) {
+                // Must not be empty and must contain at least one space (implying two words)
+                return name.trim().length > 0 && name.trim().includes(' ');
+            }
+    
+            /**
+             * Checks if the email is in a valid format.
+             * @param {string} email - The value of the email input.
+             * @returns {boolean} True if valid, false otherwise.
+             */
+            function validateEmail(email) {
+                // Basic regex for email validation (e.g., user@domain.com)
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email.trim());
+            }
+    
+            /**
+             * Checks if the message is long enough to be meaningful.
+             * @param {string} message - The value of the message textarea.
+             * @returns {boolean} True if valid, false otherwise.
+             */
+            function validateMessage(message) {
+                // Require at least 20 characters for a meaningful message
+                return message.trim().length >= 20;
+            }
+    
+            /**
+             * Applies Bootstrap validation classes based on validity.
+             * @param {HTMLElement} input - The input element to style.
+             * @param {function} validator - The validation function to use.
+             */
+            function applyValidation(input, validator) {
+                const isValid = validator(input.value);
+                if (isValid) {
+                    input.classList.add('is-valid');
+                    input.classList.remove('is-invalid');
+                } else {
+                    input.classList.add('is-invalid');
+                    input.classList.remove('is-valid');
+                }
+                return isValid;
+            }
+            
+            // --- 2. Live Validation Event Listeners (on blur and input) ---
+    
+            // Name validation (on blur)
+            nameInput.addEventListener('blur', () => {
+                applyValidation(nameInput, validateName);
+            });
+            
+            // Email validation (on blur)
+            emailInput.addEventListener('blur', () => {
+                applyValidation(emailInput, validateEmail);
+            });
+            
+            // Message validation (on input)
+            messageInput.addEventListener('input', () => {
+                // Only apply styling after user has typed a little bit to avoid immediate invalid state
+                if (messageInput.value.length > 5) {
+                    applyValidation(messageInput, validateMessage);
+                }
+            });
+    
+    
+            // --- 3. Form Submission Handling ---
+    
+            form.addEventListener('submit', function(event) {
+                // Prevent default form submission
+                event.preventDefault();
+    
+                // Run final validation on all required fields
+                const isNameValid = applyValidation(nameInput, validateName);
+                const isEmailValid = applyValidation(emailInput, validateEmail);
+                // Assuming Feedback Type is automatically valid due to 'required' and default selected option
+                const isMessageValid = applyValidation(messageInput, validateMessage);
+                
+                const isFormValid = isNameValid && isEmailValid && isMessageValid;
+    
+                if (isFormValid) {
+                    // If the form is valid, prepare and display the success message/action
+                    
+                    // 1. Collect form data
+                    const formData = new FormData(form);
+                    const data = Object.fromEntries(formData.entries());
+                    
+                    // NOTE: Using the visible email input value here
+                    data.email = emailInput.value; 
+                    
+                    // 2. Simulate submission (e.g., an AJAX call)
+                    submitButton.textContent = 'Submitting...';
+                    submitButton.disabled = true;
+    
+                    console.log('Form Data:', data);
+    
+                    // 3. Simulate success after a delay (2 seconds)
+                    setTimeout(() => {
+                        // Display success message
+                        const successHTML = `
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>Thank you, ${data.name.split(' ')[0]}!</strong> Your feedback has been successfully submitted. We appreciate you reaching out.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        `;
+                        
+                        // Replace the form with the success message
+                        form.innerHTML = successHTML;
+                        form.classList.add('p-4'); // Add some padding for the alert
+                        
+                    }, 2000);
+    
+                } else {
+                    // If validation failed, scroll to the first invalid field for better UX
+                    const invalidField = form.querySelector('.is-invalid');
+                    if (invalidField) {
+                        invalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                    // Optional: A general error message
+                    alert('Please correct the highlighted errors before submitting.');
+                }
+            });
         });
     </script>
 </body>

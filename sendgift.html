@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elaria - Gift Personalization</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .page-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .product-summary {
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 30px;
+            background-color: #fcfcfc;
+        }
+        .product-summary img {
+            max-height: 80px;
+            object-fit: cover;
+        }
+        .btn-elaria {
+            background-color: #8A2D3C; /* Match Elaria branding */
+            color: #fff;
+            padding: 10px 30px;
+            font-size: 1.1rem;
+            transition: background-color 0.2s;
+        }
+        .btn-elaria:hover {
+            background-color: #6a1d29;
+            color: #fff;
+        }
+        .form-section-header {
+            color: #8A2D3C;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+    <div class="page-container">
+        <h2 class="text-center mb-4">🎁 Personalize Your Gift</h2>
+        <p class="text-muted text-center mb-5">Add a personal touch to the item you selected in your cart.</p>
+
+        <div id="productSummary" class="product-summary row align-items-center">
+            </div>
+
+        <form id="giftForm" class="mt-4">
+            
+            <h4 class="form-section-header">1. The Personal Message</h4>
+            <div class="mb-4">
+                <label for="giftMessage" class="form-label">Write your personal note (max 250 characters)</label>
+                <textarea class="form-control" id="giftMessage" rows="4" maxlength="250" placeholder="E.g., Happy Birthday! Wishing you all the best. Love, [Your Name]"></textarea>
+                <div class="form-text">This will be printed on a beautiful Elaria gift card.</div>
+            </div>
+
+            <h4 class="form-section-header">2. Recipient Details</h4>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="recipientName" class="form-label">Recipient's Name</label>
+                    <input type="text" class="form-control" id="recipientName" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="recipientEmail" class="form-label">Recipient's Email (for delivery updates)</label>
+                    <input type="email" class="form-control" id="recipientEmail">
+                </div>
+            </div>
+
+            <div class="form-check form-switch mt-4 mb-5">
+                <input class="form-check-input" type="checkbox" role="switch" id="futureDeliverySwitch">
+                <label class="form-check-label" for="futureDeliverySwitch">
+                    **Schedule a Future Delivery Date** (Only show the item on that day)
+                </label>
+                <input type="date" class="form-control mt-2" id="deliveryDate" style="display:none;">
+                <div class="form-text">The gift notification will be sent on this date.</div>
+            </div>
+            
+            <hr>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-secondary me-2" onclick="window.location.href='cart.html'">Cancel & Return to Cart</button>
+                <button type="submit" class="btn btn-elaria">Save Gift Details & Continue</button>
+            </div>
+        </form>
+
+    </div>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const productSummary = document.getElementById("productSummary");
+            const giftForm = document.getElementById("giftForm");
+            const deliveryDateInput = document.getElementById("deliveryDate");
+            const futureDeliverySwitch = document.getElementById("futureDeliverySwitch");
+            
+            // 1. Get the item index from the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const itemIndex = urlParams.get('item');
+            
+            if (itemIndex === null) {
+                // No item specified, redirect to cart or show error
+                alert("Error: No product selected for gifting.");
+                window.location.href = "cart.html";
+                return;
+            }
+
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const giftedItem = cart[itemIndex];
+
+            if (!giftedItem) {
+                alert("Error: Product not found in cart.");
+                window.location.href = "cart.html";
+                return;
+            }
+
+            // --- 2. DISPLAY PRODUCT DETAILS ---
+            
+            productSummary.innerHTML = `
+                <div class="col-3 col-md-2">
+                    <img src="${giftedItem.image}" alt="${giftedItem.name}" class="img-fluid rounded-3">
+                </div>
+                <div class="col-9 col-md-10">
+                    <h5 class="m-0">${giftedItem.name}</h5>
+                    <p class="text-muted m-0">
+                        Qty: ${giftedItem.qty} | Price: ₹${(giftedItem.price * giftedItem.qty).toLocaleString()}
+                        <span class="badge bg-success ms-2">Gift Wrapped</span>
+                    </p>
+                </div>
+            `;
+            
+            // --- Prefill Form with existing data (if any) ---
+            document.getElementById('giftMessage').value = giftedItem.giftMessage || '';
+            document.getElementById('recipientName').value = giftedItem.recipientName || '';
+            document.getElementById('recipientEmail').value = giftedItem.recipientEmail || '';
+            
+            if (giftedItem.deliveryDate) {
+                futureDeliverySwitch.checked = true;
+                deliveryDateInput.value = giftedItem.deliveryDate;
+                deliveryDateInput.style.display = 'block';
+            }
+
+
+            // --- Toggle Date Picker Visibility ---
+            futureDeliverySwitch.addEventListener('change', (e) => {
+                deliveryDateInput.style.display = e.target.checked ? 'block' : 'none';
+                deliveryDateInput.required = e.target.checked;
+            });
+            
+            // --- 3. SAVE GIFT DATA ---
+            giftForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // Gather data from the form
+                const giftData = {
+                    giftMessage: document.getElementById('giftMessage').value,
+                    recipientName: document.getElementById('recipientName').value,
+                    recipientEmail: document.getElementById('recipientEmail').value,
+                    isGift: true, // Re-confirming status
+                    deliveryDate: futureDeliverySwitch.checked ? document.getElementById('deliveryDate').value : null
+                };
+                
+                // Validate if future delivery is checked but date is empty
+                if (futureDeliverySwitch.checked && !giftData.deliveryDate) {
+                    alert("Please select a valid future delivery date.");
+                    return;
+                }
+
+                // Update the specific item in the cart array
+                cart[itemIndex] = { ...giftedItem, ...giftData };
+
+                // Save the entire updated cart back to localStorage
+                localStorage.setItem("cart", JSON.stringify(cart));
+                
+                alert(`Gift details for ${giftedItem.name} saved successfully!`);
+                window.location.href = "cart.html"; // Go back to cart
+
+            });
+        });
+        
+        // Include the basic updateCartCount function for completeness
+        function updateCartCount() {
+             const cart = JSON.parse(localStorage.getItem("cart")) || [];
+             const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+             const cartCount = document.querySelector(".cart-count");
+             if (cartCount) cartCount.textContent = totalItems;
+         }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,26 +1,27 @@
 /* ---------------------------------------------------- */
-/* --- 1. NAVBAR CSS (Restored from previous input) --- */
+/* --- 1. NAVBAR CSS (Final Consolidated) --- */
 /* ---------------------------------------------------- */
 .elaria-navbar {
     border-bottom: 1px solid #ddd;
 }
 
+/* --- Top Section: Logo, Search, Utility Icons --- */
 .navbar-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 15px; /* Restored desktop padding */
+    padding: 10px 40px; /* Specific padding from latest input */
     height: 70px;
 }
 
+/* Logo */
 .logo {
     font-size: 30px;
     font-weight: bold;
     color: #8B0000;
 }
-
 .logo img {
-    height: 55px; /* Restored logo height for desktop */
+    height: 40px; /* Specific height from latest input */
     width: auto;
 }
 
@@ -28,7 +29,7 @@
 .search-container {
     flex-grow: 1;
     max-width: 600px;
-    margin: 0 15px; /* Restored margin */
+    margin: 0 30px; /* Specific margin from latest input */
     display: flex;
     align-items: center;
     border: 1px solid #ccc;
@@ -36,7 +37,6 @@
     height: 40px;
     overflow: hidden;
 }
-
 .search-input {
     flex-grow: 1;
     border: none;
@@ -44,26 +44,22 @@
     font-size: 14px;
     outline: none;
     height: 100%;
-    width: 100%;
 }
-
 .search-icon {
-    background: transparent;
+    background-color: transparent;
     border: none;
-    padding: 0 14px;
+    padding: 0 10px;
     cursor: pointer;
     font-size: 18px;
     color: #666;
-    height: 100%;
 }
 
-/* Right Side Icons */
+/* Right Side Utility Icons */
 .navbar-utility-right {
     display: flex;
     gap: 15px;
     align-items: center;
 }
-
 .icon-link {
     text-decoration: none;
     color: #333;
@@ -71,15 +67,12 @@
     position: relative;
     transition: color 0.2s;
 }
-
 .icon-link:hover {
     color: #8B0000;
 }
-
 .icon-link i {
     font-size: 20px;
 }
-
 .cart-count {
     background-color: #8B0000;
     color: white;
@@ -91,7 +84,6 @@
     right: -10px;
     line-height: 1;
 }
-
 .menu-toggle {
     display: none;
     background: none;
@@ -99,752 +91,55 @@
     font-size: 25px;
 }
 
-/* --- Bottom Menu (Main Nav) - RESTORED --- */
+/* --- Bottom Menu: Icon + Text List --- */
 .navbar-bottom {
     display: flex;
     justify-content: center;
     padding: 6px 0;
     border-top: 1px solid #eee;
-    height: 130px; /* Restored height for icon + text menu */
+    height: 130px; /* Specific height from latest input */
     background: white;
 }
-
 .menu-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    gap: 25px; /* Restored gap */
     max-width: 1200px;
     width: 100%;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    scrollbar-width: none;
-    padding: 12px;
 }
-
-.menu-list::-webkit-scrollbar {
-    display: none;
+.menu-list li {
+    margin: 0 10px; /* Specific margin from latest input */
 }
-
-.menu-list li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 14px;
-    font-weight: 500;
+.menu-list a {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Column layout for icon on top of text */
     align-items: center;
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    padding: 8px 10px;
+    transition: 0.3s;
+    font-size: 14px;
     white-space: nowrap;
-    transition: color 0.2s;
 }
-
-.menu-list li a:hover {
-    color: #8B0000; /* Deep red theme hover */
+.menu-list a:hover {
+    color: #d4a017; /* Gold hover color from latest input */
 }
-
 .menu-icon-img {
     width: 52px;
     height: 52px;
-    margin-bottom: 4px;
+    margin-bottom: 5px; /* Adjust for column layout */
     object-fit: contain;
 }
-
-/* NAVBAR RESPONSIVE RULES (CONSOLIDATED) */
-@media (max-width: 768px) {
-    .search-container {
-        display: none;
-    }
-    .menu-toggle {
-        display: block;
-    }
-    .navbar-bottom {
-        display: none; /* Collapsed menu on smaller screens */
-        text-align: center;
-    }
-    .menu-list {
-        display: block; /* For vertical display when toggled */
-        padding: 10px 0;
-    }
-    .menu-list li {
-        padding: 10px 0;
-    }
-    .navbar-utility-right {
-        display: flex !important;
-        gap: 12px;
-    }
-    /* Mobile Menu with Scroll for horizontal list in one section */
-    .menu-list-scroll { /* Assuming a separate class for the scrollable bottom menu if needed */
-        overflow-x: auto;
-        white-space: nowrap;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        padding: 10px 5px;
-        scrollbar-width: none;
-    }
-    .menu-list-scroll::-webkit-scrollbar {
-        display: none;
-    }
-    .menu-list-scroll li {
-        display: inline-block;
-    }
-    .menu-list-scroll li a {
-        flex-direction: column;
-        font-size: 13px;
-        text-align: center;
-        padding: 5px;
-    }
-    .menu-icon-img {
-        margin: 0 0 5px 0;
-        width: 50px;
-        height: 50px;
-    }
-}
-
-/* ---------------------------------------------------- */
-/* --- 2. Page Layout & Typography CSS --- */
-/* ---------------------------------------------------- */
-.necklace-page-container {
-    max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 5%;
-}
-
-.rings-page-container {
-    max-width: 1300px;
-    margin: 40px auto;
-    padding: 0 3%;
-}
-
-.page-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 500;
-    color: #4B3832;
-    margin-bottom: 5px;
-    text-align: center;
-}
-
-.page-subtitle {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-/* ---------------------------------------------------- */
-/* --- 3. Product Carousel & Grid Styling (General) --- */
-/* ---------------------------------------------------- */
-.product-carousel-wrapper {
-    margin-bottom: 60px;
-}
-
-.product-carousel-wrapper h2 {
-    font-family: 'Playfair Display', serif;
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2rem;
-    color: #4B3832;
-}
-
-.carousel-slide-content {
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    padding-left: 10%;
-}
-
-.slide-text {
-    background-color: rgba(255, 255, 255, 0.85);
-    padding: 25px 30px;
-    border-radius: 5px;
-    max-width: 350px;
-    text-align: left;
-}
-
-.slide-text h3 {
-    font-family: 'Playfair Display', serif;
-    color: #8A2D3C;
-    margin-bottom: 10px;
-}
-
-.shop-btn-small {
-    background-color: #D4B294; 
-    color: #4B3832;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 3px;
-    margin-top: 15px;
-    transition: background-color 0.3s;
-}
-
-.shop-btn-small:hover {
-    background-color: #C5A485;
-}
-
-.product-carousel-wrapper .carousel-control-prev-icon,
-.product-carousel-wrapper .carousel-control-next-icon {
-    background-color: rgba(75, 56, 50, 0.7);
-    border-radius: 50%;
-    padding: 20px;
-}
-
-.product-grid-section h2 {
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 30px;
-    font-size: 2rem;
-    color: #4B3832;
-    text-align: center;
-}
-
-.product-card {
-    border: 1px solid #eee;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: box-shadow 0.3s;
-    text-align: center;
-    background-color: #fff;
-}
-
-.product-card:hover {
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-.card-img {
-    width: 100%;
-    padding-top: 100%; 
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-
-.discount-badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #8A2D3C;
-    color: #fff;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
-}
-
-.wishlist-icon {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.2rem;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 50%;
-    padding: 8px;
-    cursor: pointer;
-    transition: color 0.3s, background-color 0.3s;
-}
-
-.wishlist-icon:hover {
-    color: #8A2D3C;
-    background-color: #fff;
-}
-
-.card-body {
-    padding: 15px;
-}
-
-.card-title {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #4B3832;
-    margin-bottom: 5px;
-}
-
-.card-price {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #8A2D3C;
-    margin-bottom: 15px;
-}
-
-.old-price {
-    font-size: 0.9rem;
-    color: #999;
-    text-decoration: line-through;
-    font-weight: normal;
-    margin-left: 5px;
-}
-
-.btn-add-cart {
-    background-color: #D4B294; 
-    color: #4B3832;
-    border: none;
-    padding: 8px 20px;
-    font-weight: bold;
-    border-radius: 3px;
-    transition: background-color 0.3s;
-    width: 100%;
-    text-decoration: none;
-    display: block;
-}
-
-.btn-add-cart:hover {
-    background-color: #C5A485;
-}
-
-.btn-load-more {
-    background-color: #fff;
-    color: #4B3832;
-    border: 1px solid #4B3832;
-    padding: 10px 30px;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: all 0.3s;
-}
-
-.btn-load-more:hover {
-    background-color: #4B3832;
-    color: #fff;
-}
-
-/* ---------------------------------------------------- */
-/* --- 4. Filter Sidebar & Listing CSS --- */
-/* ---------------------------------------------------- */
-.filter-sidebar {
-    background-color: #f8f7f6;
-    padding: 20px;
-    border-radius: 8px;
-    position: sticky;
-    top: 20px;
-}
-
-.filter-heading {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    color: #4B3832;
-    margin-bottom: 30px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-}
-
-.filter-group {
-    margin-bottom: 30px;
-    padding-bottom: 15px;
-    border-bottom: 1px dashed #eee;
-}
-
-.filter-group:last-child {
-    border-bottom: none;
-}
-
-.filter-title {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #4B3832;
-    margin-bottom: 15px;
-}
-
-.form-check-label {
-    font-size: 0.95rem;
+.menu-icon { /* Keeping in case you use font icons */
+    font-size: 20px;
+    margin-bottom: 4px;
     color: #666;
 }
 
-.form-check-input:checked {
-    background-color: #8A2D3C;
-    border-color: #8A2D3C;
-}
-
-.price-display {
-    text-align: center;
-    font-weight: bold;
-    color: #8A2D3C;
-    margin-top: 10px;
-}
-
-.btn-apply-filter {
-    background-color: #D4B294;
-    color: #4B3832;
-    padding: 10px 0;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.btn-apply-filter:hover {
-    background-color: #C5A485;
-}
-
-.sorting-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.product-count {
-    font-size: 1rem;
-    color: #666;
-}
-
-.sort-dropdown {
-    width: 200px;
-    font-size: 0.9rem;
-    border-color: #ccc;
-}
-
-.product-grid {
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.pagination .page-link {
-    color: #4B3832;
-    border: 1px solid #ccc;
-    transition: background-color 0.3s;
-}
-
-.pagination .page-item.active .page-link {
-    background-color: #8A2D3C;
-    border-color: #8A2D3C;
-    color: #fff;
-}
-
-.pagination .page-link:hover {
-    background-color: #f0f0f0;
-    color: #4B3832;
-}
-
-/* ---------------------------------------------------- */
-/* --- 5. Rings Page (Full-Width/Tag Filters) --- */
-/* ---------------------------------------------------- */
-.rings-hero-banner {
-    height: 300px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 40px;
-    text-align: center;
-    color: #fff;
-    position: relative;
-}
-
-.rings-hero-banner::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(138, 45, 60, 0.4); 
-    z-index: 1;
-}
-
-.hero-content h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    margin-bottom: 5px;
-    font-weight: 700;
-}
-
-.full-width-filter-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 0;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #eee;
-}
-
-.filter-tags-container {
-    display: flex;
-    gap: 10px;
-}
-
-.filter-tag {
-    background-color: #f8f7f6;
-    color: #4B3832;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    transition: background-color 0.2s, border-color 0.2s;
-}
-
-.filter-tag:hover {
-    background-color: #D4B294;
-    color: #fff;
-    border-color: #D4B294;
-}
-
-.filter-tag.active {
-    background-color: #8A2D3C;
-    color: #fff;
-    border-color: #8A2D3C;
-    font-weight: bold;
-}
-
-.full-grid-row {
-    --bs-gutter-x: 1.5rem; 
-    --bs-gutter-y: 1.5rem;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.full-grid-col {
-    flex: 0 0 auto;
-    width: 20%;
-    padding: 0.75rem;
-}
-
-.ring-card-style {
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-    transition: box-shadow 0.3s;
-}
-
-.ring-card-style:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transform: none;
-}
-
-.ring-btn-cart {
-    background-color: #8A2D3C; 
-    color: #fff;
-    border: none;
-    padding: 8px 20px;
-    font-weight: bold;
-    border-radius: 3px;
-    transition: background-color 0.3s;
-    width: 100%;
-    text-decoration: none;
-    display: block;
-}
-
-.ring-btn-cart:hover {
-    background-color: #A34050;
-    color: #fff;
-}
-
-/* ---------------------------------------------------- */
-/* --- 6. Footer CSS --- */
-/* ---------------------------------------------------- */
-.main-footer {
-    background-color: #381A20;
-    color: #fff;
-    padding: 60px 0 20px 0;
-    font-family: Arial, sans-serif;
-}
-
-.footer-content-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-}
-
-.footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    font-weight: 500;
-    color: #fff;
-    margin-bottom: 40px;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1.5fr repeat(3, 1fr); 
-    gap: 40px;
-    padding-bottom: 40px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.col-heading {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-.footer-col ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-col ul li {
-    margin-bottom: 10px;
-}
-
-.footer-col ul li a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.3s;
-}
-
-.footer-col ul li a:hover {
-    color: #fff;
-}
-
-.contact-number {
-    font-size: 1rem;
-    font-weight: 500;
-    margin-bottom: 15px;
-}
-
-.chat-heading {
-    margin-top: 25px;
-    margin-bottom: 10px;
-}
-
-.contact-icons a {
-    color: #fff;
-    font-size: 1.5rem;
-    margin-right: 15px;
-    text-decoration: none;
-    opacity: 0.7;
-}
-
-.app-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.app-btn img {
-    width: 120px;
-    height: auto;
-}
-
-.footer-social {
-    display: flex;
-    align-items: center;
-    padding-top: 20px;
-}
-
-.footer-social .col-heading {
-    margin-right: 30px;
-    margin-bottom: 0;
-}
-
-.social-icons a {
-    color: #fff;
-    font-size: 1.5rem;
-    margin-right: 20px;
-    opacity: 0.8;
-}
-
-/* ---------------------------------------------------- */
-/* --- 7. Responsive Media Queries - CONSOLIDATED --- */
-/* ---------------------------------------------------- */
-@media (max-width: 1200px) {
-    .full-grid-col {
-        width: 25%; /* 4 items per row */
-    }
-}
-@media (max-width: 992px) {
-    /* Full-width Filter Bar adjustments */
-    .full-width-filter-bar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .filter-tags-container {
-        flex-wrap: wrap;
-        margin-top: 10px;
-    }
-
-    /* Rings Grid adjusts to 3 items */
-    .full-grid-col {
-        width: 33.333%; 
-    }
-    
-    /* Footer Grid: Changes to 2 columns on tablets */
-    .footer-grid {
-        grid-template-columns: 1.5fr 1fr;
-    }
-
-    .footer-grid .footer-col:nth-child(3),
-    .footer-grid .footer-col:nth-child(4) {
-        grid-column: span 2;
-    }
-}
-@media (max-width: 768px) {
-    /* Carousel Adjustments */
-    .carousel-slide-content {
-        height: 300px;
-        padding-left: 5%;
-        align-items: flex-end;
-        padding-bottom: 20px;
-    }
-    .slide-text {
-        padding: 15px;
-        max-width: 90%;
-        text-align: center;
-    }
-    .slide-text h3 {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 600px) {
-    /* Footer Grid: Stacks all columns vertically on mobile */
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .footer-grid .footer-col {
-        grid-column: span 1;
-    }
-
-    .footer-logo, .col-heading, .contact-number, .contact-icons, .app-buttons, .footer-col ul {
-        text-align: center;
-    }
-    .app-buttons {
-        justify-content: center;
-    }
-    .footer-social {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .footer-social .col-heading {
-        margin-right: 0;
-        margin-bottom: 15px;
-        width: 100%;
-    }
-    .social-icons {
-        margin-bottom: 20px;
-        width: 100%;
-        text-align: center;
-    }
-}
-
-@media (max-width: 576px) {
-    /* Rings Grid adjusts to 2 items */
-    .full-grid-col {
-        width: 50%;
-    }
-    /* Product Listing adjustments */
-    .sorting-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-    .sort-dropdown {
-        width: 100%;
-    }
-}
 
 /* --- NAVBAR RESPONSIVE RULES --- */
 @media (max-width: 768px) {
